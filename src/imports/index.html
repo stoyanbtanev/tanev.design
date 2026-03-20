@@ -1,0 +1,2500 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<script>
+  // Inline: apply saved theme before first paint to avoid flash
+  try {
+    var t = localStorage.getItem('ss-theme');
+    if (t === 'light') document.documentElement.classList.remove('dark');
+    else document.documentElement.classList.add('dark');
+  } catch (e) { }
+</script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SiteSonar — Fast Websites That Launch in Days | From €200</title>
+  <meta name="description"
+    content="Fast, affordable websites with sharp UI/UX, AI-assisted workflow, and quick delivery. Landing pages from €200. Built for businesses in Bulgaria and beyond." />
+  <meta name="keywords"
+    content="freelance web design, freelance web developer, UI UX, AI websites, landing page, website redesign, Bulgaria, Plovdiv, affordable websites" />
+  <meta name="author" content="Stoyan Tanev" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SiteSonar — Fast Websites That Launch in Days | From €200" />
+  <meta property="og:description"
+    content="Fast, affordable websites with strong UI/UX, clean performance, and quick delivery. Built to launch in days, not months." />
+  <meta property="og:url" content="https://sitesonar.dev" />
+  <meta property="og:site_name" content="SiteSonar" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://sitesonar.dev" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23050D1A' stroke='%2300D4FF' stroke-width='4'/><circle cx='50' cy='50' r='20' fill='none' stroke='%2300D4FF' stroke-width='2'/><circle cx='50' cy='50' r='5' fill='%2300D4FF'/></svg>" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { display: ['Syne', 'sans-serif'], body: ['DM Sans', 'sans-serif'] },
+          colors: { sonar: { blue: '#00D4FF', glow: '#0099CC', purple: '#7C3AED', dark: '#050D1A', card: '#0A1628', border: '#0D2040' } }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      transition: background-color .35s ease, color .35s ease;
+    }
+
+    /* ── DARK ── */
+    .dark body {
+      background-color: #050D1A;
+      color: #C8D8F0;
+    }
+
+    .dark .glass {
+      background: rgba(10, 22, 40, .7);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(0, 212, 255, .12);
+    }
+
+    .dark .neon-text {
+      color: #00D4FF;
+    }
+
+    .dark .neon-border {
+      border-color: #00D4FF;
+    }
+
+    .dark .neon-glow {
+      box-shadow: 0 0 24px rgba(0, 212, 255, .35), 0 0 60px rgba(0, 212, 255, .12);
+    }
+
+    .dark .card-bg {
+      background: #0A1628;
+      border: 1px solid #0D2040;
+    }
+
+    .dark .nav-bg {
+      background: rgba(5, 13, 26, .85);
+      border-bottom: 1px solid rgba(0, 212, 255, .1);
+    }
+
+    .dark .footer-bg {
+      background: #040b17;
+      border-top: 1px solid rgba(0, 212, 255, .1);
+    }
+
+    .dark .tag-bg {
+      background: rgba(0, 212, 255, .08);
+      color: #00D4FF;
+      border: 1px solid rgba(0, 212, 255, .2);
+    }
+
+    .dark .warn-bg {
+      background: rgba(239, 68, 68, .1);
+      border: 1px solid rgba(239, 68, 68, .3);
+      color: #FCA5A5;
+    }
+
+    .dark .info-bg {
+      background: rgba(0, 212, 255, .08);
+      border: 1px solid rgba(0, 212, 255, .2);
+      color: #B6F0FF;
+    }
+
+    .dark .cta-primary {
+      background: linear-gradient(135deg, #00D4FF, #0077FF);
+      color: #050D1A;
+      font-weight: 700;
+      box-shadow: 0 0 30px rgba(0, 212, 255, .4);
+    }
+
+    .dark .cta-secondary {
+      border: 1px solid #00D4FF;
+      color: #00D4FF;
+    }
+
+    .dark .section-label {
+      color: rgba(0, 212, 255, .7);
+    }
+
+    .dark .muted {
+      color: rgba(200, 216, 240, .55);
+    }
+
+    .dark .progress-track {
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .dark .progress-fill-blue {
+      background: linear-gradient(90deg, #0077FF, #00D4FF);
+    }
+
+    .dark .progress-fill-green {
+      background: linear-gradient(90deg, #00C48C, #00FF9D);
+    }
+
+    .dark .progress-fill-yellow {
+      background: linear-gradient(90deg, #F59E0B, #FCD34D);
+    }
+
+    .dark .progress-fill-red {
+      background: linear-gradient(90deg, #EF4444, #F97316);
+    }
+
+    .dark .divider {
+      border-color: rgba(0, 212, 255, .1);
+    }
+
+    .dark .pricing-highlight {
+      background: linear-gradient(135deg, rgba(0, 212, 255, .06), rgba(0, 119, 255, .1));
+      border: 1px solid rgba(0, 212, 255, .35);
+      box-shadow: 0 0 40px rgba(0, 212, 255, .1);
+    }
+
+    .dark .badge-popular {
+      background: linear-gradient(135deg, #00D4FF, #0077FF);
+      color: #050D1A;
+    }
+
+    .dark .stat-card {
+      background: linear-gradient(135deg, rgba(0, 212, 255, .05), rgba(124, 58, 237, .05));
+    }
+
+    /* ── LIGHT ── */
+    html:not(.dark) body {
+      background-color: #F4F7FF;
+      color: #1A2540;
+    }
+
+    html:not(.dark) .glass {
+      background: rgba(255, 255, 255, .85);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(0, 80, 200, .12);
+    }
+
+    html:not(.dark) .neon-text {
+      color: #0055CC;
+    }
+
+    html:not(.dark) .neon-border {
+      border-color: #0055CC;
+    }
+
+    html:not(.dark) .neon-glow {
+      box-shadow: 0 4px 30px rgba(0, 85, 204, .15);
+    }
+
+    html:not(.dark) .card-bg {
+      background: #FFFFFF;
+      border: 1px solid #DDE6F5;
+      box-shadow: 0 2px 20px rgba(0, 50, 150, .06);
+    }
+
+    html:not(.dark) .nav-bg {
+      background: rgba(244, 247, 255, .92);
+      border-bottom: 1px solid #DDE6F5;
+    }
+
+    html:not(.dark) .footer-bg {
+      background: #E8EEF9;
+      border-top: 1px solid #DDE6F5;
+    }
+
+    html:not(.dark) .tag-bg {
+      background: rgba(0, 85, 204, .07);
+      color: #0055CC;
+      border: 1px solid rgba(0, 85, 204, .2);
+    }
+
+    html:not(.dark) .warn-bg {
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      color: #B91C1C;
+    }
+
+    html:not(.dark) .info-bg {
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      color: #1D4ED8;
+    }
+
+    html:not(.dark) .cta-primary {
+      background: linear-gradient(135deg, #0055CC, #0077FF);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(0, 85, 204, .3);
+    }
+
+    html:not(.dark) .cta-secondary {
+      border: 1px solid #0055CC;
+      color: #0055CC;
+    }
+
+    html:not(.dark) .section-label {
+      color: #0055CC;
+    }
+
+    html:not(.dark) .muted {
+      color: #6B7A99;
+    }
+
+    html:not(.dark) .progress-track {
+      background: #E8EEF9;
+    }
+
+    html:not(.dark) .progress-fill-blue {
+      background: linear-gradient(90deg, #0055CC, #0099FF);
+    }
+
+    html:not(.dark) .progress-fill-green {
+      background: linear-gradient(90deg, #059669, #10B981);
+    }
+
+    html:not(.dark) .progress-fill-yellow {
+      background: linear-gradient(90deg, #D97706, #F59E0B);
+    }
+
+    html:not(.dark) .progress-fill-red {
+      background: linear-gradient(90deg, #DC2626, #EF4444);
+    }
+
+    html:not(.dark) .divider {
+      border-color: #DDE6F5;
+    }
+
+    html:not(.dark) .pricing-highlight {
+      background: #FFFFFF;
+      border: 2px solid #0055CC;
+      box-shadow: 0 8px 40px rgba(0, 85, 204, .15);
+    }
+
+    html:not(.dark) .badge-popular {
+      background: linear-gradient(135deg, #0055CC, #0077FF);
+      color: #fff;
+    }
+
+    html:not(.dark) .section-alt {
+      background: #EBF0FF;
+    }
+
+    html:not(.dark) .stat-card {
+      background: linear-gradient(135deg, rgba(0, 85, 204, .05), rgba(124, 58, 237, .05));
+    }
+
+    /* ══════════════════════════════════════════════
+       SONAR ANIMATION — FIXED
+       ─ Rings: centered via translate(-50%,-50%)
+       ─ Sweep: element center sits at radar center
+         via negative margins, rotates around its
+         own center (= radar center). No offset.
+    ══════════════════════════════════════════════ */
+    .radar-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 212, 255, .22);
+      animation: radar-expand 3s ease-out infinite;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes radar-expand {
+      0% {
+        width: 0;
+        height: 0;
+        opacity: .85;
+      }
+
+      100% {
+        width: 340px;
+        height: 340px;
+        opacity: 0;
+      }
+    }
+
+    .radar-ring:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .radar-ring:nth-child(3) {
+      animation-delay: 2s;
+    }
+
+    .sonar-sweep {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 160px;
+      height: 160px;
+      margin: -80px 0 0 -80px;
+      /* pull element so its center = radar center */
+      transform-origin: 50% 50%;
+      /* rotate around element center = radar center */
+      animation: sweep 3s linear infinite;
+      background: conic-gradient(from 0deg at 50% 50%,
+          rgba(0, 212, 255, 0) 300deg,
+          rgba(0, 212, 255, .55) 360deg);
+      border-radius: 50%;
+    }
+
+    @keyframes sweep {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ── Scan line ── */
+    .scan-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00D4FF, transparent);
+      animation: scan 1.6s linear infinite;
+      box-shadow: 0 0 8px #00D4FF;
+    }
+
+    @keyframes scan {
+      from {
+        top: 0;
+        opacity: 1;
+      }
+
+      to {
+        top: 100%;
+        opacity: .2;
+      }
+    }
+
+    /* ── Progress bars ── */
+    .bar-inner {
+      transition: width 1.2s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    /* ── Toggle switch ── */
+    .toggle-track {
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      background: rgba(0, 212, 255, .15);
+      border: 1px solid rgba(0, 212, 255, .3);
+      position: relative;
+      cursor: pointer;
+      transition: background .3s;
+    }
+
+    html:not(.dark) .toggle-track {
+      background: rgba(0, 85, 204, .15);
+      border-color: rgba(0, 85, 204, .3);
+    }
+
+    .toggle-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      background: #00D4FF;
+      transition: left .3s cubic-bezier(.22, .61, .36, 1), background .3s;
+      box-shadow: 0 0 8px rgba(0, 212, 255, .6);
+    }
+
+    .dark .toggle-thumb {
+      left: 24px;
+    }
+
+    html:not(.dark) .toggle-thumb {
+      background: #0055CC;
+      left: 2px;
+      box-shadow: 0 0 8px rgba(0, 85, 204, .4);
+    }
+
+    /* ── Misc ── */
+    .font-display {
+      font-family: 'Syne', sans-serif;
+    }
+
+    .section-fade {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .section-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* overridden below with scale for extra life */
+    .circle-ring {
+      transition: stroke-dashoffset 1.4s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    .url-input:focus {
+      outline: none;
+    }
+
+    .dark .url-input:focus {
+      box-shadow: 0 0 0 2px rgba(0, 212, 255, .5);
+    }
+
+    html:not(.dark) .url-input:focus {
+      box-shadow: 0 0 0 2px rgba(0, 85, 204, .4);
+    }
+
+    .pricing-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #00D4FF, #7C3AED);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Floating gradient orbs ── */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(80px);
+      opacity: 0;
+      animation: orbDrift 20s ease-in-out infinite, orbFadeIn 2s ease forwards;
+    }
+
+    .orb-1 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 212, 255, .12), transparent 70%);
+      top: -10%;
+      left: -5%;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(124, 58, 237, .10), transparent 70%);
+      top: 40%;
+      right: -8%;
+      animation-delay: -7s;
+      animation-duration: 25s;
+    }
+
+    .orb-3 {
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(0, 212, 255, .08), transparent 70%);
+      bottom: 5%;
+      left: 20%;
+      animation-delay: -14s;
+      animation-duration: 22s;
+    }
+
+    html:not(.dark) .orb-1 {
+      background: radial-gradient(circle, rgba(0, 85, 204, .08), transparent 70%);
+    }
+
+    html:not(.dark) .orb-2 {
+      background: radial-gradient(circle, rgba(124, 58, 237, .06), transparent 70%);
+    }
+
+    html:not(.dark) .orb-3 {
+      background: radial-gradient(circle, rgba(0, 85, 204, .05), transparent 70%);
+    }
+
+    @keyframes orbDrift {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      25% {
+        transform: translate(60px, -40px) scale(1.1);
+      }
+
+      50% {
+        transform: translate(-30px, 50px) scale(0.95);
+      }
+
+      75% {
+        transform: translate(40px, 20px) scale(1.05);
+      }
+    }
+
+    @keyframes orbFadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+
+    /* ── Glow pulse behind hero audit ── */
+    .glow-pulse {
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 24px rgba(0, 212, 255, .35), 0 0 60px rgba(0, 212, 255, .12);
+      }
+
+      50% {
+        box-shadow: 0 0 40px rgba(0, 212, 255, .5), 0 0 90px rgba(0, 212, 255, .2);
+      }
+    }
+
+    html:not(.dark) .glow-pulse {
+      animation-name: glowPulseLight;
+    }
+
+    @keyframes glowPulseLight {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 30px rgba(0, 85, 204, .15);
+      }
+
+      50% {
+        box-shadow: 0 4px 50px rgba(0, 85, 204, .25), 0 0 80px rgba(0, 85, 204, .1);
+      }
+    }
+
+    /* ── Card shine on hover ── */
+    .card-shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-shine::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(135deg,
+          transparent 40%,
+          rgba(0, 212, 255, .04) 45%,
+          rgba(0, 212, 255, .08) 50%,
+          rgba(0, 212, 255, .04) 55%,
+          transparent 60%);
+      transform: translateX(-100%) rotate(0deg);
+      transition: transform .8s ease;
+    }
+
+    .card-shine:hover::before {
+      transform: translateX(100%) rotate(0deg);
+    }
+
+    html:not(.dark) .card-shine::before {
+      background: linear-gradient(135deg,
+          transparent 40%,
+          rgba(0, 85, 204, .03) 45%,
+          rgba(0, 85, 204, .06) 50%,
+          rgba(0, 85, 204, .03) 55%,
+          transparent 60%);
+    }
+
+    /* ── Stagger entrance for sections ── */
+    .section-fade {
+      opacity: 0;
+      transform: translateY(28px) scale(0.98);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .section-fade.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen transition-colors duration-300">
+
+  <!-- ═══ AMBIENT BACKGROUND ═══ -->
+  <canvas id="particleCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"
+    aria-hidden="true"></canvas>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar" class="nav-bg fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-2.5 group flex-shrink-0" aria-label="SiteSonar Home">
+        <div class="relative w-8 h-8">
+          <div class="absolute inset-0 rounded-full border-2 neon-border opacity-60"></div>
+          <div class="absolute inset-1.5 rounded-full border neon-border opacity-30"></div>
+          <div class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            style="background:radial-gradient(circle,rgba(0,212,255,.2),transparent 70%)"></div>
+          <div
+            class="absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full bg-sonar-blue -translate-x-1/2 -translate-y-1/2 neon-glow">
+          </div>
+        </div>
+        <span class="font-display font-800 text-xl tracking-tight neon-text">Site<span
+            class="dark:text-white text-gray-800">Sonar</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#services" class="text-sm font-medium muted hover:neon-text transition-colors duration-200"
+          data-en="About Me" data-bg="Кой съм аз">About Me</a>
+        <a href="#pricing" class="text-sm font-medium muted hover:neon-text transition-colors duration-200"
+          data-en="Pricing" data-bg="Цени">Pricing</a>
+        <a href="#contact" class="text-sm font-medium muted hover:neon-text transition-colors duration-200"
+          data-en="Contact" data-bg="Пиши ми">Contact</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="langToggle" onclick="toggleLang()"
+          class="font-display text-xs font-700 px-3 py-1.5 rounded-full tag-bg transition-all duration-200 hover:scale-105 active:scale-95 tracking-widest">
+          <span id="langLabel">EN</span>
+        </button>
+        <button onclick="toggleTheme()" aria-label="Toggle theme" class="flex items-center gap-2 group">
+          <span class="text-base transition-all duration-300 dark:text-yellow-300 text-blue-500">
+            <i id="themeIcon" class="fas fa-moon"></i>
+          </span>
+          <div class="toggle-track">
+            <div class="toggle-thumb"></div>
+          </div>
+        </button>
+        <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg neon-text"
+          aria-label="Toggle menu">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden px-5 pb-4 flex flex-col gap-3 border-t divider">
+      <a href="#services" class="py-2 text-sm font-medium muted" data-en="About Me" data-bg="Кой съм аз">About Me</a>
+      <a href="#pricing" class="py-2 text-sm font-medium muted" data-en="Pricing" data-bg="Цени">Pricing</a>
+      <a href="#contact" class="py-2 text-sm font-medium muted" data-en="Contact" data-bg="Пиши ми">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero"
+    class="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-16 px-5 overflow-hidden">
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
+      <!-- Radar — single positioning anchor -->
+      <div class="relative" style="width:0;height:0;">
+        <div class="radar-ring"></div>
+        <div class="radar-ring"></div>
+        <div class="radar-ring"></div>
+        <div class="sonar-sweep"></div>
+      </div>
+      <!-- Glow orb -->
+      <div class="absolute w-96 h-96 rounded-full opacity-[0.07] dark:opacity-[0.12]"
+        style="background:radial-gradient(circle,#00D4FF,transparent 65%);"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
+      <!-- Tag -->
+      <div
+        class="inline-flex items-center gap-2 tag-bg rounded-full px-4 py-1.5 text-xs font-600 tracking-widest uppercase mb-6 font-display animate-pulse">
+        <span class="w-1.5 h-1.5 rounded-full bg-current"></span>
+        <span id="heroTagline">⚡ Fast Websites. Fair Prices.</span>
+      </div>
+      <!-- Headline -->
+      <h1 class="font-display font-800 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.08] tracking-tight mb-6">
+        <span id="heroLineOne">Launch Your Website</span><br />
+        <span id="heroLineTwo" class="gradient-text">In Days.</span>
+      </h1>
+      <!-- Sub -->
+      <p class="text-base sm:text-lg lg:text-xl muted max-w-2xl mx-auto leading-relaxed mb-10">
+        <span id="heroSubcopy">Modern landing pages and business websites with strong UI/UX, clean performance, and
+          quick turnaround. Ready in 3-10 days, from €200.</span>
+      </p>
+      <!-- Audit tool -->
+      <div id="audit" class="glass rounded-2xl p-5 sm:p-6 max-w-2xl mx-auto neon-glow glow-pulse">
+        <p class="text-xs uppercase tracking-widest section-label font-display font-700 mb-3">
+          <span data-en="Free Instant Website Audit" data-bg="Безплатна бърза проверка на сайта ти">Free Instant Website
+            Audit</span>
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 min-w-0">
+          <input id="urlInput" type="url" placeholder="https://yourwebsite.com"
+            data-placeholder-en="https://yourwebsite.com" data-placeholder-bg="https://твоятсайт.com"
+            class="url-input flex-1 min-w-0 bg-transparent border neon-border rounded-xl px-4 py-3.5 text-sm transition-all" />
+          <button id="auditButton" onclick="runAudit()"
+            class="cta-primary rounded-xl px-6 py-3.5 text-sm font-display font-700 tracking-wide transition-all duration-200 hover:scale-[1.03] active:scale-[.98] flex items-center gap-2 justify-center flex-shrink-0">
+            <i class="fas fa-satellite-dish text-sm"></i>
+            <span id="auditButtonLabel" data-en="Run Free Audit" data-bg="Провери безплатно">Run Free Audit</span>
+          </button>
+        </div>
+        <p class="text-xs muted mt-2.5 text-left">
+          <i class="fas fa-lock text-[10px] mr-1"></i>
+          <span data-en="No account needed. Results in seconds."
+            data-bg="Без регистрация. Резултатът идва за секунди.">No account needed. Results in seconds.</span>
+        </p>
+      </div>
+      <!-- scroll indicator removed -->
+    </div>
+  </section>
+
+  <!-- ═══ AUDIT RESULTS ═══ -->
+  <section id="auditPanel" class="hidden px-5 pb-24">
+    <div class="max-w-3xl mx-auto">
+      <!-- Scanning -->
+      <div id="scanningState" class="glass rounded-2xl overflow-hidden p-8 text-center">
+        <div
+          class="relative w-32 h-32 mx-auto mb-6 rounded-2xl overflow-hidden card-bg flex items-center justify-center">
+          <div class="scan-line"></div>
+          <div class="neon-text font-display font-700 text-2xl z-10">SS</div>
+        </div>
+        <p class="font-display font-700 text-xl neon-text mb-2" data-en="Scanning your website..."
+          data-bg="Проверяваме сайта ти...">Scanning your website...</p>
+        <p class="muted text-sm" data-en="Checking speed, mobile UX, SEO, and security signals."
+          data-bg="Гледаме скоростта, мобилното усещане, SEO-то и сигурността.">Checking speed, mobile UX, SEO, and
+          security signals.</p>
+        <div class="flex justify-center gap-1.5 mt-5">
+          <span class="w-2 h-2 rounded-full bg-sonar-blue animate-bounce" style="animation-delay:0s"></span>
+          <span class="w-2 h-2 rounded-full bg-sonar-blue animate-bounce" style="animation-delay:.15s"></span>
+          <span class="w-2 h-2 rounded-full bg-sonar-blue animate-bounce" style="animation-delay:.3s"></span>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div id="resultsState" class="hidden">
+        <div class="glass rounded-2xl p-6 sm:p-8">
+          <div class="flex items-start justify-between gap-4 mb-6">
+            <div>
+              <p class="text-xs uppercase tracking-widest section-label font-display font-700 mb-1">
+                <span data-en="Audit Report" data-bg="Одит на сайта">Audit Report</span>
+              </p>
+              <h2 id="resultsHeadline" class="font-display font-800 text-2xl sm:text-3xl dark:text-white text-gray-900">
+                Your Website Needs Help</h2>
+              <p id="auditUrl" class="muted text-sm mt-1"></p>
+              <p id="auditMeta" class="muted text-xs mt-2"></p>
+            </div>
+            <div class="flex-shrink-0 text-right">
+              <div id="overallScore" class="font-display font-800 text-4xl text-red-400">42</div>
+              <p class="text-xs muted" data-en="Overall Score" data-bg="Общ резултат">Overall Score</p>
+            </div>
+          </div>
+
+          <!-- Rings -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+            <div class="card-bg rounded-xl p-4 text-center">
+              <div class="relative w-20 h-20 mx-auto mb-2">
+                <svg viewBox="0 0 36 36" class="w-20 h-20 -rotate-90">
+                  <circle cx="18" cy="18" r="15.9" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="2.5" />
+                  <circle id="ring-speed" cx="18" cy="18" r="15.9" fill="none" stroke="#EF4444" stroke-width="2.5"
+                    stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100" class="circle-ring" />
+                </svg>
+                <span id="score-speed"
+                  class="absolute inset-0 flex items-center justify-center font-display font-700 text-base text-red-400">32</span>
+              </div>
+              <p class="text-xs font-600 dark:text-white text-gray-800" data-en="Load Speed" data-bg="Зареждане">Load
+                Speed</p>
+              <p id="status-speed" class="text-[10px] muted">Poor</p>
+            </div>
+            <div class="card-bg rounded-xl p-4 text-center">
+              <div class="relative w-20 h-20 mx-auto mb-2">
+                <svg viewBox="0 0 36 36" class="w-20 h-20 -rotate-90">
+                  <circle cx="18" cy="18" r="15.9" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="2.5" />
+                  <circle id="ring-mobile" cx="18" cy="18" r="15.9" fill="none" stroke="#F59E0B" stroke-width="2.5"
+                    stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100" class="circle-ring" />
+                </svg>
+                <span id="score-mobile"
+                  class="absolute inset-0 flex items-center justify-center font-display font-700 text-base text-yellow-400">58</span>
+              </div>
+              <p class="text-xs font-600 dark:text-white text-gray-800" data-en="Mobile UX" data-bg="Мобилен UX">Mobile
+                UX</p>
+              <p id="status-mobile" class="text-[10px] muted">Needs Work</p>
+            </div>
+            <div class="card-bg rounded-xl p-4 text-center">
+              <div class="relative w-20 h-20 mx-auto mb-2">
+                <svg viewBox="0 0 36 36" class="w-20 h-20 -rotate-90">
+                  <circle cx="18" cy="18" r="15.9" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="2.5" />
+                  <circle id="ring-seo" cx="18" cy="18" r="15.9" fill="none" stroke="#F59E0B" stroke-width="2.5"
+                    stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100" class="circle-ring" />
+                </svg>
+                <span id="score-seo"
+                  class="absolute inset-0 flex items-center justify-center font-display font-700 text-base text-yellow-400">61</span>
+              </div>
+              <p class="text-xs font-600 dark:text-white text-gray-800">SEO</p>
+              <p id="status-seo" class="text-[10px] muted">Average</p>
+            </div>
+            <div class="card-bg rounded-xl p-4 text-center">
+              <div class="relative w-20 h-20 mx-auto mb-2">
+                <svg viewBox="0 0 36 36" class="w-20 h-20 -rotate-90">
+                  <circle cx="18" cy="18" r="15.9" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="2.5" />
+                  <circle id="ring-security" cx="18" cy="18" r="15.9" fill="none" stroke="#00C48C" stroke-width="2.5"
+                    stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100" class="circle-ring" />
+                </svg>
+                <span id="score-security"
+                  class="absolute inset-0 flex items-center justify-center font-display font-700 text-base text-green-400">78</span>
+              </div>
+              <p class="text-xs font-600 dark:text-white text-gray-800" data-en="Security" data-bg="Сигурност">Security
+              </p>
+              <p id="status-security" class="text-[10px] text-green-400">Good</p>
+            </div>
+          </div>
+
+          <!-- Bars -->
+          <div class="space-y-3 mb-6">
+            <div>
+              <div class="flex justify-between text-xs mb-1.5">
+                <span id="bar-load-title" class="font-600 dark:text-white text-gray-700">Page Load Time</span>
+                <span id="bar-load-label" class="text-red-400 font-600">8.4s — Critical</span>
+              </div>
+              <div class="progress-track h-2 rounded-full overflow-hidden">
+                <div id="bar-load" class="bar-inner h-full progress-fill-red rounded-full" style="width:0%"
+                  data-target="32"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1.5">
+                <span id="bar-vitals-title" class="font-600 dark:text-white text-gray-700">Core Web Vitals</span>
+                <span id="bar-vitals-label" class="text-yellow-400 font-600">Needs Improvement</span>
+              </div>
+              <div class="progress-track h-2 rounded-full overflow-hidden">
+                <div id="bar-vitals" class="bar-inner h-full progress-fill-yellow rounded-full" style="width:0%"
+                  data-target="55"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1.5">
+                <span id="bar-mobile-title" class="font-600 dark:text-white text-gray-700">Mobile Responsiveness</span>
+                <span id="bar-mobile-label" class="text-yellow-400 font-600">Partial</span>
+              </div>
+              <div class="progress-track h-2 rounded-full overflow-hidden">
+                <div id="bar-mobile" class="bar-inner h-full progress-fill-yellow rounded-full" style="width:0%"
+                  data-target="60"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1.5">
+                <span id="bar-seo-title" class="font-600 dark:text-white text-gray-700">SEO Optimization</span>
+                <span id="bar-seo-label" class="neon-text font-600">Improving</span>
+              </div>
+              <div class="progress-track h-2 rounded-full overflow-hidden">
+                <div id="bar-seo" class="bar-inner h-full progress-fill-blue rounded-full" style="width:0%"
+                  data-target="65"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Warning -->
+          <div id="insightBox" class="warn-bg rounded-xl p-4 mb-6 flex gap-3 items-start">
+            <i class="fas fa-triangle-exclamation mt-0.5 flex-shrink-0"></i>
+            <div>
+              <p id="insightTitle" class="font-display font-700 text-sm mb-0.5">Warning: Slow load time is costing you
+                customers.</p>
+              <p id="insightBody" class="text-xs opacity-80 leading-relaxed">A 1-second delay in load time can reduce
+                conversions by 7%. At 8.4s, visitors leave before your page even loads.</p>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="card-bg rounded-xl p-5 flex flex-col sm:flex-row gap-4 items-center justify-between">
+            <div>
+              <p id="ctaTitle" class="font-display font-700 dark:text-white text-gray-900 mb-1">I can fix this — fast.
+              </p>
+              <p id="ctaBody" class="text-sm muted">I can rebuild your site in days, not months, with transparent
+                pricing.</p>
+            </div>
+            <a href="#pricing"
+              class="cta-primary rounded-xl px-6 py-3 text-sm font-display font-700 whitespace-nowrap transition-all duration-200 hover:scale-[1.03] active:scale-[.98] flex items-center gap-2">
+              <span data-en="Get a Quote" data-bg="Виж цените">Get a Quote</span>
+              <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY US ═══ -->
+  <section id="services" class="py-24 px-5 dark:bg-transparent section-alt">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 section-fade">
+        <p class="text-xs uppercase tracking-widest section-label font-display font-700 mb-3" data-en="Why Work With Me"
+          data-bg="Защо точно аз">Why Work With Me</p>
+        <h2 class="font-display font-800 text-3xl sm:text-4xl dark:text-white text-gray-900"
+          data-en="Direct, Fast, and Built Around Your Business." data-bg="Без посредници. Бързо. Точно за теб.">Direct,
+          Fast, and Built Around Your Business.</h2>
+      </div>
+
+      <div class="section-fade glass rounded-2xl p-7 sm:p-8 mb-8">
+        <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-8 items-start">
+          <div>
+            <p class="text-xs uppercase tracking-widest section-label font-display font-700 mb-3"
+              data-en="Meet Stoyan Tanev" data-bg="Здравей, аз съм Стоян">Meet Stoyan Tanev</p>
+            <h3 class="font-display font-800 text-2xl sm:text-3xl dark:text-white text-gray-900 mb-4"
+              data-en="Freelance web designer and developer from Plovdiv, Bulgaria"
+              data-bg="Уеб дизайнер и разработчик на свободна практика от Пловдив">Freelance web designer and developer
+              from Plovdiv, Bulgaria</h3>
+            <p class="muted text-sm leading-relaxed mb-4"
+              data-en="I'm an AI and UI/UX enthusiast with a previous medical background. For 10+ years I worked as an endoscopy technician with Pentax and Fujitsu systems, which taught me precision, speed, and responsibility."
+              data-bg="Вълнуват ме AI и UI/UX, а преди това повече от 10 години работих с медицинска техника — ендоскопски системи на Pentax и Fujitsu. Оттам идва усетът ми за прецизност и отговорност.">
+              I'm an AI and UI/UX enthusiast with a previous medical background. For 10+ years I worked as an endoscopy
+              technician with Pentax and Fujitsu systems, which taught me precision, speed, and responsibility.</p>
+            <p class="muted text-sm leading-relaxed"
+              data-en="Today I help Bulgarian and international businesses get a clean, modern website fast and at fair prices, without wasting time searching for a freelancer on huge platforms."
+              data-bg="Сега правя сайтове — модерни и бързи на нормална цена. Без да се ровиш из платформи и да губиш седмици.">
+              Today I help Bulgarian and international businesses get a clean, modern website fast and at fair prices,
+              without wasting time searching for a freelancer on huge platforms.</p>
+            <div class="flex flex-wrap gap-3 mt-6">
+              <a href="https://www.linkedin.com/in/stoyan-tanev-a732603b8/" target="_blank" rel="noopener noreferrer"
+                class="tag-bg rounded-full px-4 py-2 text-xs font-600 flex items-center gap-2 transition-all duration-200 hover:scale-[1.02]">
+                <i class="fab fa-linkedin-in"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com/stoyanbtanev" target="_blank" rel="noopener noreferrer"
+                class="tag-bg rounded-full px-4 py-2 text-xs font-600 flex items-center gap-2 transition-all duration-200 hover:scale-[1.02]">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+              <a href="mailto:stoyanbtanev@gmail.com"
+                class="tag-bg rounded-full px-4 py-2 text-xs font-600 flex items-center gap-2 transition-all duration-200 hover:scale-[1.02]">
+                <i class="fas fa-envelope"></i>
+                <span>stoyanbtanev@gmail.com</span>
+              </a>
+              <a href="tel:+359895469386"
+                class="tag-bg rounded-full px-4 py-2 text-xs font-600 flex items-center gap-2 transition-all duration-200 hover:scale-[1.02]">
+                <i class="fas fa-phone"></i>
+                <span>089 546 9386</span>
+              </a>
+            </div>
+          </div>
+          <div class="card-bg rounded-2xl p-6">
+            <p class="text-xs uppercase tracking-widest section-label font-display font-700 mb-4" data-en="What You Get"
+              data-bg="Ето какво получаваш">What You Get</p>
+            <div class="space-y-4">
+              <div class="flex gap-3 items-start">
+                <i class="fas fa-user-check neon-text mt-0.5"></i>
+                <p class="text-sm muted"
+                  data-en="Direct communication with the person actually designing and building your site."
+                  data-bg="Говориш директно с мен — човекът, който рисува и кодира сайта ти.">Direct communication with
+                  the person actually designing and building your site.</p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <i class="fas fa-brain neon-text mt-0.5"></i>
+                <p class="text-sm muted"
+                  data-en="AI-assisted workflow plus strong UI/UX thinking, so the process stays fast without feeling generic."
+                  data-bg="Ползвам AI, за да вървя бързо, но дизайнът минава през истинско UI/UX мислене — без шаблони.">
+                  AI-assisted workflow plus strong UI/UX thinking, so the process stays fast without feeling generic.
+                </p>
+              </div>
+              <div class="flex gap-3 items-start">
+                <i class="fas fa-heart-pulse neon-text mt-0.5"></i>
+                <p class="text-sm muted"
+                  data-en="A disciplined technical mindset shaped by 10+ years in high-precision medical equipment."
+                  data-bg="10+ години с прецизна медицинска техника ме научиха на дисциплина и внимание към детайла.">A
+                  disciplined technical mindset shaped by 10+ years in high-precision medical equipment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div
+          class="section-fade card-bg rounded-2xl p-7 group hover:neon-glow transition-all duration-300 pricing-card card-shine"
+          style="transition-delay:.1s">
+          <div
+            class="w-14 h-14 rounded-xl tag-bg flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+            <i class="fas fa-bolt text-2xl neon-text"></i>
+          </div>
+          <h3 class="font-display font-700 text-xl dark:text-white text-gray-900 mb-3" data-en="Lightning Fast Delivery"
+            data-bg="Готово за дни, не за месеци">Lightning Fast Delivery</h3>
+          <p class="muted text-sm leading-relaxed"
+            data-en="From kickoff to launch in 3-10 days. I work in focused sprints so you're live while competitors are still in meetings."
+            data-bg="Сядам, фокусирам се и сайтът ти е готов за 3–10 дни. Ти си вече онлайн, а конкуренцията тепърва уговаря срещи.">
+            From kickoff to launch in 3-10 days. I work in focused sprints so you're live while competitors are still in
+            meetings.</p>
+          <div class="mt-5 flex items-center gap-2 neon-text text-xs font-600 font-display tracking-wide">
+            <i class="fas fa-check-circle text-xs"></i>
+            <span data-en="3-10 day turnaround" data-bg="Готово за 3–10 дни">3-10 day turnaround</span>
+          </div>
+        </div>
+        <div
+          class="section-fade card-bg rounded-2xl p-7 group hover:neon-glow transition-all duration-300 pricing-card card-shine"
+          style="transition-delay:.2s">
+          <div
+            class="w-14 h-14 rounded-xl tag-bg flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+            <i class="fas fa-tag text-2xl neon-text"></i>
+          </div>
+          <h3 class="font-display font-700 text-xl dark:text-white text-gray-900 mb-3" data-en="Unbeatable Pricing"
+            data-bg="Честни цени, без скрити номера">Unbeatable Pricing</h3>
+          <p class="muted text-sm leading-relaxed"
+            data-en="No inflated middleman markup. No hidden fees. I keep the process lean, so you get strong quality at a fair price."
+            data-bg="Няма посредници, няма дребен шрифт. Работя без излишна тежест — ти получаваш качество на нормална цена.">
+            No inflated middleman markup. No hidden fees. I keep the process lean, so you get strong quality at a fair
+            price.</p>
+          <div class="mt-5 flex items-center gap-2 neon-text text-xs font-600 font-display tracking-wide">
+            <i class="fas fa-check-circle text-xs"></i>
+            <span data-en="Prices from €200" data-bg="От €200 нагоре">Prices from €200</span>
+          </div>
+        </div>
+        <div
+          class="section-fade card-bg rounded-2xl p-7 group hover:neon-glow transition-all duration-300 pricing-card card-shine"
+          style="transition-delay:.3s">
+          <div
+            class="w-14 h-14 rounded-xl tag-bg flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+            <i class="fas fa-gem text-2xl neon-text"></i>
+          </div>
+          <h3 class="font-display font-700 text-xl dark:text-white text-gray-900 mb-3" data-en="Premium Quality"
+            data-bg="Качество без компромиси">Premium Quality</h3>
+          <p class="muted text-sm leading-relaxed"
+            data-en="Pixel-perfect design, clean semantic code, 90+ PageSpeed scores. Sites that look great and rank even better."
+            data-bg="Всеки пиксел е на мястото си, кодът е чист, а Google ти дава 90+ точки. Красиво и бързо — едновременно.">
+            Pixel-perfect design, clean semantic code, 90+ PageSpeed scores. Sites that look great and rank even better.
+          </p>
+          <div class="mt-5 flex items-center gap-2 neon-text text-xs font-600 font-display tracking-wide">
+            <i class="fas fa-check-circle text-xs"></i>
+            <span data-en="90+ PageSpeed score guaranteed" data-bg="Гарантирани 90+ точки от PageSpeed">90+ PageSpeed
+              score guaranteed</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ PRICING ═══ -->
+  <section id="pricing" class="py-24 px-5">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 section-fade">
+        <p class="text-xs uppercase tracking-widest section-label font-display font-700 mb-3" data-en="Packages"
+          data-bg="Пакети">Packages</p>
+        <h2 class="font-display font-800 text-3xl sm:text-4xl dark:text-white text-gray-900"
+          data-en="Simple, Transparent Pricing" data-bg="Ясни цени, без изненади">Simple, Transparent Pricing</h2>
+        <p class="muted text-sm mt-3 max-w-lg mx-auto"
+          data-en="No surprise invoices. No scope creep billing. Pick a package and I get to work."
+          data-bg="Без фактури със звездички. Избираш пакет — и тръгваме.">No surprise invoices. No scope creep billing.
+          Pick a package and I get to work.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+        <!-- Quick Launch -->
+        <div class="section-fade card-bg rounded-2xl p-6 flex flex-col pricing-card card-shine"
+          style="transition-delay:.1s">
+          <div class="mb-5">
+            <div
+              class="tag-bg inline-flex rounded-full px-3 py-1 text-[10px] font-display font-700 tracking-widest uppercase mb-3">
+              Starter</div>
+            <h3 class="font-display font-800 text-xl dark:text-white text-gray-900 mb-1" data-en="Quick Launch"
+              data-bg="Бърз старт">Quick Launch</h3>
+            <p class="muted text-xs leading-relaxed"
+              data-en="Perfect for events, product launches, or testing ideas fast."
+              data-bg="За събития, лансиране на продукт или когато просто искаш да тестнеш идея бързо.">Perfect for
+              events, product launches, or testing ideas fast.</p>
+          </div>
+          <div class="mb-5">
+            <span class="font-display font-800 text-3xl dark:text-white text-gray-900">€200</span>
+            <span class="muted text-xs ml-1" data-en="one-time" data-bg="еднократно">one-time</span>
+          </div>
+          <ul class="space-y-2.5 mb-6 flex-1">
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="1 responsive landing page" data-bg="1 адаптивна страница">1 responsive landing page</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="Mobile-first design" data-bg="Изглежда страхотно на телефон">Mobile-first design</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="Basic SEO setup" data-bg="Основно SEO">Basic SEO setup</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="Contact form" data-bg="Контактна форма">Contact form</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="3-day delivery" data-bg="Готово за 3 дни">3-day delivery</span>
+            </li>
+          </ul>
+          <a href="#contact"
+            class="cta-secondary rounded-xl py-2.5 text-xs font-display font-700 text-center transition-all duration-200 hover:scale-[1.02] active:scale-[.98]"
+            data-en="Get Started" data-bg="Започни">Get Started</a>
+        </div>
+
+        <!-- Landing Page Pro -->
+        <div class="section-fade card-bg rounded-2xl p-6 flex flex-col pricing-card card-shine"
+          style="transition-delay:.15s">
+          <div class="mb-5">
+            <div
+              class="tag-bg inline-flex rounded-full px-3 py-1 text-[10px] font-display font-700 tracking-widest uppercase mb-3">
+              Popular</div>
+            <h3 class="font-display font-800 text-xl dark:text-white text-gray-900 mb-1" data-en="Landing Page Pro"
+              data-bg="Страница, която продава">Landing Page Pro</h3>
+            <p class="muted text-xs leading-relaxed"
+              data-en="Enhanced landing with more sections, animations, and conversions."
+              data-bg="Повече секции, анимации и ясна цел — да превръща посетители в клиенти.">Enhanced landing with
+              more sections, animations, and conversions.</p>
+          </div>
+          <div class="mb-5">
+            <span class="font-display font-800 text-3xl dark:text-white text-gray-900">€250</span>
+            <span class="muted text-xs ml-1" data-en="one-time" data-bg="еднократно">one-time</span>
+          </div>
+          <ul class="space-y-2.5 mb-6 flex-1">
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="1-3 pages included" data-bg="До 3 страници">1-3 pages included</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="Premium animations" data-bg="Плавни анимации">Premium animations</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="A/B testing ready" data-bg="Подготвено за A/B тестове">A/B testing ready</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="Analytics integration" data-bg="Google Analytics вграден">Analytics integration</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="5-day delivery" data-bg="Готово за 5 дни">5-day delivery</span>
+            </li>
+          </ul>
+          <a href="#contact"
+            class="cta-primary rounded-xl py-2.5 text-xs font-display font-700 text-center transition-all duration-200 hover:scale-[1.02] active:scale-[.98]"
+            data-en="Get Started" data-bg="Започни">Get Started</a>
+        </div>
+
+        <!-- Website Revamp -->
+        <div class="section-fade relative flex h-full" style="transition-delay:.2s">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+            <span
+              class="badge-popular font-display font-700 text-[10px] tracking-widest uppercase px-4 py-1.5 rounded-full whitespace-nowrap"
+              data-en="Best Value" data-bg="Най-изгодно">Best Value</span>
+          </div>
+          <div class="pricing-highlight rounded-2xl p-6 flex flex-col pricing-card card-shine h-full w-full">
+            <div class="mb-5">
+              <div
+                class="tag-bg inline-flex rounded-full px-3 py-1 text-[10px] font-display font-700 tracking-widest uppercase mb-3">
+                Growth</div>
+              <h3 class="font-display font-800 text-xl dark:text-white text-gray-900 mb-1" data-en="Website Revamp"
+                data-bg="Нов живот за стария сайт">Website Revamp</h3>
+              <p class="muted text-xs leading-relaxed"
+                data-en="Transform your existing site into a fast, modern, high-converting machine."
+                data-bg="Взимаме текущия ти сайт и го превръщаме в нещо бързо, модерно и което реално работи.">Transform
+                your existing site into a fast, modern, high-converting machine.</p>
+            </div>
+            <div class="mb-5">
+              <span class="font-display font-800 text-3xl dark:text-white text-gray-900">€500</span>
+              <span class="muted text-xs ml-1" data-en="one-time" data-bg="еднократно">one-time</span>
+            </div>
+            <ul class="space-y-2.5 mb-6 flex-1">
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+                <span data-en="Up to 5 pages" data-bg="До 5 страници">Up to 5 pages</span>
+              </li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+                <span data-en="Full redesign + rebuild" data-bg="Изцяло нов дизайн и код">Full redesign + rebuild</span>
+              </li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+                <span data-en="90+ PageSpeed score" data-bg="90+ точки в PageSpeed">90+ PageSpeed score</span>
+              </li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+                <span data-en="Advanced SEO + analytics" data-bg="Сериозно SEO + аналитика">Advanced SEO +
+                  analytics</span>
+              </li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+                <span data-en="7-day delivery" data-bg="Готово за 7 дни">7-day delivery</span>
+              </li>
+            </ul>
+            <a href="#contact"
+              class="cta-primary rounded-xl py-2.5 text-xs font-display font-700 text-center transition-all duration-200 hover:scale-[1.02] active:scale-[.98]"
+              data-en="Start Revamp" data-bg="Започни редизайна">Start Revamp</a>
+          </div>
+        </div>
+
+        <!-- New Website Build -->
+        <div class="section-fade card-bg rounded-2xl p-6 flex flex-col pricing-card card-shine"
+          style="transition-delay:.25s">
+          <div class="mb-5">
+            <div
+              class="tag-bg inline-flex rounded-full px-3 py-1 text-[10px] font-display font-700 tracking-widest uppercase mb-3">
+              Pro</div>
+            <h3 class="font-display font-800 text-xl dark:text-white text-gray-900 mb-1" data-en="New Website Build"
+              data-bg="Чисто нов сайт от нулата">New Website Build</h3>
+            <p class="muted text-xs leading-relaxed"
+              data-en="Start from scratch. Custom-built from the ground up — design, dev, launch."
+              data-bg="Започваме от бял лист — дизайн по твоя мярка, чист код и бързо пускане.">Start from scratch.
+              Custom-built from the ground up — design, dev, launch.</p>
+          </div>
+          <div class="mb-5">
+            <span class="font-display font-800 text-3xl dark:text-white text-gray-900">€800</span>
+            <span class="muted text-xs ml-1" data-en="one-time" data-bg="еднократно">one-time</span>
+          </div>
+          <ul class="space-y-2.5 mb-6 flex-1">
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="Up to 10 pages" data-bg="До 10 страници">Up to 10 pages</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="Custom design system" data-bg="Уникален дизайн, само за теб">Custom design system</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="E-commerce ready" data-bg="Може и с онлайн магазин">E-commerce ready</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="2 weeks support" data-bg="2 седмици поддръжка от мен">2 weeks support</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="10-day delivery" data-bg="Готово за 10 дни">10-day delivery</span>
+            </li>
+          </ul>
+          <a href="#contact"
+            class="cta-secondary rounded-xl py-2.5 text-xs font-display font-700 text-center transition-all duration-200 hover:scale-[1.02] active:scale-[.98]"
+            data-en="Get Started" data-bg="Започни">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Guarantee -->
+      <div class="mt-10 text-center section-fade">
+        <div class="inline-flex items-center gap-3 tag-bg rounded-full px-5 py-2.5">
+          <i class="fas fa-shield-check neon-text text-sm"></i>
+          <span class="text-xs font-medium" data-en="100% Satisfaction Guarantee — If you're not happy, I fix it free."
+            data-bg="Гаранция — ако нещо не ти харесва, оправям го безплатно.">100% Satisfaction Guarantee — If you're
+            not happy, I fix it free.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact" class="py-24 px-5 dark:bg-transparent section-alt">
+    <div class="max-w-3xl mx-auto text-center section-fade">
+      <p class="text-xs uppercase tracking-widest section-label font-display font-700 mb-3" data-en="Ready to start?"
+        data-bg="Готов да започнем?">Ready to start?</p>
+      <h2 class="font-display font-800 text-3xl sm:text-4xl dark:text-white text-gray-900 mb-4"
+        data-en="Let's Build Something Fast." data-bg="Да ти направя сайт, който работи.">Let's Build Something Fast.
+      </h2>
+      <p class="muted text-sm max-w-xl mx-auto mb-10 leading-relaxed"
+        data-en="Tell me about your project and I'll get back to you within a few hours — not days."
+        data-bg="Пиши ми какво имаш предвид и ще ти отговоря до часове, не до дни.">Tell me about your project and I'll
+        get back to you within a few hours — not days.</p>
+
+      <div class="glass rounded-2xl p-7 sm:p-8 text-left">
+        <form id="contactForm" action="https://formsubmit.co/stoyanbtanev@gmail.com"
+          data-ajax-endpoint="https://formsubmit.co/ajax/stoyanbtanev@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New SiteSonar inquiry" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" id="formNextUrl" name="_next" value="" />
+          <input type="hidden" id="formOriginUrl" name="_url" value="" />
+          <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+          <div class="grid sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="text-xs muted uppercase tracking-wide font-600 block mb-2" data-en="Your Name"
+                data-bg="Как се казваш">Your Name</label>
+              <input type="text" name="name" placeholder="John Carter" data-placeholder-en="John Carter"
+                data-placeholder-bg="Иван Петров" required
+                class="url-input w-full bg-transparent border neon-border rounded-xl px-4 py-3 text-sm transition-all" />
+            </div>
+            <div>
+              <label class="text-xs muted uppercase tracking-wide font-600 block mb-2">Email</label>
+              <input type="email" name="email" placeholder="ivan@company.com" required
+                class="url-input w-full bg-transparent border neon-border rounded-xl px-4 py-3 text-sm transition-all" />
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="text-xs muted uppercase tracking-wide font-600 block mb-2" data-en="Budget Range"
+              data-bg="Какъв бюджет имаш">Budget Range</label>
+            <select name="budget"
+              class="url-input w-full bg-transparent border neon-border rounded-xl px-4 py-3 text-sm transition-all appearance-none cursor-pointer dark:bg-sonar-card">
+              <option value="" data-en="Select your budget" data-bg="Избери ориентировъчен бюджет">Select your budget
+              </option>
+              <option value="200">€200 – €500</option>
+              <option value="500">€500 – €800</option>
+              <option value="800+">€800+</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="text-xs muted uppercase tracking-wide font-600 block mb-2" data-en="Website URL (optional)"
+              data-bg="Имаш ли вече сайт? (не е задължително)">Website URL (optional)</label>
+            <input type="url" name="website" placeholder="https://yoursite.com"
+              data-placeholder-en="https://yoursite.com" data-placeholder-bg="https://твоясайт.com"
+              class="url-input w-full bg-transparent border neon-border rounded-xl px-4 py-3 text-sm transition-all" />
+          </div>
+          <div class="mb-6">
+            <label class="text-xs muted uppercase tracking-wide font-600 block mb-2"
+              data-en="Tell me about your project" data-bg="Разкажи ми с две думи за идеята">Tell me about your
+              project</label>
+            <textarea name="message" rows="4" placeholder="I need a fast new website for my business..."
+              data-placeholder-en="I need a fast new website for my business..."
+              data-placeholder-bg="Трябва ми нов, бърз сайт за бизнеса ми..." required
+              class="url-input w-full bg-transparent border neon-border rounded-xl px-4 py-3 text-sm resize-none transition-all"></textarea>
+          </div>
+          <button type="submit"
+            class="cta-primary rounded-xl w-full py-3.5 text-sm font-display font-700 transition-all duration-200 hover:scale-[1.01] active:scale-[.99] flex items-center justify-center gap-2">
+            <i class="fas fa-paper-plane text-sm"></i>
+            <span data-en="Send Message" data-bg="Изпрати">Send Message</span>
+          </button>
+          <p id="formStatus" class="hidden text-sm mt-4 text-center"></p>
+        </form>
+      </div>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center text-sm muted">
+        <a href="mailto:stoyanbtanev@gmail.com" class="flex items-center gap-2 hover:neon-text transition-colors">
+          <i class="fas fa-envelope text-xs neon-text"></i> stoyanbtanev@gmail.com
+        </a>
+        <span class="hidden sm:block opacity-30">·</span>
+        <a href="tel:+359895469386" class="flex items-center gap-2 hover:neon-text transition-colors">
+          <i class="fas fa-phone text-xs neon-text"></i> 089 546 9386
+        </a>
+        <span class="hidden sm:block opacity-30">·</span>
+        <a href="https://www.linkedin.com/in/stoyan-tanev-a732603b8/" target="_blank" rel="noopener noreferrer"
+          class="flex items-center gap-2 hover:neon-text transition-colors">
+          <i class="fab fa-linkedin-in text-xs neon-text"></i> LinkedIn
+        </a>
+        <span class="hidden sm:block opacity-30">·</span>
+        <a href="https://github.com/stoyanbtanev" target="_blank" rel="noopener noreferrer"
+          class="flex items-center gap-2 hover:neon-text transition-colors">
+          <i class="fab fa-github text-xs neon-text"></i> GitHub
+        </a>
+        <span class="hidden sm:block opacity-30">·</span>
+        <span class="flex items-center gap-2">
+          <i class="fas fa-map-marker-alt text-xs neon-text"></i>
+          <span data-en="Plovdiv, Bulgaria" data-bg="Пловдив, България">Plovdiv, Bulgaria</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer-bg py-10 px-5">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-2.5">
+          <div class="relative w-7 h-7">
+            <div class="absolute inset-0 rounded-full border-2 neon-border opacity-60"></div>
+            <div
+              class="absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full bg-sonar-blue -translate-x-1/2 -translate-y-1/2">
+            </div>
+          </div>
+          <div>
+            <span class="font-display font-700 tracking-tight neon-text">Site<span
+                class="dark:text-white text-gray-700">Sonar</span></span>
+            <p class="text-[11px] muted" data-en="by Stoyan Tanev" data-bg="от Стоян Танев">by Stoyan Tanev</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs muted">
+          <a href="#services" class="hover:neon-text transition-colors" data-en="About Me" data-bg="Кой съм аз">About
+            Me</a>
+          <a href="#pricing" class="hover:neon-text transition-colors" data-en="Pricing" data-bg="Цени">Pricing</a>
+          <a href="#contact" class="hover:neon-text transition-colors" data-en="Contact" data-bg="Пиши ми">Contact</a>
+          <a href="#" class="hover:neon-text transition-colors" data-en="Privacy Policy" data-bg="Поверителност">Privacy
+            Policy</a>
+        </div>
+        <p class="text-xs muted text-center sm:text-right">
+          © <span id="year"></span> Stoyan Tanev.
+          <span data-en="All rights reserved." data-bg="Всички права запазени.">All rights reserved.</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ JS ═══ -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const SCORE_TEXT_CLASSES = ['text-red-400', 'text-yellow-400', 'text-green-400', 'neon-text'];
+    const BAR_FILL_CLASSES = ['progress-fill-red', 'progress-fill-yellow', 'progress-fill-blue', 'progress-fill-green'];
+    let currentLang = 'en';
+    let lastAuditState = null;
+    let auditInFlight = false;
+
+    const heroVariants = [
+      {
+        tag: { en: '⚡ Fast Websites. Fair Prices.', bg: '⚡ Бързи сайтове. Честни цени.' },
+        lineOne: { en: 'Launch Your Website', bg: 'Пусни сайта си' },
+        lineTwo: { en: 'In Days, Not Months.', bg: 'за дни, не за месеци.' },
+        sub: {
+          en: 'Modern landing pages and business websites with strong UI/UX, clean performance, and quick turnaround. Ready in 3-10 days, from €200.',
+          bg: 'Модерни сайтове с добре обмислен дизайн, бързо зареждане и кратък срок. Готови за 3–10 дни, от €200.'
+        }
+      },
+      {
+        tag: { en: '⚡ Built Fast. Built Clean.', bg: '⚡ Бързо. Модерно. На ниво.' },
+        lineOne: { en: 'Websites That Look Sharp', bg: 'Сайтове, които правят впечатление' },
+        lineTwo: { en: 'And Load Even Faster.', bg: 'и се зареждат мигновено.' },
+        sub: {
+          en: 'Landing pages and business websites designed to feel modern, move fast, and stay affordable from the first idea to launch.',
+          bg: 'Уеб страници, които изглеждат модерно, работят бързо и не те разоряват — от идеята до пускането.'
+        }
+      },
+      {
+        tag: { en: '⚡ From Idea to Launch', bg: '⚡ От идея до готов сайт' },
+        lineOne: { en: 'Your Next Website', bg: 'Следващият ти сайт' },
+        lineTwo: { en: 'Starts Here.', bg: 'започва оттук.' },
+        sub: {
+          en: 'Smart UI/UX, strong visual direction, and quick execution for businesses that want results without months of waiting.',
+          bg: 'Добре обмислен UX, силна визия и бързо изпълнение — за бизнеси, които не искат да чакат с месеци.'
+        }
+      },
+      {
+        tag: { en: '⚡ Small Budget. Strong Impact.', bg: '⚡ Нормален бюджет. Силен резултат.' },
+        lineOne: { en: 'Modern Websites', bg: 'Модерни сайтове' },
+        lineTwo: { en: 'Without The Waiting Game.', bg: 'без безкрайно чакане.' },
+        sub: {
+          en: 'Affordable websites for brands that want to look professional, launch quickly, and stop losing time on slow processes.',
+          bg: 'Достъпни сайтове за хора и бизнеси, които искат да изглеждат добре онлайн, без да хвърлят месеци в процеса.'
+        }
+      }
+    ];
+
+    const currentHeroVariantIndex = (() => {
+      try {
+        const storageKey = 'sitesonar-hero-variant';
+        const storedValue = localStorage.getItem(storageKey);
+        const previous = storedValue === null ? null : Number(storedValue);
+        let next = Math.floor(Math.random() * heroVariants.length);
+        if (heroVariants.length > 1 && previous !== null && Number.isInteger(previous) && previous >= 0) {
+          while (next === previous) next = Math.floor(Math.random() * heroVariants.length);
+        }
+        localStorage.setItem(storageKey, String(next));
+        return next;
+      } catch {
+        return Math.floor(Math.random() * heroVariants.length);
+      }
+    })();
+
+    const copy = {
+      en: {
+        statuses: { excellent: 'Excellent', good: 'Good', average: 'Average', needsWork: 'Needs Work', poor: 'Poor', critical: 'Critical' },
+        mode: {
+          live: 'Live PageSpeed data • mobile-first audit',
+          estimate: 'Smart estimate • public crawl and content signals',
+          baseline: 'Smart estimate • URL and domain signals only'
+        },
+        barTitles: {
+          live: { load: 'Page Load Time', vitals: 'Core Web Vitals', mobile: 'Mobile Responsiveness', seo: 'SEO Optimization' },
+          estimate: { load: 'Page Response Time', vitals: 'UX & Structure Signals', mobile: 'Mobile Readiness', seo: 'Search Visibility Signals' }
+        },
+        headlines: {
+          excellent: 'Your website is in strong shape',
+          good: 'Solid foundation, with room to grow',
+          average: 'There is clear upside in this site',
+          poor: 'Your website is holding back conversions'
+        },
+        insights: {
+          speed: {
+            title: 'Speed is the biggest opportunity right now.',
+            bodyLive: time => `The current load pattern is around ${time}, which is enough friction to lose people early. Tightening this up usually pays off fast in both trust and conversion.`,
+            bodyEstimate: 'The public crawl suggests the site does not feel as fast as it could. Lighter pages, cleaner assets, and better front-end hygiene would likely have the biggest impact.'
+          },
+          mobile: {
+            title: 'Mobile UX still needs some care.',
+            bodyLive: 'A big share of traffic usually arrives from phones first. If that experience feels cramped or slow, visitors drop before they ever reach the offer.',
+            bodyEstimate: 'The structure signals point to room for a cleaner, more mobile-friendly experience, especially around readability, hierarchy, and responsiveness.'
+          },
+          seo: {
+            title: 'SEO has room for meaningful gains.',
+            bodyLive: 'Better metadata, stronger content structure, and clearer search signals would make this site easier to discover and easier for Google to understand.',
+            bodyEstimate: 'From the title, description, and content structure alone, there is room to strengthen search visibility and make the page easier to index well.'
+          },
+          security: {
+            title: 'Trust and technical hygiene can be tighter.',
+            bodyLive: 'Best-practice fixes, cleaner technical setup, and stronger trust signals help both rankings and customer confidence.',
+            bodyEstimate: 'The public signals suggest there is still room to strengthen technical trust, consistency, and perceived reliability.'
+          }
+        },
+        cta: {
+          polish: {
+            title: 'A focused polish pass could push this site much higher.',
+            body: 'I would tighten speed, clean up the mobile UX, and sharpen the SEO without turning the project into months of overwork.'
+          },
+          rebuild: {
+            title: 'I can turn this into a much stronger site quickly.',
+            body: 'A focused refresh or full rebuild can lift speed, clarity, and conversion in days, not months.'
+          }
+        },
+        buttonRunning: 'Auditing…',
+        formSending: 'Sending…',
+        formSent: 'Sent!',
+        formSuccess: 'Message sent successfully. I will get back to you soon.',
+        formError: 'Something went wrong while sending. Please try again or email me directly.'
+      },
+      bg: {
+        statuses: { excellent: 'Отлично', good: 'Добре', average: 'Средно', needsWork: 'Може по-добре', poor: 'Слабо', critical: 'Критично' },
+        mode: {
+          live: 'Реални данни от PageSpeed • мобилен одит',
+          estimate: 'Бърза оценка • по публични сигнали и съдържание',
+          baseline: 'Бърза оценка • само по URL и домейн'
+        },
+        barTitles: {
+          live: { load: 'Колко бързо зарежда', vitals: 'Core Web Vitals', mobile: 'Как работи на телефон', seo: 'SEO представяне' },
+          estimate: { load: 'Колко бързо отговаря', vitals: 'UX и структура', mobile: 'Мобилна готовност', seo: 'Видимост в Google' }
+        },
+        headlines: {
+          excellent: 'Сайтът ти е в отлична форма',
+          good: 'Основата е добра — има място за още няколко подобрения',
+          average: 'Потенциалът е налице, но има и ясни слаби места',
+          poor: 'Сайтът ти реално те спира — губиш клиенти'
+        },
+        insights: {
+          speed: {
+            title: 'Скоростта е основният проблем тук.',
+            bodyLive: time => `Зарежда се за около ${time} — това е достатъчно, за да отпаднат хората, преди да видят каквото и да е. Ако оправим само скоростта, разликата ще се усети веднага.`,
+            bodyEstimate: 'По сигналите личи, че сайтът не се усеща бърз. Олекотяване на страниците и почистване на ресурсите ще дадат най-бърз ефект.'
+          },
+          mobile: {
+            title: 'Мобилното усещане може да е много по-добро.',
+            bodyLive: 'Повечето хора влизат от телефон. Ако на мобилен не е удобно — тях ги губиш, преди въобще да стигнат до офертата ти.',
+            bodyEstimate: 'Изглежда, че мобилната четимост, подредбата и адаптивността имат накъде да растат.'
+          },
+          seo: {
+            title: 'SEO-то може да донесе доста повече трафик.',
+            bodyLive: 'По-добри мета тагове, по-ясна структура и по-силни сигнали ще помогнат Google да те намери по-лесно.',
+            bodyEstimate: 'По заглавието, описанието и структурата личи, че видимостта в търсачките може да се вдигне доста.'
+          },
+          security: {
+            title: 'Доверието и техническата хигиена могат да се подобрят.',
+            bodyLive: 'HTTPS, чисти практики и по-стегнат технически setup помагат и за класирането, и за доверието на хората.',
+            bodyEstimate: 'Публичните сигнали подсказват, че има какво да се подобри по надеждността и техническата изрядност.'
+          }
+        },
+        cta: {
+          polish: {
+            title: 'С няколко прецизни промени този сайт ще заработи много по-силно.',
+            body: 'Ще оправя скоростта, мобилния UX и SEO-то — без да превръщам проекта в нещо огромно.'
+          },
+          rebuild: {
+            title: 'Мога да го направя много по-добър за кратко време.',
+            body: 'Фокусиран ремонт или чисто нов сайт — скоростта, яснотата и конверсиите ще се усетят за дни.'
+          }
+        },
+        buttonRunning: 'Работя по одита…',
+        formSending: 'Изпращам…',
+        formSent: 'Готово!',
+        formSuccess: 'Съобщението е изпратено. Ще се чуем скоро.',
+        formError: 'Нещо се обърка. Опитай пак или ми пиши на имейл директно.'
+      }
+    };
+
+    /* ── Persist theme & lang across reloads ── */
+    (function () {
+      const savedTheme = localStorage.getItem('ss-theme');
+      const savedLang = localStorage.getItem('ss-lang');
+      const html = document.documentElement;
+      if (savedTheme === 'light') {
+        html.classList.remove('dark');
+        const icon = document.getElementById('themeIcon');
+        if (icon) icon.className = 'fas fa-sun';
+      }
+      if (savedLang && savedLang !== 'en') {
+        currentLang = savedLang;
+      }
+    })();
+
+    /* Theme */
+    function toggleTheme() {
+      const html = document.documentElement;
+      const icon = document.getElementById('themeIcon');
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        icon.className = 'fas fa-sun';
+        localStorage.setItem('ss-theme', 'light');
+      } else {
+        html.classList.add('dark');
+        icon.className = 'fas fa-moon';
+        localStorage.setItem('ss-theme', 'dark');
+      }
+    }
+
+    function getCopy() {
+      return copy[currentLang];
+    }
+
+    function renderHeroVariant() {
+      const variant = heroVariants[currentHeroVariantIndex];
+      if (!variant) return;
+      setText('heroTagline', variant.tag[currentLang]);
+      setText('heroLineOne', variant.lineOne[currentLang]);
+      setText('heroLineTwo', variant.lineTwo[currentLang]);
+      setText('heroSubcopy', variant.sub[currentLang]);
+    }
+
+    function applyLocalizedPlaceholders() {
+      document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+        const value = el.getAttribute(`data-placeholder-${currentLang}`);
+        if (value) el.placeholder = value;
+      });
+    }
+
+    function applyLanguage() {
+      document.getElementById('langLabel').textContent = currentLang.toUpperCase();
+      document.documentElement.lang = currentLang;
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const value = el.getAttribute(`data-${currentLang}`);
+        if (value !== null) el.textContent = value;
+      });
+      applyLocalizedPlaceholders();
+      renderHeroVariant();
+      if (auditInFlight) {
+        const auditLabel = document.getElementById('auditButtonLabel');
+        if (auditLabel) auditLabel.textContent = getCopy().buttonRunning;
+      }
+    }
+
+    function toggleLang() {
+      currentLang = currentLang === 'en' ? 'bg' : 'en';
+      localStorage.setItem('ss-lang', currentLang);
+      applyLanguage();
+      if (lastAuditState) renderAudit(lastAuditState);
+    }
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    function average(values, fallback = 50) {
+      return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : fallback;
+    }
+
+    function wait(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function normalizeUrl(raw) {
+      const candidate = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+      const url = new URL(candidate);
+      if (!url.hostname) throw new Error('Invalid URL');
+      return url.toString();
+    }
+
+    function cleanDisplayUrl(url) {
+      return url.replace(/\/$/, '');
+    }
+
+    function pulseInput(input) {
+      input.classList.add('animate-pulse');
+      setTimeout(() => input.classList.remove('animate-pulse'), 1200);
+      input.focus();
+    }
+
+    async function fetchJson(url, options = {}, timeoutMs = 12000) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const response = await fetch(url, { ...options, signal: controller.signal });
+        if (!response.ok) throw new Error(`Request failed with ${response.status}`);
+        return await response.json();
+      } finally {
+        clearTimeout(timeoutId);
+      }
+    }
+
+    function statusKey(score) {
+      if (score >= 90) return 'excellent';
+      if (score >= 75) return 'good';
+      if (score >= 60) return 'average';
+      if (score >= 45) return 'needsWork';
+      if (score >= 30) return 'poor';
+      return 'critical';
+    }
+
+    function labelForScore(score) {
+      return getCopy().statuses[statusKey(score)];
+    }
+
+    function toneForScore(score) {
+      if (score >= 85) return { stroke: '#10B981', textClass: 'text-green-400', barClass: 'progress-fill-green' };
+      if (score >= 70) return { stroke: '#00D4FF', textClass: 'neon-text', barClass: 'progress-fill-blue' };
+      if (score >= 50) return { stroke: '#F59E0B', textClass: 'text-yellow-400', barClass: 'progress-fill-yellow' };
+      return { stroke: '#EF4444', textClass: 'text-red-400', barClass: 'progress-fill-red' };
+    }
+
+    function setToneClass(element, className) {
+      if (!element) return;
+      element.classList.remove(...SCORE_TEXT_CLASSES);
+      element.classList.add(className);
+    }
+
+    function setText(id, value) {
+      const element = document.getElementById(id);
+      if (element) element.textContent = value;
+    }
+
+    function setFormStatus(message = '', tone = 'muted') {
+      const status = document.getElementById('formStatus');
+      if (!status) return;
+      status.classList.remove('hidden', 'text-red-400', 'text-green-400', 'muted');
+      if (!message) {
+        status.textContent = '';
+        status.classList.add('hidden');
+        return;
+      }
+      status.textContent = message;
+      status.classList.add(tone === 'error' ? 'text-red-400' : tone === 'success' ? 'text-green-400' : 'muted');
+    }
+
+    function animateRing(id, score, stroke) {
+      const ring = document.getElementById(id);
+      if (!ring) return;
+      ring.style.stroke = stroke;
+      ring.style.strokeDashoffset = '100';
+      requestAnimationFrame(() => {
+        ring.style.strokeDashoffset = String(100 - score);
+      });
+    }
+
+    function setBar(prefix, score, labelText) {
+      const fill = document.getElementById(`bar-${prefix}`);
+      const label = document.getElementById(`bar-${prefix}-label`);
+      const tone = toneForScore(score);
+
+      if (label) {
+        label.textContent = labelText;
+        setToneClass(label, tone.textClass);
+      }
+
+      if (fill) {
+        fill.style.width = '0%';
+        fill.classList.remove(...BAR_FILL_CLASSES);
+        fill.classList.add(tone.barClass);
+        requestAnimationFrame(() => {
+          fill.style.width = `${score}%`;
+        });
+      }
+    }
+
+    function setAuditBusy(isBusy) {
+      auditInFlight = isBusy;
+      const button = document.getElementById('auditButton');
+      const label = document.getElementById('auditButtonLabel');
+      if (!button || !label) return;
+      button.disabled = isBusy;
+      button.classList.toggle('opacity-70', isBusy);
+      button.classList.toggle('pointer-events-none', isBusy);
+      label.textContent = isBusy ? getCopy().buttonRunning : label.getAttribute(`data-${currentLang}`);
+    }
+
+    function scoreFromCategory(value) {
+      if (typeof value !== 'number' || Number.isNaN(value)) return 50;
+      return clamp(Math.round(value * 100), 0, 100);
+    }
+
+    function booleanAuditScore(audit, fallback = 50) {
+      if (!audit) return fallback;
+      if (typeof audit.score === 'number') {
+        return audit.score <= 1 ? clamp(Math.round(audit.score * 100), 0, 100) : clamp(Math.round(audit.score), 0, 100);
+      }
+      return fallback;
+    }
+
+    function metricCategoryToScore(category) {
+      const value = String(category || '').toUpperCase();
+      if (value === 'FAST' || value === 'GOOD') return 92;
+      if (value === 'AVERAGE' || value === 'NEEDS_IMPROVEMENT') return 64;
+      if (value === 'SLOW' || value === 'POOR') return 30;
+      return null;
+    }
+
+    function thresholdScore(value, good, okay) {
+      if (!Number.isFinite(value)) return null;
+      if (value <= good) return 92;
+      if (value <= okay) return 64;
+      return 30;
+    }
+
+    function getLoadSeconds(audits) {
+      const candidate = audits['interactive']?.numericValue
+        || audits['largest-contentful-paint']?.numericValue
+        || audits['speed-index']?.numericValue
+        || audits['first-contentful-paint']?.numericValue;
+      if (!Number.isFinite(candidate)) return 3.4;
+      return Math.max(0.1, candidate / 1000);
+    }
+
+    function mapLoadTimeToScore(seconds) {
+      if (seconds <= 1.8) return 95;
+      if (seconds <= 2.5) return 85;
+      if (seconds <= 4) return 70;
+      if (seconds <= 6) return 52;
+      if (seconds <= 8) return 36;
+      return 22;
+    }
+
+    function formatSeconds(seconds) {
+      return `${seconds.toFixed(1)}s`;
+    }
+
+    function hashString(input) {
+      let hash = 0;
+      for (const char of input) {
+        hash = ((hash << 5) - hash) + char.charCodeAt(0);
+        hash |= 0;
+      }
+      return Math.abs(hash);
+    }
+
+    function seededOffset(input, range) {
+      const spread = (range * 2) + 1;
+      return (hashString(input) % spread) - range;
+    }
+
+    function estimatedSecondsFromScore(score) {
+      return Number((7.8 - (clamp(score, 0, 100) * 0.062)).toFixed(1));
+    }
+
+    function getWeakestCategory(categories) {
+      return Object.entries(categories).sort((a, b) => a[1] - b[1])[0][0];
+    }
+
+    function buildHeadline(score) {
+      const headlines = getCopy().headlines;
+      if (score >= 88) return headlines.excellent;
+      if (score >= 72) return headlines.good;
+      if (score >= 55) return headlines.average;
+      return headlines.poor;
+    }
+
+    function getInsight(audit) {
+      const insight = getCopy().insights[audit.weakest];
+      const body = audit.source === 'live'
+        ? insight.bodyLive(formatSeconds(audit.metrics.loadSeconds))
+        : insight.bodyEstimate;
+      return { title: insight.title, body };
+    }
+
+    function getCtaCopy(audit) {
+      return audit.overall >= 80 ? getCopy().cta.polish : getCopy().cta.rebuild;
+    }
+
+    /* Mobile menu */
+    const mmbtn = document.getElementById('mobileMenuBtn');
+    const mmenu = document.getElementById('mobileMenu');
+    function toggleMobileMenu() { mmenu.classList.toggle('hidden'); }
+    function closeMobileMenu() { mmenu.classList.add('hidden'); }
+    document.addEventListener('click', e => {
+      if (!mmbtn.contains(e.target) && !mmenu.contains(e.target)) closeMobileMenu();
+    });
+    mmenu.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMobileMenu));
+
+    /* Scroll reveal */
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.section-fade').forEach(el => obs.observe(el));
+
+    function buildLiveAudit(url, payload) {
+      const lighthouse = payload?.lighthouseResult || {};
+      const categories = lighthouse.categories || {};
+      const audits = lighthouse.audits || {};
+      const finalUrl = lighthouse.finalDisplayedUrl || lighthouse.finalUrl || url;
+
+      const speed = scoreFromCategory(categories.performance?.score);
+      const accessibility = scoreFromCategory(categories.accessibility?.score);
+      const seo = scoreFromCategory(categories.seo?.score);
+      const bestPractices = scoreFromCategory(categories['best-practices']?.score);
+      const viewport = booleanAuditScore(audits.viewport, 60);
+      const tapTargets = booleanAuditScore(audits['tap-targets'], 60);
+      const mobile = clamp(Math.round((accessibility * 0.55) + (speed * 0.25) + (viewport * 0.1) + (tapTargets * 0.1)), 0, 100);
+      const security = clamp(Math.round((bestPractices * 0.82) + (finalUrl.startsWith('https://') ? 18 : 0)), 0, 100);
+
+      const vitalsFieldScores = [
+        metricCategoryToScore(payload?.loadingExperience?.metrics?.LARGEST_CONTENTFUL_PAINT_MS?.category),
+        metricCategoryToScore(payload?.loadingExperience?.metrics?.INTERACTION_TO_NEXT_PAINT?.category),
+        metricCategoryToScore(payload?.loadingExperience?.metrics?.CUMULATIVE_LAYOUT_SHIFT_SCORE?.category)
+      ].filter(Number.isFinite);
+
+      const vitalsLabScores = [
+        thresholdScore(audits['largest-contentful-paint']?.numericValue, 2500, 4000),
+        thresholdScore(audits['interaction-to-next-paint']?.numericValue, 200, 500),
+        thresholdScore(audits['cumulative-layout-shift']?.numericValue, 0.1, 0.25)
+      ].filter(Number.isFinite);
+
+      const vitalsScore = clamp(Math.round(average(vitalsFieldScores.length ? vitalsFieldScores : vitalsLabScores, 58)), 0, 100);
+      const loadSeconds = getLoadSeconds(audits);
+      const loadScore = clamp(Math.round((speed * 0.7) + (mapLoadTimeToScore(loadSeconds) * 0.3)), 0, 100);
+      const overall = clamp(Math.round((speed * 0.34) + (mobile * 0.26) + (seo * 0.2) + (security * 0.2)), 0, 100);
+      const scoreSet = { speed, mobile, seo, security };
+
+      return {
+        source: 'live',
+        displayUrl: cleanDisplayUrl(finalUrl),
+        overall,
+        categories: scoreSet,
+        weakest: getWeakestCategory(scoreSet),
+        metrics: { loadSeconds, loadScore, vitalsScore, mobileScore: mobile, seoScore: seo }
+      };
+    }
+
+    function buildEstimatedAudit(url, snapshot, durationMs) {
+      const parsed = new URL(url);
+      const host = parsed.hostname.replace(/^www\./i, '');
+      const rawContent = snapshot?.content || '';
+      const textContent = rawContent.replace(/[#>*_`[\]()]/g, ' ');
+      const words = textContent.split(/\s+/).filter(Boolean);
+      const wordCount = words.length;
+      const headingCount = (rawContent.match(/^#{1,6}\s/gm) || []).length;
+      const linkCount = (rawContent.match(/\[[^\]]+\]\([^)]+\)/g) || []).length;
+      const titleLength = (snapshot?.title || '').trim().length;
+      const descriptionLength = (snapshot?.description || '').trim().length;
+      const hasViewport = /width=device-width/i.test(snapshot?.metadata?.viewport || '');
+      const hasLang = Boolean(snapshot?.metadata?.lang);
+      const hasError = /error|not found|blocked/i.test(snapshot?.warning || '');
+      const isIp = /^\d{1,3}(\.\d{1,3}){3}$/.test(parsed.hostname);
+      const crawlSeconds = Math.max(0.3, durationMs / 1000);
+
+      const speed = clamp(mapLoadTimeToScore(crawlSeconds) + seededOffset(`${host}:speed:${wordCount}`, 6) - (hasError ? 8 : 0), 24, 92);
+      const mobile = clamp(
+        35 + (hasViewport ? 28 : 0) + (headingCount >= 2 ? 12 : 0) + (wordCount >= 150 ? 10 : wordCount >= 60 ? 5 : 0)
+        + (linkCount >= 2 ? 8 : 0) + seededOffset(`${host}:mobile:${headingCount}`, 5) - (hasError ? 6 : 0),
+        24,
+        94
+      );
+      const seo = clamp(
+        25 + (titleLength >= 20 && titleLength <= 60 ? 22 : titleLength ? 10 : 0)
+        + (descriptionLength >= 70 && descriptionLength <= 160 ? 22 : descriptionLength ? 10 : 0)
+        + (hasLang ? 8 : 0) + (headingCount >= 2 ? 8 : 0)
+        + (wordCount >= 200 ? 10 : wordCount >= 80 ? 5 : 0) + (linkCount >= 2 ? 5 : 0)
+        + seededOffset(`${host}:seo:${titleLength}`, 6) - (hasError ? 10 : 0),
+        20,
+        95
+      );
+      const security = clamp(
+        (parsed.protocol === 'https:' ? 70 : 36) + (!isIp ? 8 : -12) + (!parsed.username && !parsed.password ? 4 : -8)
+        + (!snapshot?.warning ? 6 : 0) + seededOffset(`${host}:security`, 4),
+        20,
+        92
+      );
+
+      const vitalsScore = clamp(Math.round((speed * 0.55) + (mobile * 0.45) + seededOffset(`${host}:vitals`, 4)), 24, 90);
+      const overall = clamp(Math.round((speed * 0.3) + (mobile * 0.27) + (seo * 0.23) + (security * 0.2)), 0, 100);
+      const scoreSet = { speed, mobile, seo, security };
+
+      return {
+        source: 'estimate',
+        displayUrl: cleanDisplayUrl(snapshot?.url || url),
+        overall,
+        categories: scoreSet,
+        weakest: getWeakestCategory(scoreSet),
+        metrics: { loadSeconds: crawlSeconds, loadScore: speed, vitalsScore, mobileScore: mobile, seoScore: seo }
+      };
+    }
+
+    function buildBaselineAudit(url) {
+      const parsed = new URL(url);
+      const host = parsed.hostname.replace(/^www\./i, '');
+      const hostLength = host.length;
+      const pathDepth = parsed.pathname.split('/').filter(Boolean).length;
+      const hasQuery = Boolean(parsed.search);
+      const hasHyphens = (host.match(/-/g) || []).length;
+      const isIp = /^\d{1,3}(\.\d{1,3}){3}$/.test(parsed.hostname);
+
+      const speed = clamp(55 + (parsed.protocol === 'https:' ? 8 : -6) - (pathDepth * 4) - (hasQuery ? 6 : 0) - (hostLength > 22 ? 6 : 0) + seededOffset(`${host}:baseline-speed`, 10), 24, 84);
+      const mobile = clamp(58 + (pathDepth === 0 ? 8 : 0) - (pathDepth * 3) - (hasQuery ? 4 : 0) + seededOffset(`${host}:baseline-mobile`, 8), 26, 86);
+      const seo = clamp(54 + (pathDepth === 0 ? 10 : 0) + (hasHyphens === 0 ? 6 : -6) - (hostLength > 22 ? 8 : 0) - (hasQuery ? 4 : 0) + seededOffset(`${host}:baseline-seo`, 9), 24, 86);
+      const security = clamp((parsed.protocol === 'https:' ? 78 : 42) - (isIp ? 16 : 0) - (hasQuery ? 5 : 0) + seededOffset(`${host}:baseline-security`, 6), 22, 92);
+      const overall = clamp(Math.round((speed * 0.3) + (mobile * 0.25) + (seo * 0.23) + (security * 0.22)), 0, 100);
+      const scoreSet = { speed, mobile, seo, security };
+
+      return {
+        source: 'baseline',
+        displayUrl: cleanDisplayUrl(url),
+        overall,
+        categories: scoreSet,
+        weakest: getWeakestCategory(scoreSet),
+        metrics: {
+          loadSeconds: estimatedSecondsFromScore(speed),
+          loadScore: speed,
+          vitalsScore: clamp(Math.round((mobile * 0.55) + (speed * 0.45)), 24, 88),
+          mobileScore: mobile,
+          seoScore: seo
+        }
+      };
+    }
+
+    async function buildAudit(url) {
+      try {
+        const endpoint = new URL('https://www.googleapis.com/pagespeedonline/v5/runPagespeed');
+        endpoint.searchParams.set('url', url);
+        endpoint.searchParams.set('strategy', 'mobile');
+        ['performance', 'accessibility', 'best-practices', 'seo'].forEach(category => endpoint.searchParams.append('category', category));
+        const livePayload = await fetchJson(endpoint.toString(), {}, 12000);
+        if (livePayload?.lighthouseResult?.categories) return buildLiveAudit(url, livePayload);
+      } catch (error) {
+        console.info('Live PageSpeed audit unavailable, falling back to estimate.', error);
+      }
+
+      try {
+        const started = performance.now();
+        const proxyUrl = `https://r.jina.ai/http://${encodeURIComponent(url)}`;
+        const crawlPayload = await fetchJson(proxyUrl, { headers: { Accept: 'application/json' } }, 12000);
+        if (crawlPayload?.data) return buildEstimatedAudit(url, crawlPayload.data, performance.now() - started);
+      } catch (error) {
+        console.info('Public crawl fallback unavailable, using baseline estimate.', error);
+      }
+
+      return buildBaselineAudit(url);
+    }
+
+    function renderAudit(audit) {
+      const scoreSet = audit.categories;
+      const overallTone = toneForScore(audit.overall);
+      const sourceKey = audit.source === 'live' ? 'live' : audit.source === 'estimate' ? 'estimate' : 'baseline';
+      const barTitles = getCopy().barTitles[audit.source === 'live' ? 'live' : 'estimate'];
+      const insight = getInsight(audit);
+      const cta = getCtaCopy(audit);
+
+      setText('resultsHeadline', buildHeadline(audit.overall));
+      setText('auditUrl', audit.displayUrl);
+      setText('auditMeta', getCopy().mode[sourceKey]);
+      setText('overallScore', String(audit.overall));
+      setToneClass(document.getElementById('overallScore'), overallTone.textClass);
+
+      ['speed', 'mobile', 'seo', 'security'].forEach(key => {
+        const score = scoreSet[key];
+        const tone = toneForScore(score);
+        setText(`score-${key}`, String(score));
+        setText(`status-${key}`, labelForScore(score));
+        setToneClass(document.getElementById(`score-${key}`), tone.textClass);
+        setToneClass(document.getElementById(`status-${key}`), tone.textClass);
+        animateRing(`ring-${key}`, score, tone.stroke);
+      });
+
+      setText('bar-load-title', barTitles.load);
+      setText('bar-vitals-title', barTitles.vitals);
+      setText('bar-mobile-title', barTitles.mobile);
+      setText('bar-seo-title', barTitles.seo);
+
+      setBar('load', audit.metrics.loadScore, `${formatSeconds(audit.metrics.loadSeconds)} — ${labelForScore(audit.metrics.loadScore)}`);
+      setBar('vitals', audit.metrics.vitalsScore, labelForScore(audit.metrics.vitalsScore));
+      setBar('mobile', audit.metrics.mobileScore, labelForScore(audit.metrics.mobileScore));
+      setBar('seo', audit.metrics.seoScore, labelForScore(audit.metrics.seoScore));
+
+      setText('insightTitle', insight.title);
+      setText('insightBody', insight.body);
+      setText('ctaTitle', cta.title);
+      setText('ctaBody', cta.body);
+
+      const insightBox = document.getElementById('insightBox');
+      if (insightBox) {
+        insightBox.classList.remove('warn-bg', 'info-bg');
+        insightBox.classList.add(scoreSet[audit.weakest] < 60 || audit.overall < 70 ? 'warn-bg' : 'info-bg');
+      }
+
+      document.getElementById('scanningState').classList.add('hidden');
+      document.getElementById('resultsState').classList.remove('hidden');
+    }
+
+    async function runAudit() {
+      if (auditInFlight) return;
+
+      const input = document.getElementById('urlInput');
+      const raw = input.value.trim();
+      if (!raw) {
+        pulseInput(input);
+        return;
+      }
+
+      let url;
+      try {
+        url = normalizeUrl(raw);
+      } catch {
+        pulseInput(input);
+        return;
+      }
+
+      const panel = document.getElementById('auditPanel');
+      const scan = document.getElementById('scanningState');
+      const result = document.getElementById('resultsState');
+
+      panel.classList.remove('hidden');
+      scan.classList.remove('hidden');
+      result.classList.add('hidden');
+      panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      setAuditBusy(true);
+      const started = performance.now();
+
+      try {
+        const audit = await buildAudit(url);
+        lastAuditState = audit;
+        const elapsed = performance.now() - started;
+        if (elapsed < 1200) await wait(1200 - elapsed);
+        renderAudit(audit);
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } finally {
+        setAuditBusy(false);
+      }
+    }
+
+    /* Navbar blur */
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').style.backdropFilter = window.scrollY > 20 ? 'blur(24px)' : 'blur(18px)';
+    });
+
+    /* Smooth anchors */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    document.getElementById('urlInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        runAudit();
+      }
+    });
+
+    const formNextUrl = document.getElementById('formNextUrl');
+    const formOriginUrl = document.getElementById('formOriginUrl');
+    if (formNextUrl) formNextUrl.value = `${window.location.href.split('#')[0]}#contact`;
+    if (formOriginUrl) formOriginUrl.value = window.location.href.split('#')[0];
+
+    /* Form submit feedback */
+    document.getElementById('contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = this;
+      const btn = form.querySelector('button[type="submit"]');
+      const orig = btn.innerHTML;
+      const endpoint = form.dataset.ajaxEndpoint;
+
+      setFormStatus();
+      btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i>&nbsp;${getCopy().formSending}`;
+      btn.disabled = true;
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form)
+        });
+
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || result.success === false || result.success === 'false') {
+          throw new Error(result.message || 'Form submission failed');
+        }
+
+        btn.innerHTML = `<i class="fas fa-check"></i>&nbsp;${getCopy().formSent}`;
+        btn.style.background = '#10B981';
+        setFormStatus(getCopy().formSuccess, 'success');
+        form.reset();
+        if (formNextUrl) formNextUrl.value = `${window.location.href.split('#')[0]}#contact`;
+        if (formOriginUrl) formOriginUrl.value = window.location.href.split('#')[0];
+      } catch (error) {
+        console.error('Contact form submission failed.', error);
+        btn.style.background = '#EF4444';
+        setFormStatus(getCopy().formError, 'error');
+      } finally {
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.disabled = false;
+          btn.style.background = '';
+        }, 2500);
+      }
+    });
+
+    applyLanguage();
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Stoyan Tanev",
+  "jobTitle": "Freelance Web Designer and Developer",
+  "description": "Freelance web designer and developer from Plovdiv, Bulgaria focused on fast, affordable websites, UI/UX, and AI-assisted workflows.",
+  "url": "https://sitesonar.dev",
+  "telephone": "+359895469386",
+  "email": "stoyanbtanev@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Plovdiv", "addressCountry": "BG" },
+  "sameAs": ["https://www.linkedin.com/in/stoyan-tanev-a732603b8/"],
+  "knowsAbout": ["Web Design", "Web Development", "UI/UX", "AI Workflows", "Landing Pages", "Website Redesign"],
+  "areaServed": ["Bulgaria", "Worldwide"]
+}
+</script>
+
+  <!-- ═══ PARTICLE SYSTEM — Antigravity-style confetti sparks ═══ -->
+  <script>
+    (function () {
+      const canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      let w, h;
+      let particles = [];
+      let mouseX = -9999, mouseY = -9999;
+      let mouseActive = false;
+
+      /* ── Color palettes ── */
+      const DARK_COLORS = [
+        [0, 212, 255],   // cyan
+        [0, 119, 255],   // blue
+        [124, 58, 237],  // purple
+        [0, 196, 140],   // teal
+        [99, 179, 237],  // sky
+        [167, 139, 250], // lavender
+      ];
+      const LIGHT_COLORS = [
+        [0, 85, 204],    // blue
+        [124, 58, 237],  // purple
+        [220, 38, 38],   // red
+        [202, 138, 4],   // amber
+        [5, 150, 105],   // emerald
+        [37, 99, 235],   // royal blue
+      ];
+
+      /* ── Poisson Disk Sampling for organic distribution ── */
+      function poissonDiskSampling(width, height, minDist, maxTries) {
+        const cellSize = minDist / Math.SQRT2;
+        const cols = Math.ceil(width / cellSize);
+        const rows = Math.ceil(height / cellSize);
+        const grid = new Array(cols * rows).fill(-1);
+        const points = [];
+        const active = [];
+
+        function gridIndex(x, y) {
+          return Math.floor(x / cellSize) + Math.floor(y / cellSize) * cols;
+        }
+
+        function addPoint(x, y) {
+          const idx = points.length;
+          points.push([x, y]);
+          active.push(idx);
+          grid[gridIndex(x, y)] = idx;
+        }
+
+        function isValid(x, y) {
+          if (x < 0 || x >= width || y < 0 || y >= height) return false;
+          const col = Math.floor(x / cellSize);
+          const row = Math.floor(y / cellSize);
+          for (let dy = -2; dy <= 2; dy++) {
+            for (let dx = -2; dx <= 2; dx++) {
+              const c = col + dx, r = row + dy;
+              if (c < 0 || c >= cols || r < 0 || r >= rows) continue;
+              const idx = grid[c + r * cols];
+              if (idx === -1) continue;
+              const [px, py] = points[idx];
+              const ddx = x - px, ddy = y - py;
+              if (ddx * ddx + ddy * ddy < minDist * minDist) return false;
+            }
+          }
+          return true;
+        }
+
+        // Seed
+        addPoint(width / 2, height / 2);
+
+        while (active.length > 0) {
+          const randIdx = Math.floor(Math.random() * active.length);
+          const [sx, sy] = points[active[randIdx]];
+          let found = false;
+          for (let t = 0; t < maxTries; t++) {
+            const angle = Math.random() * Math.PI * 2;
+            const radius = minDist + Math.random() * minDist;
+            const nx = sx + Math.cos(angle) * radius;
+            const ny = sy + Math.sin(angle) * radius;
+            if (isValid(nx, ny)) {
+              addPoint(nx, ny);
+              found = true;
+              break;
+            }
+          }
+          if (!found) active.splice(randIdx, 1);
+        }
+        return points;
+      }
+
+      /* ── Resize & seed particles ── */
+      function resize() {
+        w = window.innerWidth;
+        h = window.innerHeight;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        seedParticles();
+      }
+
+      function seedParticles() {
+        particles = [];
+        // Adjust density: ~55px spacing on desktop, sparser on mobile
+        const minDist = w < 600 ? 70 : 55;
+        const points = poissonDiskSampling(w, h, minDist, 30);
+
+        points.forEach(([x, y]) => {
+          const colorIdx = Math.floor(Math.random() * DARK_COLORS.length);
+          particles.push({
+            x, y,
+            homeX: x,
+            homeY: y,
+            vx: 0,
+            vy: 0,
+            colorIdx,
+            length: Math.random() * 3.5 + 1.5,     // spark length
+            baseAngle: (Math.random() * 0.8 + 0.3) * (Math.random() < 0.5 ? 1 : -1), // diagonal tilt
+            alpha: Math.random() * 0.45 + 0.15,
+            phase: Math.random() * Math.PI * 2,
+            wanderRadiusX: Math.random() * 14 + 8,
+            wanderRadiusY: Math.random() * 10 + 6,
+            wanderSpeed: Math.random() * 0.015 + 0.008,
+            wanderOffset: Math.random() * Math.PI * 2,
+            cursorPull: Math.random() * 0.45 + 0.9,
+            cursorShift: Math.random() * 0.6 + 0.6,
+          });
+        });
+      }
+
+      /* ── Mouse tracking ── */
+      const MOUSE_RADIUS = 180;
+      const MOUSE_FORCE = 0.22;
+      const FRICTION = 0.9;
+      const RETURN_FORCE = 0.025;
+      const MAX_SPEED = 2.6;
+
+      function setPointer(x, y) {
+        mouseX = x;
+        mouseY = y;
+        mouseActive = true;
+      }
+
+      function clearPointer() {
+        mouseActive = false;
+        mouseX = -9999;
+        mouseY = -9999;
+      }
+
+      window.addEventListener('pointermove', e => {
+        setPointer(e.clientX, e.clientY);
+      }, { passive: true });
+      window.addEventListener('pointerdown', e => {
+        setPointer(e.clientX, e.clientY);
+      }, { passive: true });
+      window.addEventListener('mouseout', e => {
+        if (!e.relatedTarget) clearPointer();
+      });
+      window.addEventListener('blur', clearPointer);
+
+      /* ── Main draw loop ── */
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        const dark = document.documentElement.classList.contains('dark');
+        const palette = dark ? DARK_COLORS : LIGHT_COLORS;
+        const globalAlphaMul = dark ? 1 : 0.7; // slightly softer in light mode
+        const cursorShiftX = mouseActive ? (mouseX - w * 0.5) * 0.035 : 0;
+        const cursorShiftY = mouseActive ? (mouseY - h * 0.5) * 0.028 : 0;
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.phase += p.wanderSpeed;
+
+          const anchorX = p.homeX
+            + Math.cos(p.phase + p.wanderOffset) * p.wanderRadiusX
+            + cursorShiftX * p.cursorShift;
+          const anchorY = p.homeY
+            + Math.sin((p.phase * 1.25) + p.wanderOffset) * p.wanderRadiusY
+            + cursorShiftY * p.cursorShift;
+
+          // Cursor pull
+          if (mouseActive) {
+            const dx = mouseX - p.x;
+            const dy = mouseY - p.y;
+            const distSq = dx * dx + dy * dy;
+            if (distSq < MOUSE_RADIUS * MOUSE_RADIUS && distSq > 0.01) {
+              const dist = Math.sqrt(distSq);
+              const force = (1 - dist / MOUSE_RADIUS) * MOUSE_FORCE;
+              p.vx += (dx / dist) * force * p.cursorPull;
+              p.vy += (dy / dist) * force * p.cursorPull;
+            }
+          }
+
+          // Return to a moving anchor so the field never feels static.
+          p.vx += (anchorX - p.x) * RETURN_FORCE;
+          p.vy += (anchorY - p.y) * RETURN_FORCE;
+
+          // Friction
+          p.vx *= FRICTION;
+          p.vy *= FRICTION;
+
+          const speed = Math.hypot(p.vx, p.vy);
+          if (speed > MAX_SPEED) {
+            const scale = MAX_SPEED / speed;
+            p.vx *= scale;
+            p.vy *= scale;
+          }
+
+          // Update position
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // Pulse alpha
+          const pulse = Math.sin((p.phase * 2.1) + p.wanderOffset) * 0.2 + 0.8;
+
+          // Draw spark as a tiny diagonal line
+          const [r, g, b] = palette[p.colorIdx % palette.length];
+          const a = p.alpha * pulse * globalAlphaMul;
+          const halfLen = p.length;
+          const drawAngle = p.baseAngle + p.vx * 0.12;
+          const cosA = Math.cos(drawAngle) * halfLen;
+          const sinA = Math.sin(drawAngle) * halfLen;
+
+          ctx.beginPath();
+          ctx.moveTo(p.x - cosA, p.y - sinA);
+          ctx.lineTo(p.x + cosA, p.y + sinA);
+          ctx.strokeStyle = `rgba(${r},${g},${b},${a})`;
+          ctx.lineWidth = 1.2;
+          ctx.lineCap = 'round';
+          ctx.stroke();
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      /* ── Init ── */
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(resize, 200);
+      });
+      resize();
+      draw();
+    })();
+  </script>
+</body>
+
+</html>
