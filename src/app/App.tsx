@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import './site.css';
 import '../styles/fonts.css';
+import rawBody from '../imports/body.html?raw';
 
 export default function App() {
   useEffect(() => {
@@ -38,21 +39,6 @@ export default function App() {
   }, []);
 
   return (
-    <iframe 
-      src="/src/imports/index.html" 
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        border: 'none',
-        margin: 0,
-        padding: 0,
-        overflow: 'hidden',
-        zIndex: 999999
-      }}
-      title="SiteSonar Website"
-    />
+    <div dangerouslySetInnerHTML={{ __html: rawBody }} />
   );
 }
