@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
-  <title id="title">SiteSonar repository banner</title>
-  <desc id="desc">Branded repository artwork for SiteSonar with service highlights and a stylized website audit card.</desc>
+  <title id="title">DesignWithMe repository banner</title>
+  <desc id="desc">Branded repository artwork for DesignWithMe with service highlights and a stylized website audit card.</desc>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#050D1A" />
@@ -40,7 +40,7 @@
   <circle cx="164" cy="154" r="7" fill="#00D4FF" />
 
   <text x="96" y="112" fill="#00D4FF" font-size="16" font-weight="700" letter-spacing="2.6" font-family="Segoe UI, Arial, sans-serif">FAST WEBSITES. FAIR PRICES.</text>
-  <text x="96" y="180" fill="#F8FBFF" font-size="60" font-weight="800" font-family="Segoe UI, Arial, sans-serif">SiteSonar</text>
+  <text x="96" y="180" fill="#F8FBFF" font-size="60" font-weight="800" font-family="Segoe UI, Arial, sans-serif">DesignWithMe</text>
   <text x="96" y="230" fill="#F8FBFF" font-size="28" font-weight="700" font-family="Segoe UI, Arial, sans-serif">Fast websites that launch in days.</text>
   <text x="96" y="274" fill="#AFC6E8" font-size="19" font-weight="500" font-family="Segoe UI, Arial, sans-serif">Freelance web design, instant audits, and transparent pricing</text>
   <text x="96" y="304" fill="#AFC6E8" font-size="19" font-weight="500" font-family="Segoe UI, Arial, sans-serif">for businesses that want speed, clarity, and results.</text>

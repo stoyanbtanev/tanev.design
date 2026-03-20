@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="assets/repo-banner.svg" alt="SiteSonar repository banner" width="100%" />
+  <img src="assets/repo-banner.svg" alt="DesignWithMe repository banner" width="100%" />
 </p>
 
-<h1 align="center">SiteSonar</h1>
+<h1 align="center">DesignWithMe</h1>
 
 <p align="center">
   Fast, conversion-focused websites and instant website audits for businesses that want to launch in days, not months.
 </p>
 
 <p align="center">
-  <a href="https://sitesonar.dev">Live Site</a>
+  <a href="https://designwithme.dev">Live Site</a>
   |
   <a href="mailto:stoyanbtanev@gmail.com">Email</a>
   |
@@ -20,7 +20,7 @@
 
 ## Overview
 
-SiteSonar is the public-facing service site for Stoyan Tanev, a freelance web designer and developer based in Plovdiv, Bulgaria. This repository contains the full landing page experience for the service: brand positioning, a free instant website audit, transparent pricing, and a direct lead capture flow.
+DesignWithMe is the public-facing service site for Stoyan Tanev, a freelance web designer and developer based in Plovdiv, Bulgaria. This repository contains the full landing page experience for the service: brand positioning, a free instant website audit, transparent pricing, and a direct lead capture flow.
 
 The project is built to communicate one message clearly: businesses should be able to get a sharp, modern website fast, without agency overhead, vague pricing, or slow delivery.
 
@@ -47,7 +47,7 @@ The project is built to communicate one message clearly: businesses should be ab
 
 ## Audit Experience
 
-One of the strongest differentiators in this project is the audit flow. Instead of showing a static promise, SiteSonar gives visitors immediate value by analyzing their site and using the result as a natural lead-in to a quote.
+One of the strongest differentiators in this project is the audit flow. Instead of showing a static promise, DesignWithMe gives visitors immediate value by analyzing their site and using the result as a natural lead-in to a quote.
 
 The audit engine is layered for resilience:
 
@@ -115,9 +115,9 @@ flowchart LR
 
 ## Contact
 
-SiteSonar is built and operated by Stoyan Tanev.
+DesignWithMe is built and operated by Stoyan Tanev.
 
-- Website: https://sitesonar.dev
+- Website: https://designwithme.dev
 - Email: stoyanbtanev@gmail.com
 - LinkedIn: https://www.linkedin.com/in/stoyan-tanev-a732603b8/
 - GitHub: https://github.com/stoyanbtanev
