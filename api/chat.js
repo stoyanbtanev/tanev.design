@@ -21,8 +21,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Upgraded to gemini-2.0-flash (fastest and most widely available globally)
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
+    // Reverting to gemini-1.5-flash. The 2.0 model currently throws billing requirement errors in some EU free-tier projects.
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

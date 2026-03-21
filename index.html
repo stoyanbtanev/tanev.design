@@ -2225,6 +2225,7 @@
     let chatHistory = [];
     let chatOpen = false;
     let chatInitialized = false;
+    let isChatLoading = false;
     const chatBotBox = document.getElementById('chatBotBox');
     const chatToggleIcon = document.getElementById('chatToggleIcon');
     const chatMsgs = document.getElementById('chatMsgs');
@@ -2261,9 +2262,12 @@
 
     async function handleChatSubmit(e) {
       e.preventDefault();
+      if (isChatLoading) return; // Prevent double-clicks / spam
+      
       const val = chatInput.value.trim();
       if (!val) return;
 
+      isChatLoading = true;
       appendMessage(val, 'user');
       chatInput.value = '';
 
@@ -2292,6 +2296,7 @@
           console.error("Gemini API Error:", data.error);
           appendMessage(currentLang === 'en' ? "Oops, I'm having trouble connecting right now." : "Опа, възникна проблем с връзката.", 'ai');
           chatHistory.pop();
+          isChatLoading = false;
           return;
         }
 
@@ -2305,6 +2310,7 @@
         appendMessage(currentLang === 'en' ? "Network error. Please try again." : "Мрежова грешка. Опитайте отново.", 'ai');
         chatHistory.pop();
       }
+      isChatLoading = false;
     }
 
     /* Cookies */
@@ -2344,10 +2350,6 @@
 </script>
 
 
-
-  <!-- ═══ VERCEL ANALYTICS ═══ -->
-  <script defer src="/_vercel/insights/script.js"></script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 
 </html>
