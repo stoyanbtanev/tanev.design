@@ -115,7 +115,7 @@
     }
 
     .dark .neon-glow {
-      box-shadow: 0 2px 16px rgba(255, 255, 255, .08);
+      box-shadow: none;
     }
 
     .dark .card-bg {
@@ -231,13 +231,13 @@
     }
 
     html:not(.dark) .neon-glow {
-      box-shadow: 0 2px 16px rgba(0, 0, 0, .06);
+      box-shadow: none;
     }
 
     html:not(.dark) .card-bg {
       background: #ffffff;
       border: 1px solid #e8e8e8;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, .04);
+      box-shadow: none;
     }
 
     html:not(.dark) .nav-bg {
@@ -315,7 +315,7 @@
     html:not(.dark) .pricing-highlight {
       background: #ffffff;
       border: 1.5px solid #000000;
-      box-shadow: 0 8px 40px rgba(0, 0, 0, .08);
+      box-shadow: none;
     }
 
     html:not(.dark) .badge-popular {
@@ -449,24 +449,26 @@
     }
 
     .dark .url-input:focus {
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, .25);
+      border-color: #ffffff;
+      box-shadow: none;
     }
 
     html:not(.dark) .url-input:focus {
-      box-shadow: 0 0 0 2px rgba(0, 0, 0, .2);
+      border-color: #000000;
+      box-shadow: none;
     }
 
     .pricing-card {
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
     .pricing-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, .08);
+      transform: translateY(-2px);
+      box-shadow: none;
     }
 
     .dark .pricing-card:hover {
-      box-shadow: 0 12px 32px rgba(0, 0, 0, .4);
+      box-shadow: none;
     }
 
     .gradient-text {
@@ -484,7 +486,7 @@
     }
 
     .card-shine::before {
-      content: '';
+      content: none;
       position: absolute;
       top: 0;
       left: 0;
@@ -525,7 +527,13 @@
     }
 
     .crimson-glow {
-      text-shadow: 0 0 20px rgba(220, 20, 60, 0.4);
+      text-shadow: none;
+    }
+
+    .shadow-sm,
+    .shadow-xl,
+    .shadow-2xl {
+      box-shadow: none !important;
     }
 
     /* ── Creative Gradient ── */
@@ -1138,10 +1146,10 @@
           data-en="Clear pricing. No surprises." data-bg="Ясни цени, без неприятни изненади">Clear pricing. <span
             class="crimson">No surprises.</span></h2>
         <p class="muted text-sm mt-3 max-w-lg mx-auto"
-          data-en="You shouldn't have to guess what your website will cost. Pick a package that fits your needs, and let's get started."
-          data-bg="Не трябва да гадаеш колко ще струва сайтът ти. Избери пакет, който ти пасва, и започваме.">You
-          shouldn't have to guess what your website will cost. Pick a package that fits your needs, and let's get
-          started.</p>
+          data-en="You shouldn't have to guess what your website will cost. Every package includes free AI chat assistant integration, and the Growth and Pro packages also include a free domain for the first year."
+          data-bg="Не трябва да гадаеш колко ще струва сайтът ти. Всеки пакет включва безплатна интеграция на AI чат асистент, а пакетите Growth и Pro идват и с безплатен домейн за първата година.">You
+          shouldn't have to guess what your website will cost. Every package includes free AI chat assistant
+          integration, and the Growth and Pro packages also include a free domain for the first year.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -1184,6 +1192,11 @@
             <li class="flex items-center gap-2 text-xs muted"><i
                 class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
               <span data-en="3-day delivery" data-bg="Готово за 3 дни">3-day delivery</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="Free AI chat assistant integration"
+                data-bg="Безплатна интеграция на AI чат асистент">Free AI chat assistant integration</span>
             </li>
           </ul>
           <a href="#contact"
@@ -1229,6 +1242,11 @@
             <li class="flex items-center gap-2 text-xs muted"><i
                 class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
               <span data-en="5-day delivery" data-bg="Готово за 5 дни">5-day delivery</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="Free AI chat assistant integration"
+                data-bg="Безплатна интеграция на AI чат асистент">Free AI chat assistant integration</span>
             </li>
           </ul>
           <a href="#contact"
@@ -1281,6 +1299,16 @@
                   class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
                 <span data-en="7-day delivery" data-bg="Готово за 7 дни">7-day delivery</span>
               </li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+                <span data-en="Free AI chat assistant integration"
+                  data-bg="Безплатна интеграция на AI чат асистент">Free AI chat assistant integration</span>
+              </li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+                <span data-en="Free domain for the first year"
+                  data-bg="Безплатен домейн за първата година">Free domain for the first year</span>
+              </li>
             </ul>
             <a href="#contact"
               class="cta-primary rounded-xl py-2.5 text-xs font-display font-700 text-center transition-all duration-200 hover:scale-[1.02] active:scale-[.98]"
@@ -1326,6 +1354,16 @@
             <li class="flex items-center gap-2 text-xs muted"><i
                 class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
               <span data-en="10-day delivery" data-bg="Готово за 10 дни">10-day delivery</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="Free AI chat assistant integration"
+                data-bg="Безплатна интеграция на AI чат асистент">Free AI chat assistant integration</span>
+            </li>
+            <li class="flex items-center gap-2 text-xs muted"><i
+                class="fas fa-check neon-text text-[10px] flex-shrink-0"></i>
+              <span data-en="Free domain for the first year"
+                data-bg="Безплатен домейн за първата година">Free domain for the first year</span>
             </li>
           </ul>
           <a href="#contact"
