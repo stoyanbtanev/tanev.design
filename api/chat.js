@@ -21,8 +21,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    // We proved analytically that new EU accounts do not have gemini-1.5, only 2.0+
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
+    // Based on Google's exact API response, the 2.0-flash string was deprecated to force usage of the newly released 2.5 series.
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
