@@ -137,11 +137,11 @@
     }
 
     .dark .section-label {
-      color: #888888;
+      color: #a3a3a3;
     }
 
     .dark .muted {
-      color: #666666;
+      color: #a3a3a3;
     }
 
     .dark .progress-track {
@@ -254,11 +254,11 @@
     }
 
     html:not(.dark) .section-label {
-      color: #888888;
+      color: #4b5563;
     }
 
     html:not(.dark) .muted {
-      color: #999999;
+      color: #6b7280;
     }
 
     html:not(.dark) .progress-track {
@@ -304,7 +304,51 @@
       background: #f7f7f7;
     }
 
+    /* ── Animated Background Orbs ── */
+    .bg-fx {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+      background: transparent;
+    }
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
+      animation: floatOrbs 15s infinite ease-in-out alternate;
+      will-change: transform;
+    }
+    .dark .bg-orb.orb-1 {
+      width: 40vw; height: 40vw;
+      background: rgba(220, 20, 60, 0.12); /* Crimson */
+      top: -10vw; left: -10vw;
+      animation-duration: 20s;
+    }
+    .dark .bg-orb.orb-2 {
+      width: 35vw; height: 35vw;
+      background: rgba(59, 130, 246, 0.12); /* Blue */
+      bottom: -10vw; right: -5vw;
+      animation-delay: -5s;
+    }
+    .dark .bg-orb.orb-3 {
+      width: 30vw; height: 30vw;
+      background: rgba(139, 92, 246, 0.12); /* Purple */
+      top: 40%; left: 60%;
+      animation-duration: 25s;
+    }
+    html:not(.dark) .bg-orb { opacity: 0.3; filter: blur(100px); }
+    html:not(.dark) .bg-orb.orb-1 { background: rgba(220, 20, 60, 0.15); }
+    html:not(.dark) .bg-orb.orb-2 { background: rgba(59, 130, 246, 0.15); }
+    html:not(.dark) .bg-orb.orb-3 { background: rgba(139, 92, 246, 0.15); }
 
+    @keyframes floatOrbs {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(5%) scale(1.05); }
+      100% { transform: translateY(-5%) scale(0.95); }
+    }
 
     /* ── Scan line ── */
     .scan-line {
@@ -564,6 +608,13 @@
 </head>
 
 <body class="min-h-screen transition-colors duration-300">
+
+  <!-- ═══ ANIMATED BACKGROUND ═══ -->
+  <div class="bg-fx">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+  </div>
 
   <!-- ═══ NAVBAR ═══ -->
   <nav id="navbar" class="nav-bg fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-300">
