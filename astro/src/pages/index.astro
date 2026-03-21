@@ -9,6 +9,8 @@ import banner from "../assets/repo-banner.svg";
 <BaseLayout
   title="tanev.design - Fast websites that launch in days"
   description="Fast, conversion-focused websites and instant website audits built and delivered in days."
+  canonical="https://tanev.design/"
+  ogImage="https://tanev.design/ogpreview.png"
 >
   <header class="sticky top-0 z-40 border-b border-white/10 bg-[#070a12]/85 backdrop-blur-xl">
     <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
@@ -184,6 +186,33 @@ import banner from "../assets/repo-banner.svg";
       document.querySelectorAll("[data-reveal]").forEach((el) => observer.observe(el));
     } else {
       document.querySelectorAll("[data-reveal]").forEach((el) => el.classList.add("in"));
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "tanev.design",
+      "url": "https://tanev.design",
+      "image": "https://tanev.design/ogpreview.png",
+      "description": "Fast, conversion-focused websites and instant website audits built and delivered in days.",
+      "areaServed": ["Bulgaria", "Worldwide"],
+      "priceRange": "EUR 200 - EUR 800+",
+      "founder": {
+        "@type": "Person",
+        "name": "Stoyan Tanev"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Plovdiv",
+        "addressCountry": "BG"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/stoyan-tanev-a732603b8/",
+        "https://github.com/stoyanbtanev"
+      ],
+      "email": "stoyanbtanev@gmail.com",
+      "telephone": "+359895469386"
     }
   </script>
 </BaseLayout>
