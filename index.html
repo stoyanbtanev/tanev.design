@@ -30,13 +30,17 @@
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23000'/><text x='50' y='72' font-family='Arial,sans-serif' font-size='62' font-weight='700' fill='white' text-anchor='middle'>t</text></svg>" />
 
-  <!-- Preconnect to all third-party origins immediately -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+  <!-- Preconnect to third-party origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
-  <!-- Google Fonts: non-blocking with font-display=swap baked in -->
+  <!-- Tailwind: MUST load synchronously to avoid FOUC -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome: synchronous (icons appear above the fold) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts: non-blocking with font-display=swap -->
   <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
   <link rel="stylesheet"
@@ -47,19 +51,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
   </noscript>
 
-  <!-- Font Awesome: non-blocking -->
-  <link rel="preload" as="style"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  </noscript>
-
   <script>
-    // Must be defined BEFORE the deferred tailwind.js runs (inline scripts always execute first)
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -70,9 +62,6 @@
       }
     };
   </script>
-
-  <!-- Tailwind CDN: defer so it NEVER blocks first paint -->
-  <script defer src="https://cdn.tailwindcss.com"></script>
 
   <style>
     *,
@@ -341,11 +330,10 @@
     .bg-orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.5;
-      /* translateZ(0) promotes to GPU composited layer so animation never triggers layout/paint */
+      filter: blur(50px);
+      opacity: 0.45;
       transform: translateZ(0);
-      will-change: transform, opacity;
+      will-change: transform;
       animation: floatOrbs 20s infinite ease-in-out alternate;
     }
     .dark .bg-orb.orb-1 {
@@ -367,7 +355,7 @@
       animation-duration: 28s;
       animation-delay: -14s;
     }
-    html:not(.dark) .bg-orb { opacity: 0.25; filter: blur(100px); }
+    html:not(.dark) .bg-orb { opacity: 0.2; filter: blur(60px); }
     html:not(.dark) .bg-orb.orb-1 { background: rgba(220, 20, 60, 0.15); }
     html:not(.dark) .bg-orb.orb-2 { background: rgba(59, 130, 246, 0.15); }
     html:not(.dark) .bg-orb.orb-3 { background: rgba(139, 92, 246, 0.15); }
