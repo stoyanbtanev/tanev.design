@@ -3,16 +3,19 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  // Expecting the frontend to send { contents: [...] }
   const { contents } = req.body;
-  const apiKey = process.env.GEMINI_API_KEY;
+  const rawKey = process.env.GEMINI_API_KEY;
 
-  if (!apiKey) {
+  if (!rawKey) {
     return res.status(500).json({ error: 'GEMINI_API_KEY Environment Variable is missing in Vercel' });
   }
 
+  // Trim whitespace which easily happens when pasting into Vercel
+  const apiKey = rawKey.trim();
+
   try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+    // Upgraded to gemini-2.0-flash (fastest and most widely available globally)
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
