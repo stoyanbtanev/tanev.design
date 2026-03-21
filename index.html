@@ -318,44 +318,7 @@
       background: #f7f7f7;
     }
 
-    /* ── Animated Background Orbs ── */
-    .bg-fx {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: -1;
-      overflow: hidden;
-      pointer-events: none;
-      background: transparent;
-    }
-    .bg-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(50px);
-      opacity: 0.45;
-      transform: translateZ(0);
-      will-change: transform;
-      animation: floatOrbs 20s infinite ease-in-out alternate;
-    }
-    .dark .bg-orb.orb-1 {
-      width: 40vw; height: 40vw;
-      background: rgba(220, 20, 60, 0.12);
-      top: -10vw; left: -10vw;
-      animation-duration: 22s;
-    }
-    html:not(.dark) .bg-orb { opacity: 0.2; filter: blur(60px); }
-    html:not(.dark) .bg-orb.orb-1 { background: rgba(220, 20, 60, 0.15); }
 
-    /* Only translate on compositor-safe axis; no scale to keep rasterization cost low */
-    @keyframes floatOrbs {
-      0%   { transform: translateZ(0) translate(0, 0); }
-      50%  { transform: translateZ(0) translate(3%, 5%); }
-      100% { transform: translateZ(0) translate(-3%, -4%); }
-    }
-
-    /* Reduce animation intensity on low-power devices */
-    @media (prefers-reduced-motion: reduce) {
-      .bg-orb { animation: none; }
-    }
 
     /* ── Scan line ── */
     .scan-line {
@@ -622,10 +585,7 @@
 
 <body class="min-h-screen transition-colors duration-300">
 
-  <!-- ═══ ANIMATED BACKGROUND ═══ -->
-  <div class="bg-fx">
-    <div class="bg-orb orb-1"></div>
-  </div>
+
 
   <!-- ═══ NAVBAR ═══ -->
   <nav id="navbar" class="nav-bg fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-300">
