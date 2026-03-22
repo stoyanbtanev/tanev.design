@@ -906,6 +906,28 @@
     .dark .text-violet { color: #a78bfa; }
     .text-sky { color: #2563eb; }
     .dark .text-sky { color: #60a5fa; }
+
+    /* ── Template device toggle ── */
+    .device-btn { transition: background .2s, color .2s, transform .15s; }
+    .device-btn.active { background: #DC143C !important; color: #fff !important; }
+    .dark .device-btn.active { background: #ff3355 !important; color: #fff !important; }
+
+    .tpl-card { transition: max-width .4s cubic-bezier(.22,1,.36,1); max-width: 100%; }
+    .tpl-preview { transition: height .4s cubic-bezier(.22,1,.36,1), border-radius .3s ease; height: 280px; border-radius: 0; }
+    .tpl-chrome { transition: opacity .2s; }
+    .tpl-notch, .tpl-home { display: none; transition: opacity .25s; }
+
+    /* Tablet mode */
+    #templates[data-device="tablet"] .tpl-card { max-width: 320px; margin-left: auto; margin-right: auto; }
+    #templates[data-device="tablet"] .tpl-preview { height: 340px; border-radius: 0 0 12px 12px; }
+
+    /* Mobile mode */
+    #templates[data-device="mobile"] .tpl-card { max-width: 220px; margin-left: auto; margin-right: auto; }
+    #templates[data-device="mobile"] .tpl-preview { height: 380px; border-radius: 0 0 20px 20px; }
+    #templates[data-device="mobile"] .tpl-chrome { opacity: 0; height: 0; padding: 0; border: none; overflow: hidden; }
+    #templates[data-device="mobile"] .tpl-notch { display: flex; }
+    #templates[data-device="mobile"] .tpl-home { display: block; }
+    #templates[data-device="mobile"] .card-bg { border-radius: 24px; }
   </style>
 
   <!-- Vercel Speed Insights -->
@@ -1213,22 +1235,21 @@
         <p class="text-xs uppercase tracking-widest section-label font-display font-700 mb-3" data-en="The Reality"
           data-bg="Реалността"><span class="crimson">The</span> Reality</p>
         <h2 class="font-display font-800 text-3xl sm:text-4xl dark:text-white text-gray-900 mb-6"
-          data-en="Your business needs a digital home." data-bg="Бизнесът ти има нужда от дигитален дом.">Your business
-          needs a <span class="crimson">digital home.</span></h2>
+          data-en="Your business deserves more than a social media page." data-bg="Бизнесът ти заслужава повече от страница в социалните мрежи.">Your business
+          deserves more than a <span class="crimson">social media page.</span></h2>
         <div class="space-y-4">
           <p class="muted text-sm leading-relaxed"
-            data-en="Social media pages are great, but you don't own them. Algorithms change, accounts get banned, and organic reach drops. A website is the only piece of digital real estate you fully control."
-            data-bg="Социалните мрежи са страхотни, но не са твои. Алгоритмите се сменят, акаунти се блокират, а органичният обхват намалява. Сайтът е единственото нещо онлайн, което наистина е твое.">
-            Social media pages are great, but you <span class="crimson font-medium">don't own them</span>. Algorithms
-            change, accounts get banned, and organic reach drops. A website is the only piece of digital real estate you
-            <span class="crimson font-medium">fully control</span>.
+            data-en="Instagram and Facebook are rented land. Algorithms shift, accounts get restricted, and reach keeps shrinking. A website is the only digital asset you truly own — and the only one that works for you around the clock."
+            data-bg="Instagram и Facebook са наета земя. Алгоритмите се менят, акаунти се ограничават, обхватът пада. Сайтът е единственият дигитален актив, който наистина е твой — и единственият, който работи за теб денонощно.">
+            Instagram and Facebook are <span class="crimson font-medium">rented land</span>. Algorithms shift, accounts get restricted, and reach keeps shrinking. A website is the only digital asset you
+            <span class="crimson font-medium">truly own</span>.
           </p>
           <p class="muted text-sm leading-relaxed"
-            data-en="When people search for a service, they trust businesses that look professional. A clean, fast website builds instant credibility and turns passing interest into paying clients 24/7."
-            data-bg="Когато някой търси услуга, първо гледа дали изглеждаш сериозно. Изчистен и бърз сайт вдъхва доверие от първия момент и ти носи клиенти денонощно.">
-            When people search for a service, they trust businesses that look professional. A clean, fast website builds
-            <span class="crimson font-medium">instant credibility</span> and turns passing interest into <span
-              class="crimson font-medium">paying clients 24/7</span>.
+            data-en="When someone searches for a service, they skip businesses without a site. A fast, professional website builds trust in seconds and turns curiosity into revenue — day and night."
+            data-bg="Когато някой потърси услуга, подминава бизнеси без сайт. Бързият, професионален сайт гради доверие за секунди и превръща любопитството в приход — денем и нощем.">
+            When someone searches for a service, they skip businesses without a site. A fast, professional website builds
+            <span class="crimson font-medium">trust in seconds</span> and turns curiosity into <span
+              class="crimson font-medium">revenue — day and night</span>.
           </p>
         </div>
       </div>
@@ -1240,9 +1261,9 @@
           <h4 class="font-display font-700 dark:text-white text-gray-900 mb-2 text-sm" data-en="Total Control"
             data-bg="Пълен контрол"><span class="crimson">Total</span> Control</h4>
           <p class="muted text-xs leading-relaxed"
-            data-en="No algorithm dictates who sees your content. You set the rules."
-            data-bg="Никой алгоритъм не решава кой те вижда. Ти си шефът."><span class="crimson font-medium">No
-              algorithm</span> dictates who sees your content. You set the rules.</p>
+            data-en="No algorithm decides who sees you. Your content, your audience, your rules."
+            data-bg="Никой алгоритъм не решава кой те вижда. Твоето съдържание, твоята аудитория, твоите правила."><span class="crimson font-medium">No
+              algorithm</span> decides who sees you. Your content, your audience, your rules.</p>
         </div>
         <div class="card-bg p-6 rounded-2xl pricing-card card-shine">
           <div class="w-12 h-12 rounded-xl tag-bg flex items-center justify-center mb-4">
@@ -1251,9 +1272,9 @@
           <h4 class="font-display font-700 dark:text-white text-gray-900 mb-2 text-sm" data-en="24/7 Sales"
             data-bg="Продажби 24/7"><span class="crimson">24/7</span> Sales</h4>
           <p class="muted text-xs leading-relaxed"
-            data-en="Your site answers questions and collects leads while you sleep."
-            data-bg="Сайтът ти отговаря на въпроси и събира запитвания, докато спиш.">Your site answers questions and
-            <span class="crimson font-medium">collects leads</span> while you sleep.
+            data-en="Your site fields questions, captures leads, and closes deals — while you sleep."
+            data-bg="Сайтът ти отговаря на въпроси, събира запитвания и затваря сделки — докато спиш.">Your site fields questions,
+            <span class="crimson font-medium">captures leads</span>, and closes deals — while you sleep.
           </p>
         </div>
       </div>
@@ -1351,10 +1372,10 @@
           <h3 class="font-display font-700 text-xl dark:text-white text-gray-900 mb-3" data-en="Lightning Fast Delivery"
             data-bg="Готово за дни, не за месеци"><span class="crimson">Lightning</span> Fast Delivery</h3>
           <p class="muted text-sm leading-relaxed"
-            data-en="From kickoff to launch in 3-10 days. I work in focused sprints so you're live while competitors are still in meetings."
-            data-bg="Сядам, фокусирам се и сайтът ти е готов за 3–10 дни. Ти си вече онлайн, а конкуренцията все още се чуди.">
-            From kickoff to launch in 3-10 days. I work in focused sprints so you're live while competitors are still in
-            meetings.</p>
+            data-en="Kickoff to launch in 3–10 days. Focused sprints, zero bloat — you go live while your competitors are still scheduling meetings."
+            data-bg="От старт до публикуване за 3–10 дни. Фокусирани спринтове, нула излишности — ти си онлайн, докато конкуренцията все още насрочва срещи.">
+            Kickoff to launch in 3–10 days. Focused sprints, zero bloat — you go live while your competitors are still
+            scheduling meetings.</p>
           <div class="mt-5 flex items-center gap-2 neon-text text-xs font-600 font-display tracking-wide">
             <i class="fas fa-check-circle text-xs"></i>
             <span data-en="3-10 day turnaround" data-bg="Готово за 3–10 дни">3-10 day turnaround</span>
@@ -1370,10 +1391,10 @@
           <h3 class="font-display font-700 text-xl dark:text-white text-gray-900 mb-3" data-en="Unbeatable Pricing"
             data-bg="Честни цени, без скрити номера">Unbeatable <span class="crimson">Pricing</span></h3>
           <p class="muted text-sm leading-relaxed"
-            data-en="No inflated middleman markup. No hidden fees. I keep the process lean, so you get strong quality at a fair price."
-            data-bg="Без посредници, без скрити такси. Работя директно с теб — получаваш качество на нормална цена.">
-            No inflated middleman markup. No hidden fees. I keep the process lean, so you get strong quality at a fair
-            price.</p>
+            data-en="No agency overhead. No hidden invoices. I keep the process lean so you get premium output at freelancer rates."
+            data-bg="Без агенционна надценка. Без скрити фактури. Процесът е стегнат — получаваш премиум резултат на цена на фрийлансър.">
+            No agency overhead. No hidden invoices. I keep the process lean so you get premium output at freelancer
+            rates.</p>
           <div class="mt-5 flex items-center gap-2 neon-text text-xs font-600 font-display tracking-wide">
             <i class="fas fa-check-circle text-xs"></i>
             <span data-en="Prices from €200" data-bg="От €200 нагоре">Prices from €200</span>
@@ -1389,9 +1410,9 @@
           <h3 class="font-display font-700 text-xl dark:text-white text-gray-900 mb-3" data-en="Premium Quality"
             data-bg="Качество без компромиси"><span class="crimson">Premium</span> Quality</h3>
           <p class="muted text-sm leading-relaxed"
-            data-en="Pixel-perfect design, clean semantic code, 90+ PageSpeed scores. Sites that look great and rank even better."
-            data-bg="Дизайн пиксел по пиксел, чист код и 90+ точки в PageSpeed. Изглежда добре и се класира още по-добре.">
-            Pixel-perfect design, clean semantic code, 90+ PageSpeed scores. Sites that look great and rank even better.
+            data-en="Pixel-perfect design, clean semantic code, and 90+ PageSpeed scores. Sites that look sharp and rank even sharper."
+            data-bg="Дизайн пиксел по пиксел, чист семантичен код и 90+ точки в PageSpeed. Изглежда остро и се класира още по-остро.">
+            Pixel-perfect design, clean semantic code, and 90+ PageSpeed scores. Sites that look sharp and rank even sharper.
           </p>
           <div class="mt-5 flex items-center gap-2 neon-text text-xs font-600 font-display tracking-wide">
             <i class="fas fa-check-circle text-xs"></i>
@@ -1405,26 +1426,36 @@
   </section>
 
   <!-- ═══ TEMPLATES ═══ -->
-  <section id="templates" class="py-24 px-5">
+  <section id="templates" class="py-24 px-5" data-device="desktop">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14 section-fade">
+      <div class="text-center mb-10 section-fade">
         <p class="text-xs uppercase tracking-widest section-label font-display font-700 mb-3" data-en="Style Directions" data-bg="Примерни стилове"><span class="crimson">Style</span> Directions</p>
         <h2 class="font-display font-800 text-3xl sm:text-4xl dark:text-white text-gray-900" data-en="A glimpse at what's possible." data-bg="Малко вдъхновение.">A glimpse at what's <span class="crimson">possible.</span></h2>
         <p class="muted text-sm mt-3 max-w-xl mx-auto" data-en="Every layout below is a style direction I build from scratch — fully adapted to your brand, content, and audience." data-bg="Всеки лейаут по-долу е посока, от която стартирам — изцяло адаптирана към твоя бранд, съдържание и аудитория.">Every layout below is a style direction I build from scratch — fully adapted to your brand, content, and audience.</p>
+      </div>
+
+      <!-- Device toggle -->
+      <div class="flex justify-center gap-2 mb-10 section-fade" style="transition-delay:.1s">
+        <button onclick="setDevice('desktop')" class="device-btn active tag-bg px-4 py-2 rounded-full text-xs font-display font-700 flex items-center gap-2 hover:scale-[1.03] active:scale-[.97]"><i class="fas fa-desktop text-[10px]"></i> <span data-en="Desktop" data-bg="Десктоп">Desktop</span></button>
+        <button onclick="setDevice('tablet')" class="device-btn tag-bg px-4 py-2 rounded-full text-xs font-display font-700 flex items-center gap-2 hover:scale-[1.03] active:scale-[.97]"><i class="fas fa-tablet-alt text-[10px]"></i> <span data-en="Tablet" data-bg="Таблет">Tablet</span></button>
+        <button onclick="setDevice('mobile')" class="device-btn tag-bg px-4 py-2 rounded-full text-xs font-display font-700 flex items-center gap-2 hover:scale-[1.03] active:scale-[.97]"><i class="fas fa-mobile-alt text-[10px]"></i> <span data-en="Mobile" data-bg="Мобилен">Mobile</span></button>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
 
         <!-- Template 1: Business / SaaS Landing -->
         <div class="section-fade" style="transition-delay:.05s">
-          <div class="card-bg rounded-2xl overflow-hidden pricing-card card-shine flex flex-col">
-            <div class="flex items-center gap-1.5 px-3 py-2 border-b divider flex-shrink-0">
+          <div class="tpl-card card-bg rounded-2xl overflow-hidden pricing-card card-shine flex flex-col">
+            <div class="tpl-chrome flex items-center gap-1.5 px-3 py-2 border-b divider flex-shrink-0">
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ff5f56"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ffbd2e"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#27c93f"></span>
               <div class="flex-1 ml-2 h-4 rounded-full tag-bg text-[8px] flex items-center px-2 muted truncate">yoursite.com</div>
             </div>
-            <div class="h-44 overflow-hidden flex-shrink-0" style="background:#0d0d14">
+            <div class="tpl-notch items-center justify-center pt-2 pb-1" style="background:#0d0d14">
+              <div class="w-16 h-1.5 rounded-full mx-auto" style="background:rgba(255,255,255,0.2)"></div>
+            </div>
+            <div class="tpl-preview overflow-hidden flex-shrink-0" style="background:#0d0d14">
               <div class="flex items-center justify-between px-3 py-1.5 border-b" style="border-color:rgba(255,255,255,0.07)">
                 <div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,0.7)"></div>
                 <div class="flex items-center gap-1.5">
@@ -1459,6 +1490,7 @@
                 </div>
               </div>
             </div>
+            <div class="tpl-home mx-auto my-2 w-10 h-1 rounded-full" style="background:rgba(255,255,255,0.2)"></div>
             <div class="p-4 flex-1 flex flex-col">
               <div class="flex items-start justify-between gap-2 mb-1">
                 <h4 class="font-display font-700 text-sm dark:text-white text-gray-900" data-en="Business Landing" data-bg="Бизнес лендинг">Business Landing</h4>
@@ -1472,14 +1504,17 @@
 
         <!-- Template 2: Restaurant / Local Business -->
         <div class="section-fade" style="transition-delay:.10s">
-          <div class="card-bg rounded-2xl overflow-hidden pricing-card card-shine flex flex-col">
-            <div class="flex items-center gap-1.5 px-3 py-2 border-b divider flex-shrink-0">
+          <div class="tpl-card card-bg rounded-2xl overflow-hidden pricing-card card-shine flex flex-col">
+            <div class="tpl-chrome flex items-center gap-1.5 px-3 py-2 border-b divider flex-shrink-0">
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ff5f56"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ffbd2e"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#27c93f"></span>
               <div class="flex-1 ml-2 h-4 rounded-full tag-bg text-[8px] flex items-center px-2 muted truncate">restaurant.com</div>
             </div>
-            <div class="h-44 overflow-hidden flex-shrink-0" style="background:#110b05">
+            <div class="tpl-notch items-center justify-center pt-2 pb-1" style="background:#110b05">
+              <div class="w-16 h-1.5 rounded-full mx-auto" style="background:rgba(220,180,100,0.25)"></div>
+            </div>
+            <div class="tpl-preview overflow-hidden flex-shrink-0" style="background:#110b05">
               <div class="flex items-center justify-between px-3 py-1.5" style="background:rgba(0,0,0,0.35)">
                 <div class="h-1.5 w-12 rounded" style="background:rgba(220,180,100,0.8)"></div>
                 <div class="flex items-center gap-1.5">
@@ -1515,6 +1550,7 @@
                 </div>
               </div>
             </div>
+            <div class="tpl-home mx-auto my-2 w-10 h-1 rounded-full" style="background:rgba(220,180,100,0.2)"></div>
             <div class="p-4 flex-1 flex flex-col">
               <div class="flex items-start justify-between gap-2 mb-1">
                 <h4 class="font-display font-700 text-sm dark:text-white text-gray-900" data-en="Restaurant / Local" data-bg="Ресторант / Местен">Restaurant / Local</h4>
@@ -1528,14 +1564,17 @@
 
         <!-- Template 3: Portfolio / Creative -->
         <div class="section-fade" style="transition-delay:.15s">
-          <div class="card-bg rounded-2xl overflow-hidden pricing-card card-shine flex flex-col">
-            <div class="flex items-center gap-1.5 px-3 py-2 border-b divider flex-shrink-0">
+          <div class="tpl-card card-bg rounded-2xl overflow-hidden pricing-card card-shine flex flex-col">
+            <div class="tpl-chrome flex items-center gap-1.5 px-3 py-2 border-b divider flex-shrink-0">
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ff5f56"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ffbd2e"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#27c93f"></span>
               <div class="flex-1 ml-2 h-4 rounded-full tag-bg text-[8px] flex items-center px-2 muted truncate">yourname.com</div>
             </div>
-            <div class="h-44 overflow-hidden flex-shrink-0" style="background:#0a0a0a">
+            <div class="tpl-notch items-center justify-center pt-2 pb-1" style="background:#0a0a0a">
+              <div class="w-16 h-1.5 rounded-full mx-auto" style="background:rgba(255,255,255,0.2)"></div>
+            </div>
+            <div class="tpl-preview overflow-hidden flex-shrink-0" style="background:#0a0a0a">
               <div class="flex h-full">
                 <div class="w-5/12 flex flex-col justify-center px-3 py-3 border-r" style="border-color:rgba(255,255,255,0.07)">
                   <div class="h-0.5 w-5 rounded mb-2.5" style="background:#DC143C"></div>
@@ -1553,6 +1592,7 @@
                 </div>
               </div>
             </div>
+            <div class="tpl-home mx-auto my-2 w-10 h-1 rounded-full" style="background:rgba(255,255,255,0.2)"></div>
             <div class="p-4 flex-1 flex flex-col">
               <div class="flex items-start justify-between gap-2 mb-1">
                 <h4 class="font-display font-700 text-sm dark:text-white text-gray-900" data-en="Portfolio / Creative" data-bg="Портфолио / Творческо">Portfolio / Creative</h4>
@@ -1566,14 +1606,17 @@
 
         <!-- Template 4: Local Service / Clean Light -->
         <div class="section-fade" style="transition-delay:.20s">
-          <div class="card-bg rounded-2xl overflow-hidden pricing-card card-shine flex flex-col">
-            <div class="flex items-center gap-1.5 px-3 py-2 border-b divider flex-shrink-0">
+          <div class="tpl-card card-bg rounded-2xl overflow-hidden pricing-card card-shine flex flex-col">
+            <div class="tpl-chrome flex items-center gap-1.5 px-3 py-2 border-b divider flex-shrink-0">
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ff5f56"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ffbd2e"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#27c93f"></span>
               <div class="flex-1 ml-2 h-4 rounded-full tag-bg text-[8px] flex items-center px-2 muted truncate">service.com</div>
             </div>
-            <div class="h-44 overflow-hidden flex-shrink-0" style="background:#f4f4f5">
+            <div class="tpl-notch items-center justify-center pt-2 pb-1" style="background:#f4f4f5">
+              <div class="w-16 h-1.5 rounded-full mx-auto" style="background:rgba(0,0,0,0.12)"></div>
+            </div>
+            <div class="tpl-preview overflow-hidden flex-shrink-0" style="background:#f4f4f5">
               <div class="flex items-center justify-between px-3 py-1.5 border-b" style="background:#ffffff;border-color:#e5e7eb">
                 <div class="h-1.5 w-10 rounded" style="background:#111"></div>
                 <div class="h-4 w-14 rounded" style="background:#1d4ed8;opacity:0.88"></div>
@@ -1611,6 +1654,7 @@
                 </div>
               </div>
             </div>
+            <div class="tpl-home mx-auto my-2 w-10 h-1 rounded-full" style="background:rgba(0,0,0,0.12)"></div>
             <div class="p-4 flex-1 flex flex-col">
               <div class="flex items-start justify-between gap-2 mb-1">
                 <h4 class="font-display font-700 text-sm dark:text-white text-gray-900" data-en="Service Business" data-bg="Услужен бизнес">Service Business</h4>
@@ -1636,10 +1680,10 @@
           data-en="Clear pricing. No surprises." data-bg="Ясни цени, без неприятни изненади">Clear pricing. <span
             class="crimson">No surprises.</span></h2>
         <p class="muted text-sm mt-3 max-w-lg mx-auto"
-          data-en="You shouldn't have to guess what your website will cost. The Growth and Pro packages include free AI chat assistant integration and a free domain for the first year."
-          data-bg="Не трябва да гадаеш колко ще струва сайтът ти. Пакетите Growth и Pro включват безплатна интеграция на AI чат асистент и безплатен домейн за първата година.">You
-          shouldn't have to guess what your website will cost. The Growth and Pro packages include free AI chat
-          assistant integration and a free domain for the first year.</p>
+          data-en="No hidden fees, no scope creep. Pick a package, tell me your vision, and I handle the rest. Growth and Pro include a free AI chat assistant and a free domain for year one."
+          data-bg="Без скрити такси, без напълзяне на обхвата. Избери пакет, кажи ми визията си, а аз поемам останалото. Growth и Pro включват безплатен AI чат асистент и безплатен домейн за първата година.">No
+          hidden fees, no scope creep. Pick a package, tell me your vision, and I handle the rest. Growth and Pro include a free AI chat
+          assistant and a free domain for year one.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -1654,9 +1698,9 @@
             <h3 class="font-display font-800 text-xl dark:text-white text-gray-900 mb-1" data-en="Quick Launch"
               data-bg="Бърз старт">Quick Launch</h3>
             <p class="muted text-xs leading-relaxed"
-              data-en="Perfect for events, product launches, or testing ideas fast."
-              data-bg="За събития, лансиране на продукт или когато просто искаш да тестнеш идея бързо.">Perfect for
-              events, product launches, or testing ideas fast.</p>
+              data-en="Ideal for events, MVPs, or putting an idea online this week."
+              data-bg="Идеално за събития, MVP-та или когато идеята трябва да е онлайн тази седмица.">Ideal for
+              events, MVPs, or putting an idea online this week.</p>
           </div>
           <div class="mb-5">
             <span class="font-display font-800 text-3xl crimson">€200</span>
@@ -1699,9 +1743,9 @@
             <h3 class="font-display font-800 text-xl dark:text-white text-gray-900 mb-1" data-en="Landing Page Pro"
               data-bg="Страница, която продава">Landing Page Pro</h3>
             <p class="muted text-xs leading-relaxed"
-              data-en="Enhanced landing with more sections, animations, and conversions."
-              data-bg="Повече секции, анимации и ясна цел — да превръща посетители в клиенти.">Enhanced landing with
-              more sections, animations, and conversions.</p>
+              data-en="A conversion-focused landing with polished sections, premium animations, and real analytics."
+              data-bg="Лендинг с фокус върху конверсии — изпипани секции, премиум анимации и реална аналитика.">A conversion-focused landing with
+              polished sections, premium animations, and real analytics.</p>
           </div>
           <div class="mb-5">
             <span class="font-display font-800 text-3xl crimson">€250</span>
@@ -1749,9 +1793,9 @@
               <h3 class="font-display font-800 text-xl dark:text-white text-gray-900 mb-1" data-en="Website Revamp"
                 data-bg="Нов живот за стария сайт">Website Revamp</h3>
               <p class="muted text-xs leading-relaxed"
-                data-en="Transform your existing site into a fast, modern, high-converting machine."
-                data-bg="Взимаме текущия ти сайт и го превръщаме в нещо бързо, модерно и което реално работи.">Transform
-                your existing site into a fast, modern, high-converting machine.</p>
+                data-en="Take your current site from outdated to outstanding — faster load, modern design, higher conversions."
+                data-bg="Превърни текущия си сайт от остарял в забележителен — по-бързо зареждане, модерен дизайн, повече конверсии.">Take
+                your current site from outdated to outstanding — faster load, modern design, higher conversions.</p>
             </div>
             <div class="mb-5">
               <span class="font-display font-800 text-3xl crimson">€500</span>
@@ -1806,9 +1850,9 @@
             <h3 class="font-display font-800 text-xl dark:text-white text-gray-900 mb-1" data-en="New Website Build"
               data-bg="Чисто нов сайт от нулата">New Website Build</h3>
             <p class="muted text-xs leading-relaxed"
-              data-en="Start from scratch. Custom-built from the ground up — design, dev, launch."
-              data-bg="Започваме от бял лист — дизайн по твоя мярка, чист код и бързо пускане.">Start from scratch.
-              Custom-built from the ground up — design, dev, launch.</p>
+              data-en="A fully custom website built from zero — your brand, your structure, your rules. Design, code, launch."
+              data-bg="Изцяло персонализиран сайт от нулата — твоят бранд, твоята структура, твоите правила. Дизайн, код, публикуване.">A fully custom website built from zero —
+              your brand, your structure, your rules. Design, code, launch.</p>
           </div>
           <div class="mb-5">
             <span class="font-display font-800 text-3xl crimson">€800</span>
@@ -1856,9 +1900,8 @@
       <div class="mt-10 text-center section-fade">
         <div class="inline-flex items-center gap-3 tag-bg rounded-full px-5 py-2.5">
           <i class="fas fa-shield-check neon-text text-sm"></i>
-          <span class="text-xs font-medium" data-en="100% Satisfaction Guarantee — If you're not happy, I fix it free."
-            data-bg="Гаранция — ако нещо не ти харесва, оправям го безплатно.">100% Satisfaction Guarantee — If you're
-            not happy, I fix it free.</span>
+          <span class="text-xs font-medium" data-en="100% Satisfaction Guarantee — not happy with the result? I revise until you are, at no extra cost."
+            data-bg="100% гаранция за удовлетвореност — не си доволен? Преработвам, докато не си, без допълнителни разходи.">100% Satisfaction Guarantee — not happy with the result? I revise until you are, at no extra cost.</span>
         </div>
       </div>
     </div>
@@ -1874,9 +1917,8 @@
         something <span class="crimson">beautiful</span> together.
       </h2>
       <p class="muted text-sm max-w-xl mx-auto mb-10 leading-relaxed"
-        data-en="I'd love to hear about your ideas. Drop me a message and I'll get back to you today."
-        data-bg="Ще се радвам да чуя за идеите ти. Пиши ми и ще ти отговоря още днес.">I'd love to hear about your
-        ideas. Drop me a message and I'll get back to you today.</p>
+        data-en="Tell me what you're building. I typically reply within a few hours."
+        data-bg="Кажи ми какво строиш. Обикновено отговарям в рамките на няколко часа.">Tell me what you're building. I typically reply within a few hours.</p>
 
       <div class="glass rounded-2xl p-7 sm:p-8 text-left">
         <form id="contactForm" action="https://formsubmit.co/stoyanbtanev@gmail.com"
@@ -1921,7 +1963,7 @@
           </div>
           <div class="mb-6">
             <label class="text-xs muted uppercase tracking-wide font-600 block mb-2"
-              data-en="Tell me about your project" data-bg="Разкажи ми с две думи за идеята">Tell me about your
+              data-en="Describe your project" data-bg="Опиши проекта си">Describe your
               project</label>
             <textarea name="message" rows="4" placeholder="I need a fast new website for my business..."
               data-placeholder-en="I need a fast new website for my business..."
@@ -2090,8 +2132,8 @@
         lineOne: { en: 'Your <span class="creative-gradient">vision.</span>', bg: 'Твоята <span class="creative-gradient">идея.</span>' },
         lineTwo: { en: 'Brought to life.', bg: 'Превърната в реалност.' },
         sub: {
-          en: 'I build beautiful, fast websites that help your business grow—without the agency price tag.',
-          bg: 'Създавам красиви и бързи сайтове, които помагат на бизнеса ти да расте, без излишно оскъпяване.'
+          en: 'Beautiful, high-performance websites — designed to convert, priced to make sense.',
+          bg: 'Красиви, бързи сайтове — проектирани да конвертират, на цена, която има смисъл.'
         }
       }
     ];
@@ -2111,41 +2153,41 @@
           estimate: { load: 'Page Response Time', vitals: 'UX & Structure Signals', mobile: 'Mobile Readiness', seo: 'Search Visibility Signals' }
         },
         headlines: {
-          excellent: 'Your website is in strong shape',
-          good: 'Solid foundation, with room to grow',
-          average: 'There is clear upside in this site',
-          poor: 'Your website is holding back conversions'
+          excellent: 'Your site is performing well',
+          good: 'Solid base — a few tweaks could take it further',
+          average: 'Real potential here, but it\u2019s leaving performance on the table',
+          poor: 'This site is actively losing you customers'
         },
         insights: {
           speed: {
-            title: 'Speed is the biggest opportunity right now.',
+            title: 'Speed is the single biggest lever right now.',
             bodyLive: time => `The current load pattern is around ${time}, which is enough friction to lose people early. Tightening this up usually pays off fast in both trust and conversion.`,
             bodyEstimate: 'The public crawl suggests the site does not feel as fast as it could. Lighter pages, cleaner assets, and better front-end hygiene would likely have the biggest impact.'
           },
           mobile: {
-            title: 'Mobile UX still needs some care.',
+            title: 'Mobile experience is costing you visitors.',
             bodyLive: 'A big share of traffic usually arrives from phones first. If that experience feels cramped or slow, visitors drop before they ever reach the offer.',
             bodyEstimate: 'The structure signals point to room for a cleaner, more mobile-friendly experience, especially around readability, hierarchy, and responsiveness.'
           },
           seo: {
-            title: 'SEO has room for meaningful gains.',
+            title: 'Search visibility is leaving traffic on the table.',
             bodyLive: 'Better metadata, stronger content structure, and clearer search signals would make this site easier to discover and easier for Google to understand.',
             bodyEstimate: 'From the title, description, and content structure alone, there is room to strengthen search visibility and make the page easier to index well.'
           },
           security: {
-            title: 'Trust and technical hygiene can be tighter.',
+            title: 'Trust signals and technical hygiene need tightening.',
             bodyLive: 'Best-practice fixes, cleaner technical setup, and stronger trust signals help both rankings and customer confidence.',
             bodyEstimate: 'The public signals suggest there is still room to strengthen technical trust, consistency, and perceived reliability.'
           }
         },
         cta: {
           polish: {
-            title: 'A focused polish pass could push this site much higher.',
-            body: 'I would tighten speed, clean up the mobile UX, and sharpen the SEO without turning the project into months of overwork.'
+            title: 'A targeted polish pass could push this site significantly higher.',
+            body: 'I\u2019d sharpen speed, refine the mobile UX, and tighten SEO — without turning it into a months-long project.'
           },
           rebuild: {
-            title: 'I can turn this into a much stronger site quickly.',
-            body: 'A focused refresh or full rebuild can lift speed, clarity, and conversion in days, not months.'
+            title: 'I can rebuild this into something that actually performs.',
+            body: 'A focused rebuild can transform speed, clarity, and conversions — in days, not months.'
           }
         },
         buttonRunning: 'Auditing…',
@@ -2166,41 +2208,41 @@
           estimate: { load: 'Колко бързо отговаря', vitals: 'UX и структура', mobile: 'Мобилна готовност', seo: 'Видимост в Google' }
         },
         headlines: {
-          excellent: 'Сайтът ти е в отлична форма',
-          good: 'Основата е добра — има място за още няколко подобрения',
-          average: 'Потенциалът е налице, но има и ясни слаби места',
-          poor: 'Сайтът ти реално те спира — губиш клиенти'
+          excellent: 'Сайтът ти се представя добре',
+          good: 'Солидна база — няколко корекции могат да го издигнат',
+          average: 'Реален потенциал, но губи позиции по представяне',
+          poor: 'Този сайт активно ти губи клиенти'
         },
         insights: {
           speed: {
-            title: 'Скоростта е основният проблем тук.',
+            title: 'Скоростта е най-големият лост за подобрение в момента.',
             bodyLive: time => `Зарежда се за около ${time} — това е достатъчно, за да отпаднат хората, преди да видят каквото и да е. Ако оправим само скоростта, разликата ще се усети веднага.`,
             bodyEstimate: 'По сигналите личи, че сайтът не се усеща бърз. Олекотяване на страниците и почистване на ресурсите ще дадат най-бърз ефект.'
           },
           mobile: {
-            title: 'Мобилното усещане може да е много по-добро.',
+            title: 'Мобилното усещане ти губи посетители.',
             bodyLive: 'Повечето хора влизат от телефон. Ако на мобилен не е удобно — тях ги губиш, преди въобще да стигнат до офертата ти.',
             bodyEstimate: 'Изглежда, че мобилната четимост, подредбата и адаптивността имат накъде да растат.'
           },
           seo: {
-            title: 'SEO-то може да донесе доста повече трафик.',
+            title: 'Видимостта в търсачките оставя трафик на масата.',
             bodyLive: 'По-добри мета тагове, по-ясна структура и по-силни сигнали ще помогнат Google да те намери по-лесно.',
             bodyEstimate: 'По заглавието, описанието и структурата личи, че видимостта в търсачките може да се вдигне доста.'
           },
           security: {
-            title: 'Доверието и техническата хигиена могат да се подобрят.',
+            title: 'Сигналите за доверие и техническата хигиена се нуждаят от подобрение.',
             bodyLive: 'HTTPS, чисти практики и по-стегнат технически setup помагат и за класирането, и за доверието на хората.',
             bodyEstimate: 'Публичните сигнали подсказват, че има какво да се подобри по надеждността и техническата изрядност.'
           }
         },
         cta: {
           polish: {
-            title: 'С няколко прецизни промени този сайт ще заработи много по-силно.',
-            body: 'Ще оправя скоростта, мобилния UX и SEO-то — без да превръщам проекта в нещо огромно.'
+            title: 'Целенасочен полиш може да издигне значително този сайт.',
+            body: 'Ще изостря скоростта, ще подобря мобилния UX и ще стегна SEO-то — без да превръщам проекта в нещо месечно.'
           },
           rebuild: {
-            title: 'Мога да го направя много по-добър за кратко време.',
-            body: 'Фокусиран ремонт или чисто нов сайт — скоростта, яснотата и конверсиите ще се усетят за дни.'
+            title: 'Мога да превърна това в сайт, който реално работи.',
+            body: 'Фокусиран ребилд може да трансформира скоростта, яснотата и конверсиите — за дни, не за месеци.'
           }
         },
         buttonRunning: 'Работя по одита…',
@@ -2844,10 +2886,10 @@
 
     const chatLocales = {
       en: {
-        greeting: "Hi there! I'm the tanev.design AI assistant. How can I help you today? Are you thinking about a brand new website or an update to an existing one?"
+        greeting: "Hey! I'm the tanev.design AI assistant. Ask me anything — pricing, timelines, what's included, or just tell me about your project and I'll point you in the right direction."
       },
       bg: {
-        greeting: "Здравейте! Аз съм AI асистентът на tanev.design. С какво мога да ви помогна днес? Обмисляте чисто нов сайт или редизайн на съществуващ?"
+        greeting: "Здравей! Аз съм AI асистентът на tanev.design. Питай ме каквото искаш — цени, срокове, какво включва всеки пакет, или просто ми разкажи за проекта си и ще те насоча."
       }
     };
 
@@ -2957,6 +2999,14 @@
     function declineCookies() {
       localStorage.setItem('ss-cookie-consent', 'declined');
       cookieBar.classList.remove('show');
+    }
+
+    /* Device toggle for templates */
+    function setDevice(device) {
+      const section = document.getElementById('templates');
+      if (section) section.dataset.device = device;
+      section.querySelectorAll('.device-btn').forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
     }
 
     applyLanguage();
