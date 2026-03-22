@@ -411,8 +411,8 @@
 
     .section-fade {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .6s ease, transform .6s ease;
+      transform: translateY(16px);
+      will-change: opacity, transform;
     }
 
     .section-fade.visible {
@@ -503,18 +503,6 @@
 
     .dark .card-shine:hover::before {
       background: rgba(255, 255, 255, .02);
-    }
-
-    /* ── Stagger entrance for sections ── */
-    .section-fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-
-    .section-fade.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     /* ── Crimson accent ── */
@@ -1451,10 +1439,19 @@
       </div>
 
       <!-- Device toggle -->
-      <div class="flex justify-center gap-2 mb-10 section-fade" style="transition-delay:.1s">
-        <button onclick="setDevice('desktop')" class="device-btn active tag-bg px-4 py-2 rounded-full text-xs font-display font-700 flex items-center gap-2 hover:scale-[1.03] active:scale-[.97]"><i class="fas fa-desktop text-[10px]"></i> <span data-en="Desktop — 1440px" data-bg="Десктоп — 1440px">Desktop — 1440px</span></button>
-        <button onclick="setDevice('tablet')" class="device-btn tag-bg px-4 py-2 rounded-full text-xs font-display font-700 flex items-center gap-2 hover:scale-[1.03] active:scale-[.97]"><i class="fas fa-tablet-alt text-[10px]"></i> <span data-en="Tablet — 768px" data-bg="Таблет — 768px">Tablet — 768px</span></button>
-        <button onclick="setDevice('mobile')" class="device-btn tag-bg px-4 py-2 rounded-full text-xs font-display font-700 flex items-center gap-2 hover:scale-[1.03] active:scale-[.97]"><i class="fas fa-mobile-alt text-[10px]"></i> <span data-en="Mobile — 390px" data-bg="Мобилен — 390px">Mobile — 390px</span></button>
+      <div class="flex flex-wrap justify-center gap-2 mb-10 section-fade" style="transition-delay:.1s">
+        <button onclick="setDevice(this,'desktop')" style="touch-action:manipulation" class="device-btn active tag-bg px-4 py-2 rounded-full text-xs font-display font-700 flex items-center gap-2">
+          <i class="fas fa-desktop text-[10px]"></i>
+          <span data-en="Desktop" data-bg="Десктоп">Desktop</span><span class="hidden sm:inline muted" data-en=" — 1440px" data-bg=" — 1440px"> — 1440px</span>
+        </button>
+        <button onclick="setDevice(this,'tablet')" style="touch-action:manipulation" class="device-btn tag-bg px-4 py-2 rounded-full text-xs font-display font-700 flex items-center gap-2">
+          <i class="fas fa-tablet-alt text-[10px]"></i>
+          <span data-en="Tablet" data-bg="Таблет">Tablet</span><span class="hidden sm:inline muted" data-en=" — 768px" data-bg=" — 768px"> — 768px</span>
+        </button>
+        <button onclick="setDevice(this,'mobile')" style="touch-action:manipulation" class="device-btn tag-bg px-4 py-2 rounded-full text-xs font-display font-700 flex items-center gap-2">
+          <i class="fas fa-mobile-alt text-[10px]"></i>
+          <span data-en="Mobile" data-bg="Мобилен">Mobile</span><span class="hidden sm:inline muted" data-en=" — 390px" data-bg=" — 390px"> — 390px</span>
+        </button>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -2655,10 +2652,16 @@
     });
     mmenu.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMobileMenu));
 
-    /* Scroll reveal */
+    /* Scroll reveal — rootMargin triggers elements 80px before they enter view so
+       the fade-in is already complete by the time the user sees them on mobile */
     const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.12 });
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px 80px 0px' });
     document.querySelectorAll('.section-fade').forEach(el => obs.observe(el));
 
     function buildLiveAudit(url, payload) {
@@ -3091,11 +3094,11 @@
     }
 
     /* Device toggle for templates */
-    function setDevice(device) {
+    function setDevice(btn, device) {
       const section = document.getElementById('templates');
       if (section) section.dataset.device = device;
       section.querySelectorAll('.device-btn').forEach(b => b.classList.remove('active'));
-      event.currentTarget.classList.add('active');
+      btn.classList.add('active');
     }
 
     applyLanguage();
