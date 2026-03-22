@@ -896,7 +896,7 @@
 
         <!-- CTA -->
         <div class="cta-wrap" id="cta-en">
-          <a href="/kinetic" class="cta cta-kinetic" id="enter-en" onclick="handleNav(event,'en')"
+          <a href="enindex.html" class="cta cta-kinetic" id="enter-en" onclick="handleNav(event,'en')"
             aria-label="Enter English Kinetic Edition">
             ENTER
             <span class="cta-arrow" aria-hidden="true">→</span>
@@ -942,7 +942,7 @@
 
         <!-- CTA -->
         <div class="cta-wrap" id="cta-bg">
-          <a href="/monochrome" class="cta cta-mono" id="enter-bg" onclick="handleNav(event,'bg')"
+          <a href="bgindex.html" class="cta cta-mono" id="enter-bg" onclick="handleNav(event,'bg')"
             aria-label="Влезте в Българската версия — Monochrome Edition">
             ВЛЕЗ
             <span class="cta-arrow" aria-hidden="true">→</span>
@@ -1265,7 +1265,7 @@
       const overlay = document.getElementById(lang === 'en' ? 't-en' : 't-bg');
       overlay.classList.add('active');
       setTimeout(() => {
-        window.location.href = lang === 'en' ? '/kinetic' : '/monochrome';
+        window.location.href = lang === 'en' ? 'enindex.html' : 'bgindex.html';
       }, 700);
     }
     window.handleNav = handleNav;
