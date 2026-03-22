@@ -425,6 +425,25 @@
       position: relative;
     }
 
+    /* Edge fade masks — pure CSS, GPU-friendly */
+    .kt-marquee-wrap::before,
+    .kt-marquee-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: clamp(40px, 8vw, 120px);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .kt-marquee-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, #09090B, transparent);
+    }
+    .kt-marquee-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, #09090B, transparent);
+    }
+
     .kt-marquee {
       display: flex;
       gap: 0;
@@ -435,7 +454,14 @@
     }
 
     .kt-marquee-rev {
-      animation-direction: reverse;
+      animation: marqueeScroll 32s linear infinite reverse;
+    }
+
+    /* Hover pause — desktop only */
+    @media (hover: hover) {
+      .kt-marquee-section:hover .kt-marquee {
+        animation-play-state: paused;
+      }
     }
 
     @keyframes marqueeScroll {
@@ -444,7 +470,9 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .kt-marquee { animation: none; }
+      .kt-marquee, .kt-marquee-rev { animation: none; }
+      .kt-marquee-wrap::before,
+      .kt-marquee-wrap::after { display: none; }
     }
 
     /* ── KT: Brutalist card hover inversion ── */
@@ -1064,8 +1092,9 @@
     </div>
   </section>
 
-  <!-- ═══ STATS STRIP (KT: infinite marquee) ═══ -->
-  <section class="border-t border-b divider overflow-hidden py-5">
+  <!-- ═══ STATS STRIP (KT: dual infinite marquee) ═══ -->
+  <section class="kt-marquee-section border-t border-b divider overflow-hidden py-4 space-y-3">
+    <!-- Row 1 — scrolls left -->
     <div class="kt-marquee-wrap">
       <div class="kt-marquee" aria-hidden="true">
         <span class="flex items-center gap-0">
@@ -1100,6 +1129,45 @@
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
             <span class="font-display font-700 crimson uppercase" style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">100%</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Custom Built</span>
+          </span>
+        </span>
+      </div>
+    </div>
+    <!-- Row 2 — scrolls right (reverse), slightly different speed -->
+    <div class="kt-marquee-wrap">
+      <div class="kt-marquee kt-marquee-rev" aria-hidden="true">
+        <span class="flex items-center gap-0">
+          <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
+            <span class="font-display font-700 uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">Mobile-First</span>
+            <span class="text-[10px] uppercase tracking-widest muted font-700">Design</span>
+          </span>
+          <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
+            <span class="font-display font-700 crimson uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">No Templates</span>
+            <span class="text-[10px] uppercase tracking-widest muted font-700">Every Build Is Unique</span>
+          </span>
+          <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
+            <span class="font-display font-700 uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">SEO Ready</span>
+            <span class="text-[10px] uppercase tracking-widest muted font-700">From Day One</span>
+          </span>
+          <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
+            <span class="font-display font-700 crimson uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">0 Bloat</span>
+            <span class="text-[10px] uppercase tracking-widest muted font-700">Clean Code Only</span>
+          </span>
+          <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
+            <span class="font-display font-700 uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">Mobile-First</span>
+            <span class="text-[10px] uppercase tracking-widest muted font-700">Design</span>
+          </span>
+          <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
+            <span class="font-display font-700 crimson uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">No Templates</span>
+            <span class="text-[10px] uppercase tracking-widest muted font-700">Every Build Is Unique</span>
+          </span>
+          <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
+            <span class="font-display font-700 uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">SEO Ready</span>
+            <span class="text-[10px] uppercase tracking-widest muted font-700">From Day One</span>
+          </span>
+          <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
+            <span class="font-display font-700 crimson uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">0 Bloat</span>
+            <span class="text-[10px] uppercase tracking-widest muted font-700">Clean Code Only</span>
           </span>
         </span>
       </div>
