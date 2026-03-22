@@ -296,6 +296,22 @@
       will-change: transform;
       flex-shrink: 0;
     }
+    /* ── Drop Cap ── */
+    .drop-cap::first-letter {
+      float: left;
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 3.8rem;
+      line-height: 0.8;
+      padding: 0.6rem 0.5rem;
+      margin-right: 0.875rem;
+      margin-top: 0.35rem;
+      background: #000;
+      color: #fff;
+      display: block;
+      border: 1px solid #000;
+    }
+
     @keyframes marqueeScroll {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
@@ -822,7 +838,7 @@
             Занимавам се с дизайн от 2008.<br/>Сега го превръщам в уебсайтове.
           </h3>
           <p class="drop-cap font-body text-gray-600 leading-relaxed mb-4">
-            Пътят ми в дизайна започна през 2008 г. с Adobe Photoshop. С годините обработката на снимки и композициите се превърнаха в усет за визуален баланс — основата на работата ми днес.
+            <span class="font-bold text-black italic">Пътят ми в дизайна започна през 2008 г. с Adobe Photoshop.</span> С годините обработката на снимки и композициите се превърнаха в усет за визуален баланс — основата на работата ми днес.
           </p>
           <p class="font-body text-gray-600 leading-relaxed">
             Опитът ми в решаването на сложни хардуерни проблеми ме научи на прецизност. Същия стандарт прилагам и в уеб разработката — всеки сайт е красив, структурно здрав и ефективен за вашия бизнес.
