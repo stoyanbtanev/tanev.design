@@ -810,29 +810,6 @@
       font-style: normal;
     }
 
-    /* ── Custom Cursor ──────────────────────────── */
-    html, body { cursor: none !important; }
-    #cursor {
-      position: fixed;
-      width: 10px; height: 10px;
-      background: #FFFFFF;
-      pointer-events: none;
-      z-index: 99999;
-      transform: translate(-50%, -50%);
-      mix-blend-mode: difference;
-      transition: width .2s cubic-bezier(0.16, 1, 0.3, 1), height .2s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: left, top;
-    }
-    #trail1 { display: none; }
-    #trail2 { display: none; }
-
-    /* Cursor states */
-    #cursor.active { width: 22px; height: 22px; }
-
-    @media (max-width: 768px) {
-      html, body { cursor: auto !important; }
-      #cursor, .cursor-trail { display: none !important; }
-    }
   </style>
 </head>
 
@@ -2092,8 +2069,8 @@
             </div>
 
             <button type="submit" class="btn-primary w-full justify-center py-4 text-[11px]">
-              <i class="fas fa-paper-plane text-xs"></i>
-              <span>Изпрати Съобщение</span>
+              <i class="fas fa-rocket text-xs"></i>
+              <span>Започни Проекта Си</span>
             </button>
             <p id="formStatus" class="hidden font-mono-label text-sm mt-4 text-center"></p>
           </form>
