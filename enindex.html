@@ -275,40 +275,6 @@
       transition: width 1.2s cubic-bezier(.22, .61, .36, 1);
     }
 
-    /* ── Toggle switch ── */
-    .toggle-track {
-      width: 44px;
-      height: 24px;
-      border-radius: 12px;
-      background: #e0e0e0;
-      border: 1px solid #cccccc;
-      position: relative;
-      cursor: pointer;
-      transition: background .3s;
-    }
-
-    .dark .toggle-track {
-      background: #2a2a2a;
-      border-color: #3a3a3a;
-    }
-
-    .toggle-thumb {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      background: #000000;
-      transition: left .3s cubic-bezier(.22, .61, .36, 1), background .3s;
-    }
-
-    .dark .toggle-thumb {
-      left: 24px;
-      background: #ffffff;
-    }
-
-
 
     /* ── Misc ── */
     .font-display {
@@ -1216,8 +1182,7 @@
           <i class="fas fa-home-alt text-[9px]"></i> Welcome
         </a>
         <a href="#services"
-          class="text-[11px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors duration-200">About
-          Me</a>
+          class="text-[11px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors duration-200">Services</a>
         <a href="#templates"
           class="text-[11px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors duration-200">Templates</a>
         <a href="#pricing"
@@ -1248,8 +1213,7 @@
       <a href="#contact"
         class="py-2.5 text-[11px] font-700 uppercase tracking-widest text-[#DFE104] border-b divider font-800">Start
         Project</a>
-      <a href="#services" class="py-2.5 text-[11px] font-700 uppercase tracking-widest muted border-b divider">About
-        Me</a>
+      <a href="#services" class="py-2.5 text-[11px] font-700 uppercase tracking-widest muted border-b divider">Services</a>
       <a href="#templates"
         class="py-2.5 text-[11px] font-700 uppercase tracking-widest muted border-b divider">Templates</a>
       <a href="#pricing"
@@ -1272,9 +1236,9 @@
       <!-- Headline -->
       <h1 class="font-display font-700 leading-[0.95] uppercase mb-8"
         style="font-size: clamp(3.2rem, 10vw, 8rem); letter-spacing:-0.03em">
-        <span id="heroLineOne" class="hero-line-1 block dark:text-white text-gray-900">Your <span
-            class="crimson">vision.</span></span>
-        <span id="heroLineTwo" class="hero-line-2 block dark:text-white text-gray-900">Brought to life.</span>
+        <span id="heroLineOne" class="hero-line-1 block dark:text-white text-gray-900">Websites that <span
+            class="crimson">launch</span></span>
+        <span id="heroLineTwo" class="hero-line-2 block dark:text-white text-gray-900">in days, not months.</span>
       </h1>
       <!-- Sub -->
       <p class="text-base sm:text-lg muted max-w-lg mx-auto leading-relaxed mb-10 hero-sub">
@@ -2850,7 +2814,7 @@
         </div>
         <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
           <a href="#services"
-            class="text-[10px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors">About Me</a>
+            class="text-[10px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors">Services</a>
           <a href="#pricing"
             class="text-[10px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors">Pricing</a>
           <a href="#contact"
@@ -2877,16 +2841,12 @@
     document.getElementById('year').textContent = new Date().getFullYear();
     const SCORE_TEXT_CLASSES = ['text-red-400', 'text-yellow-400', 'text-green-400', 'neon-text'];
     const BAR_FILL_CLASSES = ['progress-fill-red', 'progress-fill-yellow', 'progress-fill-blue', 'progress-fill-green'];
-    let lastAuditState = null;
-    let auditInFlight = false;
 
     const heroVariants = [
       {
-        lineOne: { en: 'Your <span class="crimson">vision.</span>' },
-        lineTwo: { en: 'Brought to life.' },
-        sub: {
-          en: 'Good-looking, fast websites for small businesses — without the agency price tag.'
-        }
+        lineOne: { en: 'Websites that <span class="crimson">launch</span>' },
+        lineTwo: { en: 'in days, not months.' },
+        sub: { en: 'Good-looking, fast websites for small businesses — without the agency price tag.' }
       }
     ];
 
