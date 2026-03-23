@@ -787,6 +787,101 @@
       }
       .char { opacity: 1 !important; transform: none !important; }
       .corner-label, .brand-label, .edition-box, .desc, .cta-wrap { opacity: 1 !important; }
+      .svc-ticker { opacity: 1 !important; }
+      .svc-track { animation: none !important; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       SERVICES TICKER
+    ══════════════════════════════════════════════════ */
+    .svc-ticker {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 0.55rem 0;
+      opacity: 0;
+    }
+
+    /* Edge fade masks */
+    .svc-ticker::before,
+    .svc-ticker::after {
+      content: '';
+      position: absolute; top: 0; bottom: 0;
+      width: clamp(28px, 5vw, 70px);
+      z-index: 2; pointer-events: none;
+    }
+    .side-kinetic .svc-ticker::before { left:  0; background: linear-gradient(to right, var(--black), transparent); }
+    .side-kinetic .svc-ticker::after  { right: 0; background: linear-gradient(to left,  var(--black), transparent); }
+    .side-mono .svc-ticker::before    { left:  0; background: linear-gradient(to right, #fff, transparent); }
+    .side-mono .svc-ticker::after     { right: 0; background: linear-gradient(to left,  #fff, transparent); }
+
+    .svc-track {
+      display: inline-flex;
+      white-space: nowrap;
+      will-change: transform;
+    }
+    .svc-track-fwd { animation: svcFwd 28s linear infinite; }
+    .svc-track-rev { animation: svcRev 34s linear infinite; }
+
+    @keyframes svcFwd {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes svcRev {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+    }
+    .ticker-sep {
+      display: inline-block;
+      padding: 0 1rem;
+    }
+
+    /* Kinetic side: yellow, bold, uppercase, monospaced feel */
+    .svc-ticker-kinetic .ticker-item > span:first-child {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(8px, 0.8vw, 11px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: rgba(255, 215, 0, 0.45);
+      transition: color 0.5s ease;
+    }
+    .svc-ticker-kinetic .ticker-sep {
+      color: rgba(255, 215, 0, 0.2);
+      font-size: 7px;
+    }
+    .svc-ticker-kinetic:hover .ticker-item > span:first-child {
+      color: rgba(255, 215, 0, 0.85);
+    }
+
+    /* Mono side: black, italic serif, refined */
+    .svc-ticker-mono .ticker-item > span:first-child {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(8px, 0.8vw, 11px);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.1em;
+      color: rgba(0, 0, 0, 0.22);
+      transition: color 0.5s ease;
+    }
+    .svc-ticker-mono .ticker-sep {
+      color: rgba(0, 0, 0, 0.12);
+      font-size: 7px;
+    }
+    .svc-ticker-mono:hover .ticker-item > span:first-child {
+      color: rgba(0, 0, 0, 0.55);
+    }
+
+    @media (max-width: 768px) {
+      .svc-ticker-kinetic .ticker-item > span:first-child,
+      .svc-ticker-mono    .ticker-item > span:first-child {
+        font-size: 9px;
+      }
     }
   </style>
 </head>
@@ -850,6 +945,33 @@
 
       </div><!-- /headline-block -->
 
+      <!-- Services Ticker: EN -->
+      <div class="svc-ticker svc-ticker-kinetic" id="ticker-en" aria-hidden="true">
+        <div class="svc-track svc-track-fwd">
+          <span class="ticker-item"><span>Web Design</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>UI/UX Design</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Product Design</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Landing Pages</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Website Redesign</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Graphic Design</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>SEO Optimisation</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Digital Marketing</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Social Media</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Performance Audits</span><span class="ticker-sep">✦</span></span>
+          <!-- duplicate for seamless loop -->
+          <span class="ticker-item"><span>Web Design</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>UI/UX Design</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Product Design</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Landing Pages</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Website Redesign</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Graphic Design</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>SEO Optimisation</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Digital Marketing</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Social Media</span><span class="ticker-sep">✦</span></span>
+          <span class="ticker-item"><span>Performance Audits</span><span class="ticker-sep">✦</span></span>
+        </div>
+      </div>
+
     </section>
 
     <!-- ── DIVIDER ─────────────────────────────────── -->
@@ -886,6 +1008,33 @@
         </div>
 
       </div><!-- /headline-block -->
+
+      <!-- Services Ticker: BG -->
+      <div class="svc-ticker svc-ticker-mono" id="ticker-bg" aria-hidden="true">
+        <div class="svc-track svc-track-rev">
+          <span class="ticker-item"><span>Уеб Дизайн</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>UI/UX Дизайн</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Продуктов Дизайн</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Лендинг Страници</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Редизайн на Сайт</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Графичен Дизайн</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>SEO Оптимизация</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Дигитален Маркетинг</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Социални Мрежи</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Одит на Скорост</span><span class="ticker-sep">◆</span></span>
+          <!-- duplicate for seamless loop -->
+          <span class="ticker-item"><span>Уеб Дизайн</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>UI/UX Дизайн</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Продуктов Дизайн</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Лендинг Страници</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Редизайн на Сайт</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Графичен Дизайн</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>SEO Оптимизация</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Дигитален Маркетинг</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Социални Мрежи</span><span class="ticker-sep">◆</span></span>
+          <span class="ticker-item"><span>Одит на Скорост</span><span class="ticker-sep">◆</span></span>
+        </div>
+      </div>
 
     </section>
 
@@ -1034,6 +1183,14 @@
 
     // Corner marks fade in last
     tl.to('.corner-mark', { opacity: 1, duration: 1 }, '-=0.2');
+
+    // Services tickers reveal — staggered fade-up
+    tl.fromTo(
+      ['#ticker-en', '#ticker-bg'],
+      { opacity: 0, y: 8 },
+      { opacity: 1, y: 0, duration: 0.9, stagger: 0.18, ease: 'power3.out' },
+      '-=0.5'
+    );
 
     /* ─── 4. CURSOR SYSTEM ──────────────────────────── */
     const cursor = document.getElementById('cursor');
