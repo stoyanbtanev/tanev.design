@@ -891,6 +891,34 @@
 
   </div><!-- /.stage -->
   <script>
+    /* ─── 0. NAVIGATION INITIALIZATION ──────────────── */
+    var navigating = false; 
+
+    function handleNav(e, lang) {
+      e.preventDefault();
+      if (navigating) return;
+      navigating = true;
+
+      const side = e.currentTarget;
+      const overlay = document.getElementById(lang === 'en' ? 't-en' : 't-bg');
+      
+      // Cinematic Zoom
+      gsap.to(side, {
+        scale: 1.35,
+        opacity: 0,
+        duration: 1.1,
+        ease: 'power3.inOut'
+      });
+      
+      // Overlay trigger
+      overlay.classList.add('active');
+      
+      setTimeout(() => {
+        window.location.href = lang === 'en' ? 'enindex.html' : 'bgindex.html';
+      }, 750);
+    }
+    window.handleNav = handleNav;
+
     /* ─── 0. GRAIN TEXTURE ──────────────────────────── */
     (function generateGrain() {
       const gc = document.createElement('canvas');
@@ -1166,33 +1194,6 @@
     }
     // Start idle jitter after main timeline
     gsap.delayedCall(2.5, startJitter);
-
-    /* ─── 12. NAVIGATION ─────────────────────────────── */
-    let navigating = false;
-    function handleNav(e, lang) {
-      e.preventDefault();
-      if (navigating) return;
-      navigating = true;
-
-      const side = e.currentTarget;
-      const overlay = document.getElementById(lang === 'en' ? 't-en' : 't-bg');
-      
-      // Cinematic Zoom
-      gsap.to(side, {
-        scale: 1.35,
-        opacity: 0,
-        duration: 1.1,
-        ease: 'power3.inOut'
-      });
-      
-      // Overlay trigger
-      overlay.classList.add('active');
-      
-      setTimeout(() => {
-        window.location.href = lang === 'en' ? 'enindex.html' : 'bgindex.html';
-      }, 750);
-    }
-    window.handleNav = handleNav;
 
     // Keyboard nav
     document.getElementById('enter-en').addEventListener('keydown', e => {
