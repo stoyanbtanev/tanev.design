@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="bg">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tanev.design — Бързи уебсайтове от €200 | Пловдив</title>
-  <meta name="description" content="Бързи и достъпни уебсайтове с изчистен дизайн и AI-асистиран работен процес. Лендинг страници от €200. Специално за вашия бизнес." />
+  <meta name="description"
+    content="Бързи и достъпни уебсайтове с изчистен дизайн и AI-асистиран работен процес. Лендинг страници от €200. Специално за вашия бизнес." />
   <meta name="author" content="Стоян Танев" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://tanev.design/bg" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%23000'/><text x='50' y='72' font-family='Georgia,serif' font-size='62' font-weight='700' fill='white' text-anchor='middle'>t</text></svg>" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%23000'/><text x='50' y='72' font-family='Georgia,serif' font-size='62' font-weight='700' fill='white' text-anchor='middle'>t</text></svg>" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" />
 
   <script>
     tailwind.config = {
@@ -40,8 +44,15 @@
       --border-light: #E5E5E5;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Source Serif 4', Georgia, serif;
@@ -56,42 +67,53 @@
     .tex-lines {
       position: relative;
     }
+
     .tex-lines::before {
       content: '';
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background-image: repeating-linear-gradient(0deg, transparent, transparent 1px, #000 1px, #000 2px);
       background-size: 100% 4px;
       opacity: 0.012;
       pointer-events: none;
       z-index: 0;
     }
+
     .tex-grid {
       position: relative;
     }
+
     .tex-grid::after {
       content: '';
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background-image: linear-gradient(#00000008 1px, transparent 1px), linear-gradient(90deg, #00000008 1px, transparent 1px);
       background-size: 40px 40px;
       pointer-events: none;
       z-index: 0;
     }
+
     .tex-diag {
       position: relative;
     }
+
     .tex-diag::before {
       content: '';
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, #00000008 40px, #00000008 42px);
       pointer-events: none;
       z-index: 0;
     }
+
     .tex-inv-lines {
       position: relative;
     }
+
     .tex-inv-lines::before {
       content: '';
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background-image: repeating-linear-gradient(90deg, transparent, transparent 1px, #fff 1px, #fff 2px);
       background-size: 4px 100%;
       opacity: 0.03;
@@ -100,18 +122,35 @@
     }
 
     /* ── Typography ── */
-    .font-display { font-family: 'Playfair Display', Georgia, serif; letter-spacing: -0.01em; }
-    .font-mono-label { font-family: 'JetBrains Mono', monospace; }
+    .font-display {
+      font-family: 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.01em;
+    }
+
+    .font-mono-label {
+      font-family: 'JetBrains Mono', monospace;
+    }
 
     /* ── Section rule ── */
-    .section-rule { border-top: 4px solid #000; }
-    .section-rule-ultra { border-top: 8px solid #000; }
-    .section-rule-light { border-top: 1px solid #E5E5E5; }
+    .section-rule {
+      border-top: 4px solid #000;
+    }
+
+    .section-rule-ultra {
+      border-top: 8px solid #000;
+    }
+
+    .section-rule-light {
+      border-top: 1px solid #E5E5E5;
+    }
 
     /* ── Scroll progress ── */
     #scroll-progress {
-      position: fixed; top: 0; left: 0;
-      height: 3px; width: 0%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
       background: #000;
       z-index: 9999;
       will-change: width;
@@ -120,7 +159,7 @@
 
     /* ── Navbar ── */
     #navbar {
-      background: rgba(255,255,255,0.97);
+      background: rgba(255, 255, 255, 0.97);
       border-bottom: 1px solid #000;
       backdrop-filter: blur(12px);
     }
@@ -138,9 +177,16 @@
       letter-spacing: 0.18em;
       cursor: pointer;
       transition: background 0.08s, color 0.08s, border-color 0.08s;
-      display: inline-flex; align-items: center; gap: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .btn-primary:hover { background: #fff; color: #000; border: 1px solid #000; }
+
+    .btn-primary:hover {
+      background: #fff;
+      color: #000;
+      border: 1px solid #000;
+    }
 
     .btn-outline {
       background: transparent;
@@ -154,9 +200,15 @@
       letter-spacing: 0.18em;
       cursor: pointer;
       transition: background 0.08s, color 0.08s;
-      display: inline-flex; align-items: center; gap: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .btn-outline:hover { background: #000; color: #fff; }
+
+    .btn-outline:hover {
+      background: #000;
+      color: #fff;
+    }
 
     /* ── Cards ── */
     .mono-card {
@@ -164,12 +216,20 @@
       background: #fff;
       transition: background 0.1s, color 0.1s;
     }
+
     .mono-card:hover {
       background: #000;
       color: #fff;
     }
-    .mono-card:hover * { color: #fff !important; border-color: rgba(255,255,255,0.3) !important; }
-    .mono-card:hover .card-icon { border-color: rgba(255,255,255,0.4) !important; }
+
+    .mono-card:hover * {
+      color: #fff !important;
+      border-color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .mono-card:hover .card-icon {
+      border-color: rgba(255, 255, 255, 0.4) !important;
+    }
 
     /* ── Section label ── */
     .section-label {
@@ -196,8 +256,15 @@
       outline: none;
       transition: border-bottom-width 0.08s;
     }
-    .mono-input:focus { border-bottom-width: 4px; }
-    .mono-input::placeholder { color: #888; font-style: italic; }
+
+    .mono-input:focus {
+      border-bottom-width: 4px;
+    }
+
+    .mono-input::placeholder {
+      color: #888;
+      font-style: italic;
+    }
 
     .mono-select {
       background: #fff;
@@ -213,7 +280,10 @@
       cursor: pointer;
       transition: border-bottom-width 0.08s;
     }
-    .mono-select:focus { border-bottom-width: 4px; }
+
+    .mono-select:focus {
+      border-bottom-width: 4px;
+    }
 
     .mono-textarea {
       background: #fff;
@@ -227,8 +297,15 @@
       resize: vertical;
       transition: border-width 0.08s;
     }
-    .mono-textarea:focus { border-width: 3px; }
-    .mono-textarea::placeholder { color: #888; font-style: italic; }
+
+    .mono-textarea:focus {
+      border-width: 3px;
+    }
+
+    .mono-textarea::placeholder {
+      color: #888;
+      font-style: italic;
+    }
 
     /* ── URL input ── */
     .url-input {
@@ -245,8 +322,15 @@
       appearance: none;
       touch-action: manipulation;
     }
-    .url-input:focus { border-width: 3px; }
-    .url-input::placeholder { color: #999; font-style: normal; }
+
+    .url-input:focus {
+      border-width: 3px;
+    }
+
+    .url-input::placeholder {
+      color: #999;
+      font-style: normal;
+    }
 
     /* ── Hero text clip ── */
     .hero-number {
@@ -267,6 +351,7 @@
       background: #fff;
       transition: transform 0.1s;
     }
+
     .pricing-card-featured {
       border: 2px solid #000;
       background: #000;
@@ -280,15 +365,28 @@
       width: 100%;
       position: relative;
     }
-    .marquee-wrap::before, .marquee-wrap::after {
+
+    .marquee-wrap::before,
+    .marquee-wrap::after {
       content: '';
-      position: absolute; top: 0; bottom: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
       width: clamp(40px, 8vw, 100px);
       z-index: 2;
       pointer-events: none;
     }
-    .marquee-wrap::before { left: 0; background: linear-gradient(to right, #fff, transparent); }
-    .marquee-wrap::after  { right: 0; background: linear-gradient(to left,  #fff, transparent); }
+
+    .marquee-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, #fff, transparent);
+    }
+
+    .marquee-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, #fff, transparent);
+    }
+
     .marquee {
       display: flex;
       white-space: nowrap;
@@ -296,6 +394,7 @@
       will-change: transform;
       flex-shrink: 0;
     }
+
     /* ── Drop Cap ── */
     .drop-cap::first-letter {
       float: left;
@@ -313,12 +412,24 @@
     }
 
     @keyframes marqueeScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      .marquee { animation: none; }
-      .marquee-wrap::before, .marquee-wrap::after { display: none; }
+      .marquee {
+        animation: none;
+      }
+
+      .marquee-wrap::before,
+      .marquee-wrap::after {
+        display: none;
+      }
     }
 
     /* ── Section fade ── */
@@ -327,27 +438,43 @@
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
+
     .section-fade.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
     /* ── Mobile menu ── */
-    #mobileMenu.hidden { display: none !important; }
+    #mobileMenu.hidden {
+      display: none !important;
+    }
 
     /* ── Scan line ── */
     .scan-line {
-      position: absolute; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,0,0,0.25), transparent);
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.25), transparent);
       animation: scan 1.6s linear infinite;
     }
+
     @keyframes scan {
-      from { top: 0; opacity: 1; }
-      to   { top: 100%; opacity: 0.2; }
+      from {
+        top: 0;
+        opacity: 1;
+      }
+
+      to {
+        top: 100%;
+        opacity: 0.2;
+      }
     }
 
     /* ── Progress bars ── */
-    .bar-inner { transition: width 1.2s cubic-bezier(.22,.61,.36,1); }
+    .bar-inner {
+      transition: width 1.2s cubic-bezier(.22, .61, .36, 1);
+    }
 
     /* ── Drop cap ── */
     .drop-cap::first-letter {
@@ -367,42 +494,72 @@
       transform: translateY(150%);
       transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    #cookieBar.show { transform: translateY(0); }
+
+    #cookieBar.show {
+      transform: translateY(0);
+    }
 
     #chatOverlay {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 69; opacity: 0;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 69;
+      opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s;
     }
-    #chatOverlay.show { opacity: 1; pointer-events: auto; }
-    @media (min-width: 640px) { #chatOverlay { display: none !important; } }
+
+    #chatOverlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (min-width: 640px) {
+      #chatOverlay {
+        display: none !important;
+      }
+    }
 
     #chatBotBox {
       position: fixed;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 82dvh;
       background: #fff;
       border-top: 4px solid #000;
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
       transform: translateY(100%);
       transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
       z-index: 70;
       overflow: hidden;
       pointer-events: none;
     }
-    #chatBotBox.show { transform: translateY(0); pointer-events: auto; }
+
+    #chatBotBox.show {
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
     @media (min-width: 640px) {
       #chatBotBox {
-        bottom: 5.5rem; right: 1.5rem;
-        left: auto; width: 370px; height: 520px;
+        bottom: 5.5rem;
+        right: 1.5rem;
+        left: auto;
+        width: 370px;
+        height: 520px;
         border: 2px solid #000;
         transform: translateY(14px);
         opacity: 0;
-        transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.25s;
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s;
       }
-      #chatBotBox.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
+
+      #chatBotBox.show {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
     }
 
     .chat-msg {
@@ -412,12 +569,14 @@
       max-width: 88%;
       font-family: 'Source Serif 4', serif;
     }
+
     .chat-msg-ai {
       align-self: flex-start;
       border-left: 3px solid #000;
       padding-left: 12px;
       color: #000;
     }
+
     .chat-msg-user {
       align-self: flex-end;
       border: 1px solid #000;
@@ -425,68 +584,171 @@
       color: #fff;
       padding: 8px 14px;
     }
+
     .chat-typing {
       align-self: flex-start;
       border-left: 3px solid #000;
       padding-left: 12px;
-      display: flex; gap: 5px; align-items: center;
+      display: flex;
+      gap: 5px;
+      align-items: center;
       height: 30px;
     }
+
     .chat-typing span {
-      width: 6px; height: 6px;
+      width: 6px;
+      height: 6px;
       background: #000;
       display: inline-block;
       animation: typingDot 1.1s infinite ease-in-out;
     }
-    .chat-typing span:nth-child(2) { animation-delay: 0.18s; }
-    .chat-typing span:nth-child(3) { animation-delay: 0.36s; }
-    @keyframes typingDot {
-      0%, 80%, 100% { transform: scale(0.65); opacity: 0.3; }
-      40% { transform: scale(1); opacity: 1; }
+
+    .chat-typing span:nth-child(2) {
+      animation-delay: 0.18s;
     }
+
+    .chat-typing span:nth-child(3) {
+      animation-delay: 0.36s;
+    }
+
+    @keyframes typingDot {
+
+      0%,
+      80%,
+      100% {
+        transform: scale(0.65);
+        opacity: 0.3;
+      }
+
+      40% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
     @keyframes chatFadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ── Hero entrance ── */
     @keyframes heroReveal {
-      from { opacity: 0; transform: translateY(32px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(32px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .hero-l1 { animation: heroReveal 0.9s cubic-bezier(0.22,1,0.36,1) 0.1s both; }
-    .hero-l2 { animation: heroReveal 0.9s cubic-bezier(0.22,1,0.36,1) 0.28s both; }
-    .hero-l3 { animation: heroReveal 0.9s cubic-bezier(0.22,1,0.36,1) 0.44s both; }
-    .hero-l4 { animation: heroReveal 0.8s cubic-bezier(0.22,1,0.36,1) 0.58s both; }
+
+    .hero-l1 {
+      animation: heroReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+    }
+
+    .hero-l2 {
+      animation: heroReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
+    }
+
+    .hero-l3 {
+      animation: heroReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.44s both;
+    }
+
+    .hero-l4 {
+      animation: heroReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.58s both;
+    }
 
     /* ── Audit panel ── */
-    #audit { position: relative; z-index: 2; }
+    #audit {
+      position: relative;
+      z-index: 2;
+    }
 
     @media (max-width: 767px) {
-      #navbar { position: sticky; top: 0; }
-      #mobileMenu {
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: #fff; border-top: 1px solid #000; z-index: 55;
+      #navbar {
+        position: sticky;
+        top: 0;
       }
-      #urlInput, #auditButton { font-size: 16px; }
+
+      #mobileMenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: 1px solid #000;
+        z-index: 55;
+      }
+
+      #urlInput,
+      #auditButton {
+        font-size: 16px;
+      }
     }
 
     /* ── Template preview ── */
-    .tpl-preview { height: 380px; overflow: hidden; }
+    .tpl-preview {
+      height: 380px;
+      overflow: hidden;
+    }
 
     /* ── Device toggle ── */
-    .device-btn { transition: background 0.1s, color 0.1s; }
-    .device-btn.active { background: #000 !important; color: #fff !important; }
+    .device-btn {
+      transition: background 0.1s, color 0.1s;
+    }
 
-    .tpl-card { transition: max-width .4s cubic-bezier(.22,1,.36,1); }
-    #templates[data-device="tablet"] .tpl-card { max-width: 440px; margin: auto; }
-    #templates[data-device="tablet"] .tpl-preview { height: 450px; }
-    #templates[data-device="mobile"] .tpl-card { max-width: 280px; margin: auto; }
-    #templates[data-device="mobile"] .tpl-preview { height: 520px; }
-    #templates[data-device="mobile"] .tpl-chrome { display: none !important; }
+    .device-btn.active {
+      background: #000 !important;
+      color: #fff !important;
+    }
+
+    .tpl-card {
+      transition: max-width .4s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    #templates[data-device="tablet"] .tpl-card {
+      max-width: 440px;
+      margin: auto;
+    }
+
+    #templates[data-device="tablet"] .tpl-preview {
+      height: 450px;
+    }
+
+    #templates[data-device="mobile"] .tpl-card {
+      max-width: 280px;
+      margin: auto;
+    }
+
+    #templates[data-device="mobile"] .tpl-preview {
+      height: 520px;
+    }
+
+    #templates[data-device="mobile"] .tpl-chrome {
+      display: none !important;
+    }
 
     /* Accessibility */
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
 
     /* ── Pull quote ── */
     .pull-quote {
@@ -498,6 +760,7 @@
       padding-left: 2rem;
       position: relative;
     }
+
     .pull-quote::before {
       content: '\201C';
       font-size: 6rem;
@@ -510,7 +773,10 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+
+      *,
+      *::before,
+      *::after {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
       }
@@ -519,1282 +785,1763 @@
 </head>
 
 <body>
-<div id="scroll-progress"></div>
+  <div id="scroll-progress"></div>
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      NAVBAR
 ══════════════════════════════════════════ -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-200">
-  <div class="max-w-6xl mx-auto px-6 md:px-8 h-14 flex items-center justify-between gap-4">
-    <!-- Logo -->
-    <a href="#" class="flex items-center gap-3 flex-shrink-0" aria-label="tanev.design Начало">
-      <div class="w-7 h-7 bg-black flex items-center justify-center font-display font-bold text-white text-sm">t</div>
-      <span class="font-mono-label font-bold text-xs uppercase tracking-widest">tanev<span style="color:#000">.design</span></span>
-    </a>
-    <!-- Desktop nav -->
-    <div class="hidden lg:flex items-center gap-8">
-      <a href="index.html" class="font-mono-label text-[10px] font-bold uppercase tracking-widest text-black hover:opacity-70 transition-opacity flex items-center gap-2">
-        <i class="fas fa-hand-holding-heart text-[9px]"></i> Добре дошли
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-200">
+    <div class="max-w-6xl mx-auto px-6 md:px-8 h-14 flex items-center justify-between gap-4">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 flex-shrink-0" aria-label="tanev.design Начало">
+        <div class="w-7 h-7 bg-black flex items-center justify-center font-display font-bold text-white text-sm">t</div>
+        <span class="font-mono-label font-bold text-xs uppercase tracking-widest">tanev<span
+            style="color:#000">.design</span></span>
       </a>
-      <a href="#services" class="font-mono-label text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">За Мен</a>
-      <a href="#templates" class="font-mono-label text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">Шаблони</a>
-      <a href="#pricing" class="font-mono-label text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">Цени</a>
-      <a href="#contact" class="font-mono-label text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">Контакт</a>
-    </div>
-    <!-- CTA + mobile toggle -->
-    <div class="flex items-center gap-3">
-      <!-- Lang Switch -->
-      <a href="enindex.html" title="English" class="hidden sm:flex items-center justify-center w-8 h-8 border-2 border-black hover:bg-black hover:text-white text-[10px] font-bold transition-all duration-200">
-        EN
-      </a>
-      <a href="#contact" class="hidden md:flex btn-primary text-[10px] py-2.5 px-5">Заяви Проект</a>
-      <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2" aria-label="Меню">
-        <i class="fas fa-bars text-lg"></i>
-      </button>
-    </div>
-  </div>
-  <!-- Mobile menu -->
-  <div id="mobileMenu" class="hidden lg:hidden px-6 pb-4 flex flex-col gap-0 border-t border-gray-100">
-    <a href="index.html" class="py-3 font-mono-label text-[11px] font-bold uppercase tracking-widest border-b border-gray-100 text-black">Добре дошли</a>
-    <a href="enindex.html" class="py-3 font-mono-label text-[11px] font-bold uppercase tracking-widest border-b border-gray-100 text-gray-400">English Version (EN)</a>
-    <a href="#services"  class="py-3 font-mono-label text-[11px] font-bold uppercase tracking-widest border-b border-gray-100 text-gray-400">За Мен</a>
-    <a href="#templates" class="py-3 font-mono-label text-[11px] font-bold uppercase tracking-widest border-b border-gray-100 text-gray-400">Шаблони</a>
-    <a href="#pricing"   class="py-3 font-mono-label text-[11px] font-bold uppercase tracking-widest border-b border-gray-100 text-gray-400">Цени</a>
-    <a href="#contact"   class="py-3 font-mono-label text-[11px] font-bold uppercase tracking-widest text-gray-400">Контакт</a>
-  </div>
-</nav>
-
-
-<!-- ══════════════════════════════════════════
-     HERO
-══════════════════════════════════════════ -->
-<section id="hero" class="relative min-h-screen flex flex-col justify-center pt-14 pb-0 tex-lines overflow-hidden">
-  <!-- Decorative large number -->
-  <span class="hero-number" style="right: -5vw; top: 50%; transform: translateY(-50%); opacity: 0.035; z-index:0; pointer-events:none;">т</span>
-
-  <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-8 w-full pt-16 md:pt-24 pb-16">
-    <!-- Eyebrow -->
-    <div class="hero-l1 mb-8">
-      <span class="section-label">Уеб дизайн и разработка на свободна практика</span>
-    </div>
-
-    <!-- Main headline -->
-    <h1 class="font-display font-black leading-none uppercase mb-10"
-        style="font-size: clamp(3.2rem, 10vw, 8.5rem); letter-spacing: -0.03em; line-height: 0.95;">
-      <span class="hero-l1 block">Твоята</span>
-      <span class="hero-l2 block" style="font-style: italic;">визия.</span>
-      <span class="hero-l3 block">Оживена.</span>
-    </h1>
-
-    <!-- Decorative rule + square -->
-    <div class="hero-l3 flex items-center gap-4 mb-10">
-      <div style="height: 3px; width: clamp(50px, 10vw, 120px); background: #000;"></div>
-      <div style="width: 12px; height: 12px; border: 2px solid #000;"></div>
-    </div>
-
-    <!-- Sub -->
-    <p class="hero-l4 font-body text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed mb-12" style="font-weight: 300; line-height: 1.7;">
-      Красиви и бързи уебсайтове за малкия бизнес —<br class="hidden md:block" />
-      без излишни разходи и агенционни такси.
-    </p>
-
-    <!-- Audit tool -->
-    <div id="audit" class="hero-l4 border-2 border-black p-6 md:p-8 max-w-2xl bg-white" style="position: relative; z-index: 3;">
-      <!-- Subtle corner accent -->
-      <div style="position: absolute; top: -2px; right: -2px; width: 16px; height: 16px; background: #000;"></div>
-      <p class="font-mono-label text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
-        Безплатен моментален <span style="text-decoration: underline; text-underline-offset: 3px;">одит на уебсайт</span>
-      </p>
-      <div class="flex flex-col md:flex-row gap-0">
-        <label for="urlInput" class="sr-only">URL на уебсайт</label>
-        <input id="urlInput" type="url"
-          placeholder="https://vashiyat-sait.com"
-          inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go"
-          class="url-input flex-1 min-w-0" style="border-right: none; border-radius: 0;" />
-        <button id="auditButton" onclick="runAudit()"
-          class="btn-primary flex-shrink-0 justify-center"
-          style="min-height: 52px; border-radius: 0; border: 2px solid #000;">
-          <i class="fas fa-satellite-dish text-xs"></i>
-          <span id="auditButtonLabel">Стартирай Одит</span>
+      <!-- Desktop nav -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html"
+          class="font-mono-label text-[10px] font-bold uppercase tracking-widest text-black hover:opacity-70 transition-opacity flex items-center gap-2">
+          <i class="fas fa-hand-holding-heart text-[9px]"></i> Добре дошли
+        </a>
+        <a href="#services"
+          class="font-mono-label text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">За
+          Мен</a>
+        <a href="#templates"
+          class="font-mono-label text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">Шаблони</a>
+        <a href="#pricing"
+          class="font-mono-label text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">Цени</a>
+        <a href="#contact"
+          class="font-mono-label text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">Контакт</a>
+      </div>
+      <!-- CTA + mobile toggle -->
+      <div class="flex items-center gap-3">
+        <!-- Lang Switch -->
+        <a href="enindex.html" title="English"
+          class="hidden sm:flex items-center justify-center w-8 h-8 border-2 border-black hover:bg-black hover:text-white text-[10px] font-bold transition-all duration-200">
+          EN
+        </a>
+        <a href="#contact" class="hidden md:flex btn-primary text-[10px] py-2.5 px-5">Заяви Проект</a>
+        <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2" aria-label="Меню">
+          <i class="fas fa-bars text-lg"></i>
         </button>
       </div>
-      <p class="font-mono-label text-[10px] text-gray-500 mt-3 flex items-center gap-1.5">
-        <i class="fas fa-lock text-[9px]"></i>
-        Не се изисква акаунт. Резултати за секунди.
-      </p>
     </div>
-  </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden lg:hidden px-6 pb-4 flex flex-col gap-0 border-t border-gray-100">
+      <a href="index.html"
+        class="py-3 font-mono-label text-[11px] font-bold uppercase tracking-widest border-b border-gray-100 text-black">Добре
+        дошли</a>
+      <a href="enindex.html"
+        class="py-3 font-mono-label text-[11px] font-bold uppercase tracking-widest border-b border-gray-100 text-gray-400">English
+        Version (EN)</a>
+      <a href="#services"
+        class="py-3 font-mono-label text-[11px] font-bold uppercase tracking-widest border-b border-gray-100 text-gray-400">За
+        Мен</a>
+      <a href="#templates"
+        class="py-3 font-mono-label text-[11px] font-bold uppercase tracking-widest border-b border-gray-100 text-gray-400">Шаблони</a>
+      <a href="#pricing"
+        class="py-3 font-mono-label text-[11px] font-bold uppercase tracking-widest border-b border-gray-100 text-gray-400">Цени</a>
+      <a href="#contact"
+        class="py-3 font-mono-label text-[11px] font-bold uppercase tracking-widest text-gray-400">Контакт</a>
+    </div>
+  </nav>
 
-  <!-- Bottom stats bar (inverted) -->
-  <div class="section-rule-ultra">
-    <div class="bg-black tex-inv-lines">
-      <div class="max-w-6xl mx-auto px-6 md:px-8 py-6 grid grid-cols-3 divide-x divide-white/10 relative z-10">
-        <div class="text-center px-4">
-          <p class="font-display font-black text-white" style="font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1;">3–10</p>
-          <p class="font-mono-label text-[9px] text-white/50 uppercase tracking-widest mt-1">Дни до старт</p>
+
+  <!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+  <section id="hero" class="relative min-h-screen flex flex-col justify-center pt-14 pb-0 tex-lines overflow-hidden">
+    <!-- Decorative large number -->
+    <span class="hero-number"
+      style="right: -5vw; top: 50%; transform: translateY(-50%); opacity: 0.035; z-index:0; pointer-events:none;">т</span>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-8 w-full pt-16 md:pt-24 pb-16">
+      <!-- Eyebrow -->
+      <div class="hero-l1 mb-8">
+        <span class="section-label">Уеб дизайн и разработка на свободна практика</span>
+      </div>
+
+      <!-- Main headline -->
+      <h1 class="font-display font-black leading-none uppercase mb-10"
+        style="font-size: clamp(3.2rem, 10vw, 8.5rem); letter-spacing: -0.03em; line-height: 0.95;">
+        <span class="hero-l1 block">Твоята</span>
+        <span class="hero-l2 block" style="font-style: italic;">визия.</span>
+        <span class="hero-l3 block">Оживена.</span>
+      </h1>
+
+      <!-- Decorative rule + square -->
+      <div class="hero-l3 flex items-center gap-4 mb-10">
+        <div style="height: 3px; width: clamp(50px, 10vw, 120px); background: #000;"></div>
+        <div style="width: 12px; height: 12px; border: 2px solid #000;"></div>
+      </div>
+
+      <!-- Sub -->
+      <p class="hero-l4 font-body text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed mb-12"
+        style="font-weight: 300; line-height: 1.7;">
+        Красиви и бързи уебсайтове за малкия бизнес —<br class="hidden md:block" />
+        без излишни разходи и агенционни такси.
+      </p>
+
+      <!-- Audit tool -->
+      <div id="audit" class="hero-l4 border-2 border-black p-6 md:p-8 max-w-2xl bg-white"
+        style="position: relative; z-index: 3;">
+        <!-- Subtle corner accent -->
+        <div style="position: absolute; top: -2px; right: -2px; width: 16px; height: 16px; background: #000;"></div>
+        <p class="font-mono-label text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
+          Безплатен моментален <span style="text-decoration: underline; text-underline-offset: 3px;">одит на
+            уебсайт</span>
+        </p>
+        <div class="flex flex-col md:flex-row gap-0">
+          <label for="urlInput" class="sr-only">URL на уебсайт</label>
+          <input id="urlInput" type="url" placeholder="https://vashiyat-sait.com" inputmode="url" autocapitalize="off"
+            autocorrect="off" spellcheck="false" enterkeyhint="go" class="url-input flex-1 min-w-0"
+            style="border-right: none; border-radius: 0;" />
+          <button id="auditButton" onclick="runAudit()" class="btn-primary flex-shrink-0 justify-center"
+            style="min-height: 52px; border-radius: 0; border: 2px solid #000;">
+            <i class="fas fa-satellite-dish text-xs"></i>
+            <span id="auditButtonLabel">Стартирай Одит</span>
+          </button>
         </div>
-        <div class="text-center px-4">
-          <p class="font-display font-black text-white" style="font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1;">€200</p>
-          <p class="font-mono-label text-[9px] text-white/50 uppercase tracking-widest mt-1">От цена</p>
-        </div>
-        <div class="text-center px-4">
-          <p class="font-display font-black text-white" style="font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1;">16+</p>
-          <p class="font-mono-label text-[9px] text-white/50 uppercase tracking-widest mt-1">Години опит</p>
+        <p class="font-mono-label text-[10px] text-gray-500 mt-3 flex items-center gap-1.5">
+          <i class="fas fa-lock text-[9px]"></i>
+          Не се изисква акаунт. Резултати за секунди.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom stats bar (inverted) -->
+    <div class="section-rule-ultra">
+      <div class="bg-black tex-inv-lines">
+        <div class="max-w-6xl mx-auto px-6 md:px-8 py-6 grid grid-cols-3 divide-x divide-white/10 relative z-10">
+          <div class="text-center px-4">
+            <p class="font-display font-black text-white" style="font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1;">
+              3–10</p>
+            <p class="font-mono-label text-[9px] text-white/50 uppercase tracking-widest mt-1">Дни до старт</p>
+          </div>
+          <div class="text-center px-4">
+            <p class="font-display font-black text-white" style="font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1;">
+              €200</p>
+            <p class="font-mono-label text-[9px] text-white/50 uppercase tracking-widest mt-1">От цена</p>
+          </div>
+          <div class="text-center px-4">
+            <p class="font-display font-black text-white" style="font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1;">
+              16+</p>
+            <p class="font-mono-label text-[9px] text-white/50 uppercase tracking-widest mt-1">Години опит</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      AUDIT RESULTS
 ══════════════════════════════════════════ -->
-<section id="auditPanel" class="hidden px-6 md:px-8 py-16 section-rule">
-  <div class="max-w-3xl mx-auto">
+  <section id="auditPanel" class="hidden px-6 md:px-8 py-16 section-rule">
+    <div class="max-w-3xl mx-auto">
 
-    <!-- Scanning state -->
-    <div id="scanningState" class="border-2 border-black p-10 text-center">
-      <div class="relative w-28 h-28 mx-auto mb-6 border-2 border-black flex items-center justify-center overflow-hidden">
-        <div class="scan-line"></div>
-        <span class="font-display font-black text-2xl z-10">td</span>
+      <!-- Scanning state -->
+      <div id="scanningState" class="border-2 border-black p-10 text-center">
+        <div
+          class="relative w-28 h-28 mx-auto mb-6 border-2 border-black flex items-center justify-center overflow-hidden">
+          <div class="scan-line"></div>
+          <span class="font-display font-black text-2xl z-10">td</span>
+        </div>
+        <p class="font-display font-bold text-2xl uppercase tracking-tight mb-2">Анализираме уебсайта ви…</p>
+        <p class="font-body text-gray-500 text-sm">Проверяваме скорост, мобилен UX, SEO и сигурност.</p>
+        <div class="flex justify-center gap-2 mt-6">
+          <span class="w-2 h-2 bg-black animate-bounce" style="animation-delay:0s"></span>
+          <span class="w-2 h-2 bg-black animate-bounce" style="animation-delay:.15s"></span>
+          <span class="w-2 h-2 bg-black animate-bounce" style="animation-delay:.3s"></span>
+        </div>
       </div>
-      <p class="font-display font-bold text-2xl uppercase tracking-tight mb-2">Анализираме уебсайта ви…</p>
-      <p class="font-body text-gray-500 text-sm">Проверяваме скорост, мобилен UX, SEO и сигурност.</p>
-      <div class="flex justify-center gap-2 mt-6">
-        <span class="w-2 h-2 bg-black animate-bounce" style="animation-delay:0s"></span>
-        <span class="w-2 h-2 bg-black animate-bounce" style="animation-delay:.15s"></span>
-        <span class="w-2 h-2 bg-black animate-bounce" style="animation-delay:.3s"></span>
-      </div>
-    </div>
 
-    <!-- Results state -->
-    <div id="resultsState" class="hidden">
-      <div class="border-2 border-black p-8 mb-6">
-        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6 mb-8 pb-8" style="border-bottom: 2px solid #000;">
-          <div class="flex-1">
-            <p id="auditMode" class="font-mono-label text-[9px] uppercase tracking-widest text-gray-500 mb-3"></p>
-            <h2 id="auditHeadline" class="font-display font-bold text-2xl md:text-3xl leading-tight mb-2"></h2>
-            <p id="auditUrl" class="font-mono-label text-xs text-gray-500 truncate"></p>
+      <!-- Results state -->
+      <div id="resultsState" class="hidden">
+        <div class="border-2 border-black p-8 mb-6">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6 mb-8 pb-8"
+            style="border-bottom: 2px solid #000;">
+            <div class="flex-1">
+              <p id="auditMode" class="font-mono-label text-[9px] uppercase tracking-widest text-gray-500 mb-3"></p>
+              <h2 id="auditHeadline" class="font-display font-bold text-2xl md:text-3xl leading-tight mb-2"></h2>
+              <p id="auditUrl" class="font-mono-label text-xs text-gray-500 truncate"></p>
+            </div>
+            <div class="flex flex-col items-center flex-shrink-0">
+              <div class="relative w-24 h-24" style="border: 2px solid #000;">
+                <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="38" fill="none" stroke="#E5E5E5" stroke-width="8" />
+                  <circle id="scoreCircle" cx="50" cy="50" r="38" fill="none" stroke="#000" stroke-width="8"
+                    stroke-dasharray="238.76" stroke-dashoffset="238.76" class="circle-ring" stroke-linecap="square" />
+                </svg>
+                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                  <span id="scoreValue" class="font-display font-black text-2xl leading-none"></span>
+                  <span class="font-mono-label text-[8px] uppercase tracking-widest text-gray-500">Оценка</span>
+                </div>
+              </div>
+              <p id="scoreLabel" class="font-mono-label text-[10px] font-bold uppercase tracking-widest mt-3"></p>
+            </div>
           </div>
-          <div class="flex flex-col items-center flex-shrink-0">
-            <div class="relative w-24 h-24" style="border: 2px solid #000;">
-              <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="38" fill="none" stroke="#E5E5E5" stroke-width="8"/>
-                <circle id="scoreCircle" cx="50" cy="50" r="38" fill="none" stroke="#000" stroke-width="8"
-                  stroke-dasharray="238.76" stroke-dashoffset="238.76" class="circle-ring" stroke-linecap="square"/>
-              </svg>
-              <div class="absolute inset-0 flex flex-col items-center justify-center">
-                <span id="scoreValue" class="font-display font-black text-2xl leading-none"></span>
-                <span class="font-mono-label text-[8px] uppercase tracking-widest text-gray-500">Оценка</span>
+
+          <!-- Bars -->
+          <div class="space-y-5">
+            <div id="bar-load">
+              <div class="flex justify-between items-baseline mb-1.5">
+                <span id="bar-load-title"
+                  class="font-mono-label text-[10px] uppercase tracking-widest font-bold"></span>
+                <span id="bar-load-val" class="font-mono-label text-xs font-bold"></span>
+              </div>
+              <div class="w-full h-2 bg-gray-100" style="border: 1px solid #E5E5E5;">
+                <div id="bar-load-fill" class="h-full bar-inner bg-black" style="width:0%"></div>
               </div>
             </div>
-            <p id="scoreLabel" class="font-mono-label text-[10px] font-bold uppercase tracking-widest mt-3"></p>
-          </div>
-        </div>
-
-        <!-- Bars -->
-        <div class="space-y-5">
-          <div id="bar-load">
-            <div class="flex justify-between items-baseline mb-1.5">
-              <span id="bar-load-title" class="font-mono-label text-[10px] uppercase tracking-widest font-bold"></span>
-              <span id="bar-load-val" class="font-mono-label text-xs font-bold"></span>
+            <div id="bar-vitals">
+              <div class="flex justify-between items-baseline mb-1.5">
+                <span id="bar-vitals-title"
+                  class="font-mono-label text-[10px] uppercase tracking-widest font-bold"></span>
+                <span id="bar-vitals-val" class="font-mono-label text-xs font-bold"></span>
+              </div>
+              <div class="w-full h-2 bg-gray-100" style="border: 1px solid #E5E5E5;">
+                <div id="bar-vitals-fill" class="h-full bar-inner bg-black" style="width:0%"></div>
+              </div>
             </div>
-            <div class="w-full h-2 bg-gray-100" style="border: 1px solid #E5E5E5;">
-              <div id="bar-load-fill" class="h-full bar-inner bg-black" style="width:0%"></div>
+            <div id="bar-mobile">
+              <div class="flex justify-between items-baseline mb-1.5">
+                <span id="bar-mobile-title"
+                  class="font-mono-label text-[10px] uppercase tracking-widest font-bold"></span>
+                <span id="bar-mobile-val" class="font-mono-label text-xs font-bold"></span>
+              </div>
+              <div class="w-full h-2 bg-gray-100" style="border: 1px solid #E5E5E5;">
+                <div id="bar-mobile-fill" class="h-full bar-inner bg-black" style="width:0%"></div>
+              </div>
             </div>
-          </div>
-          <div id="bar-vitals">
-            <div class="flex justify-between items-baseline mb-1.5">
-              <span id="bar-vitals-title" class="font-mono-label text-[10px] uppercase tracking-widest font-bold"></span>
-              <span id="bar-vitals-val" class="font-mono-label text-xs font-bold"></span>
-            </div>
-            <div class="w-full h-2 bg-gray-100" style="border: 1px solid #E5E5E5;">
-              <div id="bar-vitals-fill" class="h-full bar-inner bg-black" style="width:0%"></div>
-            </div>
-          </div>
-          <div id="bar-mobile">
-            <div class="flex justify-between items-baseline mb-1.5">
-              <span id="bar-mobile-title" class="font-mono-label text-[10px] uppercase tracking-widest font-bold"></span>
-              <span id="bar-mobile-val" class="font-mono-label text-xs font-bold"></span>
-            </div>
-            <div class="w-full h-2 bg-gray-100" style="border: 1px solid #E5E5E5;">
-              <div id="bar-mobile-fill" class="h-full bar-inner bg-black" style="width:0%"></div>
-            </div>
-          </div>
-          <div id="bar-seo">
-            <div class="flex justify-between items-baseline mb-1.5">
-              <span id="bar-seo-title" class="font-mono-label text-[10px] uppercase tracking-widest font-bold"></span>
-              <span id="bar-seo-val" class="font-mono-label text-xs font-bold"></span>
-            </div>
-            <div class="w-full h-2 bg-gray-100" style="border: 1px solid #E5E5E5;">
-              <div id="bar-seo-fill" class="h-full bar-inner bg-black" style="width:0%"></div>
+            <div id="bar-seo">
+              <div class="flex justify-between items-baseline mb-1.5">
+                <span id="bar-seo-title" class="font-mono-label text-[10px] uppercase tracking-widest font-bold"></span>
+                <span id="bar-seo-val" class="font-mono-label text-xs font-bold"></span>
+              </div>
+              <div class="w-full h-2 bg-gray-100" style="border: 1px solid #E5E5E5;">
+                <div id="bar-seo-fill" class="h-full bar-inner bg-black" style="width:0%"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Insights -->
-      <div id="insightsContainer" class="space-y-4 mb-8"></div>
+        <!-- Insights -->
+        <div id="insightsContainer" class="space-y-4 mb-8"></div>
 
-      <!-- CTA -->
-      <div class="border-2 border-black p-6 bg-black text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <p class="font-display font-bold text-lg mb-1">Искате ли да оправим тези проблеми?</p>
-          <p class="font-body text-sm text-white/60">Разгледайте нашите пакети или директно пишете.</p>
+        <!-- CTA -->
+        <div
+          class="border-2 border-black p-6 bg-black text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <p class="font-display font-bold text-lg mb-1">Искате ли да оправим тези проблеми?</p>
+            <p class="font-body text-sm text-white/60">Разгледайте нашите пакети или директно пишете.</p>
+          </div>
+          <a href="#contact" class="btn-outline flex-shrink-0" style="border-color: #fff; color: #fff;"
+            onmouseover="this.style.background='#fff';this.style.color='#000'"
+            onmouseout="this.style.background='transparent';this.style.color='#fff'">
+            Свържете се →
+          </a>
         </div>
-        <a href="#contact" class="btn-outline flex-shrink-0" style="border-color: #fff; color: #fff;"
-          onmouseover="this.style.background='#fff';this.style.color='#000'"
-          onmouseout="this.style.background='transparent';this.style.color='#fff'">
-          Свържете се →
-        </a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      WHY A WEBSITE (marquee)
 ══════════════════════════════════════════ -->
-<div class="section-rule py-5 overflow-hidden">
-  <div class="marquee-wrap">
-    <div class="marquee">
-      <span class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Вашият&nbsp;сайт</span>
-      <span class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">24/7&nbsp;продава</span>
-      <span class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Google&nbsp;ви&nbsp;открива</span>
-      <span class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Пълен&nbsp;контрол</span>
-      <span class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Вашият&nbsp;сайт</span>
-      <span class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">24/7&nbsp;продава</span>
-      <span class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Google&nbsp;ви&nbsp;открива</span>
-      <span class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Пълен&nbsp;контрол</span>
-      <span class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Вашият&nbsp;сайт</span>
-      <span class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">24/7&nbsp;продава</span>
-      <span class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Google&nbsp;ви&nbsp;открива</span>
-      <span class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Пълен&nbsp;контрол</span>
+  <div class="section-rule py-5 overflow-hidden">
+    <div class="marquee-wrap">
+      <div class="marquee">
+        <span
+          class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Вашият&nbsp;сайт</span>
+        <span
+          class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">24/7&nbsp;продава</span>
+        <span
+          class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Google&nbsp;ви&nbsp;открива</span>
+        <span
+          class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Пълен&nbsp;контрол</span>
+        <span
+          class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Вашият&nbsp;сайт</span>
+        <span
+          class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">24/7&nbsp;продава</span>
+        <span
+          class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Google&nbsp;ви&nbsp;открива</span>
+        <span
+          class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Пълен&nbsp;контрол</span>
+        <span
+          class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Вашият&nbsp;сайт</span>
+        <span
+          class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">24/7&nbsp;продава</span>
+        <span
+          class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Google&nbsp;ви&nbsp;открива</span>
+        <span
+          class="font-display font-black text-4xl md:text-6xl uppercase tracking-tight mr-16 opacity-[0.06]">Пълен&nbsp;контрол</span>
+      </div>
     </div>
   </div>
-</div>
 
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      WHY A WEBSITE — mini cards
 ══════════════════════════════════════════ -->
-<section class="section-rule py-20 md:py-28 px-6 md:px-8 tex-grid">
-  <div class="max-w-6xl mx-auto relative z-10">
-    <div class="mb-12 section-fade">
-      <span class="section-label mb-6 inline-block">Защо ви трябва уебсайт</span>
-      <h2 class="font-display font-black mt-4" style="font-size: clamp(2.2rem, 6vw, 4.5rem); line-height: 0.95; letter-spacing: -0.03em;">
-        Социалните мрежи<br/>наемат. Сайтът ви<br/><em>притежавате.</em>
-      </h2>
+  <section class="section-rule py-20 md:py-28 px-6 md:px-8 tex-grid">
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="mb-12 section-fade">
+        <span class="section-label mb-6 inline-block">Защо ви трябва уебсайт</span>
+        <h2 class="font-display font-black mt-4"
+          style="font-size: clamp(2.2rem, 6vw, 4.5rem); line-height: 0.95; letter-spacing: -0.03em;">
+          Социалните мрежи<br />наемат. Сайтът ви<br /><em>притежавате.</em>
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-0" style="border: 1px solid #000;">
+        <div class="mono-card p-8 section-fade" style="border-right: 1px solid #000; transition-delay: .1s;">
+          <div class="card-icon w-12 h-12 border border-black flex items-center justify-center mb-6">
+            <i class="fas fa-lock text-lg"></i>
+          </div>
+          <h4 class="font-display font-bold text-lg mb-3 leading-tight">Пълен<br />контрол</h4>
+          <p class="font-body text-sm text-gray-600 leading-relaxed" style="line-height: 1.7;">Никой алгоритъм не решава
+            кой ви вижда. Вашето съдържание, вашата аудитория, вашите правила.</p>
+        </div>
+        <div class="mono-card p-8 section-fade" style="border-right: 1px solid #000; transition-delay: .2s;">
+          <div class="card-icon w-12 h-12 border border-black flex items-center justify-center mb-6">
+            <i class="fas fa-chart-line text-lg"></i>
+          </div>
+          <h4 class="font-display font-bold text-lg mb-3 leading-tight">Продажби<br />24/7</h4>
+          <p class="font-body text-sm text-gray-600 leading-relaxed">Сайтът ви отговаря на въпроси, събира запитвания и
+            затваря сделки — докато спите.</p>
+        </div>
+        <div class="mono-card p-8 section-fade" style="transition-delay: .3s;">
+          <div class="card-icon w-12 h-12 border border-black flex items-center justify-center mb-6">
+            <i class="fas fa-globe text-lg"></i>
+          </div>
+          <h4 class="font-display font-bold text-lg mb-3 leading-tight">Открит от<br />Google</h4>
+          <p class="font-body text-sm text-gray-600 leading-relaxed">Правилно изграден сайт се индексира, класира и
+            посещава — страниците в социалните мрежи — не.</p>
+        </div>
+      </div>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-0" style="border: 1px solid #000;">
-      <div class="mono-card p-8 section-fade" style="border-right: 1px solid #000; transition-delay: .1s;">
-        <div class="card-icon w-12 h-12 border border-black flex items-center justify-center mb-6">
-          <i class="fas fa-lock text-lg"></i>
-        </div>
-        <h4 class="font-display font-bold text-lg mb-3 leading-tight">Пълен<br/>контрол</h4>
-        <p class="font-body text-sm text-gray-600 leading-relaxed" style="line-height: 1.7;">Никой алгоритъм не решава кой ви вижда. Вашето съдържание, вашата аудитория, вашите правила.</p>
-      </div>
-      <div class="mono-card p-8 section-fade" style="border-right: 1px solid #000; transition-delay: .2s;">
-        <div class="card-icon w-12 h-12 border border-black flex items-center justify-center mb-6">
-          <i class="fas fa-chart-line text-lg"></i>
-        </div>
-        <h4 class="font-display font-bold text-lg mb-3 leading-tight">Продажби<br/>24/7</h4>
-        <p class="font-body text-sm text-gray-600 leading-relaxed">Сайтът ви отговаря на въпроси, събира запитвания и затваря сделки — докато спите.</p>
-      </div>
-      <div class="mono-card p-8 section-fade" style="transition-delay: .3s;">
-        <div class="card-icon w-12 h-12 border border-black flex items-center justify-center mb-6">
-          <i class="fas fa-globe text-lg"></i>
-        </div>
-        <h4 class="font-display font-bold text-lg mb-3 leading-tight">Открит от<br/>Google</h4>
-        <p class="font-body text-sm text-gray-600 leading-relaxed">Правилно изграден сайт се индексира, класира и посещава — страниците в социалните мрежи — не.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      ABOUT / SERVICES
 ══════════════════════════════════════════ -->
-<section id="services" class="section-rule py-20 md:py-32 px-6 md:px-8 tex-lines">
-  <div class="max-w-6xl mx-auto relative z-10">
+  <section id="services" class="section-rule py-20 md:py-32 px-6 md:px-8 tex-lines">
+    <div class="max-w-6xl mx-auto relative z-10">
 
-    <!-- Heading -->
-    <div class="mb-16 section-fade">
-      <span class="section-label mb-6 inline-block">Защо да работиш с мен</span>
-      <h2 class="font-display font-black mt-4" style="font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 0.92; letter-spacing: -0.04em;">
-        Здравей, аз съм<br/><em>Стоян.</em><br/>Правя сайтове,<br/>които работят.
-      </h2>
-    </div>
+      <!-- Heading -->
+      <div class="mb-16 section-fade">
+        <span class="section-label mb-6 inline-block">Защо да работиш с мен</span>
+        <h2 class="font-display font-black mt-4"
+          style="font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 0.92; letter-spacing: -0.04em;">
+          Здравей, аз съм<br /><em>Стоян.</em><br />Правя сайтове,<br />които работят.
+        </h2>
+      </div>
 
-    <!-- Bio card -->
-    <div class="section-fade border-2 border-black p-8 mb-0" style="border-bottom: none;">
-      <div class="grid lg:grid-cols-[1.4fr_1fr] gap-12 items-start">
-        <div>
-          <span class="section-label mb-6 inline-block">Запознайте се със Стоян Танев</span>
-          <h3 class="font-display font-bold text-2xl md:text-3xl mt-4 mb-5 leading-snug">
-            Занимавам се с дизайн от 2008.<br/>Сега го превръщам в уебсайтове.
-          </h3>
-          <p class="drop-cap font-body text-gray-600 leading-relaxed mb-4">
-            <span class="font-bold text-black italic">Пътят ми в дизайна започна през 2008 г. с Adobe Photoshop.</span> С годините обработката на снимки и композициите се превърнаха в усет за визуален баланс — основата на работата ми днес.
-          </p>
-          <p class="font-body text-gray-600 leading-relaxed">
-            Опитът ми в решаването на сложни хардуерни проблеми ме научи на прецизност. Същия стандарт прилагам и в уеб разработката — всеки сайт е красив, структурно здрав и ефективен за вашия бизнес.
-          </p>
-          <div class="flex flex-wrap gap-0 mt-8" style="border: 1px solid #000; display: inline-flex;">
-            <a href="https://www.linkedin.com/in/stoyan-tanev-a732603b8/" target="_blank" rel="noopener noreferrer"
-              class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-4 py-2.5 flex items-center gap-2 border-r border-black">
-              <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/stoyanbtanev" target="_blank" rel="noopener noreferrer"
-              class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-4 py-2.5 flex items-center gap-2 border-r border-black">
-              <i class="fab fa-github"></i><span>GitHub</span>
-            </a>
-            <a href="mailto:stoyanbtanev@gmail.com"
-              class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-4 py-2.5 flex items-center gap-2 border-r border-black">
-              <i class="fas fa-envelope"></i><span>Имейл</span>
-            </a>
-            <a href="tel:+359895469386"
-              class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-4 py-2.5 flex items-center gap-2">
-              <i class="fas fa-phone"></i><span>089 546 9386</span>
-            </a>
-          </div>
-        </div>
-        <div class="border border-black p-8">
-          <span class="section-label mb-6 inline-block">Какво получавате</span>
-          <div class="space-y-6 mt-4">
-            <div class="flex gap-4 items-start" style="border-bottom: 1px solid #E5E5E5; padding-bottom: 1.5rem;">
-              <div class="w-px bg-black self-stretch flex-shrink-0" style="min-height: 20px; margin-top: 4px;"></div>
-              <p class="font-body text-sm text-gray-700 leading-relaxed">Работите директно с човека, проектиращ и изграждащ вашия сайт — без посредници.</p>
-            </div>
-            <div class="flex gap-4 items-start" style="border-bottom: 1px solid #E5E5E5; padding-bottom: 1.5rem;">
-              <div class="w-px bg-black self-stretch flex-shrink-0" style="min-height: 20px; margin-top: 4px;"></div>
-              <p class="font-body text-sm text-gray-700 leading-relaxed">Всяко решение за оформлението е внимателно обмислено, за да представи автентично вашата марка.</p>
-            </div>
-            <div class="flex gap-4 items-start">
-              <div class="w-px bg-black self-stretch flex-shrink-0" style="min-height: 20px; margin-top: 4px;"></div>
-              <p class="font-body text-sm text-gray-700 leading-relaxed">16+ години дизайнерски опит се превръщат в модерна, висококачествена естетика.</p>
+      <!-- Bio card -->
+      <div class="section-fade border-2 border-black p-8 mb-0" style="border-bottom: none;">
+        <div class="grid lg:grid-cols-[1.4fr_1fr] gap-12 items-start">
+          <div>
+            <span class="section-label mb-6 inline-block">Запознайте се със Стоян Танев</span>
+            <h3 class="font-display font-bold text-2xl md:text-3xl mt-4 mb-5 leading-snug">Занимавам се с дизайн от
+              2008.<br />Сега го превръщам в уебсайтове.</h3>
+            <p class="drop-cap font-body text-gray-600 leading-relaxed mb-4"><span
+                class="font-bold text-black italic">Пътят ми в дизайна започна през 2008 г. с Adobe Photoshop.</span> С
+              годините обработката на снимки и композициите се превърнаха в усет за визуален баланс — основата на
+              работата ми днес.</p>
+            <p class="font-body text-gray-600 leading-relaxed">Опитът ми в решаването на сложни хардуерни проблеми ме
+              научи на прецизност. Същия стандарт прилагам и в уеб разработката — всеки сайт е красив, структурно здрав
+              и ефективен за вашия бизнес.</p>
+            <div class="flex flex-wrap gap-0 mt-8" style="border: 1px solid #000; display: inline-flex;">
+              <a href="https://www.linkedin.com/in/stoyan-tanev-a732603b8/" target="_blank" rel="noopener noreferrer"
+                class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-4 py-2.5 flex items-center gap-2 border-r border-black"><i
+                  class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+              <a href="https://github.com/stoyanbtanev" target="_blank" rel="noopener noreferrer"
+                class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-4 py-2.5 flex items-center gap-2 border-r border-black"><i
+                  class="fab fa-github"></i><span>GitHub</span></a>
+              <a href="mailto:stoyan@tanev.design"
+                class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-4 py-2.5 flex items-center gap-2 border-r border-black"><i
+                  class="fas fa-envelope"></i><span>Имейл</span></a>
+              <a href="tel:+359895469386"
+                class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-4 py-2.5 flex items-center gap-2"><i
+                  class="fas fa-phone"></i><span>089 546 9386</span></a>
             </div>
           </div>
+          <div class="border border-black p-8">
+            <span class="section-label mb-6 inline-block">Какво получавате</span>
+            <div class="space-y-6 mt-4">
+              <div class="flex gap-4 items-start" style="border-bottom: 1px solid #E5E5E5; padding-bottom: 1.5rem;">
+                <div class="w-px bg-black self-stretch flex-shrink-0" style="min-height: 20px; margin-top: 4px;"></div>
+                <p class="font-body text-sm text-gray-700 leading-relaxed">Работите директно с човека, проектиращ и
+                  изграждащ вашия сайт — без посредници.</p>
+              </div>
+              <div class="flex gap-4 items-start" style="border-bottom: 1px solid #E5E5E5; padding-bottom: 1.5rem;">
+                <div class="w-px bg-black self-stretch flex-shrink-0" style="min-height: 20px; margin-top: 4px;"></div>
+                <p class="font-body text-sm text-gray-700 leading-relaxed">Всяко решение за оформлението е внимателно
+                  обмислено, за да представи автентично вашата марка.</p>
+              </div>
+              <div class="flex gap-4 items-start">
+                <div class="w-px bg-black self-stretch flex-shrink-0" style="min-height: 20px; margin-top: 4px;"></div>
+                <p class="font-body text-sm text-gray-700 leading-relaxed">16+ години дизайнерски опит се превръщат в
+                  модерна, висококачествена естетика.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- 3 feature cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-0 section-fade mb-16"
+        style="border: 1px solid #000; border-top: none;">
+        <div class="mono-card p-8" style="border-right: 1px solid #000;">
+          <p class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 mb-6">01</p>
+          <h3 class="font-display font-bold text-2xl mb-4 leading-tight">Светкавично<br />Бързо</h3>
+          <p class="font-body text-sm text-gray-600 leading-relaxed mb-6">Проектите обикновено излизат в рамките на 3 до
+            10 дни.</p>
+          <div class="font-mono-label text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+            <div style="width: 8px; height: 8px; background: #000;"></div><span>3–10 дни</span>
+          </div>
+        </div>
+        <div class="mono-card p-8" style="border-right: 1px solid #000;">
+          <p class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 mb-6">02</p>
+          <h3 class="font-display font-bold text-2xl mb-4 leading-tight">Несравними<br />Цени</h3>
+          <p class="font-body text-sm text-gray-600 leading-relaxed mb-6">Агенционно качество без надценки и скрити
+            разходи.</p>
+          <div class="font-mono-label text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+            <div style="width: 8px; height: 8px; background: #000;"></div><span>От €200</span>
+          </div>
+        </div>
+        <div class="mono-card p-8">
+          <p class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 mb-6">03</p>
+          <h3 class="font-display font-bold text-2xl mb-4 leading-tight">Премиум<br />Качество</h3>
+          <p class="font-body text-sm text-gray-600 leading-relaxed mb-6">Чист код — сайтът зарежда бързо, изглежда
+            изрядно и работи на всяко устройство.</p>
+          <div class="font-mono-label text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+            <div style="width: 8px; height: 8px; background: #000;"></div><span>Модерен &amp; Адаптивен</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── УСЛУГИ — Detailed accordion ── -->
+      <div class="section-fade mb-4">
+        <span class="section-label mb-6 inline-block">Какво правя</span>
+        <h2 class="font-display font-black mt-4"
+          style="font-size: clamp(1.8rem, 4vw, 3rem); line-height: 0.95; letter-spacing: -0.04em;">
+          Пълен Спектър<br /><em>Дизайн Услуги.</em>
+        </h2>
+        <p class="font-body text-gray-500 mt-3 max-w-xl" style="font-weight: 300;">От първия пиксел до финалното
+          стартиране — всяка дисциплина покрита, всеки детайл обмислен.</p>
+      </div>
+
+      <div style="border-top: 2px solid #000; border-left: 2px solid #000;">
+
+        <!-- 01 Уеб Дизайн -->
+        <div class="section-fade bg-svc-row"
+          style="border-bottom: 2px solid #000; border-right: 2px solid #000; transition-delay:.05s">
+          <button class="bg-svc-toggle w-full text-left p-6 flex items-start gap-5" onclick="toggleBgSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-mono-label font-bold text-[10px] uppercase tracking-widest text-gray-400 w-8 flex-shrink-0 mt-1">01</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 mb-1">Топ изпълнение</p>
+              <h3 class="font-display font-bold leading-tight" style="font-size: clamp(1.2rem, 2.5vw, 2rem);">Уеб Дизайн
+              </h3>
+            </div>
+            <i class="fas fa-plus text-sm flex-shrink-0 mt-2 bg-svc-icon" style="transition: transform .3s ease;"></i>
+          </button>
+          <div class="bg-svc-body hidden px-6 pb-7"
+            style="padding-left: calc(1.5rem + 2rem + 1.25rem); border-top: 1px solid #E5E5E5;">
+            <p class="font-body text-sm text-gray-600 leading-relaxed mb-5 max-w-2xl">Проектирам no-code уебсайтове —
+              адаптивни, мобилни и SEO готови. Всеки сайт е изграден за ползваемост, скорост и модерен дизайн.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="section-label text-[9px] py-1">Figma</span><span
+                class="section-label text-[9px] py-1">Framer</span><span
+                class="section-label text-[9px] py-1">Webflow</span><span
+                class="section-label text-[9px] py-1">Vercel</span><span
+                class="section-label text-[9px] py-1">WordPress</span><span
+                class="section-label text-[9px] py-1">Elementor</span><span
+                class="section-label text-[9px] py-1">Avada</span><span class="section-label text-[9px] py-1">AI
+                Builder-и</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 Продуктов Дизайн -->
+        <div class="section-fade bg-svc-row"
+          style="border-bottom: 2px solid #000; border-right: 2px solid #000; transition-delay:.1s">
+          <button class="bg-svc-toggle w-full text-left p-6 flex items-start gap-5" onclick="toggleBgSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-mono-label font-bold text-[10px] uppercase tracking-widest text-gray-400 w-8 flex-shrink-0 mt-1">02</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 mb-1">MVP Пазарна Стратегия
+              </p>
+              <h3 class="font-display font-bold leading-tight" style="font-size: clamp(1.2rem, 2.5vw, 2rem);">Продуктов
+                Дизайн</h3>
+            </div>
+            <i class="fas fa-plus text-sm flex-shrink-0 mt-2 bg-svc-icon" style="transition: transform .3s ease;"></i>
+          </button>
+          <div class="bg-svc-body hidden px-6 pb-7"
+            style="padding-left: calc(1.5rem + 2rem + 1.25rem); border-top: 1px solid #E5E5E5;">
+            <p class="font-body text-sm text-gray-600 leading-relaxed mb-5 max-w-2xl">Превръщам идеи от концепция до
+              реален продукт. Фокусирам се върху обхват, потоци и нуждите на потребителите.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="section-label text-[9px] py-1">MVP Дизайн</span><span
+                class="section-label text-[9px] py-1">Pitch Decks</span><span
+                class="section-label text-[9px] py-1">Идентичност на Марка</span><span
+                class="section-label text-[9px] py-1">Продуктово Позициониране</span><span
+                class="section-label text-[9px] py-1">Маркетинг Материали</span><span
+                class="section-label text-[9px] py-1">Инвеститорски Презентации</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 UI/UX -->
+        <div class="section-fade bg-svc-row"
+          style="border-bottom: 2px solid #000; border-right: 2px solid #000; transition-delay:.15s">
+          <button class="bg-svc-toggle w-full text-left p-6 flex items-start gap-5" onclick="toggleBgSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-mono-label font-bold text-[10px] uppercase tracking-widest text-gray-400 w-8 flex-shrink-0 mt-1">03</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 mb-1">Потребителско
+                Изживяване</p>
+              <h3 class="font-display font-bold leading-tight" style="font-size: clamp(1.2rem, 2.5vw, 2rem);">UI / UX
+                Системи</h3>
+            </div>
+            <i class="fas fa-plus text-sm flex-shrink-0 mt-2 bg-svc-icon" style="transition: transform .3s ease;"></i>
+          </button>
+          <div class="bg-svc-body hidden px-6 pb-7"
+            style="padding-left: calc(1.5rem + 2rem + 1.25rem); border-top: 1px solid #E5E5E5;">
+            <p class="font-body text-sm text-gray-600 leading-relaxed mb-5 max-w-2xl">Проектирам потребителски пътеки,
+              wireframes и прототипи. Тестване и изследване удържат изживяването в реалността.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="section-label text-[9px] py-1">Figma</span><span
+                class="section-label text-[9px] py-1">Framer</span><span
+                class="section-label text-[9px] py-1">Webflow</span><span
+                class="section-label text-[9px] py-1">WordPress</span><span
+                class="section-label text-[9px] py-1">Elementor</span><span
+                class="section-label text-[9px] py-1">Avada</span><span
+                class="section-label text-[9px] py-1">Vercel</span><span
+                class="section-label text-[9px] py-1">Lovable</span><span
+                class="section-label text-[9px] py-1">Bolt</span><span class="section-label text-[9px] py-1">+10 AI
+                платформи</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 Graphic Design -->
+        <div class="section-fade bg-svc-row"
+          style="border-bottom: 2px solid #000; border-right: 2px solid #000; transition-delay:.2s">
+          <button class="bg-svc-toggle w-full text-left p-6 flex items-start gap-5" onclick="toggleBgSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-mono-label font-bold text-[10px] uppercase tracking-widest text-gray-400 w-8 flex-shrink-0 mt-1">04</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 mb-1">Дефиниране на Марка</p>
+              <h3 class="font-display font-bold leading-tight" style="font-size: clamp(1.2rem, 2.5vw, 2rem);">Графичен
+                Дизайн</h3>
+            </div>
+            <i class="fas fa-plus text-sm flex-shrink-0 mt-2 bg-svc-icon" style="transition: transform .3s ease;"></i>
+          </button>
+          <div class="bg-svc-body hidden px-6 pb-7"
+            style="padding-left: calc(1.5rem + 2rem + 1.25rem); border-top: 1px solid #E5E5E5;">
+            <p class="font-body text-sm text-gray-600 leading-relaxed mb-5 max-w-2xl">Създавам дигитални визии, банери,
+              реклами и публикации за ясни послания и ангажираност.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="section-label text-[9px] py-1">Adobe Creative Suite</span><span
+                class="section-label text-[9px] py-1">Photoshop</span><span
+                class="section-label text-[9px] py-1">Illustrator</span><span
+                class="section-label text-[9px] py-1">Figma</span><span
+                class="section-label text-[9px] py-1">FigJam</span><span
+                class="section-label text-[9px] py-1">Canva</span><span class="section-label text-[9px] py-1">Брандиране
+                и Лога</span><span class="section-label text-[9px] py-1">Типография и Оформление</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 Visual Design -->
+        <div class="section-fade bg-svc-row"
+          style="border-bottom: 2px solid #000; border-right: 2px solid #000; transition-delay:.25s">
+          <button class="bg-svc-toggle w-full text-left p-6 flex items-start gap-5" onclick="toggleBgSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-mono-label font-bold text-[10px] uppercase tracking-widest text-gray-400 w-8 flex-shrink-0 mt-1">05</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 mb-1">Детайлност + ИИ</p>
+              <h3 class="font-display font-bold leading-tight" style="font-size: clamp(1.2rem, 2.5vw, 2rem);">Визуален
+                Дизайн</h3>
+            </div>
+            <i class="fas fa-plus text-sm flex-shrink-0 mt-2 bg-svc-icon" style="transition: transform .3s ease;"></i>
+          </button>
+          <div class="bg-svc-body hidden px-6 pb-7"
+            style="padding-left: calc(1.5rem + 2rem + 1.25rem); border-top: 1px solid #E5E5E5;">
+            <p class="font-body text-sm text-gray-600 leading-relaxed mb-5 max-w-2xl">Назовете го, аз го правя.
+              Завладяващи дигитални визии, съчетаващи естетика с ясна комуникация.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="section-label text-[9px] py-1">Adobe Photoshop</span><span
+                class="section-label text-[9px] py-1">Adobe Illustrator</span><span
+                class="section-label text-[9px] py-1">Figma</span><span
+                class="section-label text-[9px] py-1">Canva</span><span
+                class="section-label text-[9px] py-1">Midjourney</span><span
+                class="section-label text-[9px] py-1">Leonardo</span><span
+                class="section-label text-[9px] py-1">Dall-E</span><span
+                class="section-label text-[9px] py-1">GPT</span><span
+                class="section-label text-[9px] py-1">Runway</span><span
+                class="section-label text-[9px] py-1">Firefly</span><span
+                class="section-label text-[9px] py-1">Sora</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07 Digital Marketing -->
+        <div class="section-fade bg-svc-row"
+          style="border-bottom: 2px solid #000; border-right: 2px solid #000; transition-delay:.3s">
+          <button class="bg-svc-toggle w-full text-left p-6 flex items-start gap-5" onclick="toggleBgSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-mono-label font-bold text-[10px] uppercase tracking-widest text-gray-400 w-8 flex-shrink-0 mt-1">07</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 mb-1">Базирано на Данни</p>
+              <h3 class="font-display font-bold leading-tight" style="font-size: clamp(1.2rem, 2.5vw, 2rem);">Дигитален
+                Маркетинг</h3>
+            </div>
+            <i class="fas fa-plus text-sm flex-shrink-0 mt-2 bg-svc-icon" style="transition: transform .3s ease;"></i>
+          </button>
+          <div class="bg-svc-body hidden px-6 pb-7"
+            style="padding-left: calc(1.5rem + 2rem + 1.25rem); border-top: 1px solid #E5E5E5;">
+            <p class="font-body text-sm text-gray-600 leading-relaxed mb-5 max-w-2xl">Стратегически дигитален маркетинг,
+              базиран на анализи, изследване на аудитория и оптимизация на реализации.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="section-label text-[9px] py-1">Google Ads</span><span
+                class="section-label text-[9px] py-1">Meta Ads</span><span
+                class="section-label text-[9px] py-1">SEO</span><span
+                class="section-label text-[9px] py-1">Анализи</span><span class="section-label text-[9px] py-1">Email
+                Маркетинг</span><span class="section-label text-[9px] py-1">CRO</span><span
+                class="section-label text-[9px] py-1">A/B Тестване</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08 Social Media -->
+        <div class="section-fade bg-svc-row"
+          style="border-bottom: 2px solid #000; border-right: 2px solid #000; transition-delay:.35s">
+          <button class="bg-svc-toggle w-full text-left p-6 flex items-start gap-5" onclick="toggleBgSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-mono-label font-bold text-[10px] uppercase tracking-widest text-gray-400 w-8 flex-shrink-0 mt-1">08</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 mb-1">Платформено Родно</p>
+              <h3 class="font-display font-bold leading-tight" style="font-size: clamp(1.2rem, 2.5vw, 2rem);">Социални
+                Медии</h3>
+            </div>
+            <i class="fas fa-plus text-sm flex-shrink-0 mt-2 bg-svc-icon" style="transition: transform .3s ease;"></i>
+          </button>
+          <div class="bg-svc-body hidden px-6 pb-7"
+            style="padding-left: calc(1.5rem + 2rem + 1.25rem); border-top: 1px solid #E5E5E5;">
+            <p class="font-body text-sm text-gray-600 leading-relaxed mb-5 max-w-2xl">Стратегия за съдържание, творческо
+              производство и управление на общност за реално присъствие в социалните мрежи.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="section-label text-[9px] py-1">Instagram</span><span
+                class="section-label text-[9px] py-1">Facebook</span><span
+                class="section-label text-[9px] py-1">TikTok</span><span
+                class="section-label text-[9px] py-1">LinkedIn</span><span
+                class="section-label text-[9px] py-1">YouTube</span><span
+                class="section-label text-[9px] py-1">Reels</span><span class="section-label text-[9px] py-1">Контент
+                Календар</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /service rows -->
     </div>
+  </section>
 
-    <!-- 3 feature cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 section-fade" style="border: 1px solid #000; border-top: none;">
-      <div class="mono-card p-8" style="border-right: 1px solid #000;">
-        <p class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 mb-6">01</p>
-        <h3 class="font-display font-bold text-2xl mb-4 leading-tight">Светкавично<br/>Бързо</h3>
-        <p class="font-body text-sm text-gray-600 leading-relaxed mb-6">Проектите обикновено излизат в рамките на 3 до 10 дни.</p>
-        <div class="font-mono-label text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
-          <div style="width: 8px; height: 8px; background: #000;"></div>
-          <span>3–10 дни</span>
-        </div>
-      </div>
-      <div class="mono-card p-8" style="border-right: 1px solid #000;">
-        <p class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 mb-6">02</p>
-        <h3 class="font-display font-bold text-2xl mb-4 leading-tight">Несравними<br/>Цени</h3>
-        <p class="font-body text-sm text-gray-600 leading-relaxed mb-6">Агенционно качество без надценки и скрити разходи.</p>
-        <div class="font-mono-label text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
-          <div style="width: 8px; height: 8px; background: #000;"></div>
-          <span>От €200</span>
-        </div>
-      </div>
-      <div class="mono-card p-8">
-        <p class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 mb-6">03</p>
-        <h3 class="font-display font-bold text-2xl mb-4 leading-tight">Премиум<br/>Качество</h3>
-        <p class="font-body text-sm text-gray-600 leading-relaxed mb-6">Чист код — сайтът зарежда бързо, изглежда изрядно и работи на всяко устройство.</p>
-        <div class="font-mono-label text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
-          <div style="width: 8px; height: 8px; background: #000;"></div>
-          <span>Модерен &amp; Адаптивен</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <style>
+    .bg-svc-row {
+      transition: background .12s ease;
+    }
+
+    .bg-svc-toggle:hover {
+      background: #F5F5F5;
+    }
+
+    .bg-svc-toggle[aria-expanded="true"] .bg-svc-icon {
+      transform: rotate(45deg);
+    }
+
+    .bg-svc-body.open {
+      display: block !important;
+    }
+  </style>
+  <script>
+    function toggleBgSvc(btn) {
+      const body = btn.nextElementSibling;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.bg-svc-toggle').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        const bd = b.nextElementSibling;
+        bd.classList.add('hidden'); bd.classList.remove('open');
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        body.classList.remove('hidden'); body.classList.add('open');
+      }
+    }
+  </script>
 
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      TEMPLATES
 ══════════════════════════════════════════ -->
-<section id="templates" class="section-rule py-20 md:py-28 px-6 md:px-8" data-device="desktop">
-  <div class="max-w-6xl mx-auto">
-    <div class="mb-12 section-fade">
-      <span class="section-label mb-6 inline-block">Посоки на Стил</span>
-      <h2 class="font-display font-black mt-4" style="font-size: clamp(2.2rem, 6vw, 4.5rem); line-height: 0.95; letter-spacing: -0.04em;">
-        Поглед към<br/>възможностите.
-      </h2>
-      <p class="font-body text-gray-500 mt-4 max-w-xl" style="font-weight: 300;">Всеки дизайн по-долу е посока на стил, която изграждам от нула — напълно адаптирана към вашата марка, съдържание и аудитория.</p>
-    </div>
-
-    <!-- Device toggle -->
-    <div class="section-fade mb-10" style="display:inline-flex; border: 1px solid #000;">
-      <button onclick="setDevice(this,'desktop')" class="device-btn active font-mono-label text-[9px] font-bold uppercase tracking-widest px-5 py-2.5 flex items-center gap-2" style="border-right: 1px solid #000;">
-        <i class="fas fa-desktop text-[9px]"></i> <span>Десктоп</span>
-      </button>
-      <button onclick="setDevice(this,'tablet')" class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-5 py-2.5 flex items-center gap-2" style="border-right: 1px solid #000;">
-        <i class="fas fa-tablet-alt text-[9px]"></i> <span>Таблет</span>
-      </button>
-      <button onclick="setDevice(this,'mobile')" class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-5 py-2.5 flex items-center gap-2">
-        <i class="fas fa-mobile-alt text-[9px]"></i> <span>Мобилен</span>
-      </button>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-
-      <!-- Template 1: Dark Business -->
-      <div class="section-fade" style="transition-delay:.05s">
-        <div class="tpl-card border border-black overflow-hidden flex flex-col">
-          <div class="tpl-chrome flex items-center gap-1.5 px-3 py-2.5 bg-gray-50" style="border-bottom: 1px solid #000;">
-            <span class="w-2.5 h-2.5 rounded-full" style="background:#ff5f56"></span>
-            <span class="w-2.5 h-2.5 rounded-full" style="background:#ffbd2e"></span>
-            <span class="w-2.5 h-2.5 rounded-full" style="background:#27c93f"></span>
-            <div class="flex-1 ml-2 h-4 bg-white border border-gray-200 text-[8px] flex items-center px-2 text-gray-400 truncate font-mono-label">вашиятсайт.com</div>
-          </div>
-          <div class="tpl-preview flex-shrink-0" style="background:#0c0c14;">
-            <div class="flex items-center justify-between px-4 py-2.5" style="border-bottom:1px solid rgba(255,255,255,0.07)">
-              <div class="flex items-center gap-2"><div class="w-4 h-4" style="background:#DC143C"></div><div class="h-2 w-14 rounded" style="background:rgba(255,255,255,0.8)"></div></div>
-              <div class="flex items-center gap-3"><div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.2)"></div><div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,0.2)"></div><div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.2)"></div></div>
-              <div class="h-6 w-14 rounded-sm" style="background:#DC143C"></div>
-            </div>
-            <div class="px-4 py-6">
-              <div class="inline-flex items-center gap-1.5 mb-3 px-2 py-1 rounded-sm" style="background:rgba(220,20,60,0.12);border:1px solid rgba(220,20,60,0.3)">
-                <div class="w-1.5 h-1.5 rounded-full" style="background:#DC143C"></div>
-                <div class="h-1.5 w-20 rounded" style="background:rgba(220,20,60,0.5)"></div>
-              </div>
-              <div class="h-5 w-full rounded-sm mb-1.5" style="background:rgba(255,255,255,0.9)"></div>
-              <div class="h-5 w-4/5 rounded-sm mb-4" style="background:rgba(255,255,255,0.9)"></div>
-              <div class="h-1.5 w-full rounded mb-1" style="background:rgba(255,255,255,0.18)"></div>
-              <div class="h-1.5 w-5/6 rounded mb-4" style="background:rgba(255,255,255,0.18)"></div>
-              <div class="flex gap-2 mb-5"><div class="h-7 w-20 rounded-sm" style="background:#DC143C"></div><div class="h-7 w-20 rounded-sm" style="border:1px solid rgba(255,255,255,0.2)"></div></div>
-              <div class="grid grid-cols-3 gap-2">
-                <div class="p-2.5 rounded-sm" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)"><div class="h-2 w-full rounded mb-1" style="background:rgba(255,255,255,0.6)"></div><div class="h-1.5 w-4/5 rounded" style="background:rgba(255,255,255,0.1)"></div></div>
-                <div class="p-2.5 rounded-sm" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)"><div class="h-2 w-full rounded mb-1" style="background:rgba(255,255,255,0.6)"></div><div class="h-1.5 w-4/5 rounded" style="background:rgba(255,255,255,0.1)"></div></div>
-                <div class="p-2.5 rounded-sm" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)"><div class="h-2 w-full rounded mb-1" style="background:rgba(255,255,255,0.6)"></div><div class="h-1.5 w-4/5 rounded" style="background:rgba(255,255,255,0.1)"></div></div>
-              </div>
-            </div>
-          </div>
-          <div class="p-5 bg-white" style="border-top: 1px solid #000;">
-            <p class="font-display font-bold text-base mb-1">Тъмен Бизнес / SaaS</p>
-            <p class="font-mono-label text-[10px] text-gray-500 uppercase tracking-widest">Тъмен фон · Червени акценти · Смели заглавия</p>
-          </div>
-        </div>
+  <section id="templates" class="section-rule py-20 md:py-28 px-6 md:px-8" data-device="desktop">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12 section-fade">
+        <span class="section-label mb-6 inline-block">Посоки на Стил</span>
+        <h2 class="font-display font-black mt-4"
+          style="font-size: clamp(2.2rem, 6vw, 4.5rem); line-height: 0.95; letter-spacing: -0.04em;">
+          Поглед към<br />възможностите.
+        </h2>
+        <p class="font-body text-gray-500 mt-4 max-w-xl" style="font-weight: 300;">Всеки дизайн по-долу е посока на
+          стил, която изграждам от нула — напълно адаптирана към вашата марка, съдържание и аудитория.</p>
       </div>
 
-      <!-- Template 2: Clean Monochrome -->
-      <div class="section-fade" style="transition-delay:.15s">
-        <div class="tpl-card border border-black overflow-hidden flex flex-col">
-          <div class="tpl-chrome flex items-center gap-1.5 px-3 py-2.5 bg-gray-50" style="border-bottom: 1px solid #000;">
-            <span class="w-2.5 h-2.5 rounded-full" style="background:#ff5f56"></span>
-            <span class="w-2.5 h-2.5 rounded-full" style="background:#ffbd2e"></span>
-            <span class="w-2.5 h-2.5 rounded-full" style="background:#27c93f"></span>
-            <div class="flex-1 ml-2 h-4 bg-white border border-gray-200 text-[8px] flex items-center px-2 text-gray-400 truncate font-mono-label">вашиятсайт.com</div>
-          </div>
-          <div class="tpl-preview flex-shrink-0 bg-white">
-            <div class="flex items-center justify-between px-4 py-2" style="border-bottom:2px solid #000">
-              <div class="font-black text-xs" style="font-family:Georgia,serif">МАРКА</div>
-              <div class="flex gap-3"><div class="h-1.5 w-8 rounded" style="background:#ccc"></div><div class="h-1.5 w-10 rounded" style="background:#ccc"></div><div class="h-1.5 w-8 rounded" style="background:#ccc"></div></div>
-              <div class="h-5 w-14 bg-black"></div>
+      <!-- Device toggle -->
+      <div class="section-fade mb-10" style="display:inline-flex; border: 1px solid #000;">
+        <button onclick="setDevice(this,'desktop')"
+          class="device-btn active font-mono-label text-[9px] font-bold uppercase tracking-widest px-5 py-2.5 flex items-center gap-2"
+          style="border-right: 1px solid #000;">
+          <i class="fas fa-desktop text-[9px]"></i> <span>Десктоп</span>
+        </button>
+        <button onclick="setDevice(this,'tablet')"
+          class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-5 py-2.5 flex items-center gap-2"
+          style="border-right: 1px solid #000;">
+          <i class="fas fa-tablet-alt text-[9px]"></i> <span>Таблет</span>
+        </button>
+        <button onclick="setDevice(this,'mobile')"
+          class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-5 py-2.5 flex items-center gap-2">
+          <i class="fas fa-mobile-alt text-[9px]"></i> <span>Мобилен</span>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+
+        <!-- Template 1: Dark Business -->
+        <div class="section-fade" style="transition-delay:.05s">
+          <div class="tpl-card border border-black overflow-hidden flex flex-col">
+            <div class="tpl-chrome flex items-center gap-1.5 px-3 py-2.5 bg-gray-50"
+              style="border-bottom: 1px solid #000;">
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#ff5f56"></span>
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#ffbd2e"></span>
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#27c93f"></span>
+              <div
+                class="flex-1 ml-2 h-4 bg-white border border-gray-200 text-[8px] flex items-center px-2 text-gray-400 truncate font-mono-label">
+                вашиятсайт.com</div>
             </div>
-            <div class="px-4 pt-5 pb-2">
-              <div class="mb-2"><div class="h-3 w-20 bg-black mb-2.5"></div></div>
-              <div class="h-7 w-full bg-black mb-1.5" style="opacity:0.9"></div>
-              <div class="h-7 w-3/4 bg-black mb-4" style="opacity:0.9"></div>
-              <div class="h-1.5 w-full rounded mb-1" style="background:#ccc"></div>
-              <div class="h-1.5 w-5/6 rounded mb-4" style="background:#ccc"></div>
-              <div class="flex gap-2 mb-5"><div class="h-8 w-24 bg-black"></div><div class="h-8 w-24 border border-black"></div></div>
-              <div style="border-top: 3px solid #000; padding-top: 10px;">
+            <div class="tpl-preview flex-shrink-0" style="background:#0c0c14;">
+              <div class="flex items-center justify-between px-4 py-2.5"
+                style="border-bottom:1px solid rgba(255,255,255,0.07)">
+                <div class="flex items-center gap-2">
+                  <div class="w-4 h-4" style="background:#DC143C"></div>
+                  <div class="h-2 w-14 rounded" style="background:rgba(255,255,255,0.8)"></div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.2)"></div>
+                  <div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,0.2)"></div>
+                  <div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.2)"></div>
+                </div>
+                <div class="h-6 w-14 rounded-sm" style="background:#DC143C"></div>
+              </div>
+              <div class="px-4 py-6">
+                <div class="inline-flex items-center gap-1.5 mb-3 px-2 py-1 rounded-sm"
+                  style="background:rgba(220,20,60,0.12);border:1px solid rgba(220,20,60,0.3)">
+                  <div class="w-1.5 h-1.5 rounded-full" style="background:#DC143C"></div>
+                  <div class="h-1.5 w-20 rounded" style="background:rgba(220,20,60,0.5)"></div>
+                </div>
+                <div class="h-5 w-full rounded-sm mb-1.5" style="background:rgba(255,255,255,0.9)"></div>
+                <div class="h-5 w-4/5 rounded-sm mb-4" style="background:rgba(255,255,255,0.9)"></div>
+                <div class="h-1.5 w-full rounded mb-1" style="background:rgba(255,255,255,0.18)"></div>
+                <div class="h-1.5 w-5/6 rounded mb-4" style="background:rgba(255,255,255,0.18)"></div>
+                <div class="flex gap-2 mb-5">
+                  <div class="h-7 w-20 rounded-sm" style="background:#DC143C"></div>
+                  <div class="h-7 w-20 rounded-sm" style="border:1px solid rgba(255,255,255,0.2)"></div>
+                </div>
                 <div class="grid grid-cols-3 gap-2">
-                  <div class="p-2" style="border:1px solid #000"><div class="h-2 w-full bg-black mb-1" style="opacity:0.7"></div><div class="h-1.5 w-4/5 rounded" style="background:#ddd"></div></div>
-                  <div class="p-2" style="border:1px solid #000"><div class="h-2 w-full bg-black mb-1" style="opacity:0.7"></div><div class="h-1.5 w-4/5 rounded" style="background:#ddd"></div></div>
-                  <div class="p-2" style="border:1px solid #000"><div class="h-2 w-full bg-black mb-1" style="opacity:0.7"></div><div class="h-1.5 w-4/5 rounded" style="background:#ddd"></div></div>
+                  <div class="p-2.5 rounded-sm"
+                    style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)">
+                    <div class="h-2 w-full rounded mb-1" style="background:rgba(255,255,255,0.6)"></div>
+                    <div class="h-1.5 w-4/5 rounded" style="background:rgba(255,255,255,0.1)"></div>
+                  </div>
+                  <div class="p-2.5 rounded-sm"
+                    style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)">
+                    <div class="h-2 w-full rounded mb-1" style="background:rgba(255,255,255,0.6)"></div>
+                    <div class="h-1.5 w-4/5 rounded" style="background:rgba(255,255,255,0.1)"></div>
+                  </div>
+                  <div class="p-2.5 rounded-sm"
+                    style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)">
+                    <div class="h-2 w-full rounded mb-1" style="background:rgba(255,255,255,0.6)"></div>
+                    <div class="h-1.5 w-4/5 rounded" style="background:rgba(255,255,255,0.1)"></div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="p-5 bg-white" style="border-top: 1px solid #000;">
-            <p class="font-display font-bold text-base mb-1">Редакционен Монохром</p>
-            <p class="font-mono-label text-[10px] text-gray-500 uppercase tracking-widest">Бяло/Черно · Серифни шрифтове · Остри линии</p>
+            <div class="p-5 bg-white" style="border-top: 1px solid #000;">
+              <p class="font-display font-bold text-base mb-1">Тъмен Бизнес / SaaS</p>
+              <p class="font-mono-label text-[10px] text-gray-500 uppercase tracking-widest">Тъмен фон · Червени акценти
+                · Смели заглавия</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Template 3: Warm Minimal -->
-      <div class="section-fade" style="transition-delay:.25s">
-        <div class="tpl-card border border-black overflow-hidden flex flex-col">
-          <div class="tpl-chrome flex items-center gap-1.5 px-3 py-2.5 bg-gray-50" style="border-bottom: 1px solid #000;">
-            <span class="w-2.5 h-2.5 rounded-full" style="background:#ff5f56"></span>
-            <span class="w-2.5 h-2.5 rounded-full" style="background:#ffbd2e"></span>
-            <span class="w-2.5 h-2.5 rounded-full" style="background:#27c93f"></span>
-            <div class="flex-1 ml-2 h-4 bg-white border border-gray-200 text-[8px] flex items-center px-2 text-gray-400 truncate font-mono-label">вашиятсайт.com</div>
-          </div>
-          <div class="tpl-preview flex-shrink-0" style="background:#FAF7F2">
-            <div class="flex items-center justify-between px-4 py-2" style="border-bottom:1px solid rgba(0,0,0,0.1)">
-              <div class="flex items-center gap-2"><div class="w-4 h-4 rounded-full" style="background:#C8A882"></div><div class="h-2 w-16 rounded" style="background:rgba(0,0,0,0.5)"></div></div>
-              <div class="flex gap-3"><div class="h-1.5 w-8 rounded" style="background:rgba(0,0,0,0.2)"></div><div class="h-1.5 w-10 rounded" style="background:rgba(0,0,0,0.2)"></div></div>
-              <div class="h-6 w-14 rounded-full" style="background:#C8A882"></div>
+        <!-- Template 2: Clean Monochrome -->
+        <div class="section-fade" style="transition-delay:.15s">
+          <div class="tpl-card border border-black overflow-hidden flex flex-col">
+            <div class="tpl-chrome flex items-center gap-1.5 px-3 py-2.5 bg-gray-50"
+              style="border-bottom: 1px solid #000;">
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#ff5f56"></span>
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#ffbd2e"></span>
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#27c93f"></span>
+              <div
+                class="flex-1 ml-2 h-4 bg-white border border-gray-200 text-[8px] flex items-center px-2 text-gray-400 truncate font-mono-label">
+                вашиятсайт.com</div>
             </div>
-            <div class="px-4 py-5">
-              <div class="text-center mb-4">
-                <div class="h-2 w-28 rounded-full mx-auto mb-3" style="background:#C8A882;opacity:0.6"></div>
-                <div class="h-6 w-4/5 mx-auto rounded mb-1.5" style="background:rgba(0,0,0,0.75)"></div>
-                <div class="h-6 w-3/5 mx-auto rounded mb-4" style="background:rgba(0,0,0,0.75)"></div>
-                <div class="h-1.5 w-4/5 mx-auto rounded mb-1" style="background:rgba(0,0,0,0.15)"></div>
-                <div class="h-1.5 w-3/5 mx-auto rounded mb-4" style="background:rgba(0,0,0,0.15)"></div>
-                <div class="h-9 w-28 mx-auto rounded-full" style="background:#C8A882"></div>
+            <div class="tpl-preview flex-shrink-0 bg-white">
+              <div class="flex items-center justify-between px-4 py-2" style="border-bottom:2px solid #000">
+                <div class="font-black text-xs" style="font-family:Georgia,serif">МАРКА</div>
+                <div class="flex gap-3">
+                  <div class="h-1.5 w-8 rounded" style="background:#ccc"></div>
+                  <div class="h-1.5 w-10 rounded" style="background:#ccc"></div>
+                  <div class="h-1.5 w-8 rounded" style="background:#ccc"></div>
+                </div>
+                <div class="h-5 w-14 bg-black"></div>
               </div>
-              <div class="grid grid-cols-2 gap-2">
-                <div class="p-3 rounded-xl" style="background:#fff"><div class="h-12 rounded-lg mb-2" style="background:rgba(200,168,130,0.2)"></div><div class="h-1.5 w-full rounded" style="background:rgba(0,0,0,0.15)"></div></div>
-                <div class="p-3 rounded-xl" style="background:#fff"><div class="h-12 rounded-lg mb-2" style="background:rgba(200,168,130,0.2)"></div><div class="h-1.5 w-full rounded" style="background:rgba(0,0,0,0.15)"></div></div>
+              <div class="px-4 pt-5 pb-2">
+                <div class="mb-2">
+                  <div class="h-3 w-20 bg-black mb-2.5"></div>
+                </div>
+                <div class="h-7 w-full bg-black mb-1.5" style="opacity:0.9"></div>
+                <div class="h-7 w-3/4 bg-black mb-4" style="opacity:0.9"></div>
+                <div class="h-1.5 w-full rounded mb-1" style="background:#ccc"></div>
+                <div class="h-1.5 w-5/6 rounded mb-4" style="background:#ccc"></div>
+                <div class="flex gap-2 mb-5">
+                  <div class="h-8 w-24 bg-black"></div>
+                  <div class="h-8 w-24 border border-black"></div>
+                </div>
+                <div style="border-top: 3px solid #000; padding-top: 10px;">
+                  <div class="grid grid-cols-3 gap-2">
+                    <div class="p-2" style="border:1px solid #000">
+                      <div class="h-2 w-full bg-black mb-1" style="opacity:0.7"></div>
+                      <div class="h-1.5 w-4/5 rounded" style="background:#ddd"></div>
+                    </div>
+                    <div class="p-2" style="border:1px solid #000">
+                      <div class="h-2 w-full bg-black mb-1" style="opacity:0.7"></div>
+                      <div class="h-1.5 w-4/5 rounded" style="background:#ddd"></div>
+                    </div>
+                    <div class="p-2" style="border:1px solid #000">
+                      <div class="h-2 w-full bg-black mb-1" style="opacity:0.7"></div>
+                      <div class="h-1.5 w-4/5 rounded" style="background:#ddd"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="p-5 bg-white" style="border-top: 1px solid #000;">
-            <p class="font-display font-bold text-base mb-1">Топъл Минимализъм</p>
-            <p class="font-mono-label text-[10px] text-gray-500 uppercase tracking-widest">Кремав фон · Земни тонове · Заоблен стил</p>
+            <div class="p-5 bg-white" style="border-top: 1px solid #000;">
+              <p class="font-display font-bold text-base mb-1">Редакционен Монохром</p>
+              <p class="font-mono-label text-[10px] text-gray-500 uppercase tracking-widest">Бяло/Черно · Серифни
+                шрифтове · Остри линии</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Template 4: Electric / Accent -->
-      <div class="section-fade" style="transition-delay:.35s">
-        <div class="tpl-card border border-black overflow-hidden flex flex-col">
-          <div class="tpl-chrome flex items-center gap-1.5 px-3 py-2.5 bg-gray-50" style="border-bottom: 1px solid #000;">
-            <span class="w-2.5 h-2.5 rounded-full" style="background:#ff5f56"></span>
-            <span class="w-2.5 h-2.5 rounded-full" style="background:#ffbd2e"></span>
-            <span class="w-2.5 h-2.5 rounded-full" style="background:#27c93f"></span>
-            <div class="flex-1 ml-2 h-4 bg-white border border-gray-200 text-[8px] flex items-center px-2 text-gray-400 truncate font-mono-label">вашиятсайт.com</div>
-          </div>
-          <div class="tpl-preview flex-shrink-0" style="background:#09090B">
-            <div class="flex items-center justify-between px-4 py-2.5" style="border-bottom:1px solid rgba(255,255,255,0.06)">
-              <div class="h-2.5 w-20 rounded" style="background:rgba(255,255,255,0.85)"></div>
-              <div class="flex gap-3"><div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.2)"></div><div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.2)"></div></div>
-              <div class="h-6 w-14" style="background:#DFE104"></div>
+        <!-- Template 3: Warm Minimal -->
+        <div class="section-fade" style="transition-delay:.25s">
+          <div class="tpl-card border border-black overflow-hidden flex flex-col">
+            <div class="tpl-chrome flex items-center gap-1.5 px-3 py-2.5 bg-gray-50"
+              style="border-bottom: 1px solid #000;">
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#ff5f56"></span>
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#ffbd2e"></span>
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#27c93f"></span>
+              <div
+                class="flex-1 ml-2 h-4 bg-white border border-gray-200 text-[8px] flex items-center px-2 text-gray-400 truncate font-mono-label">
+                вашиятсайт.com</div>
             </div>
-            <div class="px-4 py-5">
-              <div class="inline-flex px-2 py-1 mb-3" style="border:1px solid #3F3F46">
-                <div class="h-1.5 w-24 rounded" style="background:#DFE104;opacity:0.7"></div>
+            <div class="tpl-preview flex-shrink-0" style="background:#FAF7F2">
+              <div class="flex items-center justify-between px-4 py-2" style="border-bottom:1px solid rgba(0,0,0,0.1)">
+                <div class="flex items-center gap-2">
+                  <div class="w-4 h-4 rounded-full" style="background:#C8A882"></div>
+                  <div class="h-2 w-16 rounded" style="background:rgba(0,0,0,0.5)"></div>
+                </div>
+                <div class="flex gap-3">
+                  <div class="h-1.5 w-8 rounded" style="background:rgba(0,0,0,0.2)"></div>
+                  <div class="h-1.5 w-10 rounded" style="background:rgba(0,0,0,0.2)"></div>
+                </div>
+                <div class="h-6 w-14 rounded-full" style="background:#C8A882"></div>
               </div>
-              <div class="h-5 w-full mb-1.5" style="background:rgba(255,255,255,0.9)"></div>
-              <div class="h-5 w-3/4 mb-4" style="background:rgba(255,255,255,0.9)"></div>
-              <div class="h-1.5 w-full rounded mb-1" style="background:rgba(255,255,255,0.18)"></div>
-              <div class="h-1.5 w-5/6 rounded mb-5" style="background:rgba(255,255,255,0.18)"></div>
-              <div class="flex gap-2 mb-5"><div class="h-7 w-20" style="background:#DFE104"></div><div class="h-7 w-20" style="border:1px solid #3F3F46"></div></div>
-              <div class="grid grid-cols-3 gap-2">
-                <div class="p-2" style="background:#111113;border:1px solid #3F3F46"><div class="h-2 w-full mb-1" style="background:rgba(255,255,255,0.6)"></div><div class="h-1.5 w-4/5" style="background:rgba(255,255,255,0.1)"></div></div>
-                <div class="p-2" style="background:#111113;border:1px solid #3F3F46"><div class="h-2 w-full mb-1" style="background:rgba(255,255,255,0.6)"></div><div class="h-1.5 w-4/5" style="background:rgba(255,255,255,0.1)"></div></div>
-                <div class="p-2" style="background:#111113;border:1px solid #3F3F46"><div class="h-2 w-full mb-1" style="background:rgba(255,255,255,0.6)"></div><div class="h-1.5 w-4/5" style="background:rgba(255,255,255,0.1)"></div></div>
+              <div class="px-4 py-5">
+                <div class="text-center mb-4">
+                  <div class="h-2 w-28 rounded-full mx-auto mb-3" style="background:#C8A882;opacity:0.6"></div>
+                  <div class="h-6 w-4/5 mx-auto rounded mb-1.5" style="background:rgba(0,0,0,0.75)"></div>
+                  <div class="h-6 w-3/5 mx-auto rounded mb-4" style="background:rgba(0,0,0,0.75)"></div>
+                  <div class="h-1.5 w-4/5 mx-auto rounded mb-1" style="background:rgba(0,0,0,0.15)"></div>
+                  <div class="h-1.5 w-3/5 mx-auto rounded mb-4" style="background:rgba(0,0,0,0.15)"></div>
+                  <div class="h-9 w-28 mx-auto rounded-full" style="background:#C8A882"></div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="p-3 rounded-xl" style="background:#fff">
+                    <div class="h-12 rounded-lg mb-2" style="background:rgba(200,168,130,0.2)"></div>
+                    <div class="h-1.5 w-full rounded" style="background:rgba(0,0,0,0.15)"></div>
+                  </div>
+                  <div class="p-3 rounded-xl" style="background:#fff">
+                    <div class="h-12 rounded-lg mb-2" style="background:rgba(200,168,130,0.2)"></div>
+                    <div class="h-1.5 w-full rounded" style="background:rgba(0,0,0,0.15)"></div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="p-5 bg-white" style="border-top: 1px solid #000;">
-            <p class="font-display font-bold text-base mb-1">Електрически Тъмен</p>
-            <p class="font-mono-label text-[10px] text-gray-500 uppercase tracking-widest">Киселинно жълто · Технологичен · Модерен</p>
+            <div class="p-5 bg-white" style="border-top: 1px solid #000;">
+              <p class="font-display font-bold text-base mb-1">Топъл Минимализъм</p>
+              <p class="font-mono-label text-[10px] text-gray-500 uppercase tracking-widest">Кремав фон · Земни тонове ·
+                Заоблен стил</p>
+            </div>
           </div>
         </div>
+
+        <!-- Template 4: Electric / Accent -->
+        <div class="section-fade" style="transition-delay:.35s">
+          <div class="tpl-card border border-black overflow-hidden flex flex-col">
+            <div class="tpl-chrome flex items-center gap-1.5 px-3 py-2.5 bg-gray-50"
+              style="border-bottom: 1px solid #000;">
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#ff5f56"></span>
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#ffbd2e"></span>
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#27c93f"></span>
+              <div
+                class="flex-1 ml-2 h-4 bg-white border border-gray-200 text-[8px] flex items-center px-2 text-gray-400 truncate font-mono-label">
+                вашиятсайт.com</div>
+            </div>
+            <div class="tpl-preview flex-shrink-0" style="background:#09090B">
+              <div class="flex items-center justify-between px-4 py-2.5"
+                style="border-bottom:1px solid rgba(255,255,255,0.06)">
+                <div class="h-2.5 w-20 rounded" style="background:rgba(255,255,255,0.85)"></div>
+                <div class="flex gap-3">
+                  <div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.2)"></div>
+                  <div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.2)"></div>
+                </div>
+                <div class="h-6 w-14" style="background:#DFE104"></div>
+              </div>
+              <div class="px-4 py-5">
+                <div class="inline-flex px-2 py-1 mb-3" style="border:1px solid #3F3F46">
+                  <div class="h-1.5 w-24 rounded" style="background:#DFE104;opacity:0.7"></div>
+                </div>
+                <div class="h-5 w-full mb-1.5" style="background:rgba(255,255,255,0.9)"></div>
+                <div class="h-5 w-3/4 mb-4" style="background:rgba(255,255,255,0.9)"></div>
+                <div class="h-1.5 w-full rounded mb-1" style="background:rgba(255,255,255,0.18)"></div>
+                <div class="h-1.5 w-5/6 rounded mb-5" style="background:rgba(255,255,255,0.18)"></div>
+                <div class="flex gap-2 mb-5">
+                  <div class="h-7 w-20" style="background:#DFE104"></div>
+                  <div class="h-7 w-20" style="border:1px solid #3F3F46"></div>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <div class="p-2" style="background:#111113;border:1px solid #3F3F46">
+                    <div class="h-2 w-full mb-1" style="background:rgba(255,255,255,0.6)"></div>
+                    <div class="h-1.5 w-4/5" style="background:rgba(255,255,255,0.1)"></div>
+                  </div>
+                  <div class="p-2" style="background:#111113;border:1px solid #3F3F46">
+                    <div class="h-2 w-full mb-1" style="background:rgba(255,255,255,0.6)"></div>
+                    <div class="h-1.5 w-4/5" style="background:rgba(255,255,255,0.1)"></div>
+                  </div>
+                  <div class="p-2" style="background:#111113;border:1px solid #3F3F46">
+                    <div class="h-2 w-full mb-1" style="background:rgba(255,255,255,0.6)"></div>
+                    <div class="h-1.5 w-4/5" style="background:rgba(255,255,255,0.1)"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-5 bg-white" style="border-top: 1px solid #000;">
+              <p class="font-display font-bold text-base mb-1">Електрически Тъмен</p>
+              <p class="font-mono-label text-[10px] text-gray-500 uppercase tracking-widest">Киселинно жълто ·
+                Технологичен · Модерен</p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
+      <p class="section-fade font-body text-sm text-gray-500 mt-8 italic" style="font-weight: 300;">
+        Не виждате нужния стил? Разработвам всякакви направления — просто попитайте.
+      </p>
     </div>
-
-    <p class="section-fade font-body text-sm text-gray-500 mt-8 italic" style="font-weight: 300;">
-      Не виждате нужния стил? Разработвам всякакви направления — просто попитайте.
-    </p>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      PULL QUOTE / INVERTED CTA
 ══════════════════════════════════════════ -->
-<div class="section-rule-ultra">
-  <div class="bg-black tex-inv-lines">
-    <div class="max-w-6xl mx-auto px-6 md:px-8 py-20 md:py-28 relative z-10 section-fade">
-      <div class="pull-quote text-white max-w-4xl mx-auto" style="border-left-color: rgba(255,255,255,0.3);">
-        <p class="text-white">Добрият уебсайт не е разход.<br/>Той е инструмент, който работи<br/>за вас всяка секунда.</p>
-        <footer class="font-mono-label text-[11px] font-bold uppercase tracking-widest text-white/40 mt-6 not-italic" style="font-style: normal;">
-          — Стоян Танев, tanev.design
-        </footer>
+  <div class="section-rule-ultra">
+    <div class="bg-black tex-inv-lines">
+      <div class="max-w-6xl mx-auto px-6 md:px-8 py-20 md:py-28 relative z-10 section-fade">
+        <div class="pull-quote text-white max-w-4xl mx-auto" style="border-left-color: rgba(255,255,255,0.3);">
+          <p class="text-white">Добрият уебсайт не е разход.<br />Той е инструмент, който работи<br />за вас всяка
+            секунда.</p>
+          <footer class="font-mono-label text-[11px] font-bold uppercase tracking-widest text-white/40 mt-6 not-italic"
+            style="font-style: normal;">
+            — Стоян Танев, tanev.design
+          </footer>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      PRICING
 ══════════════════════════════════════════ -->
-<section id="pricing" class="section-rule py-20 md:py-32 px-6 md:px-8 tex-diag">
-  <div class="max-w-6xl mx-auto relative z-10">
+  <section id="pricing" class="section-rule py-20 md:py-32 px-6 md:px-8 tex-diag">
+    <div class="max-w-6xl mx-auto relative z-10">
 
-    <div class="mb-14 section-fade">
-      <span class="section-label mb-6 inline-block">Ценови Пакети</span>
-      <h2 class="font-display font-black mt-4" style="font-size: clamp(2.5rem, 7vw, 5rem); line-height: 0.95; letter-spacing: -0.04em;">
-        Прозрачни цени.<br/><em>Без изненади.</em>
-      </h2>
+      <div class="mb-14 section-fade">
+        <span class="section-label mb-6 inline-block">Ценови Пакети</span>
+        <h2 class="font-display font-black mt-4"
+          style="font-size: clamp(2.5rem, 7vw, 5rem); line-height: 0.95; letter-spacing: -0.04em;">
+          Прозрачни цени.<br /><em>Без изненади.</em>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-0" style="border: 1px solid #000;">
+
+        <!-- Tier 1: Landing -->
+        <div class="pricing-card section-fade p-8 flex flex-col"
+          style="border-right: 1px solid #000; transition-delay: .1s;">
+          <span class="section-label mb-6 inline-block">Стартов</span>
+          <div class="mb-1">
+            <span class="font-display font-black"
+              style="font-size: clamp(2.5rem, 5vw, 3.5rem); letter-spacing: -0.04em; line-height: 1;">€200</span>
+          </div>
+          <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 mb-6">Еднократно</p>
+          <p class="font-body text-sm text-gray-600 leading-relaxed mb-8">Лендинг страница — перфектна за малък бизнес
+            или лична марка.</p>
+          <ul class="space-y-3 mb-10 flex-1">
+            <li class="flex items-start gap-3 font-body text-sm text-gray-700">
+              <div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>1 страница
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-gray-700">
+              <div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Адаптивен дизайн
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-gray-700">
+              <div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Форма за контакт
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-gray-700">
+              <div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Основна SEO оптимизация
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-gray-700">
+              <div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Доставка за 3 дни
+            </li>
+          </ul>
+          <a href="#contact" class="btn-outline w-full justify-center text-center">Започни →</a>
+        </div>
+
+        <!-- Tier 2: Business (featured) -->
+        <div class="pricing-card-featured section-fade p-8 flex flex-col"
+          style="border-right: 1px solid rgba(255,255,255,0.15); transition-delay: .2s; position: relative;">
+          <div style="position: absolute; top: -1px; left: 50%; transform: translateX(-50%);">
+            <span
+              class="font-mono-label text-[9px] font-bold uppercase tracking-widest bg-white text-black px-4 py-1.5 inline-block"
+              style="border: 1px solid #000;">Най-популярен</span>
+          </div>
+          <span class="section-label mb-6 inline-block mt-6"
+            style="border-color: rgba(255,255,255,0.4); color: #fff;">Бизнес</span>
+          <div class="mb-1">
+            <span class="font-display font-black text-white"
+              style="font-size: clamp(2.5rem, 5vw, 3.5rem); letter-spacing: -0.04em; line-height: 1;">€500</span>
+          </div>
+          <p class="font-mono-label text-[9px] uppercase tracking-widest text-white/40 mb-6">Еднократно</p>
+          <p class="font-body text-sm text-white/70 leading-relaxed mb-8">Многостранично присъствие с пълна
+            функционалност и висок клас дизайн.</p>
+          <ul class="space-y-3 mb-10 flex-1">
+            <li class="flex items-start gap-3 font-body text-sm text-white/85">
+              <div class="w-1 h-1 bg-white mt-2 flex-shrink-0"></div>До 5 страници
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-white/85">
+              <div class="w-1 h-1 bg-white mt-2 flex-shrink-0"></div>Персонализирана дизайн система
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-white/85">
+              <div class="w-1 h-1 bg-white mt-2 flex-shrink-0"></div>SEO оптимизация
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-white/85">
+              <div class="w-1 h-1 bg-white mt-2 flex-shrink-0"></div>1 седмица поддръжка
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-white/85">
+              <div class="w-1 h-1 bg-white mt-2 flex-shrink-0"></div>Доставка за 7 дни
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-white/85">
+              <div class="w-1 h-1 bg-white mt-2 flex-shrink-0"></div>Безплатен чат уиджет
+            </li>
+          </ul>
+          <a href="#contact"
+            class="font-mono-label font-bold text-[10px] uppercase tracking-widest w-full py-4 text-center bg-white text-black inline-block"
+            style="transition: background 0.08s, color 0.08s;" onmouseover="this.style.background='#E5E5E5'"
+            onmouseout="this.style.background='#fff'">
+            Започни →
+          </a>
+        </div>
+
+        <!-- Tier 3: Custom -->
+        <div class="pricing-card section-fade p-8 flex flex-col" style="transition-delay: .3s;">
+          <span class="section-label mb-6 inline-block">Персонализиран</span>
+          <div class="mb-1">
+            <span class="font-display font-black"
+              style="font-size: clamp(2.5rem, 5vw, 3.5rem); letter-spacing: -0.04em; line-height: 1;">€800</span>
+          </div>
+          <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 mb-6">Еднократно</p>
+          <p class="font-body text-sm text-gray-600 leading-relaxed mb-8">Напълно персонализиран уебсайт от нулата —
+            вашата марка, вашите правила.</p>
+          <ul class="space-y-3 mb-10 flex-1">
+            <li class="flex items-start gap-3 font-body text-sm text-gray-700">
+              <div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>До 10 страници
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-gray-700">
+              <div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Персонализирана дизайн система
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-gray-700">
+              <div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Готов за е-търговия
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-gray-700">
+              <div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>2 седмици поддръжка
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-gray-700">
+              <div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Доставка за 10 дни
+            </li>
+            <li class="flex items-start gap-3 font-body text-sm text-gray-700">
+              <div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Безплатен домейн (1-ва год.)
+            </li>
+          </ul>
+          <a href="#contact" class="btn-outline w-full justify-center text-center">Започни →</a>
+        </div>
+
+      </div>
+
+      <!-- Guarantee -->
+      <div class="section-fade mt-8">
+        <div class="inline-flex items-center gap-3 border border-black px-5 py-3">
+          <i class="fas fa-shield-check text-sm"></i>
+          <span class="font-mono-label text-[10px] font-bold uppercase tracking-widest">Ако нещо не е както трябва, го
+            поправям. Просто и ясно.</span>
+        </div>
+      </div>
+
     </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-0" style="border: 1px solid #000;">
-
-      <!-- Tier 1: Landing -->
-      <div class="pricing-card section-fade p-8 flex flex-col" style="border-right: 1px solid #000; transition-delay: .1s;">
-        <span class="section-label mb-6 inline-block">Стартов</span>
-        <div class="mb-1">
-          <span class="font-display font-black" style="font-size: clamp(2.5rem, 5vw, 3.5rem); letter-spacing: -0.04em; line-height: 1;">€200</span>
-        </div>
-        <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 mb-6">Еднократно</p>
-        <p class="font-body text-sm text-gray-600 leading-relaxed mb-8">Лендинг страница — перфектна за малък бизнес или лична марка.</p>
-        <ul class="space-y-3 mb-10 flex-1">
-          <li class="flex items-start gap-3 font-body text-sm text-gray-700"><div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>1 страница</li>
-          <li class="flex items-start gap-3 font-body text-sm text-gray-700"><div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Адаптивен дизайн</li>
-          <li class="flex items-start gap-3 font-body text-sm text-gray-700"><div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Форма за контакт</li>
-          <li class="flex items-start gap-3 font-body text-sm text-gray-700"><div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Основна SEO оптимизация</li>
-          <li class="flex items-start gap-3 font-body text-sm text-gray-700"><div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Доставка за 3 дни</li>
-        </ul>
-        <a href="#contact" class="btn-outline w-full justify-center text-center">Започни →</a>
-      </div>
-
-      <!-- Tier 2: Business (featured) -->
-      <div class="pricing-card-featured section-fade p-8 flex flex-col" style="border-right: 1px solid rgba(255,255,255,0.15); transition-delay: .2s; position: relative;">
-        <div style="position: absolute; top: -1px; left: 50%; transform: translateX(-50%);">
-          <span class="font-mono-label text-[9px] font-bold uppercase tracking-widest bg-white text-black px-4 py-1.5 inline-block" style="border: 1px solid #000;">Най-популярен</span>
-        </div>
-        <span class="section-label mb-6 inline-block mt-6" style="border-color: rgba(255,255,255,0.4); color: #fff;">Бизнес</span>
-        <div class="mb-1">
-          <span class="font-display font-black text-white" style="font-size: clamp(2.5rem, 5vw, 3.5rem); letter-spacing: -0.04em; line-height: 1;">€500</span>
-        </div>
-        <p class="font-mono-label text-[9px] uppercase tracking-widest text-white/40 mb-6">Еднократно</p>
-        <p class="font-body text-sm text-white/70 leading-relaxed mb-8">Многостранично присъствие с пълна функционалност и висок клас дизайн.</p>
-        <ul class="space-y-3 mb-10 flex-1">
-          <li class="flex items-start gap-3 font-body text-sm text-white/85"><div class="w-1 h-1 bg-white mt-2 flex-shrink-0"></div>До 5 страници</li>
-          <li class="flex items-start gap-3 font-body text-sm text-white/85"><div class="w-1 h-1 bg-white mt-2 flex-shrink-0"></div>Персонализирана дизайн система</li>
-          <li class="flex items-start gap-3 font-body text-sm text-white/85"><div class="w-1 h-1 bg-white mt-2 flex-shrink-0"></div>SEO оптимизация</li>
-          <li class="flex items-start gap-3 font-body text-sm text-white/85"><div class="w-1 h-1 bg-white mt-2 flex-shrink-0"></div>1 седмица поддръжка</li>
-          <li class="flex items-start gap-3 font-body text-sm text-white/85"><div class="w-1 h-1 bg-white mt-2 flex-shrink-0"></div>Доставка за 7 дни</li>
-          <li class="flex items-start gap-3 font-body text-sm text-white/85"><div class="w-1 h-1 bg-white mt-2 flex-shrink-0"></div>Безплатен чат уиджет</li>
-        </ul>
-        <a href="#contact"
-          class="font-mono-label font-bold text-[10px] uppercase tracking-widest w-full py-4 text-center bg-white text-black inline-block"
-          style="transition: background 0.08s, color 0.08s;"
-          onmouseover="this.style.background='#E5E5E5'"
-          onmouseout="this.style.background='#fff'">
-          Започни →
-        </a>
-      </div>
-
-      <!-- Tier 3: Custom -->
-      <div class="pricing-card section-fade p-8 flex flex-col" style="transition-delay: .3s;">
-        <span class="section-label mb-6 inline-block">Персонализиран</span>
-        <div class="mb-1">
-          <span class="font-display font-black" style="font-size: clamp(2.5rem, 5vw, 3.5rem); letter-spacing: -0.04em; line-height: 1;">€800</span>
-        </div>
-        <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 mb-6">Еднократно</p>
-        <p class="font-body text-sm text-gray-600 leading-relaxed mb-8">Напълно персонализиран уебсайт от нулата — вашата марка, вашите правила.</p>
-        <ul class="space-y-3 mb-10 flex-1">
-          <li class="flex items-start gap-3 font-body text-sm text-gray-700"><div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>До 10 страници</li>
-          <li class="flex items-start gap-3 font-body text-sm text-gray-700"><div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Персонализирана дизайн система</li>
-          <li class="flex items-start gap-3 font-body text-sm text-gray-700"><div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Готов за е-търговия</li>
-          <li class="flex items-start gap-3 font-body text-sm text-gray-700"><div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>2 седмици поддръжка</li>
-          <li class="flex items-start gap-3 font-body text-sm text-gray-700"><div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Доставка за 10 дни</li>
-          <li class="flex items-start gap-3 font-body text-sm text-gray-700"><div class="w-1 h-1 bg-black mt-2 flex-shrink-0"></div>Безплатен домейн (1-ва год.)</li>
-        </ul>
-        <a href="#contact" class="btn-outline w-full justify-center text-center">Започни →</a>
-      </div>
-
-    </div>
-
-    <!-- Guarantee -->
-    <div class="section-fade mt-8">
-      <div class="inline-flex items-center gap-3 border border-black px-5 py-3">
-        <i class="fas fa-shield-check text-sm"></i>
-        <span class="font-mono-label text-[10px] font-bold uppercase tracking-widest">Ако нещо не е както трябва, го поправям. Просто и ясно.</span>
-      </div>
-    </div>
-
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      CONTACT
 ══════════════════════════════════════════ -->
-<section id="contact" class="section-rule py-20 md:py-32 px-6 md:px-8 tex-lines">
-  <div class="max-w-5xl mx-auto relative z-10">
+  <section id="contact" class="section-rule py-20 md:py-32 px-6 md:px-8 tex-lines">
+    <div class="max-w-5xl mx-auto relative z-10">
 
-    <div class="section-fade mb-14">
-      <span class="section-label mb-6 inline-block">Готови ли сте да започнете?</span>
-      <h2 class="font-display font-black mt-4" style="font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 0.92; letter-spacing: -0.04em;">
-        Нека изградим<br/>нещо <em>заедно.</em>
-      </h2>
-      <p class="font-body text-gray-500 mt-4 max-w-lg leading-relaxed" style="font-weight: 300;">Разкажете ми какво изграждате. Обикновено отговарям в рамките на няколко часа.</p>
-    </div>
-
-    <div class="section-fade grid lg:grid-cols-[1fr_1.5fr] gap-0" style="border: 1px solid #000;">
-
-      <!-- Contact info -->
-      <div class="p-8 flex flex-col gap-7" style="border-right: 1px solid #000; border-bottom: 1px solid #000;">
-        <div>
-          <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 font-bold mb-2">Имейл</p>
-          <a href="mailto:stoyanbtanev@gmail.com" class="font-display font-bold text-sm hover:underline break-all">stoyanbtanev@gmail.com</a>
-        </div>
-        <div>
-          <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 font-bold mb-2">Телефон</p>
-          <a href="tel:+359895469386" class="font-display font-bold text-sm hover:underline">089 546 9386</a>
-        </div>
-        <div>
-          <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 font-bold mb-2">Местоположение</p>
-          <span class="font-display font-bold text-sm">Пловдив, България</span>
-        </div>
-        <div class="flex gap-0 mt-auto" style="border: 1px solid #000; display: inline-flex; max-width: fit-content;">
-          <a href="https://www.linkedin.com/in/stoyan-tanev-a732603b8/" target="_blank" rel="noopener noreferrer"
-            class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-4 py-2.5 flex items-center gap-2" style="border-right: 1px solid #000;">
-            <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
-          </a>
-          <a href="https://github.com/stoyanbtanev" target="_blank" rel="noopener noreferrer"
-            class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-4 py-2.5 flex items-center gap-2">
-            <i class="fab fa-github"></i><span>GitHub</span>
-          </a>
-        </div>
+      <div class="section-fade mb-14">
+        <span class="section-label mb-6 inline-block">Готови ли сте да започнете?</span>
+        <h2 class="font-display font-black mt-4"
+          style="font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 0.92; letter-spacing: -0.04em;">
+          Нека изградим<br />нещо <em>заедно.</em>
+        </h2>
+        <p class="font-body text-gray-500 mt-4 max-w-lg leading-relaxed" style="font-weight: 300;">Разкажете ми какво
+          изграждате. Обикновено отговарям в рамките на няколко часа.</p>
       </div>
 
-      <!-- Form -->
-      <div class="p-8" style="border-bottom: 1px solid #000;">
-        <form id="contactForm" action="https://formsubmit.co/stoyanbtanev@gmail.com"
-          data-ajax-endpoint="https://formsubmit.co/ajax/stoyanbtanev@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Ново запитване от tanev.design" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" id="formNextUrl" name="_next" value="" />
-          <input type="hidden" id="formOriginUrl" name="_url" value="" />
-          <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off" />
+      <div class="section-fade grid lg:grid-cols-[1fr_1.5fr] gap-0" style="border: 1px solid #000;">
 
-          <div class="grid sm:grid-cols-2 gap-5 mb-5">
-            <div>
-              <label class="font-mono-label text-[9px] uppercase tracking-widest text-gray-500 font-bold block mb-2">Вашето Име</label>
-              <input type="text" name="name" placeholder="Иван Иванов" required class="mono-input" />
-            </div>
-            <div>
-              <label class="font-mono-label text-[9px] uppercase tracking-widest text-gray-500 font-bold block mb-2">Имейл</label>
-              <input type="email" name="email" placeholder="ivan@компания.com" required class="mono-input" />
-            </div>
+        <!-- Contact info -->
+        <div class="p-8 flex flex-col gap-7" style="border-right: 1px solid #000; border-bottom: 1px solid #000;">
+          <div>
+            <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 font-bold mb-2">Имейл</p>
+            <a href="/cdn-cgi/l/email-protection#b2c1c6ddcbd3dcd0c6d3dcd7c4f2d5dfd3dbde9cd1dddf"
+              class="font-display font-bold text-sm hover:underline break-all"><span class="__cf_email__"
+                data-cfemail="cbb8bfa4b2aaa5a9bfaaa5aebd8baca6aaa2a7e5a8a4a6">[email&#160;protected]</span></a>
           </div>
+          <div>
+            <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 font-bold mb-2">Телефон</p>
+            <a href="tel:+359895469386" class="font-display font-bold text-sm hover:underline">089 546 9386</a>
+          </div>
+          <div>
+            <p class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 font-bold mb-2">Местоположение
+            </p>
+            <span class="font-display font-bold text-sm">Пловдив, България</span>
+          </div>
+          <div class="flex gap-0 mt-auto" style="border: 1px solid #000; display: inline-flex; max-width: fit-content;">
+            <a href="https://www.linkedin.com/in/stoyan-tanev-a732603b8/" target="_blank" rel="noopener noreferrer"
+              class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-4 py-2.5 flex items-center gap-2"
+              style="border-right: 1px solid #000;">
+              <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/stoyanbtanev" target="_blank" rel="noopener noreferrer"
+              class="device-btn font-mono-label text-[9px] font-bold uppercase tracking-widest px-4 py-2.5 flex items-center gap-2">
+              <i class="fab fa-github"></i><span>GitHub</span>
+            </a>
+          </div>
+        </div>
 
-          <div class="mb-5">
-            <label class="font-mono-label text-[9px] uppercase tracking-widest text-gray-500 font-bold block mb-2">Бюджет</label>
-            <div style="position: relative;">
-              <select name="budget" class="mono-select">
-                <option value="">Изберете бюджет</option>
-                <option value="200">€200 – €500</option>
-                <option value="500">€500 – €800</option>
-                <option value="800+">€800+</option>
-              </select>
-              <div style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); pointer-events: none;">
-                <i class="fas fa-chevron-down text-[10px]"></i>
+        <!-- Form -->
+        <div class="p-8" style="border-bottom: 1px solid #000;">
+          <form id="contactForm" action="https://formsubmit.co/stoyanbtanev@gmail.com"
+            data-ajax-endpoint="https://formsubmit.co/ajax/stoyanbtanev@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Ново запитване от tanev.design" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" id="formNextUrl" name="_next" value="" />
+            <input type="hidden" id="formOriginUrl" name="_url" value="" />
+            <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off" />
+
+            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label
+                  class="font-mono-label text-[9px] uppercase tracking-widest text-gray-500 font-bold block mb-2">Вашето
+                  Име</label>
+                <input type="text" name="name" placeholder="Иван Иванов" required class="mono-input" />
+              </div>
+              <div>
+                <label
+                  class="font-mono-label text-[9px] uppercase tracking-widest text-gray-500 font-bold block mb-2">Имейл</label>
+                <input type="email" name="email" placeholder="ivan@компания.com" required class="mono-input" />
               </div>
             </div>
-          </div>
 
-          <div class="mb-5">
-            <label class="font-mono-label text-[9px] uppercase tracking-widest text-gray-500 font-bold block mb-2">URL на уебсайта (по желание)</label>
-            <input type="url" name="website" placeholder="https://вашиятсайт.com" class="mono-input" />
-          </div>
+            <div class="mb-5">
+              <label
+                class="font-mono-label text-[9px] uppercase tracking-widest text-gray-500 font-bold block mb-2">Бюджет</label>
+              <div style="position: relative;">
+                <select name="budget" class="mono-select">
+                  <option value="">Изберете бюджет</option>
+                  <option value="200">€200 – €500</option>
+                  <option value="500">€500 – €800</option>
+                  <option value="800+">€800+</option>
+                </select>
+                <div
+                  style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); pointer-events: none;">
+                  <i class="fas fa-chevron-down text-[10px]"></i>
+                </div>
+              </div>
+            </div>
 
-          <div class="mb-6">
-            <label class="font-mono-label text-[9px] uppercase tracking-widest text-gray-500 font-bold block mb-2">Опишете проекта си</label>
-            <textarea name="message" rows="4" placeholder="Имам нужда от нов уебсайт за моя бизнес…" required class="mono-textarea"></textarea>
-          </div>
+            <div class="mb-5">
+              <label class="font-mono-label text-[9px] uppercase tracking-widest text-gray-500 font-bold block mb-2">URL
+                на уебсайта (по желание)</label>
+              <input type="url" name="website" placeholder="https://вашиятсайт.com" class="mono-input" />
+            </div>
 
-          <button type="submit"
-            class="btn-primary w-full justify-center py-4 text-[11px]">
-            <i class="fas fa-paper-plane text-xs"></i>
-            <span>Изпрати Съобщение</span>
-          </button>
-          <p id="formStatus" class="hidden font-mono-label text-sm mt-4 text-center"></p>
-        </form>
+            <div class="mb-6">
+              <label
+                class="font-mono-label text-[9px] uppercase tracking-widest text-gray-500 font-bold block mb-2">Опишете
+                проекта си</label>
+              <textarea name="message" rows="4" placeholder="Имам нужда от нов уебсайт за моя бизнес…" required
+                class="mono-textarea"></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-full justify-center py-4 text-[11px]">
+              <i class="fas fa-paper-plane text-xs"></i>
+              <span>Изпрати Съобщение</span>
+            </button>
+            <p id="formStatus" class="hidden font-mono-label text-sm mt-4 text-center"></p>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      FOOTER
 ══════════════════════════════════════════ -->
-<footer class="section-rule-ultra py-12 px-6 md:px-8 bg-white">
-  <div class="max-w-6xl mx-auto">
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-8" style="border-bottom: 1px solid #E5E5E5;">
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 bg-black flex items-center justify-center font-display font-bold text-white text-sm">t</div>
-        <div>
-          <span class="font-mono-label font-bold text-xs uppercase tracking-widest">tanev<span>.design</span></span>
-          <p class="font-mono-label text-[9px] text-gray-400 uppercase tracking-widest mt-0.5">от Стоян Танев</p>
+  <footer class="section-rule-ultra py-12 px-6 md:px-8 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-8"
+        style="border-bottom: 1px solid #E5E5E5;">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 bg-black flex items-center justify-center font-display font-bold text-white text-sm">t
+          </div>
+          <div>
+            <span class="font-mono-label font-bold text-xs uppercase tracking-widest">tanev<span>.design</span></span>
+            <p class="font-mono-label text-[9px] text-gray-400 uppercase tracking-widest mt-0.5">от Стоян Танев</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <a href="#services"
+            class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">За
+            Мен</a>
+          <a href="#pricing"
+            class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">Цени</a>
+          <a href="#contact"
+            class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">Контакт</a>
+          <a href="#"
+            class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">Политика
+            за поверителност</a>
         </div>
       </div>
-      <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
-        <a href="#services"  class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">За Мен</a>
-        <a href="#pricing"   class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">Цени</a>
-        <a href="#contact"   class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">Контакт</a>
-        <a href="#"          class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">Политика за поверителност</a>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6">
+        <p class="font-mono-label text-[9px] text-gray-400 uppercase tracking-widest">© <span id="year"></span> Стоян
+          Танев. Всички права запазени.</p>
+        <p class="font-mono-label text-[9px] text-gray-400 uppercase tracking-widest">Уеб Дизайн &amp; Разработка —
+          Пловдив</p>
       </div>
     </div>
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6">
-      <p class="font-mono-label text-[9px] text-gray-400 uppercase tracking-widest">© <span id="year"></span> Стоян Танев. Всички права запазени.</p>
-      <p class="font-mono-label text-[9px] text-gray-400 uppercase tracking-widest">Уеб Дизайн &amp; Разработка — Пловдив</p>
-    </div>
-  </div>
-</footer>
+  </footer>
 
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      COOKIE BAR
 ══════════════════════════════════════════ -->
-<div id="cookieBar"
-  class="fixed bottom-4 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-[28rem] z-[60] bg-white border-2 border-black p-5">
-  <div class="flex items-start gap-4">
-    <div class="w-9 h-9 border border-black flex items-center justify-center flex-shrink-0">
-      <i class="fas fa-shield-halved text-sm"></i>
-    </div>
-    <div>
-      <p class="font-mono-label text-[10px] font-bold uppercase tracking-widest mb-1">Бисквитки и Поверителност</p>
-      <p class="font-body text-[11px] text-gray-500 mb-3 leading-relaxed">Използваме основни и аналитични бисквитки за по-добро изживяване. Съгласие съгласно GDPR.</p>
-      <p class="font-mono-label text-[9px] text-gray-400 mb-3"><a href="#" class="underline hover:text-black transition-colors">Политика за поверителност</a></p>
-      <div class="flex gap-2">
-        <button onclick="acceptCookies()" class="btn-primary flex-1 justify-center py-2 text-[9px]">Приемам</button>
-        <button onclick="declineCookies()"
-          class="btn-outline flex-1 justify-center py-2 text-[9px]">Само Основни</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ══════════════════════════════════════════
-     CHAT
-══════════════════════════════════════════ -->
-<div id="chatOverlay" onclick="toggleChat()"></div>
-
-<div id="chatBotBox">
-  <!-- Header -->
-  <div style="background:#fff; border-bottom: 2px solid #000; flex-shrink: 0;" class="flex items-center justify-between px-5 py-4">
-    <div class="flex items-center gap-3">
-      <div style="width:36px;height:36px;background:#000;flex-shrink:0;" class="flex items-center justify-center">
-        <i class="fas fa-bolt text-sm text-white"></i>
+  <div id="cookieBar"
+    class="fixed bottom-4 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-[28rem] z-[60] bg-white border-2 border-black p-5">
+    <div class="flex items-start gap-4">
+      <div class="w-9 h-9 border border-black flex items-center justify-center flex-shrink-0">
+        <i class="fas fa-shield-halved text-sm"></i>
       </div>
       <div>
-        <div class="font-display font-black uppercase text-black" style="font-size:14px; letter-spacing:-0.01em; line-height:1.1;">PULSE AI</div>
-        <div class="flex items-center gap-1.5 mt-1">
-          <span style="width:6px;height:6px;background:#000;display:inline-block;" class="animate-pulse"></span>
-          <span class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 font-bold">Онлайн</span>
+        <p class="font-mono-label text-[10px] font-bold uppercase tracking-widest mb-1">Бисквитки и Поверителност</p>
+        <p class="font-body text-[11px] text-gray-500 mb-3 leading-relaxed">Използваме основни и аналитични бисквитки за
+          по-добро изживяване. Съгласие съгласно GDPR.</p>
+        <p class="font-mono-label text-[9px] text-gray-400 mb-3"><a href="#"
+            class="underline hover:text-black transition-colors">Политика за поверителност</a></p>
+        <div class="flex gap-2">
+          <button onclick="acceptCookies()" class="btn-primary flex-1 justify-center py-2 text-[9px]">Приемам</button>
+          <button onclick="declineCookies()" class="btn-outline flex-1 justify-center py-2 text-[9px]">Само
+            Основни</button>
         </div>
       </div>
     </div>
-    <button onclick="toggleChat()"
-      style="width:34px;height:34px;border:1px solid #E5E5E5;background:transparent;cursor:pointer;color:#999;"
-      class="flex items-center justify-center hover:border-black hover:text-black transition-colors">
-      <i class="fas fa-times text-sm"></i>
-    </button>
   </div>
-  <!-- Messages -->
-  <div id="chatMsgs"
-    style="flex:1;overflow-y:auto;padding:1.25rem;display:flex;flex-direction:column;gap:1rem;background:#FAFAFA;-webkit-overflow-scrolling:touch;">
-  </div>
-  <!-- Input -->
-  <div style="border-top: 2px solid #000; padding: 0.875rem 1rem; background: #fff; flex-shrink: 0;">
-    <form id="chatForm" onsubmit="handleChatSubmit(event)" style="display:flex;align-items:center;gap:0.5rem;">
-      <input type="text" id="chatInput" placeholder="Задайте въпрос на Pulse…"
-        style="flex:1;background:transparent;border:none;outline:none;color:#000;font-family:'Source Serif 4',serif;font-size:13px;min-width:0;"
-        autocomplete="off" autocorrect="off" autocapitalize="off" />
-      <button type="submit"
-        style="width:36px;height:36px;background:#000;color:#fff;border:none;flex-shrink:0;cursor:pointer;"
-        class="flex items-center justify-center hover:bg-gray-800 active:scale-95 transition-all">
-        <i class="fas fa-paper-plane text-xs"></i>
+
+
+  <!-- ══════════════════════════════════════════
+     CHAT
+══════════════════════════════════════════ -->
+  <div id="chatOverlay" onclick="toggleChat()"></div>
+
+  <div id="chatBotBox">
+    <!-- Header -->
+    <div style="background:#fff; border-bottom: 2px solid #000; flex-shrink: 0;"
+      class="flex items-center justify-between px-5 py-4">
+      <div class="flex items-center gap-3">
+        <div style="width:36px;height:36px;background:#000;flex-shrink:0;" class="flex items-center justify-center">
+          <i class="fas fa-bolt text-sm text-white"></i>
+        </div>
+        <div>
+          <div class="font-display font-black uppercase text-black"
+            style="font-size:14px; letter-spacing:-0.01em; line-height:1.1;">PULSE AI</div>
+          <div class="flex items-center gap-1.5 mt-1">
+            <span style="width:6px;height:6px;background:#000;display:inline-block;" class="animate-pulse"></span>
+            <span class="font-mono-label text-[9px] uppercase tracking-widest text-gray-400 font-bold">Онлайн</span>
+          </div>
+        </div>
+      </div>
+      <button onclick="toggleChat()"
+        style="width:34px;height:34px;border:1px solid #E5E5E5;background:transparent;cursor:pointer;color:#999;"
+        class="flex items-center justify-center hover:border-black hover:text-black transition-colors">
+        <i class="fas fa-times text-sm"></i>
       </button>
-    </form>
+    </div>
+    <!-- Messages -->
+    <div id="chatMsgs"
+      style="flex:1;overflow-y:auto;padding:1.25rem;display:flex;flex-direction:column;gap:1rem;background:#FAFAFA;-webkit-overflow-scrolling:touch;">
+    </div>
+    <!-- Input -->
+    <div style="border-top: 2px solid #000; padding: 0.875rem 1rem; background: #fff; flex-shrink: 0;">
+      <form id="chatForm" onsubmit="handleChatSubmit(event)" style="display:flex;align-items:center;gap:0.5rem;">
+        <input type="text" id="chatInput" placeholder="Задайте въпрос на Pulse…"
+          style="flex:1;background:transparent;border:none;outline:none;color:#000;font-family:'Source Serif 4',serif;font-size:13px;min-width:0;"
+          autocomplete="off" autocorrect="off" autocapitalize="off" />
+        <button type="submit"
+          style="width:36px;height:36px;background:#000;color:#fff;border:none;flex-shrink:0;cursor:pointer;"
+          class="flex items-center justify-center hover:bg-gray-800 active:scale-95 transition-all">
+          <i class="fas fa-paper-plane text-xs"></i>
+        </button>
+      </form>
+    </div>
   </div>
-</div>
 
-<!-- Chat toggle -->
-<button id="chatToggleBtn" onclick="toggleChat()"
-  class="fixed bottom-6 right-6 z-[71] btn-primary flex items-center gap-2 h-11 px-4"
-  style="box-shadow: 3px 3px 0 rgba(0,0,0,0.15);">
-  <i id="chatToggleIcon" class="fas fa-bolt text-sm"></i>
-  <span id="chatToggleLabel" class="text-[10px]">Pulse AI</span>
-</button>
+  <!-- Chat toggle -->
+  <button id="chatToggleBtn" onclick="toggleChat()"
+    class="fixed bottom-6 right-6 z-[71] btn-primary flex items-center gap-2 h-11 px-4"
+    style="box-shadow: 3px 3px 0 rgba(0,0,0,0.15);">
+    <i id="chatToggleIcon" class="fas fa-bolt text-sm"></i>
+    <span id="chatToggleLabel" class="text-[10px]">Pulse AI</span>
+  </button>
 
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      JAVASCRIPT
 ══════════════════════════════════════════ -->
-<script>
-  // ── Year ──
-  document.getElementById('year').textContent = new Date().getFullYear();
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    // ── Year ──
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  // ── Scroll progress ──
-  window.addEventListener('scroll', () => {
-    const prog = document.getElementById('scroll-progress');
-    const p = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-    prog.style.width = p + '%';
-  });
-
-  // ── Mobile menu ──
-  function toggleMobileMenu() {
-    document.getElementById('mobileMenu').classList.toggle('hidden');
-  }
-
-  // ── Section fade ──
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.section-fade').forEach(el => io.observe(el));
-
-  // ── Smooth anchors ──
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    // ── Scroll progress ──
+    window.addEventListener('scroll', () => {
+      const prog = document.getElementById('scroll-progress');
+      const p = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      prog.style.width = p + '%';
     });
-  });
 
-  // ── Device toggle for templates ──
-  function setDevice(btn, device) {
-    const section = document.getElementById('templates');
-    if (!section) return;
-    section.dataset.device = device;
-    section.querySelectorAll('.device-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  }
-
-  // ── Cookies ──
-  const cookieBar = document.getElementById('cookieBar');
-  if (!localStorage.getItem('td-bg-cookie')) setTimeout(() => cookieBar.classList.add('show'), 2000);
-  function acceptCookies() { localStorage.setItem('td-bg-cookie','accepted'); cookieBar.classList.remove('show'); }
-  function declineCookies() { localStorage.setItem('td-bg-cookie','declined'); cookieBar.classList.remove('show'); }
-
-  // ── Form ──
-  const formNextUrl = document.getElementById('formNextUrl');
-  const formOriginUrl = document.getElementById('formOriginUrl');
-  if (formNextUrl) formNextUrl.value = `${window.location.href.split('#')[0]}#contact`;
-  if (formOriginUrl) formOriginUrl.value = window.location.href.split('#')[0];
-
-  document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const form = this;
-    const btn = form.querySelector('button[type="submit"]');
-    const orig = btn.innerHTML;
-    const endpoint = form.dataset.ajaxEndpoint;
-    btn.innerHTML = `<i class="fas fa-spinner fa-spin text-xs"></i>&nbsp;Изпращане...`;
-    btn.disabled = true;
-    const statusEl = document.getElementById('formStatus');
-    statusEl.classList.add('hidden');
-    try {
-      const res = await fetch(endpoint, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) });
-      const result = await res.json().catch(() => ({}));
-      if (!res.ok || result.success === false || result.success === 'false') throw new Error();
-      btn.innerHTML = `<i class="fas fa-check text-xs"></i>&nbsp;Изпратено!`;
-      btn.style.background = '#000';
-      statusEl.textContent = '✓ Съобщението е изпратено! Ще се свържа скоро.';
-      statusEl.className = 'font-mono-label text-xs text-center mt-4 text-black';
-      form.reset();
-    } catch {
-      btn.style.background = '#000';
-      statusEl.textContent = '✗ Нещо се обърка. Моля, свържете се директно.';
-      statusEl.className = 'font-mono-label text-xs text-center mt-4 text-gray-500';
-    } finally {
-      setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; btn.style.background = ''; }, 3000);
+    // ── Mobile menu ──
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
     }
-  });
 
-  // ── Chat ──
-  let chatHistory = [];
-  let chatOpen = false;
-  let chatInitialized = false;
-  let isChatLoading = false;
-  const chatBotBox = document.getElementById('chatBotBox');
-  const chatMsgs = document.getElementById('chatMsgs');
-  const chatInput = document.getElementById('chatInput');
+    // ── Section fade ──
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.section-fade').forEach(el => io.observe(el));
 
-  const chatGreeting = "Здравейте! Аз съм Pulse — AI асистентът на tanev.design. Питай ме всичко за цени, срокове или услуги. Или просто ми разкажи за проекта си и ще те насоча в правилната посока.";
-
-  function toggleChat() {
-    chatOpen = !chatOpen;
-    const overlay = document.getElementById('chatOverlay');
-    const icon = document.getElementById('chatToggleIcon');
-    const label = document.getElementById('chatToggleLabel');
-    if (chatOpen) {
-      chatBotBox.classList.add('show');
-      if (overlay) overlay.classList.add('show');
-      icon.className = 'fas fa-times text-sm';
-      if (label) label.textContent = 'Затвори';
-      if (!chatInitialized) {
-        appendMessage(chatGreeting, 'ai');
-        chatHistory.push({ role: "model", parts: [{ text: chatGreeting }] });
-        chatInitialized = true;
-      }
-      setTimeout(() => chatInput.focus(), 350);
-    } else {
-      chatBotBox.classList.remove('show');
-      if (overlay) overlay.classList.remove('show');
-      icon.className = 'fas fa-bolt text-sm';
-      if (label) label.textContent = 'Pulse AI';
-    }
-  }
-
-  function appendMessage(text, sender) {
-    const el = document.createElement('div');
-    el.className = `chat-msg ${sender === 'ai' ? 'chat-msg-ai' : 'chat-msg-user'}`;
-    el.textContent = text;
-    chatMsgs.appendChild(el);
-    chatMsgs.scrollTop = chatMsgs.scrollHeight;
-  }
-
-  async function handleChatSubmit(e) {
-    e.preventDefault();
-    if (isChatLoading) return;
-    const val = chatInput.value.trim();
-    if (!val) return;
-    isChatLoading = true;
-    appendMessage(val, 'user');
-    chatInput.value = '';
-    const loadingEl = document.createElement('div');
-    loadingEl.className = 'chat-typing';
-    loadingEl.innerHTML = '<span></span><span></span><span></span>';
-    const loadingId = 'ld-' + Date.now();
-    loadingEl.id = loadingId;
-    chatMsgs.appendChild(loadingEl);
-    chatMsgs.scrollTop = chatMsgs.scrollHeight;
-    chatHistory.push({ role: "user", parts: [{ text: val }] });
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ contents: chatHistory })
+    // ── Smooth anchors ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
       });
-      const data = await response.json();
-      document.getElementById(loadingId)?.remove();
-      if (data.error) { appendMessage("Съжалявам, имам проблем с връзката. Опитай отново.", 'ai'); chatHistory.pop(); isChatLoading = false; return; }
-      const reply = data.candidates[0].content.parts[0].text;
-      appendMessage(reply, 'ai');
-      chatHistory.push({ role: "model", parts: [{ text: reply }] });
-    } catch {
-      document.getElementById(loadingId)?.remove();
-      appendMessage("Мрежова грешка. Моля, опитай отново.", 'ai');
-      chatHistory.pop();
+    });
+
+    // ── Device toggle for templates ──
+    function setDevice(btn, device) {
+      const section = document.getElementById('templates');
+      if (!section) return;
+      section.dataset.device = device;
+      section.querySelectorAll('.device-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
     }
-    isChatLoading = false;
-  }
 
-  document.getElementById('chatInput').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleChatSubmit(e); } });
+    // ── Cookies ──
+    const cookieBar = document.getElementById('cookieBar');
+    if (!localStorage.getItem('td-bg-cookie')) setTimeout(() => cookieBar.classList.add('show'), 2000);
+    function acceptCookies() { localStorage.setItem('td-bg-cookie', 'accepted'); cookieBar.classList.remove('show'); }
+    function declineCookies() { localStorage.setItem('td-bg-cookie', 'declined'); cookieBar.classList.remove('show'); }
 
-  // ══════════════════════
-  // AUDIT TOOL
-  // ══════════════════════
-  let auditInFlight = false;
-  let lastAuditState = null;
+    // ── Form ──
+    const formNextUrl = document.getElementById('formNextUrl');
+    const formOriginUrl = document.getElementById('formOriginUrl');
+    if (formNextUrl) formNextUrl.value = `${window.location.href.split('#')[0]}#contact`;
+    if (formOriginUrl) formOriginUrl.value = window.location.href.split('#')[0];
 
-  const bgCopy = {
-    statuses: { excellent: 'Отличен', good: 'Добър', average: 'Среден', needsWork: 'Нуждае се от подобрения', poor: 'Слаб', critical: 'Критичен' },
-    mode: {
-      live: 'Данни от PageSpeed в реално време · мобилен одит',
-      estimate: 'Интелигентна оценка · публично сканиране',
-      baseline: 'Интелигентна оценка · само домейн сигнали'
-    },
-    barTitles: {
-      live: { load: 'Време за зареждане', vitals: 'Core Web Vitals', mobile: 'Мобилна адаптация', seo: 'SEO Оптимизация' },
-      estimate: { load: 'Отговор на сървъра', vitals: 'UX & Структура', mobile: 'Мобилна готовност', seo: 'Видимост в търсачките' }
-    },
-    headlines: {
-      excellent: 'Вашият сайт работи отлично',
-      good: 'Добра основа — с малко настройки може да стане по-добре',
-      average: 'Добър потенциал, но оставя производителност на масата',
-      poor: 'Този сайт активно ви губи клиенти'
-    },
-    insights: {
-      speed: {
-        title: 'Скоростта е най-важният фактор в момента.',
-        bodyLive: t => `Текущото зареждане е около ${t}, което е достатъчно, за да загубите посетители рано. Оптимизацията обикновено бързо се отплаща.`,
-        bodyEstimate: 'Публичното сканиране показва, че сайтът не е толкова бърз, колкото би могъл. По-леки страници и по-чиста структура биха имали най-голям ефект.'
-      },
-      mobile: {
-        title: 'Мобилното изживяване ви коства посетители.',
-        bodyLive: 'Голяма част от трафика идва от телефони. Ако изживяването изглежда затруднено или бавно, посетителите напускат преди да стигнат до офертата.',
-        bodyEstimate: 'Структурните сигнали показват потенциал за по-чисто и мобилно-приятелско изживяване — особено по отношение на четимост и йерархия.'
-      },
-      seo: {
-        title: 'SEO видимостта ви пропуска трафик.',
-        bodyLive: 'По-добри метаданни, по-силна структура на съдържанието и по-ясни сигнали биха направили сайта по-лесен за намиране.',
-        bodyEstimate: 'От заглавието, описанието и структурата съдим, че има пространство за укрепване на SEO и по-добро индексиране.'
-      },
-      security: {
-        title: 'Техническата сигурност изисква внимание.',
-        bodyLive: 'Правилната техническа настройка и ясните сигнали за доверие помагат и на класирането, и на конверсиите.',
-        bodyEstimate: 'Публичните сигнали показват, че има място за подобрение в техническото изпълнение и консистентността.'
+    document.getElementById('contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = this;
+      const btn = form.querySelector('button[type="submit"]');
+      const orig = btn.innerHTML;
+      const endpoint = form.dataset.ajaxEndpoint;
+      btn.innerHTML = `<i class="fas fa-spinner fa-spin text-xs"></i>&nbsp;Изпращане...`;
+      btn.disabled = true;
+      const statusEl = document.getElementById('formStatus');
+      statusEl.classList.add('hidden');
+      try {
+        const res = await fetch(endpoint, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) });
+        const result = await res.json().catch(() => ({}));
+        if (!res.ok || result.success === false || result.success === 'false') throw new Error();
+        btn.innerHTML = `<i class="fas fa-check text-xs"></i>&nbsp;Изпратено!`;
+        btn.style.background = '#000';
+        statusEl.textContent = '✓ Съобщението е изпратено! Ще се свържа скоро.';
+        statusEl.className = 'font-mono-label text-xs text-center mt-4 text-black';
+        form.reset();
+      } catch {
+        btn.style.background = '#000';
+        statusEl.textContent = '✗ Нещо се обърка. Моля, свържете се директно.';
+        statusEl.className = 'font-mono-label text-xs text-center mt-4 text-gray-500';
+      } finally {
+        setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; btn.style.background = ''; }, 3000);
       }
-    },
-    cta: {
-      excellent: 'Сайтът ви е в добра форма. Но ако искате да го издигнете на следващо ниво — свържете се.',
-      good: 'Почти перфектно. Малки подобрения могат да имат голямо значение — нека поговорим.',
-      average: 'Виждаме ясни места за подобрение. Свържете се за безплатна консултация.',
-      poor: 'Вашият сайт ви коства клиенти всеки ден. Нека го оправим — бързо и достъпно.'
-    },
-    formSending: 'Изпращане...',
-    formSent: 'Изпратено!',
-    formSuccess: '✓ Съобщението е изпратено!',
-    formError: '✗ Грешка. Моля, опитайте отново.'
-  };
+    });
 
-  function normalizeUrl(raw) {
-    if (!raw) throw new Error('empty');
-    const s = raw.trim();
-    const withProto = s.startsWith('http://') || s.startsWith('https://') ? s : 'https://' + s;
-    return new URL(withProto).href;
-  }
+    // ── Chat ──
+    let chatHistory = [];
+    let chatOpen = false;
+    let chatInitialized = false;
+    let isChatLoading = false;
+    const chatBotBox = document.getElementById('chatBotBox');
+    const chatMsgs = document.getElementById('chatMsgs');
+    const chatInput = document.getElementById('chatInput');
 
-  function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+    const chatGreeting = "Здравейте! Аз съм Pulse — AI асистентът на tanev.design. Питай ме всичко за цени, срокове или услуги. Или просто ми разкажи за проекта си и ще те насоча в правилната посока.";
 
-  function setAuditBusy(v) {
-    auditInFlight = v;
-    const btn = document.getElementById('auditButton');
-    const label = document.getElementById('auditButtonLabel');
-    if (v) { btn.disabled = true; label.textContent = 'Анализиране...'; }
-    else    { btn.disabled = false; label.textContent = 'Стартирай Одит'; }
-  }
-
-  async function tryPageSpeed(url) {
-    const api = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=mobile`;
-    const res = await fetch(api);
-    if (!res.ok) throw new Error('psi-fail');
-    const d = await res.json();
-    const cats = d.lighthouseResult?.categories;
-    const audits = d.lighthouseResult?.audits;
-    if (!cats) throw new Error('psi-no-cats');
-    const perf    = Math.round((cats.performance?.score ?? 0.5) * 100);
-    const seo     = Math.round((cats.seo?.score ?? 0.5) * 100);
-    const acc     = Math.round((cats.accessibility?.score ?? 0.5) * 100);
-    const bp      = Math.round((cats['best-practices']?.score ?? 0.5) * 100);
-    const fcp     = audits?.['first-contentful-paint']?.displayValue ?? '';
-    const tbt     = audits?.['total-blocking-time']?.numericValue ?? null;
-    const cls     = audits?.['cumulative-layout-shift']?.numericValue ?? null;
-    const lcp     = audits?.['largest-contentful-paint']?.numericValue ?? null;
-    const mobile  = Math.min(100, Math.round(acc * 0.55 + bp * 0.45));
-    const vitals  = computeVitals(tbt, cls, lcp);
-    return { mode:'live', perf, seo, mobile, vitals, fcp, overall: Math.round((perf+seo+mobile+vitals)/4) };
-  }
-
-  function computeVitals(tbt, cls, lcp) {
-    let s = 100;
-    if (tbt !== null) s -= tbt > 600 ? 35 : tbt > 300 ? 20 : tbt > 100 ? 8 : 0;
-    if (cls !== null) s -= cls > 0.25 ? 30 : cls > 0.1 ? 15 : cls > 0.05 ? 5 : 0;
-    if (lcp !== null) s -= lcp > 4000 ? 30 : lcp > 2500 ? 15 : lcp > 1200 ? 5 : 0;
-    return Math.max(10, Math.min(100, Math.round(s)));
-  }
-
-  async function buildAudit(url) {
-    const domain = new URL(url).hostname.replace(/^www\./, '');
-    try {
-      const live = await tryPageSpeed(url);
-      return { ...live, url };
-    } catch {
-      const hash = [...domain].reduce((a,c) => ((a<<5)-a)+c.charCodeAt(0), 0);
-      const seed = Math.abs(hash);
-      const base = 45 + (seed % 30);
-      const perf   = Math.min(95, base + (seed >> 3) % 20);
-      const seo    = Math.min(95, base + (seed >> 5) % 25);
-      const mobile = Math.min(95, base + (seed >> 7) % 22);
-      const vitals = Math.min(95, base + (seed >> 9) % 18);
-      const overall = Math.round((perf+seo+mobile+vitals)/4);
-      const hasContent = domain.split('.').some(p => p.length > 4);
-      return { mode: hasContent ? 'estimate' : 'baseline', perf, seo, mobile, vitals, overall, url };
+    function toggleChat() {
+      chatOpen = !chatOpen;
+      const overlay = document.getElementById('chatOverlay');
+      const icon = document.getElementById('chatToggleIcon');
+      const label = document.getElementById('chatToggleLabel');
+      if (chatOpen) {
+        chatBotBox.classList.add('show');
+        if (overlay) overlay.classList.add('show');
+        icon.className = 'fas fa-times text-sm';
+        if (label) label.textContent = 'Затвори';
+        if (!chatInitialized) {
+          appendMessage(chatGreeting, 'ai');
+          chatHistory.push({ role: "model", parts: [{ text: chatGreeting }] });
+          chatInitialized = true;
+        }
+        setTimeout(() => chatInput.focus(), 350);
+      } else {
+        chatBotBox.classList.remove('show');
+        if (overlay) overlay.classList.remove('show');
+        icon.className = 'fas fa-bolt text-sm';
+        if (label) label.textContent = 'Pulse AI';
+      }
     }
-  }
 
-  function scoreCategory(v) {
-    if (v >= 90) return 'excellent';
-    if (v >= 75) return 'good';
-    if (v >= 55) return 'average';
-    return 'poor';
-  }
-
-  function renderAudit(a) {
-    const cat = scoreCategory(a.overall);
-    const dash = 238.76;
-    const offset = dash - (a.overall / 100) * dash;
-
-    document.getElementById('auditUrl').textContent = a.url;
-    document.getElementById('auditMode').textContent = bgCopy.mode[a.mode] || bgCopy.mode.estimate;
-    document.getElementById('auditHeadline').textContent = bgCopy.headlines[cat];
-    document.getElementById('scoreValue').textContent = a.overall;
-    document.getElementById('scoreLabel').textContent = bgCopy.statuses[cat];
-    setTimeout(() => {
-      document.getElementById('scoreCircle').style.strokeDashoffset = offset;
-    }, 100);
-
-    const titles = bgCopy.barTitles[a.mode === 'live' ? 'live' : 'estimate'];
-    const bars = [
-      { key:'load',   val: a.perf,   title: titles.load   },
-      { key:'vitals', val: a.vitals, title: titles.vitals },
-      { key:'mobile', val: a.mobile, title: titles.mobile },
-      { key:'seo',    val: a.seo,    title: titles.seo    },
-    ];
-    bars.forEach(b => {
-      document.getElementById(`bar-${b.key}-title`).textContent = b.title;
-      document.getElementById(`bar-${b.key}-val`).textContent = b.val + '/100';
-      setTimeout(() => { document.getElementById(`bar-${b.key}-fill`).style.width = b.val + '%'; }, 200);
-    });
-
-    const ins = document.getElementById('insightsContainer');
-    ins.innerHTML = '';
-    const insightKeys = [];
-    if (a.perf < 80) insightKeys.push('speed');
-    if (a.mobile < 80) insightKeys.push('mobile');
-    if (a.seo < 75) insightKeys.push('seo');
-    if (a.vitals < 70) insightKeys.push('security');
-    insightKeys.slice(0,3).forEach(k => {
-      const i = bgCopy.insights[k];
-      const body = k === 'speed' ? (a.mode === 'live' && a.fcp ? i.bodyLive(a.fcp) : i.bodyEstimate) : (a.mode === 'live' ? i.bodyLive : i.bodyEstimate);
+    function appendMessage(text, sender) {
       const el = document.createElement('div');
-      el.className = 'border border-black p-6';
-      el.innerHTML = `<p class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 mb-2">Наблюдение</p><p class="font-display font-bold text-base mb-2">${i.title}</p><p class="font-body text-sm text-gray-600 leading-relaxed">${body}</p>`;
-      ins.appendChild(el);
+      el.className = `chat-msg ${sender === 'ai' ? 'chat-msg-ai' : 'chat-msg-user'}`;
+      el.textContent = text;
+      chatMsgs.appendChild(el);
+      chatMsgs.scrollTop = chatMsgs.scrollHeight;
+    }
+
+    async function handleChatSubmit(e) {
+      e.preventDefault();
+      if (isChatLoading) return;
+      const val = chatInput.value.trim();
+      if (!val) return;
+      isChatLoading = true;
+      appendMessage(val, 'user');
+      chatInput.value = '';
+      const loadingEl = document.createElement('div');
+      loadingEl.className = 'chat-typing';
+      loadingEl.innerHTML = '<span></span><span></span><span></span>';
+      const loadingId = 'ld-' + Date.now();
+      loadingEl.id = loadingId;
+      chatMsgs.appendChild(loadingEl);
+      chatMsgs.scrollTop = chatMsgs.scrollHeight;
+      chatHistory.push({ role: "user", parts: [{ text: val }] });
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: chatHistory })
+        });
+        const data = await response.json();
+        document.getElementById(loadingId)?.remove();
+        if (data.error) { appendMessage("Съжалявам, имам проблем с връзката. Опитай отново.", 'ai'); chatHistory.pop(); isChatLoading = false; return; }
+        const reply = data.candidates[0].content.parts[0].text;
+        appendMessage(reply, 'ai');
+        chatHistory.push({ role: "model", parts: [{ text: reply }] });
+      } catch {
+        document.getElementById(loadingId)?.remove();
+        appendMessage("Мрежова грешка. Моля, опитай отново.", 'ai');
+        chatHistory.pop();
+      }
+      isChatLoading = false;
+    }
+
+    document.getElementById('chatInput').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleChatSubmit(e); } });
+
+    // ══════════════════════
+    // AUDIT TOOL
+    // ══════════════════════
+    let auditInFlight = false;
+    let lastAuditState = null;
+
+    const bgCopy = {
+      statuses: { excellent: 'Отличен', good: 'Добър', average: 'Среден', needsWork: 'Нуждае се от подобрения', poor: 'Слаб', critical: 'Критичен' },
+      mode: {
+        live: 'Данни от PageSpeed в реално време · мобилен одит',
+        estimate: 'Интелигентна оценка · публично сканиране',
+        baseline: 'Интелигентна оценка · само домейн сигнали'
+      },
+      barTitles: {
+        live: { load: 'Време за зареждане', vitals: 'Core Web Vitals', mobile: 'Мобилна адаптация', seo: 'SEO Оптимизация' },
+        estimate: { load: 'Отговор на сървъра', vitals: 'UX & Структура', mobile: 'Мобилна готовност', seo: 'Видимост в търсачките' }
+      },
+      headlines: {
+        excellent: 'Вашият сайт работи отлично',
+        good: 'Добра основа — с малко настройки може да стане по-добре',
+        average: 'Добър потенциал, но оставя производителност на масата',
+        poor: 'Този сайт активно ви губи клиенти'
+      },
+      insights: {
+        speed: {
+          title: 'Скоростта е най-важният фактор в момента.',
+          bodyLive: t => `Текущото зареждане е около ${t}, което е достатъчно, за да загубите посетители рано. Оптимизацията обикновено бързо се отплаща.`,
+          bodyEstimate: 'Публичното сканиране показва, че сайтът не е толкова бърз, колкото би могъл. По-леки страници и по-чиста структура биха имали най-голям ефект.'
+        },
+        mobile: {
+          title: 'Мобилното изживяване ви коства посетители.',
+          bodyLive: 'Голяма част от трафика идва от телефони. Ако изживяването изглежда затруднено или бавно, посетителите напускат преди да стигнат до офертата.',
+          bodyEstimate: 'Структурните сигнали показват потенциал за по-чисто и мобилно-приятелско изживяване — особено по отношение на четимост и йерархия.'
+        },
+        seo: {
+          title: 'SEO видимостта ви пропуска трафик.',
+          bodyLive: 'По-добри метаданни, по-силна структура на съдържанието и по-ясни сигнали биха направили сайта по-лесен за намиране.',
+          bodyEstimate: 'От заглавието, описанието и структурата съдим, че има пространство за укрепване на SEO и по-добро индексиране.'
+        },
+        security: {
+          title: 'Техническата сигурност изисква внимание.',
+          bodyLive: 'Правилната техническа настройка и ясните сигнали за доверие помагат и на класирането, и на конверсиите.',
+          bodyEstimate: 'Публичните сигнали показват, че има място за подобрение в техническото изпълнение и консистентността.'
+        }
+      },
+      cta: {
+        excellent: 'Сайтът ви е в добра форма. Но ако искате да го издигнете на следващо ниво — свържете се.',
+        good: 'Почти перфектно. Малки подобрения могат да имат голямо значение — нека поговорим.',
+        average: 'Виждаме ясни места за подобрение. Свържете се за безплатна консултация.',
+        poor: 'Вашият сайт ви коства клиенти всеки ден. Нека го оправим — бързо и достъпно.'
+      },
+      formSending: 'Изпращане...',
+      formSent: 'Изпратено!',
+      formSuccess: '✓ Съобщението е изпратено!',
+      formError: '✗ Грешка. Моля, опитайте отново.'
+    };
+
+    function normalizeUrl(raw) {
+      if (!raw) throw new Error('empty');
+      const s = raw.trim();
+      const withProto = s.startsWith('http://') || s.startsWith('https://') ? s : 'https://' + s;
+      return new URL(withProto).href;
+    }
+
+    function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+    function setAuditBusy(v) {
+      auditInFlight = v;
+      const btn = document.getElementById('auditButton');
+      const label = document.getElementById('auditButtonLabel');
+      if (v) { btn.disabled = true; label.textContent = 'Анализиране...'; }
+      else { btn.disabled = false; label.textContent = 'Стартирай Одит'; }
+    }
+
+    async function tryPageSpeed(url) {
+      const api = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=mobile`;
+      const res = await fetch(api);
+      if (!res.ok) throw new Error('psi-fail');
+      const d = await res.json();
+      const cats = d.lighthouseResult?.categories;
+      const audits = d.lighthouseResult?.audits;
+      if (!cats) throw new Error('psi-no-cats');
+      const perf = Math.round((cats.performance?.score ?? 0.5) * 100);
+      const seo = Math.round((cats.seo?.score ?? 0.5) * 100);
+      const acc = Math.round((cats.accessibility?.score ?? 0.5) * 100);
+      const bp = Math.round((cats['best-practices']?.score ?? 0.5) * 100);
+      const fcp = audits?.['first-contentful-paint']?.displayValue ?? '';
+      const tbt = audits?.['total-blocking-time']?.numericValue ?? null;
+      const cls = audits?.['cumulative-layout-shift']?.numericValue ?? null;
+      const lcp = audits?.['largest-contentful-paint']?.numericValue ?? null;
+      const mobile = Math.min(100, Math.round(acc * 0.55 + bp * 0.45));
+      const vitals = computeVitals(tbt, cls, lcp);
+      return { mode: 'live', perf, seo, mobile, vitals, fcp, overall: Math.round((perf + seo + mobile + vitals) / 4) };
+    }
+
+    function computeVitals(tbt, cls, lcp) {
+      let s = 100;
+      if (tbt !== null) s -= tbt > 600 ? 35 : tbt > 300 ? 20 : tbt > 100 ? 8 : 0;
+      if (cls !== null) s -= cls > 0.25 ? 30 : cls > 0.1 ? 15 : cls > 0.05 ? 5 : 0;
+      if (lcp !== null) s -= lcp > 4000 ? 30 : lcp > 2500 ? 15 : lcp > 1200 ? 5 : 0;
+      return Math.max(10, Math.min(100, Math.round(s)));
+    }
+
+    async function buildAudit(url) {
+      const domain = new URL(url).hostname.replace(/^www\./, '');
+      try {
+        const live = await tryPageSpeed(url);
+        return { ...live, url };
+      } catch {
+        const hash = [...domain].reduce((a, c) => ((a << 5) - a) + c.charCodeAt(0), 0);
+        const seed = Math.abs(hash);
+        const base = 45 + (seed % 30);
+        const perf = Math.min(95, base + (seed >> 3) % 20);
+        const seo = Math.min(95, base + (seed >> 5) % 25);
+        const mobile = Math.min(95, base + (seed >> 7) % 22);
+        const vitals = Math.min(95, base + (seed >> 9) % 18);
+        const overall = Math.round((perf + seo + mobile + vitals) / 4);
+        const hasContent = domain.split('.').some(p => p.length > 4);
+        return { mode: hasContent ? 'estimate' : 'baseline', perf, seo, mobile, vitals, overall, url };
+      }
+    }
+
+    function scoreCategory(v) {
+      if (v >= 90) return 'excellent';
+      if (v >= 75) return 'good';
+      if (v >= 55) return 'average';
+      return 'poor';
+    }
+
+    function renderAudit(a) {
+      const cat = scoreCategory(a.overall);
+      const dash = 238.76;
+      const offset = dash - (a.overall / 100) * dash;
+
+      document.getElementById('auditUrl').textContent = a.url;
+      document.getElementById('auditMode').textContent = bgCopy.mode[a.mode] || bgCopy.mode.estimate;
+      document.getElementById('auditHeadline').textContent = bgCopy.headlines[cat];
+      document.getElementById('scoreValue').textContent = a.overall;
+      document.getElementById('scoreLabel').textContent = bgCopy.statuses[cat];
+      setTimeout(() => {
+        document.getElementById('scoreCircle').style.strokeDashoffset = offset;
+      }, 100);
+
+      const titles = bgCopy.barTitles[a.mode === 'live' ? 'live' : 'estimate'];
+      const bars = [
+        { key: 'load', val: a.perf, title: titles.load },
+        { key: 'vitals', val: a.vitals, title: titles.vitals },
+        { key: 'mobile', val: a.mobile, title: titles.mobile },
+        { key: 'seo', val: a.seo, title: titles.seo },
+      ];
+      bars.forEach(b => {
+        document.getElementById(`bar-${b.key}-title`).textContent = b.title;
+        document.getElementById(`bar-${b.key}-val`).textContent = b.val + '/100';
+        setTimeout(() => { document.getElementById(`bar-${b.key}-fill`).style.width = b.val + '%'; }, 200);
+      });
+
+      const ins = document.getElementById('insightsContainer');
+      ins.innerHTML = '';
+      const insightKeys = [];
+      if (a.perf < 80) insightKeys.push('speed');
+      if (a.mobile < 80) insightKeys.push('mobile');
+      if (a.seo < 75) insightKeys.push('seo');
+      if (a.vitals < 70) insightKeys.push('security');
+      insightKeys.slice(0, 3).forEach(k => {
+        const i = bgCopy.insights[k];
+        const body = k === 'speed' ? (a.mode === 'live' && a.fcp ? i.bodyLive(a.fcp) : i.bodyEstimate) : (a.mode === 'live' ? i.bodyLive : i.bodyEstimate);
+        const el = document.createElement('div');
+        el.className = 'border border-black p-6';
+        el.innerHTML = `<p class="font-mono-label text-[9px] font-bold uppercase tracking-widest text-gray-400 mb-2">Наблюдение</p><p class="font-display font-bold text-base mb-2">${i.title}</p><p class="font-body text-sm text-gray-600 leading-relaxed">${body}</p>`;
+        ins.appendChild(el);
+      });
+
+      document.getElementById('scanningState').classList.add('hidden');
+      document.getElementById('resultsState').classList.remove('hidden');
+    }
+
+    async function runAudit() {
+      if (auditInFlight) return;
+      const input = document.getElementById('urlInput');
+      const raw = input.value.trim();
+      if (!raw) { input.style.borderWidth = '3px'; setTimeout(() => input.style.borderWidth = '2px', 600); return; }
+      let url;
+      try { url = normalizeUrl(raw); } catch { input.style.borderWidth = '3px'; setTimeout(() => input.style.borderWidth = '2px', 600); return; }
+
+      const panel = document.getElementById('auditPanel');
+      const scan = document.getElementById('scanningState');
+      const result = document.getElementById('resultsState');
+
+      panel.classList.remove('hidden');
+      scan.classList.remove('hidden');
+      result.classList.add('hidden');
+      panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      setAuditBusy(true);
+      const started = performance.now();
+      try {
+        const audit = await buildAudit(url);
+        lastAuditState = audit;
+        const elapsed = performance.now() - started;
+        if (elapsed < 1400) await wait(1400 - elapsed);
+        renderAudit(audit);
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } finally { setAuditBusy(false); }
+    }
+
+    document.getElementById('urlInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') { e.preventDefault(); runAudit(); }
     });
+  </script>
 
-    document.getElementById('scanningState').classList.add('hidden');
-    document.getElementById('resultsState').classList.remove('hidden');
-  }
-
-  async function runAudit() {
-    if (auditInFlight) return;
-    const input = document.getElementById('urlInput');
-    const raw = input.value.trim();
-    if (!raw) { input.style.borderWidth = '3px'; setTimeout(() => input.style.borderWidth = '2px', 600); return; }
-    let url;
-    try { url = normalizeUrl(raw); } catch { input.style.borderWidth = '3px'; setTimeout(() => input.style.borderWidth = '2px', 600); return; }
-
-    const panel = document.getElementById('auditPanel');
-    const scan  = document.getElementById('scanningState');
-    const result = document.getElementById('resultsState');
-
-    panel.classList.remove('hidden');
-    scan.classList.remove('hidden');
-    result.classList.add('hidden');
-    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-    setAuditBusy(true);
-    const started = performance.now();
-    try {
-      const audit = await buildAudit(url);
-      lastAuditState = audit;
-      const elapsed = performance.now() - started;
-      if (elapsed < 1400) await wait(1400 - elapsed);
-      renderAudit(audit);
-      result.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } finally { setAuditBusy(false); }
-  }
-
-  document.getElementById('urlInput').addEventListener('keydown', e => {
-    if (e.key === 'Enter') { e.preventDefault(); runAudit(); }
-  });
-</script>
-
-<script type="application/ld+json">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -1802,11 +2549,4 @@
   "jobTitle": "Свободна практика — Уеб Дизайнер и Разработчик",
   "description": "Свободен уеб дизайнер и разработчик, специализиран в бързи, достъпни уебсайтове, UI/UX и AI-асистирани работни процеси.",
   "url": "https://tanev.design",
-  "telephone": "+359895469386",
-  "email": "stoyanbtanev@gmail.com",
-  "address": { "@type": "PostalAddress", "addressLocality": "Пловдив", "addressCountry": "BG" },
-  "sameAs": ["https://www.linkedin.com/in/stoyan-tanev-a732603b8/", "https://github.com/stoyanbtanev"]
-}
-</script>
-</body>
-</html>
+  "telephone": "+3598954

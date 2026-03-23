@@ -430,15 +430,18 @@
     .kt-marquee-wrap::after {
       content: '';
       position: absolute;
-      top: 0; bottom: 0;
+      top: 0;
+      bottom: 0;
       width: clamp(40px, 8vw, 120px);
       z-index: 2;
       pointer-events: none;
     }
+
     .kt-marquee-wrap::before {
       left: 0;
       background: linear-gradient(to right, #09090B, transparent);
     }
+
     .kt-marquee-wrap::after {
       right: 0;
       background: linear-gradient(to left, #09090B, transparent);
@@ -465,14 +468,26 @@
     }
 
     @keyframes marqueeScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .kt-marquee, .kt-marquee-rev { animation: none; }
+
+      .kt-marquee,
+      .kt-marquee-rev {
+        animation: none;
+      }
+
       .kt-marquee-wrap::before,
-      .kt-marquee-wrap::after { display: none; }
+      .kt-marquee-wrap::after {
+        display: none;
+      }
     }
 
     /* ── KT: Brutalist card hover inversion ── */
@@ -524,7 +539,8 @@
     /* ── Scroll Progress Bar (KT: acid yellow) ── */
     #scroll-progress {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       height: 2px;
       width: 0%;
       background: #DFE104;
@@ -549,7 +565,9 @@
       transition: border-color 0.2s ease;
     }
 
-    .dark .card-bg:hover  { border-color: #52525B; }
+    .dark .card-bg:hover {
+      border-color: #52525B;
+    }
 
 
     /* ── Pricing Highlight (KT: no pseudo ring, clean border) ── */
@@ -559,8 +577,13 @@
 
     /* ── Input Focus Pulse Ring (KT: accent yellow) ── */
     @keyframes focusPulse {
-      0%   { box-shadow: 0 0 0 0   rgba(223,225,4,0.35); }
-      100% { box-shadow: 0 0 0 4px rgba(223,225,4,0); }
+      0% {
+        box-shadow: 0 0 0 0 rgba(223, 225, 4, 0.35);
+      }
+
+      100% {
+        box-shadow: 0 0 0 4px rgba(223, 225, 4, 0);
+      }
     }
 
     .url-input:focus {
@@ -569,8 +592,15 @@
 
     /* ── Badge Breathe ── */
     @keyframes badgeBreathe {
-      0%, 100% { transform: translateX(-50%) scale(1); }
-      50%       { transform: translateX(-50%) scale(1.04); }
+
+      0%,
+      100% {
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        transform: translateX(-50%) scale(1.04);
+      }
     }
 
     .badge-popular {
@@ -585,7 +615,9 @@
       border-radius: 0 !important;
     }
 
-    .tag-bg:hover { transform: translateY(-1px); }
+    .tag-bg:hover {
+      transform: translateY(-1px);
+    }
 
     /* ── Audit Button Icon Pulse on Hover ── */
     #auditButton:hover .fa-satellite-dish {
@@ -593,9 +625,17 @@
     }
 
     @keyframes iconPulse {
-      0%   { transform: scale(1) rotate(0deg); }
-      50%  { transform: scale(1.25) rotate(-10deg); }
-      100% { transform: scale(1) rotate(0deg); }
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+
+      50% {
+        transform: scale(1.25) rotate(-10deg);
+      }
+
+      100% {
+        transform: scale(1) rotate(0deg);
+      }
     }
 
     /* ── Footer Link Underline Draw ── */
@@ -606,14 +646,18 @@
     footer a::after {
       content: '';
       position: absolute;
-      bottom: -1px; left: 0;
-      width: 0%; height: 1px;
+      bottom: -1px;
+      left: 0;
+      width: 0%;
+      height: 1px;
       background: currentColor;
       opacity: 0.45;
       transition: width 0.22s ease;
     }
 
-    footer a:hover::after { width: 100%; }
+    footer a:hover::after {
+      width: 100%;
+    }
 
     /* ── Nav Link Draw ── */
     nav a {
@@ -623,14 +667,18 @@
     nav a::after {
       content: '';
       position: absolute;
-      bottom: -1px; left: 0;
-      width: 0%; height: 1px;
+      bottom: -1px;
+      left: 0;
+      width: 0%;
+      height: 1px;
       background: currentColor;
       opacity: 0.35;
       transition: width 0.2s ease;
     }
 
-    nav a:hover::after { width: 100%; }
+    nav a:hover::after {
+      width: 100%;
+    }
 
     /* ── Navbar Scroll Compaction ── */
     #navbar.scrolled {
@@ -638,7 +686,7 @@
     }
 
     .dark #navbar.scrolled {
-      background: rgba(10,10,10,0.97);
+      background: rgba(10, 10, 10, 0.97);
       border-bottom-color: #222222;
     }
 
@@ -646,31 +694,45 @@
 
     /* ── Staggered section entrance ── */
     @keyframes cardSlideUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0);  }
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .section-fade.visible {
-      animation: cardSlideUp 0.5s cubic-bezier(0.22,1,0.36,1) both;
+      animation: cardSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
     /* ── Icon group hover spring ── */
-    .group:hover > div > i,
-    .group:hover > div > .fa-bolt,
-    .group:hover > div > .fa-tag,
-    .group:hover > div > .fa-gem {
-      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    .group:hover>div>i,
+    .group:hover>div>.fa-bolt,
+    .group:hover>div>.fa-tag,
+    .group:hover>div>.fa-gem {
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     /* ── Respect user motion preferences ── */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+
+      *,
+      *::before,
+      *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
-      #scroll-progress { display: none; }
+
+      #scroll-progress {
+        display: none;
+      }
     }
+
     /* ── Chat & Cookies ── */
     #cookieBar {
       transform: translateY(150%);
@@ -683,30 +745,44 @@
 
     /* ── Chat: mobile overlay backdrop ── */
     #chatOverlay {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.65);
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
       z-index: 69;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
     }
-    #chatOverlay.show { opacity: 1; pointer-events: auto; }
-    @media (min-width: 640px) { #chatOverlay { display: none !important; } }
+
+    #chatOverlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (min-width: 640px) {
+      #chatOverlay {
+        display: none !important;
+      }
+    }
 
     /* ── Chat box: mobile = full-width bottom sheet ── */
     #chatBotBox {
       position: fixed;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 82dvh;
       background: #09090B;
       border-top: 2px solid #DFE104;
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
       transform: translateY(100%);
       transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
       z-index: 70;
       overflow: hidden;
       pointer-events: none;
     }
+
     #chatBotBox.show {
       transform: translateY(0);
       pointer-events: auto;
@@ -716,13 +792,17 @@
     @media (min-width: 640px) {
       #chatBotBox {
         position: fixed;
-        bottom: 5.5rem; right: 1.5rem;
-        left: auto; width: 370px; height: 520px;
+        bottom: 5.5rem;
+        right: 1.5rem;
+        left: auto;
+        width: 370px;
+        height: 520px;
         border: 2px solid #DFE104;
         transform: translateY(14px);
         opacity: 0;
-        transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.28s ease;
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
       }
+
       #chatBotBox.show {
         transform: translateY(0);
         opacity: 1;
@@ -737,12 +817,14 @@
       line-height: 1.6;
       max-width: 88%;
     }
+
     .chat-msg-ai {
       align-self: flex-start;
       border-left: 2px solid #DFE104;
       padding-left: 12px;
-      color: rgba(250,250,250,0.88);
+      color: rgba(250, 250, 250, 0.88);
     }
+
     .chat-msg-user {
       align-self: flex-end;
       background: #18181B;
@@ -756,20 +838,41 @@
       align-self: flex-start;
       border-left: 2px solid #DFE104;
       padding-left: 12px;
-      display: flex; gap: 5px; align-items: center;
+      display: flex;
+      gap: 5px;
+      align-items: center;
       height: 30px;
     }
+
     .chat-typing span {
-      width: 7px; height: 7px;
+      width: 7px;
+      height: 7px;
       background: #DFE104;
       display: inline-block;
       animation: typingDot 1.1s infinite ease-in-out;
     }
-    .chat-typing span:nth-child(2) { animation-delay: 0.18s; }
-    .chat-typing span:nth-child(3) { animation-delay: 0.36s; }
+
+    .chat-typing span:nth-child(2) {
+      animation-delay: 0.18s;
+    }
+
+    .chat-typing span:nth-child(3) {
+      animation-delay: 0.36s;
+    }
+
     @keyframes typingDot {
-      0%, 80%, 100% { transform: scale(0.65); opacity: 0.35; }
-      40%            { transform: scale(1);    opacity: 1; }
+
+      0%,
+      80%,
+      100% {
+        transform: scale(0.65);
+        opacity: 0.35;
+      }
+
+      40% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     /* ── Blinking cursor ── */
@@ -777,18 +880,41 @@
       color: #DFE104;
       animation: cursorBlink 1s step-end infinite;
     }
+
     @keyframes cursorBlink {
-      0%, 100% { opacity: 1; } 50% { opacity: 0; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
     }
 
     @keyframes chatFadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(5px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Mobile nav layering */
@@ -837,13 +963,15 @@
       }
 
       #urlInput {
-        font-size: 16px; /* prevents iOS zoom on focus */
+        font-size: 16px;
+        /* prevents iOS zoom on focus */
       }
     }
 
     /* ── Hero background clip wrapper (keeps overflow off the section to preserve iOS scroll) ── */
     .hero-bg-clip {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       overflow: hidden;
       pointer-events: none;
       z-index: 0;
@@ -851,8 +979,9 @@
 
     /* ── Hero dot grid (KT: sharper, higher contrast) ── */
     .hero-grid {
-      position: absolute; inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
       background-size: 32px 32px;
       pointer-events: none;
       z-index: 0;
@@ -860,63 +989,180 @@
 
 
     /* ── Hero background orbs (KT: removed, use grid only) ── */
-    .hero-orb { display: none; }
+    .hero-orb {
+      display: none;
+    }
 
     /* ── Hero entrance stagger ── */
     @keyframes heroIn {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0);    }
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     /* Audit box: opacity-only fade so hit-test area is never displaced */
     @keyframes heroInFade {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
-    .hero-line-1 { animation: heroIn     0.8s cubic-bezier(0.22,1,0.36,1) 0.05s both; }
-    .hero-line-2 { animation: heroIn     0.8s cubic-bezier(0.22,1,0.36,1) 0.30s both; }
-    .hero-sub    { animation: heroIn     0.8s cubic-bezier(0.22,1,0.36,1) 0.50s both; }
-    .hero-audit  { animation: heroInFade 0.8s cubic-bezier(0.22,1,0.36,1) 0.55s both; }
+
+    .hero-line-1 {
+      animation: heroIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+    }
+
+    .hero-line-2 {
+      animation: heroIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.30s both;
+    }
+
+    .hero-sub {
+      animation: heroIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.50s both;
+    }
+
+    .hero-audit {
+      animation: heroInFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+    }
 
     /* Prevent 300ms tap delay on the audit tool */
-    #urlInput, #auditButton { touch-action: manipulation; }
+    #urlInput,
+    #auditButton {
+      touch-action: manipulation;
+    }
 
     /* ── Icon accent wrappers (KT: yellow accent) ── */
-    .icon-wrap-red    { background: rgba(223,225,4,0.12); border: 2px solid #3F3F46; }
-    .icon-wrap-violet { background: rgba(223,225,4,0.08); border: 2px solid #3F3F46; }
-    .icon-wrap-blue   { background: rgba(223,225,4,0.08); border: 2px solid #3F3F46; }
-    .dark .icon-wrap-red    { background: rgba(223,225,4,0.10); }
-    .dark .icon-wrap-violet { background: rgba(223,225,4,0.07); }
-    .dark .icon-wrap-blue   { background: rgba(223,225,4,0.07); }
+    .icon-wrap-red {
+      background: rgba(223, 225, 4, 0.12);
+      border: 2px solid #3F3F46;
+    }
+
+    .icon-wrap-violet {
+      background: rgba(223, 225, 4, 0.08);
+      border: 2px solid #3F3F46;
+    }
+
+    .icon-wrap-blue {
+      background: rgba(223, 225, 4, 0.08);
+      border: 2px solid #3F3F46;
+    }
+
+    .dark .icon-wrap-red {
+      background: rgba(223, 225, 4, 0.10);
+    }
+
+    .dark .icon-wrap-violet {
+      background: rgba(223, 225, 4, 0.07);
+    }
+
+    .dark .icon-wrap-blue {
+      background: rgba(223, 225, 4, 0.07);
+    }
 
 
-    .text-violet { color: #DFE104; }
-    .dark .text-violet { color: #DFE104; }
+    .text-violet {
+      color: #DFE104;
+    }
 
-    .text-sky { color: #DFE104; }
-    .dark .text-sky { color: #DFE104; }
+    .dark .text-violet {
+      color: #DFE104;
+    }
+
+    .text-sky {
+      color: #DFE104;
+    }
+
+    .dark .text-sky {
+      color: #DFE104;
+    }
 
 
     /* ── Template device toggle (KT) ── */
-    .device-btn { transition: background .2s, color .2s, border-color .2s; border-radius: 0 !important; }
-    .device-btn.active { background: #DFE104 !important; color: #09090B !important; border-color: #DFE104 !important; }
+    .device-btn {
+      transition: background .2s, color .2s, border-color .2s;
+      border-radius: 0 !important;
+    }
+
+    .device-btn.active {
+      background: #DFE104 !important;
+      color: #09090B !important;
+      border-color: #DFE104 !important;
+    }
 
 
-    .tpl-card { transition: max-width .4s cubic-bezier(.22,1,.36,1); max-width: 100%; }
-    .tpl-preview { transition: height .4s cubic-bezier(.22,1,.36,1), border-radius .3s ease; height: 430px; border-radius: 0; overflow-y: hidden; }
-    .tpl-chrome { transition: opacity .2s, height .3s; }
-    .tpl-notch, .tpl-home { display: none; transition: opacity .25s; }
+    .tpl-card {
+      transition: max-width .4s cubic-bezier(.22, 1, .36, 1);
+      max-width: 100%;
+    }
+
+    .tpl-preview {
+      transition: height .4s cubic-bezier(.22, 1, .36, 1), border-radius .3s ease;
+      height: 430px;
+      border-radius: 0;
+      overflow-y: hidden;
+    }
+
+    .tpl-chrome {
+      transition: opacity .2s, height .3s;
+    }
+
+    .tpl-notch,
+    .tpl-home {
+      display: none;
+      transition: opacity .25s;
+    }
 
     /* Tablet mode */
-    #templates[data-device="tablet"] .tpl-card { max-width: 440px; margin-left: auto; margin-right: auto; }
-    #templates[data-device="tablet"] .tpl-preview { height: 490px; border-radius: 0 0 12px 12px; }
+    #templates[data-device="tablet"] .tpl-card {
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #templates[data-device="tablet"] .tpl-preview {
+      height: 490px;
+      border-radius: 0 0 12px 12px;
+    }
 
     /* Mobile mode */
-    #templates[data-device="mobile"] .tpl-card { max-width: 280px; margin-left: auto; margin-right: auto; }
-    #templates[data-device="mobile"] .tpl-preview { height: 560px; border-radius: 0 0 20px 20px; }
-    #templates[data-device="mobile"] .tpl-chrome { opacity: 0; height: 0 !important; padding: 0 !important; border: none !important; overflow: hidden; }
-    #templates[data-device="mobile"] .tpl-notch { display: flex; }
-    #templates[data-device="mobile"] .tpl-home { display: block; }
-    #templates[data-device="mobile"] .card-bg { border-radius: 24px; }
+    #templates[data-device="mobile"] .tpl-card {
+      max-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #templates[data-device="mobile"] .tpl-preview {
+      height: 560px;
+      border-radius: 0 0 20px 20px;
+    }
+
+    #templates[data-device="mobile"] .tpl-chrome {
+      opacity: 0;
+      height: 0 !important;
+      padding: 0 !important;
+      border: none !important;
+      overflow: hidden;
+    }
+
+    #templates[data-device="mobile"] .tpl-notch {
+      display: flex;
+    }
+
+    #templates[data-device="mobile"] .tpl-home {
+      display: block;
+    }
+
+    #templates[data-device="mobile"] .card-bg {
+      border-radius: 24px;
+    }
   </style>
 
   <!-- Vercel Speed Insights -->
@@ -942,31 +1188,49 @@
             class="crimson">.design</span></span>
       </a>
       <div class="hidden lg:flex items-center gap-8">
-        <a href="index.html" class="flex items-center gap-2 text-[11px] font-700 uppercase tracking-widest text-[#DFE104] hover:opacity-80 transition-opacity duration-200">
+        <a href="index.html"
+          class="flex items-center gap-2 text-[11px] font-700 uppercase tracking-widest text-[#DFE104] hover:opacity-80 transition-opacity duration-200">
           <i class="fas fa-home-alt text-[9px]"></i> Welcome
         </a>
-        <a href="#services" class="text-[11px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors duration-200">About Me</a>
-        <a href="#templates" class="text-[11px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors duration-200">Templates</a>
-        <a href="#pricing" class="text-[11px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors duration-200">Pricing</a>
-        <a href="#contact" class="text-[11px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors duration-200">Contact</a>
+        <a href="#services"
+          class="text-[11px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors duration-200">About
+          Me</a>
+        <a href="#templates"
+          class="text-[11px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors duration-200">Templates</a>
+        <a href="#pricing"
+          class="text-[11px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors duration-200">Pricing</a>
+        <a href="#contact"
+          class="text-[11px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors duration-200">Contact</a>
       </div>
       <div class="flex items-center gap-3">
-        <a href="bgindex.html" title="Bulgarian" class="hidden sm:flex items-center justify-center w-8 h-8 border-2 border-[#3F3F46] hover:border-[#DFE104] text-[10px] font-700 text-white hover:text-[#DFE104] transition-all duration-200">
+        <a href="bgindex.html" title="Bulgarian"
+          class="hidden sm:flex items-center justify-center w-8 h-8 border-2 border-[#3F3F46] hover:border-[#DFE104] text-[10px] font-700 text-white hover:text-[#DFE104] transition-all duration-200">
           BG
         </a>
-        <a href="#contact" class="hidden md:flex cta-primary text-[10px] py-2.5 px-5 font-700 tracking-widest transition-colors duration-200" style="border-radius: 0;">Start Project</a>
-        <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 neon-text" aria-label="Toggle menu">
+        <a href="#contact"
+          class="hidden md:flex cta-primary text-[10px] py-2.5 px-5 font-700 tracking-widest transition-colors duration-200"
+          style="border-radius: 0;">Start Project</a>
+        <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 neon-text"
+          aria-label="Toggle menu">
           <i class="fas fa-bars text-lg"></i>
         </button>
       </div>
     </div>
     <div id="mobileMenu" class="hidden lg:hidden px-5 pb-4 flex flex-col gap-1 border-t divider">
-      <a href="index.html" class="py-2.5 text-[11px] font-700 uppercase tracking-widest text-[#DFE104] border-b divider">Welcome</a>
-      <a href="bgindex.html" class="py-2.5 text-[11px] font-700 uppercase tracking-widest text-[#FAFAFA] border-b divider">Switch to Bulgarian (BG)</a>
-      <a href="#contact" class="py-2.5 text-[11px] font-700 uppercase tracking-widest text-[#DFE104] border-b divider font-800">Start Project</a>
-      <a href="#services" class="py-2.5 text-[11px] font-700 uppercase tracking-widest muted border-b divider">About Me</a>
-      <a href="#templates" class="py-2.5 text-[11px] font-700 uppercase tracking-widest muted border-b divider">Templates</a>
-      <a href="#pricing" class="py-2.5 text-[11px] font-700 uppercase tracking-widest muted border-b divider">Pricing</a>
+      <a href="index.html"
+        class="py-2.5 text-[11px] font-700 uppercase tracking-widest text-[#DFE104] border-b divider">Welcome</a>
+      <a href="bgindex.html"
+        class="py-2.5 text-[11px] font-700 uppercase tracking-widest text-[#FAFAFA] border-b divider">Switch to
+        Bulgarian (BG)</a>
+      <a href="#contact"
+        class="py-2.5 text-[11px] font-700 uppercase tracking-widest text-[#DFE104] border-b divider font-800">Start
+        Project</a>
+      <a href="#services" class="py-2.5 text-[11px] font-700 uppercase tracking-widest muted border-b divider">About
+        Me</a>
+      <a href="#templates"
+        class="py-2.5 text-[11px] font-700 uppercase tracking-widest muted border-b divider">Templates</a>
+      <a href="#pricing"
+        class="py-2.5 text-[11px] font-700 uppercase tracking-widest muted border-b divider">Pricing</a>
       <a href="#contact" class="py-2.5 text-[11px] font-700 uppercase tracking-widest muted">Contact</a>
     </div>
   </nav>
@@ -985,7 +1249,8 @@
       <!-- Headline -->
       <h1 class="font-display font-700 leading-[0.95] uppercase mb-8"
         style="font-size: clamp(3.2rem, 10vw, 8rem); letter-spacing:-0.03em">
-        <span id="heroLineOne" class="hero-line-1 block dark:text-white text-gray-900">Your <span class="crimson">vision.</span></span>
+        <span id="heroLineOne" class="hero-line-1 block dark:text-white text-gray-900">Your <span
+            class="crimson">vision.</span></span>
         <span id="heroLineTwo" class="hero-line-2 block dark:text-white text-gray-900">Brought to life.</span>
       </h1>
       <!-- Sub -->
@@ -1000,9 +1265,10 @@
         <div class="flex flex-col md:flex-row gap-3 min-w-0 items-stretch">
           <div id="urlInputWrap" class="url-input-wrap flex-1 min-w-0">
             <label for="urlInput" class="sr-only">Website URL</label>
-            <input id="urlInput" type="url" placeholder="https://yourwebsite.com" inputmode="url"
-              autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go"
-              class="url-input flex-1 min-w-0 bg-transparent border neon-border px-4 py-3.5 text-sm transition-all" style="border-radius:0" />
+            <input id="urlInput" type="url" placeholder="https://yourwebsite.com" inputmode="url" autocapitalize="off"
+              autocorrect="off" spellcheck="false" enterkeyhint="go"
+              class="url-input flex-1 min-w-0 bg-transparent border neon-border px-4 py-3.5 text-sm transition-all"
+              style="border-radius:0" />
           </div>
           <button id="auditButton" onclick="runAudit()"
             class="cta-primary px-6 py-3.5 text-[11px] font-display font-700 tracking-widest uppercase transition-all duration-200 active:scale-[.98] flex items-center gap-2 justify-center md:flex-shrink-0 md:w-auto w-full">
@@ -1023,8 +1289,8 @@
     <div class="max-w-3xl mx-auto">
       <!-- Scanning -->
       <div id="scanningState" class="glass overflow-hidden p-8 text-center" style="border-radius:0">
-        <div
-          class="relative w-32 h-32 mx-auto mb-6 overflow-hidden card-bg flex items-center justify-center" style="border-radius:0">
+        <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden card-bg flex items-center justify-center"
+          style="border-radius:0">
           <div class="scan-line"></div>
           <div class="neon-text font-display font-700 text-2xl z-10">td</div>
         </div>
@@ -1043,7 +1309,8 @@
           <div class="flex items-start justify-between gap-4 mb-6">
             <div>
               <span class="kt-section-tag mb-2 inline-block">Audit Report</span>
-              <h2 id="resultsHeadline" class="font-display font-700 uppercase text-2xl sm:text-3xl dark:text-white text-gray-900 leading-tight mt-2">
+              <h2 id="resultsHeadline"
+                class="font-display font-700 uppercase text-2xl sm:text-3xl dark:text-white text-gray-900 leading-tight mt-2">
                 Your Website Needs Help</h2>
               <p id="auditUrl" class="muted text-sm mt-1"></p>
               <p id="auditMeta" class="muted text-xs mt-2"></p>
@@ -1168,7 +1435,8 @@
           <!-- CTA -->
           <div class="card-bg p-5 flex flex-col sm:flex-row gap-4 items-center justify-between" style="border-radius:0">
             <div>
-              <p id="ctaTitle" class="font-display font-700 uppercase dark:text-white text-gray-900 mb-1">I can fix this — fast.</p>
+              <p id="ctaTitle" class="font-display font-700 uppercase dark:text-white text-gray-900 mb-1">I can fix this
+                — fast.</p>
               <p id="ctaBody" class="text-sm muted">I can rebuild your site in days, not months, with transparent
                 pricing.</p>
             </div>
@@ -1190,35 +1458,43 @@
       <div class="kt-marquee" aria-hidden="true">
         <span class="flex items-center gap-0">
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 uppercase" style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em" aria-label="3 to 10">3–10</span>
+            <span class="font-display font-700 uppercase"
+              style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em" aria-label="3 to 10">3–10</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Days to Launch</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 crimson uppercase" style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">€200</span>
+            <span class="font-display font-700 crimson uppercase"
+              style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">€200</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Starting Price</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 uppercase" style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">90+</span>
+            <span class="font-display font-700 uppercase"
+              style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">90+</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">PageSpeed Score</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 crimson uppercase" style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">100%</span>
+            <span class="font-display font-700 crimson uppercase"
+              style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">100%</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Custom Built</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 uppercase" style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">3–10</span>
+            <span class="font-display font-700 uppercase"
+              style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">3–10</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Days to Launch</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 crimson uppercase" style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">€200</span>
+            <span class="font-display font-700 crimson uppercase"
+              style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">€200</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Starting Price</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 uppercase" style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">90+</span>
+            <span class="font-display font-700 uppercase"
+              style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">90+</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">PageSpeed Score</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 crimson uppercase" style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">100%</span>
+            <span class="font-display font-700 crimson uppercase"
+              style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">100%</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Custom Built</span>
           </span>
         </span>
@@ -1229,35 +1505,43 @@
       <div class="kt-marquee kt-marquee-rev" aria-hidden="true">
         <span class="flex items-center gap-0">
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">Mobile-First</span>
+            <span class="font-display font-700 uppercase"
+              style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">Mobile-First</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Design</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 crimson uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">No Templates</span>
+            <span class="font-display font-700 crimson uppercase"
+              style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">No Templates</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Every Build Is Unique</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">SEO Ready</span>
+            <span class="font-display font-700 uppercase"
+              style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">SEO Ready</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">From Day One</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 crimson uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">0 Bloat</span>
+            <span class="font-display font-700 crimson uppercase"
+              style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">0 Bloat</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Clean Code Only</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">Mobile-First</span>
+            <span class="font-display font-700 uppercase"
+              style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">Mobile-First</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Design</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 crimson uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">No Templates</span>
+            <span class="font-display font-700 crimson uppercase"
+              style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">No Templates</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Every Build Is Unique</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">SEO Ready</span>
+            <span class="font-display font-700 uppercase"
+              style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">SEO Ready</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">From Day One</span>
           </span>
           <span class="inline-flex items-baseline gap-3 px-10 border-r divider">
-            <span class="font-display font-700 crimson uppercase" style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">0 Bloat</span>
+            <span class="font-display font-700 crimson uppercase"
+              style="font-size:clamp(1.4rem,3.5vw,2.2rem);letter-spacing:-0.02em">0 Bloat</span>
             <span class="text-[10px] uppercase tracking-widest muted font-700">Clean Code Only</span>
           </span>
         </span>
@@ -1271,13 +1555,18 @@
       <div class="flex-1 section-fade">
         <span class="kt-section-tag mb-6 inline-block">The Reality</span>
         <h2 class="font-display font-700 uppercase leading-[0.95] dark:text-white text-gray-900 mb-8"
-          style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">Your business<br/>deserves more than a <span class="crimson">social media<br/>page.</span></h2>
+          style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">Your business<br />deserves more than a <span
+            class="crimson">social media<br />page.</span></h2>
         <div class="space-y-4 border-l-2 border-l-[#3F3F46] pl-6">
           <p class="muted text-sm leading-relaxed">
-            Instagram and Facebook are <strong class="dark:text-white text-gray-900">rented land</strong>. Algorithms shift, accounts get restricted, and reach keeps shrinking. A website is the only digital asset you <strong class="dark:text-white text-gray-900">truly own</strong>.
+            Instagram and Facebook are <strong class="dark:text-white text-gray-900">rented land</strong>. Algorithms
+            shift, accounts get restricted, and reach keeps shrinking. A website is the only digital asset you <strong
+              class="dark:text-white text-gray-900">truly own</strong>.
           </p>
           <p class="muted text-sm leading-relaxed">
-            When someone searches, they skip businesses without a site. A fast, professional website builds <strong class="dark:text-white text-gray-900">trust in seconds</strong> and turns curiosity into <strong class="dark:text-white text-gray-900">revenue — day and night</strong>.
+            When someone searches, they skip businesses without a site. A fast, professional website builds <strong
+              class="dark:text-white text-gray-900">trust in seconds</strong> and turns curiosity into <strong
+              class="dark:text-white text-gray-900">revenue — day and night</strong>.
           </p>
         </div>
       </div>
@@ -1286,22 +1575,28 @@
           <div class="w-12 h-12 icon-wrap-red flex items-center justify-center mb-4">
             <i class="fas fa-lock crimson text-xl"></i>
           </div>
-          <h4 class="font-display font-700 uppercase tracking-wide dark:text-white text-gray-900 mb-2 text-sm">Total Control</h4>
-          <p class="muted text-xs leading-relaxed">No algorithm decides who sees you. Your content, your audience, your rules.</p>
+          <h4 class="font-display font-700 uppercase tracking-wide dark:text-white text-gray-900 mb-2 text-sm">Total
+            Control</h4>
+          <p class="muted text-xs leading-relaxed">No algorithm decides who sees you. Your content, your audience, your
+            rules.</p>
         </div>
         <div class="kt-card p-6">
           <div class="w-12 h-12 icon-wrap-violet flex items-center justify-center mb-4">
             <i class="fas fa-chart-line crimson text-xl"></i>
           </div>
-          <h4 class="font-display font-700 uppercase tracking-wide dark:text-white text-gray-900 mb-2 text-sm">24/7 Sales</h4>
-          <p class="muted text-xs leading-relaxed">Your site fields questions, captures leads, and closes deals — while you sleep.</p>
+          <h4 class="font-display font-700 uppercase tracking-wide dark:text-white text-gray-900 mb-2 text-sm">24/7
+            Sales</h4>
+          <p class="muted text-xs leading-relaxed">Your site fields questions, captures leads, and closes deals — while
+            you sleep.</p>
         </div>
         <div class="kt-card p-6 sm:col-span-2">
           <div class="w-12 h-12 icon-wrap-blue flex items-center justify-center mb-4">
             <i class="fas fa-globe text-sky text-xl"></i>
           </div>
-          <h4 class="font-display font-700 uppercase tracking-wide dark:text-white text-gray-900 mb-2 text-sm">Found on Google</h4>
-          <p class="muted text-xs leading-relaxed">A properly built site gets indexed, ranked, and visited — social media pages don't.</p>
+          <h4 class="font-display font-700 uppercase tracking-wide dark:text-white text-gray-900 mb-2 text-sm">Found on
+            Google</h4>
+          <p class="muted text-xs leading-relaxed">A properly built site gets indexed, ranked, and visited — social
+            media pages don't.</p>
         </div>
       </div>
     </div>
@@ -1313,98 +1608,356 @@
       <div class="mb-16 section-fade">
         <span class="kt-section-tag mb-6 inline-block">Why Work With Me</span>
         <h2 class="font-display font-700 uppercase leading-[0.95] dark:text-white text-gray-900"
-          style="font-size:clamp(2.2rem,5.5vw,4rem);letter-spacing:-0.03em">Hi, I'm <span class="crimson">Stoyan.</span><br/>I make websites<br/>that do their job.</h2>
+          style="font-size:clamp(2.2rem,5.5vw,4rem);letter-spacing:-0.03em">Hi, I'm <span
+            class="crimson">Stoyan.</span><br />I make websites<br />that do their job.</h2>
       </div>
 
       <div class="section-fade glass p-7 sm:p-8 mb-8" style="border-radius:0">
         <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-8 items-start">
           <div>
             <span class="kt-section-tag mb-4 inline-block">Meet Stoyan Tanev</span>
-            <h3 class="font-display font-700 uppercase text-xl sm:text-2xl dark:text-white text-gray-900 mb-4 mt-4 leading-tight">I've been into design since 2008.<br/>Now I turn that into websites.</h3>
-            <p class="muted text-sm leading-relaxed mb-4">
-              My journey with design started in 2008 through Adobe Photoshop. Over the years, exploring photo edits and compositions naturally evolved into a strong eye for visual balance. That deep-rooted sense for design forms the foundation of my work today.</p>
-            <p class="muted text-sm leading-relaxed">
-              Later on, my background resolving complex hardware issues taught me the importance of precision. Today, I apply that same exacting standard to web development—ensuring every site is not only beautiful, but structurally sound and highly effective for your business.</p>
+            <h3
+              class="font-display font-700 uppercase text-xl sm:text-2xl dark:text-white text-gray-900 mb-4 mt-4 leading-tight">
+              I've been into design since 2008.<br />Now I turn that into websites.</h3>
+            <p class="muted text-sm leading-relaxed mb-4">My journey with design started in 2008 through Adobe
+              Photoshop. Over the years, exploring photo edits and compositions naturally evolved into a strong eye for
+              visual balance. That deep-rooted sense for design forms the foundation of my work today.</p>
+            <p class="muted text-sm leading-relaxed">Later on, my background resolving complex hardware issues taught me
+              the importance of precision. Today, I apply that same exacting standard to web development—ensuring every
+              site is not only beautiful, but structurally sound and highly effective for your business.</p>
             <div class="flex flex-wrap gap-2 mt-6">
               <a href="https://www.linkedin.com/in/stoyan-tanev-a732603b8/" target="_blank" rel="noopener noreferrer"
-                class="tag-bg px-4 py-2 text-xs font-700 uppercase tracking-wide flex items-center gap-2 transition-colors hover:neon-text">
-                <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
-              </a>
+                class="tag-bg px-4 py-2 text-xs font-700 uppercase tracking-wide flex items-center gap-2"><i
+                  class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
               <a href="https://github.com/stoyanbtanev" target="_blank" rel="noopener noreferrer"
-                class="tag-bg px-4 py-2 text-xs font-700 uppercase tracking-wide flex items-center gap-2 transition-colors hover:neon-text">
-                <i class="fab fa-github"></i><span>GitHub</span>
-              </a>
-              <a href="mailto:stoyanbtanev@gmail.com"
-                class="tag-bg px-4 py-2 text-xs font-700 uppercase tracking-wide flex items-center gap-2 transition-colors hover:neon-text">
-                <i class="fas fa-envelope"></i><span>Email</span>
-              </a>
+                class="tag-bg px-4 py-2 text-xs font-700 uppercase tracking-wide flex items-center gap-2"><i
+                  class="fab fa-github"></i><span>GitHub</span></a>
+              <a href="mailto:stoyan@tanev.design"
+                class="tag-bg px-4 py-2 text-xs font-700 uppercase tracking-wide flex items-center gap-2"><i
+                  class="fas fa-envelope"></i><span>Email</span></a>
               <a href="tel:+359895469386"
-                class="tag-bg px-4 py-2 text-xs font-700 uppercase tracking-wide flex items-center gap-2 transition-colors hover:neon-text">
-                <i class="fas fa-phone"></i><span>089 546 9386</span>
-              </a>
+                class="tag-bg px-4 py-2 text-xs font-700 uppercase tracking-wide flex items-center gap-2"><i
+                  class="fas fa-phone"></i><span>089 546 9386</span></a>
             </div>
           </div>
           <div class="card-bg p-6" style="border-radius:0">
             <span class="kt-section-tag mb-4 inline-block">What You Get</span>
             <div class="space-y-4 mt-4">
-              <div class="flex gap-3 items-start">
-                <i class="fas fa-user-check neon-text mt-0.5 flex-shrink-0"></i>
-                <p class="text-sm muted">You work directly with the person designing and building your site — no middlemen.</p>
+              <div class="flex gap-3 items-start"><i class="fas fa-user-check neon-text mt-0.5 flex-shrink-0"></i>
+                <p class="text-sm muted">You work directly with the person designing and building your site — no
+                  middlemen.</p>
               </div>
-              <div class="flex gap-3 items-start">
-                <i class="fas fa-lightbulb neon-text mt-0.5 flex-shrink-0"></i>
-                <p class="text-sm muted">Every layout decision is carefully considered to authentically represent your brand.</p>
+              <div class="flex gap-3 items-start"><i class="fas fa-lightbulb neon-text mt-0.5 flex-shrink-0"></i>
+                <p class="text-sm muted">Every layout decision is carefully considered to authentically represent your
+                  brand.</p>
               </div>
-              <div class="flex gap-3 items-start">
-                <i class="fas fa-palette neon-text mt-0.5 flex-shrink-0"></i>
-                <p class="text-sm muted">16+ years of design experience translates into modern, high-quality aesthetics.</p>
+              <div class="flex gap-3 items-start"><i class="fas fa-palette neon-text mt-0.5 flex-shrink-0"></i>
+                <p class="text-sm muted">16+ years of design experience translates into modern, high-quality aesthetics.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l divider">
+      <!-- ── USP strip ── -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l divider mb-16">
         <div class="section-fade kt-card p-7 border-b border-r divider" style="transition-delay:.1s">
-          <div class="w-14 h-14 icon-wrap-red flex items-center justify-center mb-5">
-            <i class="fas fa-bolt text-2xl crimson"></i>
-          </div>
-          <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-3 leading-tight">Lightning Fast<br/>Delivery</h3>
-          <p class="muted text-sm leading-relaxed">
-            Projects typically launch within 3 to 10 days.</p>
-          <div class="mt-5 flex items-center gap-2 neon-text text-[10px] font-700 uppercase tracking-widest">
-            <i class="fas fa-check text-[9px]"></i>
-            <span>3–10 day turnaround</span>
-          </div>
+          <div class="w-14 h-14 icon-wrap-red flex items-center justify-center mb-5"><i
+              class="fas fa-bolt text-2xl crimson"></i></div>
+          <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-3 leading-tight">Lightning
+            Fast<br />Delivery</h3>
+          <p class="muted text-sm leading-relaxed">Projects typically launch within 3 to 10 days.</p>
+          <div class="mt-5 flex items-center gap-2 neon-text text-[10px] font-700 uppercase tracking-widest"><i
+              class="fas fa-check text-[9px]"></i><span>3–10 day turnaround</span></div>
         </div>
         <div class="section-fade kt-card p-7 border-b border-r divider" style="transition-delay:.2s">
-          <div class="w-14 h-14 icon-wrap-violet flex items-center justify-center mb-5">
-            <i class="fas fa-tag text-2xl text-violet"></i>
-          </div>
-          <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-3 leading-tight">Unbeatable<br/>Pricing</h3>
-          <p class="muted text-sm leading-relaxed">
-            Agency-level quality without overhead markups or hidden costs.</p>
-          <div class="mt-5 flex items-center gap-2 neon-text text-[10px] font-700 uppercase tracking-widest">
-            <i class="fas fa-check text-[9px]"></i>
-            <span>From €200</span>
-          </div>
+          <div class="w-14 h-14 icon-wrap-violet flex items-center justify-center mb-5"><i
+              class="fas fa-tag text-2xl text-violet"></i></div>
+          <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-3 leading-tight">
+            Unbeatable<br />Pricing</h3>
+          <p class="muted text-sm leading-relaxed">Agency-level quality without overhead markups or hidden costs.</p>
+          <div class="mt-5 flex items-center gap-2 neon-text text-[10px] font-700 uppercase tracking-widest"><i
+              class="fas fa-check text-[9px]"></i><span>From €200</span></div>
         </div>
         <div class="section-fade kt-card p-7 border-b border-r divider" style="transition-delay:.3s">
-          <div class="w-14 h-14 icon-wrap-blue flex items-center justify-center mb-5">
-            <i class="fas fa-gem text-2xl text-sky"></i>
-          </div>
-          <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-3 leading-tight">Premium<br/>Quality</h3>
-          <p class="muted text-sm leading-relaxed">
-            Clean code ensures your site loads fast, looks refined, and works flawlessly on any device.</p>
-          <div class="mt-5 flex items-center gap-2 neon-text text-[10px] font-700 uppercase tracking-widest">
-            <i class="fas fa-check text-[9px]"></i>
-            <span>Modern & Responsive</span>
-          </div>
+          <div class="w-14 h-14 icon-wrap-blue flex items-center justify-center mb-5"><i
+              class="fas fa-gem text-2xl text-sky"></i></div>
+          <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-3 leading-tight">
+            Premium<br />Quality</h3>
+          <p class="muted text-sm leading-relaxed">Clean code ensures your site loads fast, looks refined, and works
+            flawlessly on any device.</p>
+          <div class="mt-5 flex items-center gap-2 neon-text text-[10px] font-700 uppercase tracking-widest"><i
+              class="fas fa-check text-[9px]"></i><span>Modern & Responsive</span></div>
         </div>
       </div>
 
+      <!-- ── WHAT I DO — Detailed Service Cards ── -->
+      <div class="section-fade mb-4">
+        <span class="kt-section-tag mb-6 inline-block">What I Do</span>
+        <h2 class="font-display font-700 uppercase leading-[0.95] dark:text-white text-gray-900 mb-2"
+          style="font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-0.03em">Full-Spectrum<br /><span
+            class="crimson">Design Services.</span></h2>
+        <p class="muted text-sm max-w-xl mt-3">From the first pixel to the final launch — every discipline covered,
+          every detail considered.</p>
+      </div>
+
+      <!-- Service accordion/cards -->
+      <div class="border-t border-l divider">
+
+        <!-- 01 Web Design -->
+        <div class="section-fade kt-svc-row border-b border-r divider p-0" style="transition-delay:.05s">
+          <button class="kt-svc-toggle w-full text-left p-6 flex items-start gap-5 group" onclick="toggleSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-display font-700 text-[10px] uppercase tracking-widest crimson w-8 flex-shrink-0 mt-1">01</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest muted mb-1">Top performing</p>
+              <h3 class="font-display font-700 uppercase dark:text-white text-gray-900 leading-tight"
+                style="font-size:clamp(1.2rem,2.5vw,2rem)">Web Design</h3>
+            </div>
+            <i class="fas fa-plus crimson text-sm flex-shrink-0 mt-2 transition-transform duration-300"></i>
+          </button>
+          <div class="kt-svc-body hidden px-6 pb-7" style="padding-left:calc(1.5rem + 1.25rem + 2rem)">
+            <p class="muted text-sm leading-relaxed mb-5 max-w-2xl">I design no-code websites that are responsive,
+              mobile-friendly, and SEO-ready. Every site is built for usability, speed, and modern design.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Figma</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Framer</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Webflow</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Vercel</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">WordPress</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Elementor</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Avada</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">AI builders</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 Product Design -->
+        <div class="section-fade kt-svc-row border-b border-r divider p-0" style="transition-delay:.1s">
+          <button class="kt-svc-toggle w-full text-left p-6 flex items-start gap-5 group" onclick="toggleSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-display font-700 text-[10px] uppercase tracking-widest crimson w-8 flex-shrink-0 mt-1">02</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest muted mb-1">MVP Go-to-market</p>
+              <h3 class="font-display font-700 uppercase dark:text-white text-gray-900 leading-tight"
+                style="font-size:clamp(1.2rem,2.5vw,2rem)">Product Design</h3>
+            </div>
+            <i class="fas fa-plus crimson text-sm flex-shrink-0 mt-2 transition-transform duration-300"></i>
+          </button>
+          <div class="kt-svc-body hidden px-6 pb-7" style="padding-left:calc(1.5rem + 1.25rem + 2rem)">
+            <p class="muted text-sm leading-relaxed mb-5 max-w-2xl">I build ideas from concept to GTM and scale them
+              into real products. I focus on scope, flows, and aligning features with what users actually need.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">MVP Design</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Pitch Decks</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Brand Identity</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Product
+                Positioning</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Marketing
+                Collateral</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Investor
+                Presentations</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 UI/UX -->
+        <div class="section-fade kt-svc-row border-b border-r divider p-0" style="transition-delay:.15s">
+          <button class="kt-svc-toggle w-full text-left p-6 flex items-start gap-5 group" onclick="toggleSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-display font-700 text-[10px] uppercase tracking-widest crimson w-8 flex-shrink-0 mt-1">03</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest muted mb-1">User Focused</p>
+              <h3 class="font-display font-700 uppercase dark:text-white text-gray-900 leading-tight"
+                style="font-size:clamp(1.2rem,2.5vw,2rem)">UI / UX Systems</h3>
+            </div>
+            <i class="fas fa-plus crimson text-sm flex-shrink-0 mt-2 transition-transform duration-300"></i>
+          </button>
+          <div class="kt-svc-body hidden px-6 pb-7" style="padding-left:calc(1.5rem + 1.25rem + 2rem)">
+            <p class="muted text-sm leading-relaxed mb-5 max-w-2xl">I design user journeys, wireframes, and prototypes
+              that make digital products easy to use. Testing and research keep the experience grounded in reality.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Figma</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Framer</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Webflow</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">WordPress</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Elementor</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Avada</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Vercel</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Lovable</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Bolt</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">+10 AI platforms</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 Graphic Design -->
+        <div class="section-fade kt-svc-row border-b border-r divider p-0" style="transition-delay:.2s">
+          <button class="kt-svc-toggle w-full text-left p-6 flex items-start gap-5 group" onclick="toggleSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-display font-700 text-[10px] uppercase tracking-widest crimson w-8 flex-shrink-0 mt-1">04</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest muted mb-1">Brand Defining</p>
+              <h3 class="font-display font-700 uppercase dark:text-white text-gray-900 leading-tight"
+                style="font-size:clamp(1.2rem,2.5vw,2rem)">Graphic Design</h3>
+            </div>
+            <i class="fas fa-plus crimson text-sm flex-shrink-0 mt-2 transition-transform duration-300"></i>
+          </button>
+          <div class="kt-svc-body hidden px-6 pb-7" style="padding-left:calc(1.5rem + 1.25rem + 2rem)">
+            <p class="muted text-sm leading-relaxed mb-5 max-w-2xl">Highly skilled in creating digital visuals, banners,
+              ads, and posts to deliver clear messaging and engage.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Adobe Creative
+                Suite</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Photoshop</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Illustrator</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Figma</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">FigJam</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Canva</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Branding & Logos</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Typography &
+                Layout</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 Visual Design -->
+        <div class="section-fade kt-svc-row border-b border-r divider p-0" style="transition-delay:.25s">
+          <button class="kt-svc-toggle w-full text-left p-6 flex items-start gap-5 group" onclick="toggleSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-display font-700 text-[10px] uppercase tracking-widest crimson w-8 flex-shrink-0 mt-1">05</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest muted mb-1">Detail Driven + AI</p>
+              <h3 class="font-display font-700 uppercase dark:text-white text-gray-900 leading-tight"
+                style="font-size:clamp(1.2rem,2.5vw,2rem)">Visual Design</h3>
+            </div>
+            <i class="fas fa-plus crimson text-sm flex-shrink-0 mt-2 transition-transform duration-300"></i>
+          </button>
+          <div class="kt-svc-body hidden px-6 pb-7" style="padding-left:calc(1.5rem + 1.25rem + 2rem)">
+            <p class="muted text-sm leading-relaxed mb-5 max-w-2xl">You name it, I do it. Compelling digital visuals
+              that combine aesthetics with clear communication.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Adobe Photoshop</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Adobe Illustrator</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Figma</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Canva</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Midjourney</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Leonardo</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Dall-E</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">GPT</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">NanoBanana</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Gemini</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Runway</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Firefly</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Sora</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07 Digital Marketing -->
+        <div class="section-fade kt-svc-row border-b border-r divider p-0" style="transition-delay:.3s">
+          <button class="kt-svc-toggle w-full text-left p-6 flex items-start gap-5 group" onclick="toggleSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-display font-700 text-[10px] uppercase tracking-widest crimson w-8 flex-shrink-0 mt-1">07</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest muted mb-1">Data-Backed</p>
+              <h3 class="font-display font-700 uppercase dark:text-white text-gray-900 leading-tight"
+                style="font-size:clamp(1.2rem,2.5vw,2rem)">Digital Marketing</h3>
+            </div>
+            <i class="fas fa-plus crimson text-sm flex-shrink-0 mt-2 transition-transform duration-300"></i>
+          </button>
+          <div class="kt-svc-body hidden px-6 pb-7" style="padding-left:calc(1.5rem + 1.25rem + 2rem)">
+            <p class="muted text-sm leading-relaxed mb-5 max-w-2xl">Strategic digital marketing campaigns built on
+              analytics, audience research, and conversion optimization to grow your brand online.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Google Ads</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Meta Ads</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">SEO</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Analytics</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Email Marketing</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">CRO</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">A/B Testing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08 Social Media -->
+        <div class="section-fade kt-svc-row border-b border-r divider p-0" style="transition-delay:.35s">
+          <button class="kt-svc-toggle w-full text-left p-6 flex items-start gap-5 group" onclick="toggleSvc(this)"
+            aria-expanded="false">
+            <span
+              class="font-display font-700 text-[10px] uppercase tracking-widest crimson w-8 flex-shrink-0 mt-1">08</span>
+            <div class="flex-1">
+              <p class="font-mono-label text-[9px] uppercase tracking-widest muted mb-1">Platform Native</p>
+              <h3 class="font-display font-700 uppercase dark:text-white text-gray-900 leading-tight"
+                style="font-size:clamp(1.2rem,2.5vw,2rem)">Social Media</h3>
+            </div>
+            <i class="fas fa-plus crimson text-sm flex-shrink-0 mt-2 transition-transform duration-300"></i>
+          </button>
+          <div class="kt-svc-body hidden px-6 pb-7" style="padding-left:calc(1.5rem + 1.25rem + 2rem)">
+            <p class="muted text-sm leading-relaxed mb-5 max-w-2xl">Content strategy, creative production, and community
+              management that builds real brand presence across all platforms.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Instagram</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Facebook</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">TikTok</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">LinkedIn</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">YouTube</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Reels</span>
+              <span class="tag-bg text-[9px] px-3 py-1 muted font-700 uppercase tracking-wide">Content Calendar</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /service rows -->
     </div>
   </section>
+
+  <style>
+    .kt-svc-row {
+      transition: background .18s ease;
+    }
+
+    .kt-svc-toggle:hover {
+      background: rgba(223, 225, 4, 0.04);
+    }
+
+    .kt-svc-body {
+      border-top: 1px solid #3F3F46;
+    }
+
+    .kt-svc-toggle[aria-expanded="true"] .fa-plus {
+      transform: rotate(45deg);
+    }
+
+    .kt-svc-body.open {
+      display: block !important;
+    }
+  </style>
+  <script>
+    function toggleSvc(btn) {
+      const body = btn.nextElementSibling;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      // close all
+      document.querySelectorAll('.kt-svc-toggle').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.classList.add('hidden');
+        b.nextElementSibling.classList.remove('open');
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        body.classList.remove('hidden');
+        body.classList.add('open');
+      }
+    }
+  </script>
 
   <!-- ═══ TEMPLATES ═══ -->
   <section id="templates" class="py-24 px-5" data-device="desktop">
@@ -1412,21 +1965,27 @@
       <div class="mb-10 section-fade">
         <span class="kt-section-tag mb-6 inline-block">Style Directions</span>
         <h2 class="font-display font-700 uppercase leading-[0.95] dark:text-white text-gray-900 mt-4"
-          style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">A glimpse at<br/>what's <span class="crimson">possible.</span></h2>
-        <p class="muted text-sm mt-4 max-w-xl">Every layout below is a style direction I build from scratch — fully adapted to your brand, content, and audience.</p>
+          style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">A glimpse at<br />what's <span
+            class="crimson">possible.</span></h2>
+        <p class="muted text-sm mt-4 max-w-xl">Every layout below is a style direction I build from scratch — fully
+          adapted to your brand, content, and audience.</p>
       </div>
 
       <!-- Device toggle -->
-      <div class="flex flex-wrap gap-0 mb-10 section-fade border divider" style="transition-delay:.1s;display:inline-flex">
-        <button onclick="setDevice(this,'desktop')" style="touch-action:manipulation" class="device-btn active tag-bg px-5 py-2.5 text-[10px] font-700 uppercase tracking-widest flex items-center gap-2 border-r divider">
+      <div class="flex flex-wrap gap-0 mb-10 section-fade border divider"
+        style="transition-delay:.1s;display:inline-flex">
+        <button onclick="setDevice(this,'desktop')" style="touch-action:manipulation"
+          class="device-btn active tag-bg px-5 py-2.5 text-[10px] font-700 uppercase tracking-widest flex items-center gap-2 border-r divider">
           <i class="fas fa-desktop text-[10px]"></i>
           <span>Desktop</span><span class="hidden sm:inline muted"> · 1440px</span>
         </button>
-        <button onclick="setDevice(this,'tablet')" style="touch-action:manipulation" class="device-btn tag-bg px-5 py-2.5 text-[10px] font-700 uppercase tracking-widest flex items-center gap-2 border-r divider">
+        <button onclick="setDevice(this,'tablet')" style="touch-action:manipulation"
+          class="device-btn tag-bg px-5 py-2.5 text-[10px] font-700 uppercase tracking-widest flex items-center gap-2 border-r divider">
           <i class="fas fa-tablet-alt text-[10px]"></i>
           <span>Tablet</span><span class="hidden sm:inline muted"> · 768px</span>
         </button>
-        <button onclick="setDevice(this,'mobile')" style="touch-action:manipulation" class="device-btn tag-bg px-5 py-2.5 text-[10px] font-700 uppercase tracking-widest flex items-center gap-2">
+        <button onclick="setDevice(this,'mobile')" style="touch-action:manipulation"
+          class="device-btn tag-bg px-5 py-2.5 text-[10px] font-700 uppercase tracking-widest flex items-center gap-2">
           <i class="fas fa-mobile-alt text-[10px]"></i>
           <span>Mobile</span><span class="hidden sm:inline muted"> · 390px</span>
         </button>
@@ -1441,20 +2000,31 @@
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ff5f56"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ffbd2e"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#27c93f"></span>
-              <div class="flex-1 ml-2 h-4 rounded-full tag-bg text-[8px] flex items-center px-2 muted truncate">yoursite.com</div>
+              <div class="flex-1 ml-2 h-4 rounded-full tag-bg text-[8px] flex items-center px-2 muted truncate">
+                yoursite.com</div>
             </div>
             <div class="tpl-notch items-center justify-center pt-2 pb-1" style="background:#0d0d14">
               <div class="w-16 h-1.5 rounded-full mx-auto" style="background:rgba(255,255,255,0.2)"></div>
             </div>
             <div class="tpl-preview flex-shrink-0" style="background:#0c0c14">
-              <div class="flex items-center justify-between px-4 py-2.5" style="border-bottom:1px solid rgba(255,255,255,0.06)">
-                <div class="flex items-center gap-2"><div class="w-4 h-4 rounded" style="background:#DC143C"></div><div class="h-2 w-14 rounded" style="background:rgba(255,255,255,0.8)"></div></div>
-                <div class="flex items-center gap-3"><div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.22)"></div><div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,0.22)"></div><div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.22)"></div><div class="h-1.5 w-11 rounded" style="background:rgba(255,255,255,0.22)"></div></div>
+              <div class="flex items-center justify-between px-4 py-2.5"
+                style="border-bottom:1px solid rgba(255,255,255,0.06)">
+                <div class="flex items-center gap-2">
+                  <div class="w-4 h-4 rounded" style="background:#DC143C"></div>
+                  <div class="h-2 w-14 rounded" style="background:rgba(255,255,255,0.8)"></div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.22)"></div>
+                  <div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,0.22)"></div>
+                  <div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.22)"></div>
+                  <div class="h-1.5 w-11 rounded" style="background:rgba(255,255,255,0.22)"></div>
+                </div>
                 <div class="h-6 w-16 rounded-full" style="background:#DC143C"></div>
               </div>
               <div class="flex gap-3 px-4 py-4">
                 <div class="flex-1 min-w-0">
-                  <div class="inline-flex items-center gap-1.5 mb-3 px-2 py-1 rounded-full" style="background:rgba(220,20,60,0.12);border:1px solid rgba(220,20,60,0.3)">
+                  <div class="inline-flex items-center gap-1.5 mb-3 px-2 py-1 rounded-full"
+                    style="background:rgba(220,20,60,0.12);border:1px solid rgba(220,20,60,0.3)">
                     <div class="w-1.5 h-1.5 rounded-full" style="background:#DC143C"></div>
                     <div class="h-1.5 w-20 rounded" style="background:rgba(220,20,60,0.55)"></div>
                   </div>
@@ -1463,17 +2033,36 @@
                   <div class="h-1.5 w-full rounded mb-1" style="background:rgba(255,255,255,0.18)"></div>
                   <div class="h-1.5 w-5/6 rounded mb-1" style="background:rgba(255,255,255,0.18)"></div>
                   <div class="h-1.5 w-3/4 rounded mb-4" style="background:rgba(255,255,255,0.18)"></div>
-                  <div class="flex gap-2 mb-4"><div class="h-7 w-20 rounded-full" style="background:#DC143C"></div><div class="h-7 w-20 rounded-full" style="border:1px solid rgba(255,255,255,0.25)"></div></div>
+                  <div class="flex gap-2 mb-4">
+                    <div class="h-7 w-20 rounded-full" style="background:#DC143C"></div>
+                    <div class="h-7 w-20 rounded-full" style="border:1px solid rgba(255,255,255,0.25)"></div>
+                  </div>
                   <div class="flex items-center gap-2">
-                    <div class="flex"><div class="w-5 h-5 rounded-full border-2" style="background:#7c3aed;border-color:#0c0c14"></div><div class="w-5 h-5 rounded-full border-2 -ml-1.5" style="background:#2563eb;border-color:#0c0c14"></div><div class="w-5 h-5 rounded-full border-2 -ml-1.5" style="background:#059669;border-color:#0c0c14"></div></div>
-                    <div><div class="h-1.5 w-20 rounded mb-0.5" style="background:rgba(255,255,255,0.5)"></div><div class="h-1 w-14 rounded" style="background:rgba(255,255,255,0.2)"></div></div>
+                    <div class="flex">
+                      <div class="w-5 h-5 rounded-full border-2" style="background:#7c3aed;border-color:#0c0c14"></div>
+                      <div class="w-5 h-5 rounded-full border-2 -ml-1.5"
+                        style="background:#2563eb;border-color:#0c0c14"></div>
+                      <div class="w-5 h-5 rounded-full border-2 -ml-1.5"
+                        style="background:#059669;border-color:#0c0c14"></div>
+                    </div>
+                    <div>
+                      <div class="h-1.5 w-20 rounded mb-0.5" style="background:rgba(255,255,255,0.5)"></div>
+                      <div class="h-1 w-14 rounded" style="background:rgba(255,255,255,0.2)"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="w-2/5 flex-shrink-0">
-                  <div class="rounded-xl p-2.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
+                  <div class="rounded-xl p-2.5"
+                    style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
                     <div class="grid grid-cols-2 gap-1.5 mb-2.5">
-                      <div class="p-2 rounded-lg" style="background:rgba(220,20,60,0.12)"><div class="h-2.5 w-8 rounded mb-0.5" style="background:rgba(255,255,255,0.85)"></div><div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,0.22)"></div></div>
-                      <div class="p-2 rounded-lg" style="background:rgba(139,92,246,0.12)"><div class="h-2.5 w-8 rounded mb-0.5" style="background:rgba(255,255,255,0.85)"></div><div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,0.22)"></div></div>
+                      <div class="p-2 rounded-lg" style="background:rgba(220,20,60,0.12)">
+                        <div class="h-2.5 w-8 rounded mb-0.5" style="background:rgba(255,255,255,0.85)"></div>
+                        <div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,0.22)"></div>
+                      </div>
+                      <div class="p-2 rounded-lg" style="background:rgba(139,92,246,0.12)">
+                        <div class="h-2.5 w-8 rounded mb-0.5" style="background:rgba(255,255,255,0.85)"></div>
+                        <div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,0.22)"></div>
+                      </div>
                     </div>
                     <div class="h-1.5 w-12 rounded mb-1.5" style="background:rgba(255,255,255,0.2)"></div>
                     <div class="flex items-end gap-1" style="height:36px">
@@ -1488,25 +2077,56 @@
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2 px-4 mb-0">
-                <div class="p-3 rounded-xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)"><div class="w-5 h-5 rounded-lg mb-1.5" style="background:rgba(220,20,60,0.15)"></div><div class="h-2 w-full rounded mb-1" style="background:rgba(255,255,255,0.65)"></div><div class="h-1.5 w-full rounded mb-0.5" style="background:rgba(255,255,255,0.12)"></div><div class="h-1.5 w-4/5 rounded" style="background:rgba(255,255,255,0.12)"></div></div>
-                <div class="p-3 rounded-xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)"><div class="w-5 h-5 rounded-lg mb-1.5" style="background:rgba(139,92,246,0.15)"></div><div class="h-2 w-full rounded mb-1" style="background:rgba(255,255,255,0.65)"></div><div class="h-1.5 w-full rounded mb-0.5" style="background:rgba(255,255,255,0.12)"></div><div class="h-1.5 w-4/5 rounded" style="background:rgba(255,255,255,0.12)"></div></div>
-                <div class="p-3 rounded-xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)"><div class="w-5 h-5 rounded-lg mb-1.5" style="background:rgba(59,130,246,0.15)"></div><div class="h-2 w-full rounded mb-1" style="background:rgba(255,255,255,0.65)"></div><div class="h-1.5 w-full rounded mb-0.5" style="background:rgba(255,255,255,0.12)"></div><div class="h-1.5 w-4/5 rounded" style="background:rgba(255,255,255,0.12)"></div></div>
+                <div class="p-3 rounded-xl"
+                  style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)">
+                  <div class="w-5 h-5 rounded-lg mb-1.5" style="background:rgba(220,20,60,0.15)"></div>
+                  <div class="h-2 w-full rounded mb-1" style="background:rgba(255,255,255,0.65)"></div>
+                  <div class="h-1.5 w-full rounded mb-0.5" style="background:rgba(255,255,255,0.12)"></div>
+                  <div class="h-1.5 w-4/5 rounded" style="background:rgba(255,255,255,0.12)"></div>
+                </div>
+                <div class="p-3 rounded-xl"
+                  style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)">
+                  <div class="w-5 h-5 rounded-lg mb-1.5" style="background:rgba(139,92,246,0.15)"></div>
+                  <div class="h-2 w-full rounded mb-1" style="background:rgba(255,255,255,0.65)"></div>
+                  <div class="h-1.5 w-full rounded mb-0.5" style="background:rgba(255,255,255,0.12)"></div>
+                  <div class="h-1.5 w-4/5 rounded" style="background:rgba(255,255,255,0.12)"></div>
+                </div>
+                <div class="p-3 rounded-xl"
+                  style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)">
+                  <div class="w-5 h-5 rounded-lg mb-1.5" style="background:rgba(59,130,246,0.15)"></div>
+                  <div class="h-2 w-full rounded mb-1" style="background:rgba(255,255,255,0.65)"></div>
+                  <div class="h-1.5 w-full rounded mb-0.5" style="background:rgba(255,255,255,0.12)"></div>
+                  <div class="h-1.5 w-4/5 rounded" style="background:rgba(255,255,255,0.12)"></div>
+                </div>
               </div>
-              <div class="flex items-center justify-around px-4 py-3 mt-3" style="background:rgba(220,20,60,0.07);border-top:1px solid rgba(220,20,60,0.1)">
-                <div class="text-center"><div class="h-3 w-10 rounded mx-auto mb-0.5" style="background:rgba(255,255,255,0.85)"></div><div class="h-1.5 w-12 rounded mx-auto" style="background:rgba(255,255,255,0.2)"></div></div>
+              <div class="flex items-center justify-around px-4 py-3 mt-3"
+                style="background:rgba(220,20,60,0.07);border-top:1px solid rgba(220,20,60,0.1)">
+                <div class="text-center">
+                  <div class="h-3 w-10 rounded mx-auto mb-0.5" style="background:rgba(255,255,255,0.85)"></div>
+                  <div class="h-1.5 w-12 rounded mx-auto" style="background:rgba(255,255,255,0.2)"></div>
+                </div>
                 <div class="w-px h-7" style="background:rgba(255,255,255,0.08)"></div>
-                <div class="text-center"><div class="h-3 w-8 rounded mx-auto mb-0.5" style="background:rgba(255,255,255,0.85)"></div><div class="h-1.5 w-14 rounded mx-auto" style="background:rgba(255,255,255,0.2)"></div></div>
+                <div class="text-center">
+                  <div class="h-3 w-8 rounded mx-auto mb-0.5" style="background:rgba(255,255,255,0.85)"></div>
+                  <div class="h-1.5 w-14 rounded mx-auto" style="background:rgba(255,255,255,0.2)"></div>
+                </div>
                 <div class="w-px h-7" style="background:rgba(255,255,255,0.08)"></div>
-                <div class="text-center"><div class="h-3 w-10 rounded mx-auto mb-0.5" style="background:rgba(255,255,255,0.85)"></div><div class="h-1.5 w-16 rounded mx-auto" style="background:rgba(255,255,255,0.2)"></div></div>
+                <div class="text-center">
+                  <div class="h-3 w-10 rounded mx-auto mb-0.5" style="background:rgba(255,255,255,0.85)"></div>
+                  <div class="h-1.5 w-16 rounded mx-auto" style="background:rgba(255,255,255,0.2)"></div>
+                </div>
               </div>
             </div>
             <div class="tpl-home mx-auto my-2.5 w-24 h-1 rounded-full" style="background:rgba(255,255,255,0.12)"></div>
             <div class="p-5 flex-1 flex flex-col">
               <div class="flex items-start justify-between gap-2 mb-1.5">
-                <h4 class="font-display font-700 text-sm uppercase tracking-wide dark:text-white text-gray-900">Business Landing</h4>
-                <span class="text-[9px] font-700 px-2 py-0.5 uppercase tracking-widest flex-shrink-0 crimson" style="background:rgba(220,20,60,0.1)">Dark</span>
+                <h4 class="font-display font-700 text-sm uppercase tracking-wide dark:text-white text-gray-900">Business
+                  Landing</h4>
+                <span class="text-[9px] font-700 px-2 py-0.5 uppercase tracking-widest flex-shrink-0 crimson"
+                  style="background:rgba(220,20,60,0.1)">Dark</span>
               </div>
-              <p class="text-xs muted mb-3 flex-1">Split hero with live metrics dashboard, feature cards, avatar social proof, and a stats strip.</p>
+              <p class="text-xs muted mb-3 flex-1">Split hero with live metrics dashboard, feature cards, avatar social
+                proof, and a stats strip.</p>
               <div class="flex flex-wrap gap-1.5 mb-4">
                 <span class="tag-bg text-[9px] px-2 py-0.5 muted font-700 uppercase tracking-wide">Animated hero</span>
                 <span class="tag-bg text-[9px] px-2 py-0.5 muted font-700 uppercase tracking-wide">Dark mode</span>
@@ -1524,18 +2144,24 @@
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ff5f56"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ffbd2e"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#27c93f"></span>
-              <div class="flex-1 ml-2 h-4 rounded-full tag-bg text-[8px] flex items-center px-2 muted truncate">restaurant.com</div>
+              <div class="flex-1 ml-2 h-4 rounded-full tag-bg text-[8px] flex items-center px-2 muted truncate">
+                restaurant.com</div>
             </div>
             <div class="tpl-notch items-center justify-center py-2.5" style="background:#110b05">
               <div class="w-20 h-1.5 rounded-full mx-auto" style="background:rgba(220,180,80,0.18)"></div>
             </div>
             <div class="tpl-preview flex-shrink-0" style="background:#110b05">
-              <div class="flex items-center justify-between px-4 py-2.5" style="background:rgba(0,0,0,0.4);border-bottom:1px solid rgba(200,150,40,0.1)">
-                <div class="flex items-center gap-3"><div class="h-1.5 w-10 rounded" style="background:rgba(210,170,70,0.35)"></div><div class="h-1.5 w-8 rounded" style="background:rgba(210,170,70,0.35)"></div></div>
+              <div class="flex items-center justify-between px-4 py-2.5"
+                style="background:rgba(0,0,0,0.4);border-bottom:1px solid rgba(200,150,40,0.1)">
+                <div class="flex items-center gap-3">
+                  <div class="h-1.5 w-10 rounded" style="background:rgba(210,170,70,0.35)"></div>
+                  <div class="h-1.5 w-8 rounded" style="background:rgba(210,170,70,0.35)"></div>
+                </div>
                 <div class="h-3 w-20 rounded" style="background:rgba(220,180,80,0.85)"></div>
                 <div class="h-6 w-20 rounded-full" style="background:rgba(200,140,20,0.9)"></div>
               </div>
-              <div class="relative overflow-hidden" style="height:100px;background:linear-gradient(160deg,#2c1505 0%,#1a0d04 60%,#0e0802 100%)">
+              <div class="relative overflow-hidden"
+                style="height:100px;background:linear-gradient(160deg,#2c1505 0%,#1a0d04 60%,#0e0802 100%)">
                 <div class="absolute inset-0 grid grid-cols-3 opacity-25">
                   <div style="background:linear-gradient(135deg,rgba(180,100,30,0.7),rgba(120,60,20,0.5))"></div>
                   <div style="background:linear-gradient(135deg,rgba(200,130,40,0.6),rgba(150,80,25,0.5))"></div>
@@ -1559,8 +2185,10 @@
                 </div>
               </div>
               <div class="px-4 space-y-2 pb-3">
-                <div class="flex gap-2.5 items-center p-2.5 rounded-xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(220,160,50,0.1)">
-                  <div class="w-11 h-11 rounded-xl flex-shrink-0" style="background:linear-gradient(135deg,rgba(180,100,30,0.7),rgba(220,140,50,0.55))"></div>
+                <div class="flex gap-2.5 items-center p-2.5 rounded-xl"
+                  style="background:rgba(255,255,255,0.04);border:1px solid rgba(220,160,50,0.1)">
+                  <div class="w-11 h-11 rounded-xl flex-shrink-0"
+                    style="background:linear-gradient(135deg,rgba(180,100,30,0.7),rgba(220,140,50,0.55))"></div>
                   <div class="flex-1 min-w-0">
                     <div class="h-2 w-24 rounded mb-1" style="background:rgba(240,200,100,0.7)"></div>
                     <div class="h-1.5 w-full rounded mb-0.5" style="background:rgba(240,200,100,0.2)"></div>
@@ -1568,8 +2196,10 @@
                   </div>
                   <div class="h-2.5 w-10 rounded flex-shrink-0" style="background:rgba(210,160,30,0.9)"></div>
                 </div>
-                <div class="flex gap-2.5 items-center p-2.5 rounded-xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(220,160,50,0.1)">
-                  <div class="w-11 h-11 rounded-xl flex-shrink-0" style="background:linear-gradient(135deg,rgba(160,80,20,0.7),rgba(200,120,40,0.55))"></div>
+                <div class="flex gap-2.5 items-center p-2.5 rounded-xl"
+                  style="background:rgba(255,255,255,0.04);border:1px solid rgba(220,160,50,0.1)">
+                  <div class="w-11 h-11 rounded-xl flex-shrink-0"
+                    style="background:linear-gradient(135deg,rgba(160,80,20,0.7),rgba(200,120,40,0.55))"></div>
                   <div class="flex-1 min-w-0">
                     <div class="h-2 w-20 rounded mb-1" style="background:rgba(240,200,100,0.7)"></div>
                     <div class="h-1.5 w-full rounded mb-0.5" style="background:rgba(240,200,100,0.2)"></div>
@@ -1578,19 +2208,32 @@
                   <div class="h-2.5 w-10 rounded flex-shrink-0" style="background:rgba(210,160,30,0.9)"></div>
                 </div>
               </div>
-              <div class="flex items-center justify-around px-4 py-2.5" style="background:rgba(0,0,0,0.3);border-top:1px solid rgba(200,150,40,0.08)">
-                <div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded" style="background:rgba(210,170,60,0.5)"></div><div class="h-1.5 w-14 rounded" style="background:rgba(210,170,60,0.4)"></div></div>
-                <div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded" style="background:rgba(210,170,60,0.5)"></div><div class="h-1.5 w-16 rounded" style="background:rgba(210,170,60,0.4)"></div></div>
-                <div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded" style="background:rgba(210,170,60,0.5)"></div><div class="h-1.5 w-12 rounded" style="background:rgba(210,170,60,0.4)"></div></div>
+              <div class="flex items-center justify-around px-4 py-2.5"
+                style="background:rgba(0,0,0,0.3);border-top:1px solid rgba(200,150,40,0.08)">
+                <div class="flex items-center gap-1.5">
+                  <div class="w-3 h-3 rounded" style="background:rgba(210,170,60,0.5)"></div>
+                  <div class="h-1.5 w-14 rounded" style="background:rgba(210,170,60,0.4)"></div>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <div class="w-3 h-3 rounded" style="background:rgba(210,170,60,0.5)"></div>
+                  <div class="h-1.5 w-16 rounded" style="background:rgba(210,170,60,0.4)"></div>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <div class="w-3 h-3 rounded" style="background:rgba(210,170,60,0.5)"></div>
+                  <div class="h-1.5 w-12 rounded" style="background:rgba(210,170,60,0.4)"></div>
+                </div>
               </div>
             </div>
             <div class="tpl-home mx-auto my-2.5 w-24 h-1 rounded-full" style="background:rgba(220,180,80,0.15)"></div>
             <div class="p-5 flex-1 flex flex-col">
               <div class="flex items-start justify-between gap-2 mb-1.5">
-                <h4 class="font-display font-700 text-sm uppercase tracking-wide dark:text-white text-gray-900">Restaurant / Local</h4>
-                <span class="text-[9px] font-700 px-2 py-0.5 uppercase tracking-widest flex-shrink-0" style="background:rgba(200,140,20,0.15);color:#c8940a">Warm</span>
+                <h4 class="font-display font-700 text-sm uppercase tracking-wide dark:text-white text-gray-900">
+                  Restaurant / Local</h4>
+                <span class="text-[9px] font-700 px-2 py-0.5 uppercase tracking-widest flex-shrink-0"
+                  style="background:rgba(200,140,20,0.15);color:#c8940a">Warm</span>
               </div>
-              <p class="text-xs muted mb-3 flex-1">Full-bleed hero photo, menu items with thumbnails &amp; prices, category tabs, and an hours &amp; location strip.</p>
+              <p class="text-xs muted mb-3 flex-1">Full-bleed hero photo, menu items with thumbnails &amp; prices,
+                category tabs, and an hours &amp; location strip.</p>
               <div class="flex flex-wrap gap-1.5 mb-4">
                 <span class="tag-bg text-[9px] px-2 py-0.5 muted font-700 uppercase tracking-wide">Menu layout</span>
                 <span class="tag-bg text-[9px] px-2 py-0.5 muted font-700 uppercase tracking-wide">Table booking</span>
@@ -1608,18 +2251,25 @@
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ff5f56"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ffbd2e"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#27c93f"></span>
-              <div class="flex-1 ml-2 h-4 rounded-full tag-bg text-[8px] flex items-center px-2 muted truncate">yourname.com</div>
+              <div class="flex-1 ml-2 h-4 rounded-full tag-bg text-[8px] flex items-center px-2 muted truncate">
+                yourname.com</div>
             </div>
             <div class="tpl-notch items-center justify-center py-2.5" style="background:#0a0a0a">
               <div class="w-20 h-1.5 rounded-full mx-auto" style="background:rgba(255,255,255,0.15)"></div>
             </div>
             <div class="tpl-preview flex-shrink-0" style="background:#0a0a0a">
-              <div class="flex items-center justify-between px-5 py-3" style="border-bottom:1px solid rgba(255,255,255,0.05)">
+              <div class="flex items-center justify-between px-5 py-3"
+                style="border-bottom:1px solid rgba(255,255,255,0.05)">
                 <div class="flex items-center gap-2">
                   <div class="w-6 h-6 rounded-lg flex-shrink-0" style="background:rgba(255,255,255,0.08)"></div>
                   <div class="h-2 w-18 rounded" style="background:rgba(255,255,255,0.75)"></div>
                 </div>
-                <div class="flex items-center gap-3.5"><div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.28)"></div><div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,0.28)"></div><div class="h-1.5 w-7 rounded" style="background:rgba(255,255,255,0.28)"></div><div class="h-1.5 w-12 rounded" style="background:rgba(255,255,255,0.28)"></div></div>
+                <div class="flex items-center gap-3.5">
+                  <div class="h-1.5 w-8 rounded" style="background:rgba(255,255,255,0.28)"></div>
+                  <div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,0.28)"></div>
+                  <div class="h-1.5 w-7 rounded" style="background:rgba(255,255,255,0.28)"></div>
+                  <div class="h-1.5 w-12 rounded" style="background:rgba(255,255,255,0.28)"></div>
+                </div>
                 <div class="h-6 w-16 rounded" style="border:1px solid rgba(255,255,255,0.28)"></div>
               </div>
               <div class="px-5 pt-5 pb-4">
@@ -1630,7 +2280,10 @@
                 <div class="h-1.5 w-5/6 rounded mb-4" style="background:rgba(255,255,255,0.2)"></div>
                 <div class="flex items-center gap-3">
                   <div class="h-7 w-24 rounded-full" style="background:rgba(255,255,255,0.88)"></div>
-                  <div class="flex items-center gap-1.5"><div class="w-5 h-px" style="background:rgba(255,255,255,0.3)"></div><div class="h-1.5 w-14 rounded" style="background:rgba(255,255,255,0.22)"></div></div>
+                  <div class="flex items-center gap-1.5">
+                    <div class="w-5 h-px" style="background:rgba(255,255,255,0.3)"></div>
+                    <div class="h-1.5 w-14 rounded" style="background:rgba(255,255,255,0.22)"></div>
+                  </div>
                 </div>
               </div>
               <div class="px-5 pb-3">
@@ -1639,21 +2292,34 @@
                   <div class="h-1.5 w-14 rounded" style="background:rgba(255,255,255,0.16)"></div>
                 </div>
                 <div class="grid grid-cols-3 gap-1.5">
-                  <div class="rounded-lg overflow-hidden" style="aspect-ratio:4/3;background:linear-gradient(135deg,rgba(220,20,60,0.5),rgba(139,92,246,0.4))"></div>
-                  <div class="rounded-lg overflow-hidden" style="aspect-ratio:4/3;background:linear-gradient(135deg,rgba(59,130,246,0.45),rgba(34,197,94,0.35))"></div>
-                  <div class="rounded-lg overflow-hidden" style="aspect-ratio:4/3;background:linear-gradient(135deg,rgba(139,92,246,0.4),rgba(220,20,60,0.4))"></div>
-                  <div class="rounded-lg overflow-hidden" style="aspect-ratio:4/3;background:linear-gradient(135deg,rgba(234,179,8,0.4),rgba(249,115,22,0.4))"></div>
-                  <div class="col-span-2 rounded-lg overflow-hidden" style="aspect-ratio:8/3;background:linear-gradient(135deg,rgba(6,182,212,0.35),rgba(59,130,246,0.45),rgba(139,92,246,0.35))"></div>
+                  <div class="rounded-lg overflow-hidden"
+                    style="aspect-ratio:4/3;background:linear-gradient(135deg,rgba(220,20,60,0.5),rgba(139,92,246,0.4))">
+                  </div>
+                  <div class="rounded-lg overflow-hidden"
+                    style="aspect-ratio:4/3;background:linear-gradient(135deg,rgba(59,130,246,0.45),rgba(34,197,94,0.35))">
+                  </div>
+                  <div class="rounded-lg overflow-hidden"
+                    style="aspect-ratio:4/3;background:linear-gradient(135deg,rgba(139,92,246,0.4),rgba(220,20,60,0.4))">
+                  </div>
+                  <div class="rounded-lg overflow-hidden"
+                    style="aspect-ratio:4/3;background:linear-gradient(135deg,rgba(234,179,8,0.4),rgba(249,115,22,0.4))">
+                  </div>
+                  <div class="col-span-2 rounded-lg overflow-hidden"
+                    style="aspect-ratio:8/3;background:linear-gradient(135deg,rgba(6,182,212,0.35),rgba(59,130,246,0.45),rgba(139,92,246,0.35))">
+                  </div>
                 </div>
               </div>
             </div>
             <div class="tpl-home mx-auto my-2.5 w-24 h-1 rounded-full" style="background:rgba(255,255,255,0.12)"></div>
             <div class="p-5 flex-1 flex flex-col">
               <div class="flex items-start justify-between gap-2 mb-1.5">
-                <h4 class="font-display font-700 text-sm uppercase tracking-wide dark:text-white text-gray-900">Portfolio / Creative</h4>
-                <span class="text-[9px] font-700 px-2 py-0.5 uppercase tracking-widest flex-shrink-0" style="background:rgba(139,92,246,0.12);color:#a78bfa">Bold</span>
+                <h4 class="font-display font-700 text-sm uppercase tracking-wide dark:text-white text-gray-900">
+                  Portfolio / Creative</h4>
+                <span class="text-[9px] font-700 px-2 py-0.5 uppercase tracking-widest flex-shrink-0"
+                  style="background:rgba(139,92,246,0.12);color:#a78bfa">Bold</span>
               </div>
-              <p class="text-xs muted mb-3 flex-1">Clean top nav, statement hero with scroll cue, and a mixed work grid with hover reveals.</p>
+              <p class="text-xs muted mb-3 flex-1">Clean top nav, statement hero with scroll cue, and a mixed work grid
+                with hover reveals.</p>
               <div class="flex flex-wrap gap-1.5 mb-4">
                 <span class="tag-bg text-[9px] px-2 py-0.5 muted font-700 uppercase tracking-wide">Hover reveals</span>
                 <span class="tag-bg text-[9px] px-2 py-0.5 muted font-700 uppercase tracking-wide">Work grid</span>
@@ -1671,20 +2337,34 @@
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ff5f56"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ffbd2e"></span>
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#27c93f"></span>
-              <div class="flex-1 ml-2 h-4 rounded-full tag-bg text-[8px] flex items-center px-2 muted truncate">service.com</div>
+              <div class="flex-1 ml-2 h-4 rounded-full tag-bg text-[8px] flex items-center px-2 muted truncate">
+                service.com</div>
             </div>
             <div class="tpl-notch items-center justify-center py-2.5" style="background:#f0f4ff">
               <div class="w-20 h-1.5 rounded-full mx-auto" style="background:rgba(0,0,0,0.1)"></div>
             </div>
             <div class="tpl-preview flex-shrink-0" style="background:#f0f4ff">
-              <div class="flex items-center justify-between px-4 py-2.5" style="background:#ffffff;border-bottom:1px solid #e5e7eb">
-                <div class="flex items-center gap-2"><div class="w-5 h-5 rounded flex-shrink-0" style="background:#1d4ed8"></div><div class="h-2 w-16 rounded" style="background:#111"></div></div>
-                <div class="flex items-center gap-3"><div class="h-1.5 w-8 rounded" style="background:#9ca3af"></div><div class="h-1.5 w-12 rounded" style="background:#9ca3af"></div><div class="h-1.5 w-8 rounded" style="background:#9ca3af"></div></div>
-                <div class="flex items-center gap-1.5 h-6 rounded-full px-2.5" style="background:#f3f4f6;border:1px solid #e5e7eb"><div class="w-2 h-2 rounded-full flex-shrink-0" style="background:#1d4ed8;opacity:0.7"></div><div class="h-1.5 w-14 rounded" style="background:#374151;opacity:0.55"></div></div>
+              <div class="flex items-center justify-between px-4 py-2.5"
+                style="background:#ffffff;border-bottom:1px solid #e5e7eb">
+                <div class="flex items-center gap-2">
+                  <div class="w-5 h-5 rounded flex-shrink-0" style="background:#1d4ed8"></div>
+                  <div class="h-2 w-16 rounded" style="background:#111"></div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="h-1.5 w-8 rounded" style="background:#9ca3af"></div>
+                  <div class="h-1.5 w-12 rounded" style="background:#9ca3af"></div>
+                  <div class="h-1.5 w-8 rounded" style="background:#9ca3af"></div>
+                </div>
+                <div class="flex items-center gap-1.5 h-6 rounded-full px-2.5"
+                  style="background:#f3f4f6;border:1px solid #e5e7eb">
+                  <div class="w-2 h-2 rounded-full flex-shrink-0" style="background:#1d4ed8;opacity:0.7"></div>
+                  <div class="h-1.5 w-14 rounded" style="background:#374151;opacity:0.55"></div>
+                </div>
               </div>
               <div class="flex gap-3 px-4 py-4" style="background:linear-gradient(135deg,#eff6ff 0%,#dbeafe 100%)">
                 <div class="flex-1 min-w-0">
-                  <div class="inline-flex items-center gap-1.5 mb-2.5 px-2 py-1 rounded-full" style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2)">
+                  <div class="inline-flex items-center gap-1.5 mb-2.5 px-2 py-1 rounded-full"
+                    style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2)">
                     <div class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#1d4ed8"></div>
                     <div class="h-1.5 w-20 rounded" style="background:rgba(37,99,235,0.5)"></div>
                   </div>
@@ -1693,34 +2373,69 @@
                   <div class="h-1.5 w-full rounded mb-1" style="background:rgba(30,41,59,0.3)"></div>
                   <div class="h-1.5 w-5/6 rounded mb-1" style="background:rgba(30,41,59,0.3)"></div>
                   <div class="h-1.5 w-3/4 rounded mb-4" style="background:rgba(30,41,59,0.3)"></div>
-                  <div class="flex gap-2"><div class="h-7 w-20 rounded-lg" style="background:#1d4ed8"></div><div class="h-7 w-20 rounded-lg" style="border:1.5px solid #1d4ed8"></div></div>
+                  <div class="flex gap-2">
+                    <div class="h-7 w-20 rounded-lg" style="background:#1d4ed8"></div>
+                    <div class="h-7 w-20 rounded-lg" style="border:1.5px solid #1d4ed8"></div>
+                  </div>
                 </div>
                 <div class="w-2/5 flex-shrink-0">
-                  <div class="w-full rounded-2xl overflow-hidden" style="background:linear-gradient(135deg,#bfdbfe 0%,#93c5fd 50%,#60a5fa 100%);aspect-ratio:4/3">
-                    <div class="w-full h-full flex items-end p-2"><div class="w-full h-2/5 rounded-xl" style="background:rgba(255,255,255,0.4)"></div></div>
+                  <div class="w-full rounded-2xl overflow-hidden"
+                    style="background:linear-gradient(135deg,#bfdbfe 0%,#93c5fd 50%,#60a5fa 100%);aspect-ratio:4/3">
+                    <div class="w-full h-full flex items-end p-2">
+                      <div class="w-full h-2/5 rounded-xl" style="background:rgba(255,255,255,0.4)"></div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2 px-4 py-3">
-                <div class="p-2.5 rounded-xl" style="background:#fff;border:1px solid #e5e7eb"><div class="w-6 h-6 rounded-lg mb-1.5" style="background:#dbeafe"></div><div class="h-2 w-full rounded mb-1" style="background:#1e293b;opacity:0.7"></div><div class="h-1.5 w-full rounded mb-0.5" style="background:#9ca3af;opacity:0.55"></div><div class="h-1.5 w-4/5 rounded" style="background:#9ca3af;opacity:0.55"></div></div>
-                <div class="p-2.5 rounded-xl" style="background:#fff;border:1px solid #e5e7eb"><div class="w-6 h-6 rounded-lg mb-1.5" style="background:#dcfce7"></div><div class="h-2 w-full rounded mb-1" style="background:#1e293b;opacity:0.7"></div><div class="h-1.5 w-full rounded mb-0.5" style="background:#9ca3af;opacity:0.55"></div><div class="h-1.5 w-4/5 rounded" style="background:#9ca3af;opacity:0.55"></div></div>
-                <div class="p-2.5 rounded-xl" style="background:#fff;border:1px solid #e5e7eb"><div class="w-6 h-6 rounded-lg mb-1.5" style="background:#fef9c3"></div><div class="h-2 w-full rounded mb-1" style="background:#1e293b;opacity:0.7"></div><div class="h-1.5 w-full rounded mb-0.5" style="background:#9ca3af;opacity:0.55"></div><div class="h-1.5 w-4/5 rounded" style="background:#9ca3af;opacity:0.55"></div></div>
+                <div class="p-2.5 rounded-xl" style="background:#fff;border:1px solid #e5e7eb">
+                  <div class="w-6 h-6 rounded-lg mb-1.5" style="background:#dbeafe"></div>
+                  <div class="h-2 w-full rounded mb-1" style="background:#1e293b;opacity:0.7"></div>
+                  <div class="h-1.5 w-full rounded mb-0.5" style="background:#9ca3af;opacity:0.55"></div>
+                  <div class="h-1.5 w-4/5 rounded" style="background:#9ca3af;opacity:0.55"></div>
+                </div>
+                <div class="p-2.5 rounded-xl" style="background:#fff;border:1px solid #e5e7eb">
+                  <div class="w-6 h-6 rounded-lg mb-1.5" style="background:#dcfce7"></div>
+                  <div class="h-2 w-full rounded mb-1" style="background:#1e293b;opacity:0.7"></div>
+                  <div class="h-1.5 w-full rounded mb-0.5" style="background:#9ca3af;opacity:0.55"></div>
+                  <div class="h-1.5 w-4/5 rounded" style="background:#9ca3af;opacity:0.55"></div>
+                </div>
+                <div class="p-2.5 rounded-xl" style="background:#fff;border:1px solid #e5e7eb">
+                  <div class="w-6 h-6 rounded-lg mb-1.5" style="background:#fef9c3"></div>
+                  <div class="h-2 w-full rounded mb-1" style="background:#1e293b;opacity:0.7"></div>
+                  <div class="h-1.5 w-full rounded mb-0.5" style="background:#9ca3af;opacity:0.55"></div>
+                  <div class="h-1.5 w-4/5 rounded" style="background:#9ca3af;opacity:0.55"></div>
+                </div>
               </div>
-              <div class="flex items-center justify-between px-4 py-2.5" style="background:#fff;border-top:1px solid #e5e7eb">
+              <div class="flex items-center justify-between px-4 py-2.5"
+                style="background:#fff;border-top:1px solid #e5e7eb">
                 <div class="flex items-center gap-1.5">
-                  <div class="flex gap-0.5"><div class="w-2.5 h-2.5 rounded" style="background:#fbbf24"></div><div class="w-2.5 h-2.5 rounded" style="background:#fbbf24"></div><div class="w-2.5 h-2.5 rounded" style="background:#fbbf24"></div><div class="w-2.5 h-2.5 rounded" style="background:#fbbf24"></div><div class="w-2.5 h-2.5 rounded" style="background:#fbbf24"></div></div>
+                  <div class="flex gap-0.5">
+                    <div class="w-2.5 h-2.5 rounded" style="background:#fbbf24"></div>
+                    <div class="w-2.5 h-2.5 rounded" style="background:#fbbf24"></div>
+                    <div class="w-2.5 h-2.5 rounded" style="background:#fbbf24"></div>
+                    <div class="w-2.5 h-2.5 rounded" style="background:#fbbf24"></div>
+                    <div class="w-2.5 h-2.5 rounded" style="background:#fbbf24"></div>
+                  </div>
                   <div class="h-1.5 w-14 rounded" style="background:#6b7280;opacity:0.5"></div>
                 </div>
-                <div class="flex items-center gap-1.5"><div class="h-4 w-14 rounded" style="background:#e5e7eb"></div><div class="h-4 w-12 rounded" style="background:#e5e7eb"></div><div class="h-4 w-14 rounded" style="background:#e5e7eb"></div></div>
+                <div class="flex items-center gap-1.5">
+                  <div class="h-4 w-14 rounded" style="background:#e5e7eb"></div>
+                  <div class="h-4 w-12 rounded" style="background:#e5e7eb"></div>
+                  <div class="h-4 w-14 rounded" style="background:#e5e7eb"></div>
+                </div>
               </div>
             </div>
             <div class="tpl-home mx-auto my-2.5 w-24 h-1 rounded-full" style="background:rgba(0,0,0,0.08)"></div>
             <div class="p-5 flex-1 flex flex-col">
               <div class="flex items-start justify-between gap-2 mb-1.5">
-                <h4 class="font-display font-700 text-sm uppercase tracking-wide dark:text-white text-gray-900">Service Business</h4>
-                <span class="text-[9px] font-700 px-2 py-0.5 uppercase tracking-widest flex-shrink-0" style="background:rgba(37,99,235,0.1);color:#2563eb">Light</span>
+                <h4 class="font-display font-700 text-sm uppercase tracking-wide dark:text-white text-gray-900">Service
+                  Business</h4>
+                <span class="text-[9px] font-700 px-2 py-0.5 uppercase tracking-widest flex-shrink-0"
+                  style="background:rgba(37,99,235,0.1);color:#2563eb">Light</span>
               </div>
-              <p class="text-xs muted mb-3 flex-1">White nav with phone CTA, split hero with photo, 3 service cards, and a 5-star trust strip.</p>
+              <p class="text-xs muted mb-3 flex-1">White nav with phone CTA, split hero with photo, 3 service cards, and
+                a 5-star trust strip.</p>
               <div class="flex flex-wrap gap-1.5 mb-4">
                 <span class="tag-bg text-[9px] px-2 py-0.5 muted font-700 uppercase tracking-wide">Light mode</span>
                 <span class="tag-bg text-[9px] px-2 py-0.5 muted font-700 uppercase tracking-wide">Trust signals</span>
@@ -1741,8 +2456,10 @@
       <div class="mb-14 section-fade">
         <span class="kt-section-tag mb-6 inline-block">Packages</span>
         <h2 class="font-display font-700 uppercase leading-[0.95] dark:text-white text-gray-900 mt-4"
-          style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">Clear pricing.<br/><span class="crimson">No surprises.</span></h2>
-        <p class="muted text-sm mt-4 max-w-lg">Straightforward pricing designed to fit your needs. Growth and Pro tiers also include a custom chat widget and a free domain for the first year.</p>
+          style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">Clear pricing.<br /><span class="crimson">No
+            surprises.</span></h2>
+        <p class="muted text-sm mt-4 max-w-lg">Straightforward pricing designed to fit your needs. Growth and Pro tiers
+          also include a custom chat widget and a free domain for the first year.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-0 border-t border-l divider">
@@ -1751,69 +2468,104 @@
         <div class="section-fade card-bg p-6 flex flex-col border-b border-r divider" style="transition-delay:.1s">
           <div class="mb-5 flex-1">
             <div class="tag-bg inline-flex px-3 py-1 text-[9px] font-700 tracking-widest uppercase mb-3">Starter</div>
-            <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-1 mt-1 leading-tight">Quick Launch</h3>
-            <p class="muted text-xs leading-relaxed mb-5">Ideal for events, MVPs, or putting an idea online this week.</p>
+            <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-1 mt-1 leading-tight">
+              Quick Launch</h3>
+            <p class="muted text-xs leading-relaxed mb-5">Ideal for events, MVPs, or putting an idea online this week.
+            </p>
             <div class="mb-5">
-              <span class="font-display font-700 crimson" style="font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-0.03em">€200</span>
+              <span class="font-display font-700 crimson"
+                style="font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-0.03em">€200</span>
               <span class="muted text-xs ml-1 uppercase tracking-wide">one-time</span>
             </div>
             <ul class="space-y-2.5">
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>1 responsive landing page</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Mobile-first design</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Basic SEO setup</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Contact form</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>3-day delivery</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>1 responsive landing page</span>
+              </li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Mobile-first design</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Basic SEO setup</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Contact form</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>3-day delivery</span></li>
             </ul>
           </div>
-          <a href="#contact" class="cta-secondary py-2.5 text-[10px] font-700 uppercase tracking-widest text-center mt-6 block">Get Started</a>
+          <a href="#contact"
+            class="cta-secondary py-2.5 text-[10px] font-700 uppercase tracking-widest text-center mt-6 block">Get
+            Started</a>
         </div>
 
         <!-- Landing Page Pro -->
         <div class="section-fade card-bg p-6 flex flex-col border-b border-r divider" style="transition-delay:.15s">
           <div class="mb-5 flex-1">
             <div class="tag-bg inline-flex px-3 py-1 text-[9px] font-700 tracking-widest uppercase mb-3">Popular</div>
-            <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-1 mt-1 leading-tight">Landing Page Pro</h3>
-            <p class="muted text-xs leading-relaxed mb-5">A conversion-focused landing with polished sections, premium animations, and real analytics.</p>
+            <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-1 mt-1 leading-tight">
+              Landing Page Pro</h3>
+            <p class="muted text-xs leading-relaxed mb-5">A conversion-focused landing with polished sections, premium
+              animations, and real analytics.</p>
             <div class="mb-5">
-              <span class="font-display font-700 crimson" style="font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-0.03em">€250</span>
+              <span class="font-display font-700 crimson"
+                style="font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-0.03em">€250</span>
               <span class="muted text-xs ml-1 uppercase tracking-wide">one-time</span>
             </div>
             <ul class="space-y-2.5">
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>1-3 pages included</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Premium animations</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>A/B testing ready</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Analytics integration</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>5-day delivery</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>1-3 pages included</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Premium animations</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>A/B testing ready</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Analytics integration</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>5-day delivery</span></li>
             </ul>
           </div>
-          <a href="#contact" class="cta-primary py-2.5 text-[10px] font-700 uppercase tracking-widest text-center mt-6 block">Get Started</a>
+          <a href="#contact"
+            class="cta-primary py-2.5 text-[10px] font-700 uppercase tracking-widest text-center mt-6 block">Get
+            Started</a>
         </div>
 
         <!-- Website Revamp — Best Value highlighted -->
         <div class="section-fade relative flex flex-col border-b border-r divider" style="transition-delay:.2s">
           <div class="absolute -top-4 left-6 z-10">
-            <span class="badge-popular font-700 text-[9px] tracking-widest uppercase px-4 py-1.5 whitespace-nowrap">Best Value</span>
+            <span class="badge-popular font-700 text-[9px] tracking-widest uppercase px-4 py-1.5 whitespace-nowrap">Best
+              Value</span>
           </div>
           <div class="pricing-highlight p-6 flex flex-col flex-1" style="border-radius:0">
             <div class="mb-5 flex-1">
               <div class="tag-bg inline-flex px-3 py-1 text-[9px] font-700 tracking-widest uppercase mb-3">Growth</div>
-              <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-1 mt-1 leading-tight">Website Revamp</h3>
+              <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-1 mt-1 leading-tight">
+                Website Revamp</h3>
               <p class="muted text-xs leading-relaxed mb-5">Take your current site from outdated to outstanding.</p>
               <div class="mb-5">
-                <span class="font-display font-700 crimson" style="font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-0.03em">€500</span>
+                <span class="font-display font-700 crimson"
+                  style="font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-0.03em">€500</span>
                 <span class="muted text-xs ml-1 uppercase tracking-wide">one-time</span>
               </div>
               <ul class="space-y-2.5">
-                <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Up to 5 pages</span></li>
-                <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Full redesign + rebuild</span></li>
-                <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>90+ PageSpeed score</span></li>
-                <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Advanced SEO + analytics</span></li>
-                <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>7-day delivery</span></li>
-                <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Free chat widget</span></li>
-                <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Free domain 1st year</span></li>
+                <li class="flex items-center gap-2 text-xs muted"><i
+                    class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Up to 5 pages</span></li>
+                <li class="flex items-center gap-2 text-xs muted"><i
+                    class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Full redesign + rebuild</span>
+                </li>
+                <li class="flex items-center gap-2 text-xs muted"><i
+                    class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>90+ PageSpeed score</span></li>
+                <li class="flex items-center gap-2 text-xs muted"><i
+                    class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Advanced SEO + analytics</span>
+                </li>
+                <li class="flex items-center gap-2 text-xs muted"><i
+                    class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>7-day delivery</span></li>
+                <li class="flex items-center gap-2 text-xs muted"><i
+                    class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Free chat widget</span></li>
+                <li class="flex items-center gap-2 text-xs muted"><i
+                    class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Free domain 1st year</span></li>
               </ul>
             </div>
-            <a href="#contact" class="cta-primary py-2.5 text-[10px] font-700 uppercase tracking-widest text-center mt-6 block">Start Revamp</a>
+            <a href="#contact"
+              class="cta-primary py-2.5 text-[10px] font-700 uppercase tracking-widest text-center mt-6 block">Start
+              Revamp</a>
           </div>
         </div>
 
@@ -1821,23 +2573,35 @@
         <div class="section-fade card-bg p-6 flex flex-col border-b border-r divider" style="transition-delay:.25s">
           <div class="mb-5 flex-1">
             <div class="tag-bg inline-flex px-3 py-1 text-[9px] font-700 tracking-widest uppercase mb-3">Pro</div>
-            <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-1 mt-1 leading-tight">New Website Build</h3>
-            <p class="muted text-xs leading-relaxed mb-5">A fully custom website built from zero — your brand, your rules.</p>
+            <h3 class="font-display font-700 uppercase text-lg dark:text-white text-gray-900 mb-1 mt-1 leading-tight">
+              New Website Build</h3>
+            <p class="muted text-xs leading-relaxed mb-5">A fully custom website built from zero — your brand, your
+              rules.</p>
             <div class="mb-5">
-              <span class="font-display font-700 crimson" style="font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-0.03em">€800</span>
+              <span class="font-display font-700 crimson"
+                style="font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-0.03em">€800</span>
               <span class="muted text-xs ml-1 uppercase tracking-wide">one-time</span>
             </div>
             <ul class="space-y-2.5">
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Up to 10 pages</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Custom design system</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>E-commerce ready</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>2 weeks support</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>10-day delivery</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Free chat widget</span></li>
-              <li class="flex items-center gap-2 text-xs muted"><i class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Free domain 1st year</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Up to 10 pages</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Custom design system</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>E-commerce ready</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>2 weeks support</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>10-day delivery</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Free chat widget</span></li>
+              <li class="flex items-center gap-2 text-xs muted"><i
+                  class="fas fa-check neon-text text-[9px] flex-shrink-0"></i><span>Free domain 1st year</span></li>
             </ul>
           </div>
-          <a href="#contact" class="cta-secondary py-2.5 text-[10px] font-700 uppercase tracking-widest text-center mt-6 block">Get Started</a>
+          <a href="#contact"
+            class="cta-secondary py-2.5 text-[10px] font-700 uppercase tracking-widest text-center mt-6 block">Get
+            Started</a>
         </div>
       </div>
 
@@ -1845,7 +2609,8 @@
       <div class="mt-8 section-fade">
         <div class="inline-flex items-center gap-3 tag-bg px-5 py-2.5">
           <i class="fas fa-shield-check neon-text text-sm"></i>
-          <span class="text-xs font-700 uppercase tracking-wide">If something doesn't look right, I'll fix it. Simple as that.</span>
+          <span class="text-xs font-700 uppercase tracking-wide">If something doesn't look right, I'll fix it. Simple as
+            that.</span>
         </div>
       </div>
     </div>
@@ -1857,8 +2622,10 @@
       <div class="section-fade mb-12">
         <span class="kt-section-tag mb-6 inline-block">Ready to start?</span>
         <h2 class="font-display font-700 uppercase leading-[0.95] dark:text-white text-gray-900 mt-4"
-          style="font-size:clamp(2.2rem,6vw,4.5rem);letter-spacing:-0.03em">Let's build<br/>something <span class="crimson">together.</span></h2>
-        <p class="muted text-sm mt-4 max-w-lg leading-relaxed">Tell me what you're building. I typically reply within a few hours.</p>
+          style="font-size:clamp(2.2rem,6vw,4.5rem);letter-spacing:-0.03em">Let's build<br />something <span
+            class="crimson">together.</span></h2>
+        <p class="muted text-sm mt-4 max-w-lg leading-relaxed">Tell me what you're building. I typically reply within a
+          few hours.</p>
       </div>
 
       <div class="grid lg:grid-cols-[1fr_1.4fr] gap-0 border-t border-l divider section-fade">
@@ -1866,21 +2633,28 @@
         <div class="border-b border-r divider p-8 flex flex-col gap-6">
           <div>
             <p class="text-[10px] uppercase tracking-widest muted font-700 mb-2">Email</p>
-            <a href="mailto:stoyanbtanev@gmail.com" class="font-display font-700 text-sm dark:text-white text-gray-900 hover:neon-text transition-colors break-all">stoyanbtanev@gmail.com</a>
+            <a href="/cdn-cgi/l/email-protection#2e5d5a41574f404c5a4f404b586e49434f4742004d4143"
+              class="font-display font-700 text-sm dark:text-white text-gray-900 hover:neon-text transition-colors break-all"><span
+                class="__cf_email__"
+                data-cfemail="fa898e95839b94988e9b949f8cba9d979b9396d4999597">[email&#160;protected]</span></a>
           </div>
           <div>
             <p class="text-[10px] uppercase tracking-widest muted font-700 mb-2">Phone</p>
-            <a href="tel:+359895469386" class="font-display font-700 text-sm dark:text-white text-gray-900 hover:neon-text transition-colors">089 546 9386</a>
+            <a href="tel:+359895469386"
+              class="font-display font-700 text-sm dark:text-white text-gray-900 hover:neon-text transition-colors">089
+              546 9386</a>
           </div>
           <div>
             <p class="text-[10px] uppercase tracking-widest muted font-700 mb-2">Location</p>
             <span class="font-display font-700 text-sm dark:text-white text-gray-900">Plovdiv, Bulgaria</span>
           </div>
           <div class="flex gap-2 mt-auto">
-            <a href="https://www.linkedin.com/in/stoyan-tanev-a732603b8/" target="_blank" rel="noopener noreferrer" class="tag-bg px-3 py-2 text-[10px] font-700 uppercase tracking-widest flex items-center gap-2 hover:neon-text transition-colors">
+            <a href="https://www.linkedin.com/in/stoyan-tanev-a732603b8/" target="_blank" rel="noopener noreferrer"
+              class="tag-bg px-3 py-2 text-[10px] font-700 uppercase tracking-widest flex items-center gap-2 hover:neon-text transition-colors">
               <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
             </a>
-            <a href="https://github.com/stoyanbtanev" target="_blank" rel="noopener noreferrer" class="tag-bg px-3 py-2 text-[10px] font-700 uppercase tracking-widest flex items-center gap-2 hover:neon-text transition-colors">
+            <a href="https://github.com/stoyanbtanev" target="_blank" rel="noopener noreferrer"
+              class="tag-bg px-3 py-2 text-[10px] font-700 uppercase tracking-widest flex items-center gap-2 hover:neon-text transition-colors">
               <i class="fab fa-github"></i><span>GitHub</span>
             </a>
           </div>
@@ -1899,18 +2673,21 @@
               <div>
                 <label class="text-[10px] muted uppercase tracking-widest font-700 block mb-2">Your Name</label>
                 <input type="text" name="name" placeholder="John Carter" required
-                  class="url-input w-full bg-transparent border neon-border px-4 py-3 text-sm transition-all" style="border-radius:0" />
+                  class="url-input w-full bg-transparent border neon-border px-4 py-3 text-sm transition-all"
+                  style="border-radius:0" />
               </div>
               <div>
                 <label class="text-[10px] muted uppercase tracking-widest font-700 block mb-2">Email</label>
                 <input type="email" name="email" placeholder="ivan@company.com" required
-                  class="url-input w-full bg-transparent border neon-border px-4 py-3 text-sm transition-all" style="border-radius:0" />
+                  class="url-input w-full bg-transparent border neon-border px-4 py-3 text-sm transition-all"
+                  style="border-radius:0" />
               </div>
             </div>
             <div class="mb-4">
               <label class="text-[10px] muted uppercase tracking-widest font-700 block mb-2">Budget Range</label>
               <select name="budget"
-                class="url-input w-full bg-transparent border neon-border px-4 py-3 text-sm transition-all appearance-none cursor-pointer dark:bg-sonar-card" style="border-radius:0">
+                class="url-input w-full bg-transparent border neon-border px-4 py-3 text-sm transition-all appearance-none cursor-pointer dark:bg-sonar-card"
+                style="border-radius:0">
                 <option value="">Select your budget</option>
                 <option value="200">€200 – €500</option>
                 <option value="500">€500 – €800</option>
@@ -1918,14 +2695,18 @@
               </select>
             </div>
             <div class="mb-4">
-              <label class="text-[10px] muted uppercase tracking-widest font-700 block mb-2">Website URL (optional)</label>
+              <label class="text-[10px] muted uppercase tracking-widest font-700 block mb-2">Website URL
+                (optional)</label>
               <input type="url" name="website" placeholder="https://yoursite.com"
-                class="url-input w-full bg-transparent border neon-border px-4 py-3 text-sm transition-all" style="border-radius:0" />
+                class="url-input w-full bg-transparent border neon-border px-4 py-3 text-sm transition-all"
+                style="border-radius:0" />
             </div>
             <div class="mb-6">
-              <label class="text-[10px] muted uppercase tracking-widest font-700 block mb-2">Describe your project</label>
+              <label class="text-[10px] muted uppercase tracking-widest font-700 block mb-2">Describe your
+                project</label>
               <textarea name="message" rows="4" placeholder="I need a fast new website for my business..." required
-                class="url-input w-full bg-transparent border neon-border px-4 py-3 text-sm resize-none transition-all" style="border-radius:0"></textarea>
+                class="url-input w-full bg-transparent border neon-border px-4 py-3 text-sm resize-none transition-all"
+                style="border-radius:0"></textarea>
             </div>
             <button type="submit"
               class="cta-primary w-full py-3.5 text-[11px] font-display font-700 uppercase tracking-widest transition-all duration-200 active:scale-[.99] flex items-center justify-center gap-2">
@@ -1941,21 +2722,26 @@
 
   <!-- ═══ COOKIE BAR (KT) ═══ -->
   <div id="cookieBar"
-    class="fixed bottom-4 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-[26rem] z-[60] card-bg p-5 border neon-border" style="border-radius:0">
+    class="fixed bottom-4 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-[26rem] z-[60] card-bg p-5 border neon-border"
+    style="border-radius:0">
     <div class="flex items-start gap-4">
       <div class="w-9 h-9 tag-bg flex items-center justify-center flex-shrink-0">
         <i class="fas fa-shield-halved neon-text"></i>
       </div>
       <div>
-        <p class="font-display font-700 text-xs uppercase tracking-widest mb-1 dark:text-white text-gray-900">Cookie &amp; Privacy Consent</p>
+        <p class="font-display font-700 text-xs uppercase tracking-widest mb-1 dark:text-white text-gray-900">Cookie
+          &amp; Privacy Consent</p>
         <p class="text-[11px] muted mb-3 leading-relaxed">
           We use essential and analytics cookies to improve your experience. Consent in accordance with GDPR.</p>
-        <p class="text-[10px] muted mb-3"><a href="#" class="underline hover:neon-text transition-colors">Read our Privacy Policy</a></p>
+        <p class="text-[10px] muted mb-3"><a href="#" class="underline hover:neon-text transition-colors">Read our
+            Privacy Policy</a></p>
         <div class="flex gap-2">
           <button onclick="acceptCookies()"
-            class="cta-primary flex-1 py-2 text-[10px] font-display font-700 uppercase tracking-widest active:scale-[.98]">Accept All</button>
+            class="cta-primary flex-1 py-2 text-[10px] font-display font-700 uppercase tracking-widest active:scale-[.98]">Accept
+            All</button>
           <button onclick="declineCookies()"
-            class="tag-bg flex-1 py-2 text-[10px] font-display font-700 uppercase tracking-widest active:scale-[.98]">Essential Only</button>
+            class="tag-bg flex-1 py-2 text-[10px] font-display font-700 uppercase tracking-widest active:scale-[.98]">Essential
+            Only</button>
         </div>
       </div>
     </div>
@@ -1968,18 +2754,23 @@
   <!-- Chat Window -->
   <div id="chatBotBox">
     <!-- Header -->
-    <div style="background:#09090B;border-bottom:1px solid #27272A;flex-shrink:0;" class="flex items-center justify-between px-5 py-4">
+    <div style="background:#09090B;border-bottom:1px solid #27272A;flex-shrink:0;"
+      class="flex items-center justify-between px-5 py-4">
       <div class="flex items-center gap-3">
-        <div style="width:38px;height:38px;background:#DFE104;color:#09090B;flex-shrink:0;" class="flex items-center justify-center">
+        <div style="width:38px;height:38px;background:#DFE104;color:#09090B;flex-shrink:0;"
+          class="flex items-center justify-center">
           <i class="fas fa-bolt text-sm"></i>
         </div>
         <div>
-          <div class="font-display font-700 uppercase text-white" style="font-size:15px;letter-spacing:-0.01em;line-height:1.1;">
+          <div class="font-display font-700 uppercase text-white"
+            style="font-size:15px;letter-spacing:-0.01em;line-height:1.1;">
             PULSE<span style="color:#DFE104;"> AI</span><span class="chat-cursor">_</span>
           </div>
           <div class="flex items-center gap-1.5 mt-1">
-            <span style="width:6px;height:6px;background:#22C55E;display:inline-block;border-radius:50%;" class="animate-pulse"></span>
-            <span style="color:#22C55E;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;">Online</span>
+            <span style="width:6px;height:6px;background:#22C55E;display:inline-block;border-radius:50%;"
+              class="animate-pulse"></span>
+            <span
+              style="color:#22C55E;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;">Online</span>
           </div>
         </div>
       </div>
@@ -2000,8 +2791,7 @@
       <form id="chatForm" onsubmit="handleChatSubmit(event)" style="display:flex;align-items:center;gap:0.625rem;">
         <input type="text" id="chatInput" placeholder="Ask Pulse anything…"
           style="flex:1;background:transparent;border:none;outline:none;color:#FAFAFA;font-size:13px;min-width:0;"
-          class="font-display placeholder:text-zinc-600"
-          autocomplete="off" autocorrect="off" autocapitalize="off" />
+          class="font-display placeholder:text-zinc-600" autocomplete="off" autocorrect="off" autocapitalize="off" />
         <button type="submit"
           style="width:38px;height:38px;background:#DFE104;color:#09090B;border:none;flex-shrink:0;cursor:pointer;"
           class="flex items-center justify-center transition-all hover:bg-white active:scale-95 z-10">
@@ -2025,17 +2815,26 @@
       <!-- Top: wordmark + nav -->
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-8 border-b divider">
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 flex items-center justify-center font-display font-700 text-sm bg-black text-white dark:bg-white dark:text-black transition-colors duration-300">t</div>
+          <div
+            class="w-8 h-8 flex items-center justify-center font-display font-700 text-sm bg-black text-white dark:bg-white dark:text-black transition-colors duration-300">
+            t</div>
           <div>
-            <span class="font-display font-700 uppercase tracking-widest text-sm dark:text-white text-gray-900">tanev<span class="crimson">.design</span></span>
+            <span
+              class="font-display font-700 uppercase tracking-widest text-sm dark:text-white text-gray-900">tanev<span
+                class="crimson">.design</span></span>
             <p class="text-[10px] muted uppercase tracking-widest mt-0.5">by Stoyan Tanev</p>
           </div>
         </div>
         <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
-          <a href="#services" class="text-[10px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors">About Me</a>
-          <a href="#pricing" class="text-[10px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors">Pricing</a>
-          <a href="#contact" class="text-[10px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors">Contact</a>
-          <a href="#" class="text-[10px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors">Privacy Policy</a>
+          <a href="#services"
+            class="text-[10px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors">About Me</a>
+          <a href="#pricing"
+            class="text-[10px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors">Pricing</a>
+          <a href="#contact"
+            class="text-[10px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors">Contact</a>
+          <a href="#"
+            class="text-[10px] font-700 uppercase tracking-widest muted hover:neon-text transition-colors">Privacy
+            Policy</a>
         </div>
       </div>
       <!-- Bottom: copyright -->
@@ -2050,6 +2849,7 @@
   </footer>
 
   <!-- ═══ JS ═══ -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     const SCORE_TEXT_CLASSES = ['text-red-400', 'text-yellow-400', 'text-green-400', 'neon-text'];
@@ -2836,14 +3636,4 @@
   "url": "https://tanev.design",
   "telephone": "+359895469386",
   "email": "stoyanbtanev@gmail.com",
-  "address": { "@type": "PostalAddress", "addressLocality": "Plovdiv", "addressCountry": "BG" },
-  "sameAs": ["https://www.linkedin.com/in/stoyan-tanev-a732603b8/"],
-  "knowsAbout": ["Web Design", "Web Development", "UI/UX", "AI Workflows", "Landing Pages", "Website Redesign"],
-  "areaServed": ["Worldwide"]
-}
-</script>
-
-
-</body>
-
-</html>
+  "address": { "@type": "PostalAddress", "addressLocality": "Plovdiv", "ad

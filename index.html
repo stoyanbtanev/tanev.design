@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;700&family=Bebas+Neue&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;700&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap"
     rel="stylesheet" />
 
   <!-- GSAP CDN -->
@@ -144,6 +144,7 @@
         linear-gradient(var(--grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
       background-size: 100px 100px;
+      mix-blend-mode: difference;
     }
 
     /* Grain texture */
@@ -301,6 +302,10 @@
       pointer-events: none;
     }
 
+    #t-bg {
+      background: #FFFFFF;
+    }
+
     .t-overlay.active {
       transform: scaleY(1);
       pointer-events: auto;
@@ -318,6 +323,13 @@
 
     .t-overlay.active .t-overlay-label {
       opacity: 1;
+    }
+
+    #t-bg .t-overlay-label {
+      color: #000;
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      letter-spacing: 0.1em;
     }
 
     /* ══════════════════════════════════════════════════
@@ -349,9 +361,10 @@
 
     /* ── RIGHT SIDE: MONOCHROME ── */
     .side-mono {
-      background: var(--black-soft);
+      background: #FFFFFF;
       align-items: flex-end;
       text-align: right;
+      color: #000000;
     }
 
     /* ══════════════════════════════════════════════════
@@ -427,7 +440,7 @@
     }
 
     .corner-label-mono {
-      color: var(--white-dim);
+      color: rgba(0, 0, 0, 0.4);
     }
 
     /* ══════════════════════════════════════════════════
@@ -458,7 +471,7 @@
     }
 
     .headline-mono {
-      color: var(--white);
+      color: #111;
     }
 
     /* Individual split characters */
@@ -485,7 +498,7 @@
     }
 
     .brand-label-mono {
-      color: var(--white-dim);
+      color: rgba(0, 0, 0, 0.3);
     }
 
     /* Edition badge/box */
@@ -529,8 +542,8 @@
     }
 
     .edition-box-mono {
-      border-color: rgba(245, 245, 245, 0.35);
-      color: var(--white-dim);
+      border-color: rgba(0, 0, 0, 0.12);
+      color: rgba(0, 0, 0, 0.4);
     }
 
     .edition-box-mono::before {
@@ -538,7 +551,7 @@
     }
 
     .edition-box-mono:hover {
-      color: var(--white);
+      color: #000;
     }
 
     /* Edition dot */
@@ -566,7 +579,7 @@
     }
 
     .desc-mono {
-      color: rgba(245, 245, 245, 0.28);
+      color: rgba(0, 0, 0, 0.35);
       text-align: right;
       max-width: 32ch;
     }
@@ -624,7 +637,7 @@
     }
 
     .cta-mono {
-      color: var(--white-dim);
+      color: #111;
     }
 
     .cta-mono::after {
@@ -634,7 +647,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: var(--white-dim);
+      background: #000;
       transform: scaleX(0);
       transform-origin: right;
       transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -645,7 +658,7 @@
     }
 
     .cta-mono:hover {
-      color: var(--white);
+      color: #000;
       letter-spacing: 0.36em;
     }
 
@@ -695,11 +708,18 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: repeating-linear-gradient(90deg,
-          transparent 0px,
-          transparent 40px,
-          rgba(255, 255, 255, 0.008) 40px,
-          rgba(255, 255, 255, 0.008) 41px);
+      background-image: repeating-linear-gradient(0deg, transparent, transparent 1px, #111 1px, #111 2px);
+      background-size: 100% 4px;
+      opacity: 0.015;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .side-mono::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(#11111108 1px, transparent 1px), linear-gradient(90deg, #11111108 1px, transparent 1px);
+      background-size: 40px 40px;
       pointer-events: none;
       z-index: 0;
     }
@@ -712,7 +732,8 @@
       font-size: 8px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(245, 245, 245, 0.06);
+      color: rgba(128, 128, 128, 0.35);
+      mix-blend-mode: difference;
       pointer-events: none;
       z-index: 50;
       font-family: 'Space Grotesk', sans-serif;
@@ -811,27 +832,225 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-delay: 0ms !important;
         transition-duration: 0.01ms !important;
       }
+      .char { opacity: 1 !important; transform: none !important; }
+      .corner-label, .brand-label, .edition-box, .desc, .cta-wrap { opacity: 1 !important; }
+    }
 
-      .char {
-        opacity: 1 !important;
-        transform: none !important;
-      }
+    /* ══════════════════════════════════════════════════
+       SERVICES SPLIT SECTION
+    ══════════════════════════════════════════════════ */
+    #svc-section { position: relative; z-index: 10; }
+    #svc-sticky {
+      position: sticky; top: 0; height: 100svh;
+      display: flex; overflow: hidden;
+    }
+    #svc-prog {
+      position: fixed; left: 0; top: 0; width: 2px; height: 0;
+      background: var(--yellow); z-index: 200; pointer-events: none;
+      box-shadow: 0 0 8px rgba(255,215,0,.6);
+    }
+    .svc-half {
+      flex: 1; display: flex; flex-direction: column;
+      justify-content: center; position: relative;
+      padding: 0 clamp(2rem,4.5vw,6rem);
+    }
+    .svc-half-k {
+      background: var(--black);
+    }
+    .svc-half-k::before {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .svc-half-m {
+      background: #FFFFFF;
+      align-items: flex-end; text-align: right;
+    }
+    .svc-half-m::before {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background: repeating-linear-gradient(0deg,
+        transparent 0, transparent 48px,
+        rgba(17,17,17,.016) 48px, rgba(17,17,17,.016) 49px);
+    }
+    .svc-center-div {
+      flex: 0 0 3px; background: var(--yellow); z-index: 20;
+      box-shadow: 0 0 18px rgba(255,215,0,.3), 0 0 60px rgba(255,215,0,.1);
+    }
+    .svc-lbl {
+      position: absolute; top: clamp(1.6rem,2.8vh,2.4rem);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 8px; font-weight: 700; letter-spacing: .36em;
+      text-transform: uppercase; pointer-events: none; z-index: 5;
+    }
+    .svc-lbl-k { left: clamp(2rem,4.5vw,6rem); color: rgba(245,245,245,.09); }
+    .svc-lbl-m { right: clamp(2rem,4.5vw,6rem); color: rgba(17,17,17,.1); }
+    .svc-ctr {
+      position: absolute; bottom: clamp(1.6rem,2.8vh,2.4rem);
+      font-size: 10px; letter-spacing:.2em; pointer-events:none; z-index:5;
+    }
+    .svc-ctr-k {
+      left: clamp(2rem,4.5vw,6rem);
+      font-family:'Anton',sans-serif; color:rgba(245,245,245,.08);
+    }
+    .svc-ctr-m {
+      right: clamp(2rem,4.5vw,6rem); text-align:right;
+      font-family:'Space Grotesk',sans-serif; font-weight:700;
+      color:rgba(17,17,17,.1);
+    }
 
-      .corner-label,
-      .brand-label,
-      .edition-box,
-      .desc,
-      .cta-wrap {
-        opacity: 1 !important;
-      }
+    /* Service list */
+    .svc-list { list-style:none; display:flex; flex-direction:column; width:100%; }
+    .svc-list-k { align-items:flex-start; }
+    .svc-list-m { align-items:flex-end; }
+    .svc-item {
+      display:flex; align-items:baseline;
+      gap: clamp(.6rem,1.2vw,1.6rem);
+      padding: clamp(.38rem,.8vh,.75rem) 0;
+      width:100%; position:relative;
+      transition:border-color .4s;
+    }
+    .svc-list-k .svc-item {
+      flex-direction:row;
+      border-bottom: 1px solid rgba(245,245,245,.04);
+    }
+    .svc-list-k .svc-item:first-child { border-top: 1px solid rgba(245,245,245,.04); }
+    .svc-list-k .svc-item.is-active { border-color: rgba(255,215,0,.18); }
+    .svc-list-m .svc-item {
+      flex-direction:row-reverse;
+      border-bottom: 1px solid rgba(17,17,17,.06);
+    }
+    .svc-list-m .svc-item:first-child { border-top: 1px solid rgba(17,17,17,.06); }
+    .svc-list-m .svc-item.is-active { border-color: rgba(17,17,17,.2); }
+    .svc-num {
+      font-family:'Space Grotesk',sans-serif;
+      font-size: clamp(.55rem,.72vw,.78rem); font-weight:700; letter-spacing:.1em;
+      flex-shrink:0; min-width:2em;
+      transition:opacity .55s ease; position:relative; z-index:1;
+    }
+    .svc-list-k .svc-num { color:var(--yellow); opacity:.14; }
+    .svc-list-m .svc-num { color:#111; opacity:.14; }
+    .svc-list-k .svc-item.is-active .svc-num { opacity:1; }
+    .svc-list-m .svc-item.is-active .svc-num { opacity:1; }
+    .svc-name-k {
+      font-family:'Anton',sans-serif;
+      font-size: clamp(1.4rem,3.2vw,4.8rem);
+      line-height:1; letter-spacing:-.01em; text-transform:uppercase;
+      color: rgba(245,245,245,.05);
+      transition: color .6s ease, text-shadow .6s ease;
+      position:relative; z-index:1; white-space:nowrap;
+    }
+    .svc-list-k .svc-item.is-active .svc-name-k {
+      color: #F5F5F5;
+      text-shadow: 0 0 80px rgba(255,215,0,.07);
+    }
+    .svc-name-m {
+      font-family:'Playfair Display',serif; font-weight:900;
+      font-size: clamp(1.3rem,3vw,4.3rem);
+      line-height:1.04; letter-spacing:-.01em;
+      color: rgba(17,17,17,.12);
+      transition: color .6s ease;
+      position:relative; z-index:1; white-space:nowrap;
+    }
+    .svc-list-m .svc-item:nth-child(even) .svc-name-m { font-style:italic; }
+    .svc-list-m .svc-item.is-active .svc-name-m { color: #111111; }
+
+    /* Detail panel */
+    .svc-detail {
+      margin-top: clamp(.8rem,1.4vh,1.4rem);
+      padding-top: clamp(.6rem,1vh,1rem);
+      border-top: 1px solid rgba(255,215,0,.14);
+      min-height: 5.5rem;
+      transition: opacity .45s ease;
+    }
+    .svc-detail-m {
+      border-top-color: rgba(17,17,17,.14);
+      text-align:right;
+    }
+    .svc-tag-k {
+      font-family:'Space Grotesk',sans-serif;
+      font-size:8px; font-weight:700; letter-spacing:.26em;
+      text-transform:uppercase; color:rgba(255,215,0,.52);
+      display:block; margin-bottom:.4rem;
+    }
+    .svc-tag-m {
+      font-family:'Space Grotesk',sans-serif;
+      font-size:8px; font-weight:700; letter-spacing:.26em;
+      text-transform:uppercase; color:rgba(17,17,17,.4);
+      display:block; margin-bottom:.4rem;
+    }
+    .svc-desc-k {
+      font-family:'Space Grotesk',sans-serif;
+      font-size: clamp(10px,.68vw,12px); font-weight:300;
+      line-height:1.75; color:rgba(245,245,245,.36);
+      max-width:36ch; margin-bottom:.7rem;
+    }
+    .svc-desc-m {
+      font-family:'Playfair Display',serif; font-style:italic;
+      font-size: clamp(10px,.68vw,12px); font-weight:400;
+      line-height:1.8; color:rgba(17,17,17,.42);
+      max-width:34ch; margin-bottom:.7rem; margin-left:auto;
+    }
+    .svc-tools-k, .svc-tools-m {
+      display:flex; flex-wrap:wrap; gap:4px;
+    }
+    .svc-tools-m { justify-content:flex-end; }
+    .svc-tool-k {
+      font-family:'Space Grotesk',sans-serif;
+      font-size:8px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+      border: 1px solid rgba(255,215,0,.2);
+      color: rgba(255,215,0,.55); padding: 3px 8px;
+    }
+    .svc-tool-m {
+      font-family:'Space Grotesk',sans-serif;
+      font-size:8px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+      border: 1px solid rgba(17,17,17,.18);
+      color: rgba(17,17,17,.42); padding: 3px 8px;
+    }
+
+    /* Scroll hint for services */
+    .svc-scroll-hint {
+      position:absolute; bottom:2rem; left:50%;
+      transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:6px;
+      z-index:30; pointer-events:none; opacity:.4;
+    }
+    .svc-scroll-hint span {
+      font-family:'Space Grotesk',sans-serif;
+      font-size:7px; font-weight:700; letter-spacing:.3em;
+      text-transform:uppercase; color:rgba(255,215,0,.4);
+    }
+    .svc-hint-line {
+      width:1px; height:28px;
+      background:linear-gradient(to bottom,rgba(255,215,0,.5),transparent);
+      animation:hint-pulse 2s ease-in-out infinite;
+    }
+    @keyframes hint-pulse {
+      0%,100%{transform:scaleY(1);opacity:.4;}
+      50%{transform:scaleY(1.3);opacity:1;}
+    }
+
+    @media (max-width: 768px) {
+      #svc-sticky { flex-direction:column; height:auto; position:static; }
+      .svc-half { flex:none; width:100%; padding:3rem 1.6rem; min-height:auto; align-items:flex-start; text-align:left; }
+      .svc-half-m { align-items:flex-start; text-align:left; }
+      .svc-lbl-m { right:auto; left:1.6rem; }
+      .svc-ctr-m { right:auto; left:1.6rem; text-align:left; }
+      .svc-list-m { align-items:flex-start; }
+      .svc-list-m .svc-item { flex-direction:row; }
+      .svc-center-div { flex:none; width:100%; height:3px; }
+      .svc-name-k, .svc-name-m { font-size:clamp(1.4rem,8vw,2.8rem); white-space:normal; }
+      .svc-detail-m { text-align:left; }
+      .svc-desc-m { margin-left:0; }
+      .svc-tools-m { justify-content:flex-start; }
+      #svc-section { height:auto !important; }
+      #svc-prog { display:none; }
+      .svc-scroll-hint { display:none; }
     }
   </style>
 </head>
@@ -955,10 +1174,70 @@
 
   </div><!-- /.stage -->
 
-
   <!-- ════════════════════════════════════════════════
-       JAVASCRIPT
+       SERVICES SPLIT SECTION
   ════════════════════════════════════════════════ -->
+  <section id="svc-section" aria-label="Services — tanev.design">
+    <div id="svc-prog" aria-hidden="true"></div>
+    <div id="svc-sticky">
+
+      <!-- EN / KINETIC HALF -->
+      <div class="svc-half svc-half-k" id="svc-half-k">
+        <span class="svc-lbl svc-lbl-k" aria-hidden="true">SERVICES</span>
+
+        <div style="display:flex;flex-direction:column;width:100%;">
+          <ul class="svc-list svc-list-k" id="svc-list-k" role="list">
+            <li class="svc-item is-active" data-idx="0"><span class="svc-num" aria-hidden="true">01</span><span class="svc-name-k">Web Design</span></li>
+            <li class="svc-item" data-idx="1"><span class="svc-num" aria-hidden="true">02</span><span class="svc-name-k">Product Design</span></li>
+            <li class="svc-item" data-idx="2"><span class="svc-num" aria-hidden="true">03</span><span class="svc-name-k">UI / UX Systems</span></li>
+            <li class="svc-item" data-idx="3"><span class="svc-num" aria-hidden="true">04</span><span class="svc-name-k">Graphic Design</span></li>
+            <li class="svc-item" data-idx="4"><span class="svc-num" aria-hidden="true">05</span><span class="svc-name-k">Visual Design</span></li>
+            <li class="svc-item" data-idx="5"><span class="svc-num" aria-hidden="true">07</span><span class="svc-name-k">Digital Marketing</span></li>
+            <li class="svc-item" data-idx="6"><span class="svc-num" aria-hidden="true">08</span><span class="svc-name-k">Social Media</span></li>
+          </ul>
+          <div class="svc-detail" id="k-detail">
+            <span class="svc-tag-k" id="k-tag">Top performing</span>
+            <p class="svc-desc-k" id="k-desc">I design no-code websites that are responsive, mobile-friendly, and SEO-ready. Every site is built for usability, speed, and modern design.</p>
+            <div class="svc-tools-k" id="k-tools"></div>
+          </div>
+        </div>
+
+        <span class="svc-ctr svc-ctr-k" id="ctr-k" aria-live="polite">01 / 07</span>
+        <div class="svc-scroll-hint" aria-hidden="true">
+          <div class="svc-hint-line"></div>
+          <span>SCROLL</span>
+        </div>
+      </div>
+
+      <!-- CENTRE DIVIDER -->
+      <div class="svc-center-div" aria-hidden="true"></div>
+
+      <!-- BG / MONOCHROME HALF -->
+      <div class="svc-half svc-half-m" id="svc-half-m">
+        <span class="svc-lbl svc-lbl-m" aria-hidden="true" lang="bg">УСЛУГИ</span>
+
+        <div style="display:flex;flex-direction:column;width:100%;align-items:flex-end;">
+          <ul class="svc-list svc-list-m" id="svc-list-m" role="list" lang="bg">
+            <li class="svc-item is-active" data-idx="0"><span class="svc-num" aria-hidden="true">01</span><span class="svc-name-m">Уеб Дизайн</span></li>
+            <li class="svc-item" data-idx="1"><span class="svc-num" aria-hidden="true">02</span><span class="svc-name-m">Продуктов Дизайн</span></li>
+            <li class="svc-item" data-idx="2"><span class="svc-num" aria-hidden="true">03</span><span class="svc-name-m">UI / UX Системи</span></li>
+            <li class="svc-item" data-idx="3"><span class="svc-num" aria-hidden="true">04</span><span class="svc-name-m">Графичен Дизайн</span></li>
+            <li class="svc-item" data-idx="4"><span class="svc-num" aria-hidden="true">05</span><span class="svc-name-m">Визуален Дизайн</span></li>
+            <li class="svc-item" data-idx="5"><span class="svc-num" aria-hidden="true">07</span><span class="svc-name-m">Дигитален Маркетинг</span></li>
+            <li class="svc-item" data-idx="6"><span class="svc-num" aria-hidden="true">08</span><span class="svc-name-m">Социални Медии</span></li>
+          </ul>
+          <div class="svc-detail svc-detail-m" id="m-detail">
+            <span class="svc-tag-m" id="m-tag">Топ изпълнение</span>
+            <p class="svc-desc-m" id="m-desc">Проектирам no-code уебсайтове — адаптивни, мобилни и SEO готови. Всеки сайт е изграден за ползваемост, скорост и модерен дизайн.</p>
+            <div class="svc-tools-m" id="m-tools"></div>
+          </div>
+        </div>
+
+        <span class="svc-ctr svc-ctr-m" id="ctr-m" aria-live="polite">01 / 07</span>
+      </div>
+
+    </div>
+  </section>
   <script>
     /* ─── 0. GRAIN TEXTURE ──────────────────────────── */
     (function generateGrain() {
@@ -1282,6 +1561,149 @@
     glitchEl.addEventListener('animationend', () => {
       glitchEl.classList.remove('glitch-active');
     });
+
+    /* ─── 14. SERVICES SCROLL SYSTEM ───────────────── */
+    (function initServices() {
+      const SVC_DATA = [
+        {
+          tag: 'Top performing', tagBg: 'Топ изпълнение',
+          desc: 'I design no-code websites that are responsive, mobile-friendly, and SEO-ready. Every site is built for usability, speed, and modern design.',
+          descBg: 'Проектирам no-code уебсайтове — адаптивни, мобилни и SEO готови. Всеки сайт е за ползваемост, скорост и модерен дизайн.',
+          tools: ['Figma','Framer','Webflow','Vercel','WordPress','Elementor','Avada','AI builders']
+        },
+        {
+          tag: 'MVP Go-to-market', tagBg: 'MVP Пазарна Стратегия',
+          desc: 'I build ideas from concept to GTM and scale them into real products. I focus on scope, flows, and aligning features with what users actually need.',
+          descBg: 'Превръщам идеи от концепция до реален продукт. Фокусирам се върху обхват, потоци и нуждите на потребителите.',
+          tools: ['MVP Design','Pitch Decks','Brand Identity','Product Positioning','Marketing Collateral','Investor Presentations']
+        },
+        {
+          tag: 'User Focused', tagBg: 'Потребителско Изживяване',
+          desc: 'I design user journeys, wireframes, and prototypes that make digital products easy to use. Testing and research keep the experience grounded in reality.',
+          descBg: 'Проектирам потребителски пътеки, wireframes и прототипи. Тестване и изследване удържат изживяването в реалността.',
+          tools: ['Figma','Framer','Webflow','WordPress','Elementor','Avada','Vercel','Lovable','Bolt','+10 AI platforms']
+        },
+        {
+          tag: 'Brand Defining', tagBg: 'Дефиниране на Марка',
+          desc: 'Highly skilled in creating digital visuals, banners, ads, and posts to deliver clear messaging and engage.',
+          descBg: 'Създавам дигитални визии, банери, реклами и публикации за ясни послания и ангажираност.',
+          tools: ['Adobe Creative Suite','Photoshop','Illustrator','Figma','FigJam','Canva','Branding','Typography']
+        },
+        {
+          tag: 'Detail Driven + AI', tagBg: 'Детайлност + ИИ',
+          desc: 'You name it, I do it. Compelling digital visuals that combine aesthetics with clear communication.',
+          descBg: 'Назовете го, аз го правя. Завладяващи дигитални визии, съчетаващи естетика с ясна комуникация.',
+          tools: ['Photoshop','Illustrator','Figma','Canva','Midjourney','Leonardo','Dall-E','GPT','Runway','Firefly','Sora']
+        },
+        {
+          tag: 'Data-Backed', tagBg: 'Базирано на Данни',
+          desc: 'Strategic digital marketing campaigns built on analytics, audience research, and conversion optimization.',
+          descBg: 'Стратегически дигитален маркетинг, базиран на анализи, изследване на аудитория и оптимизация на реализации.',
+          tools: ['Google Ads','Meta Ads','SEO','Analytics','Email Marketing','CRO','A/B Testing']
+        },
+        {
+          tag: 'Platform Native', tagBg: 'Платформено Родно',
+          desc: 'Content strategy, creative production, and community management that builds real brand presence across platforms.',
+          descBg: 'Стратегия за съдържание, творческо производство и управление на общност за реално присъствие в социалните мрежи.',
+          tools: ['Instagram','Facebook','TikTok','LinkedIn','YouTube','Reels','Threads','Content Calendar']
+        }
+      ];
+
+      const section   = document.getElementById('svc-section');
+      const itemsK    = Array.from(document.querySelectorAll('#svc-list-k .svc-item'));
+      const itemsM    = Array.from(document.querySelectorAll('#svc-list-m .svc-item'));
+      const progEl    = document.getElementById('svc-prog');
+      const ctrK      = document.getElementById('ctr-k');
+      const ctrM      = document.getElementById('ctr-m');
+      const kTag      = document.getElementById('k-tag');
+      const kDesc     = document.getElementById('k-desc');
+      const kTools    = document.getElementById('k-tools');
+      const mTag      = document.getElementById('m-tag');
+      const mDesc     = document.getElementById('m-desc');
+      const mTools    = document.getElementById('m-tools');
+      const N         = SVC_DATA.length;
+      const isMobile  = () => window.innerWidth <= 768;
+      const HOLD      = () => window.innerHeight * 1.35;
+
+      function setHeight() {
+        section.style.height = isMobile() ? 'auto' : (N * HOLD() + window.innerHeight) + 'px';
+      }
+      setHeight();
+      window.addEventListener('resize', setHeight, { passive: true });
+
+      function renderTools(container, tools, cls) {
+        container.innerHTML = '';
+        tools.forEach(t => {
+          const s = document.createElement('span');
+          s.className = cls;
+          s.textContent = t;
+          container.appendChild(s);
+        });
+      }
+
+      function updateDetail(idx) {
+        const d = SVC_DATA[idx];
+        kTag.textContent = d.tag;
+        kDesc.textContent = d.desc;
+        renderTools(kTools, d.tools, 'svc-tool-k');
+        mTag.textContent = d.tagBg;
+        mDesc.textContent = d.descBg;
+        renderTools(mTools, d.tools, 'svc-tool-m');
+      }
+
+      let lastIdx = -1;
+
+      function activeIdx(sy) {
+        if (isMobile()) return -1;
+        const top = section.getBoundingClientRect().top + sy;
+        const local = sy - top;
+        if (local < 0) return -1;
+        return Math.min(Math.floor(local / HOLD()), N - 1);
+      }
+
+      function onScroll() {
+        const sy = window.scrollY;
+        if (!isMobile()) {
+          const top = section.getBoundingClientRect().top + sy;
+          const raw = Math.max(0, Math.min(1, (sy - top) / (N * HOLD())));
+          progEl.style.height = (raw * 100) + 'vh';
+        }
+        const idx = activeIdx(sy);
+        if (idx < 0) return;
+        [itemsK, itemsM].forEach(items =>
+          items.forEach((item, i) => item.classList.toggle('is-active', i === idx))
+        );
+        if (idx !== lastIdx) {
+          lastIdx = idx;
+          const s = (idx + 1 < 10 ? '0' : '') + (idx + 1);
+          ctrK.textContent = s + ' / 07';
+          ctrM.textContent = s + ' / 07';
+          updateDetail(idx);
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      updateDetail(0);
+      onScroll();
+
+      // Mobile IntersectionObserver
+      if ('IntersectionObserver' in window && isMobile()) {
+        const obs = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (!e.isIntersecting || !isMobile()) return;
+            const idx = parseInt(e.target.dataset.idx, 10);
+            [itemsK, itemsM].forEach(items =>
+              items.forEach((item, i) => item.classList.toggle('is-active', i === idx))
+            );
+            const s = (idx + 1 < 10 ? '0' : '') + (idx + 1);
+            ctrK.textContent = s + ' / 07';
+            ctrM.textContent = s + ' / 07';
+            updateDetail(idx);
+          });
+        }, { threshold: 0.55 });
+        itemsK.forEach(item => obs.observe(item));
+      }
+    })();
   </script>
 
 </body>
