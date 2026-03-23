@@ -741,54 +741,9 @@
     }
 
     /* ══════════════════════════════════════════════════
-       SIDE EMBEDS — preview windows
-    ══════════════════════════════════════════════════ */
-    .side-embed-wrap {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-      opacity: 0.18;
-      transition: opacity 1s var(--ease-brutal), transform 1.5s var(--ease-brutal);
-      filter: grayscale(0.4) brightness(0.75);
-    }
-    .side-mono .side-embed-wrap {
-      filter: grayscale(1) brightness(1.02) contrast(0.95);
-      opacity: 0.1;
-    }
-    .side:hover .side-embed-wrap {
-      opacity: 0.55;
-      transform: scale(1.03);
-    }
-    .side-embed-iframe {
-      width: 200%;
-      height: 200%;
-      border: none;
-      transform: scale(0.5);
-      transform-origin: top left;
-      pointer-events: none;
-    }
-    .side-embed-mask {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, transparent 30%, var(--black) 95%);
-      z-index: 1;
-    }
-    .side-mono .side-embed-mask {
-      background: radial-gradient(circle at center, transparent 30%, #FFFFFF 95%);
-    }
-
-    /* ══════════════════════════════════════════════════
        MOBILE — stacked vertical
     ══════════════════════════════════════════════════ */
     @media (max-width: 768px) {
-      .side-embed-wrap {
-        display: none;
-      }
-
       html {
         cursor: auto;
       }
@@ -825,26 +780,13 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-delay: 0ms !important;
         transition-duration: 0.01ms !important;
       }
-
-      .char {
-        opacity: 1 !important;
-        transform: none !important;
-      }
-
-      .corner-label,
-      .brand-label,
-      .edition-box,
-      .desc,
-      .cta-wrap {
-        opacity: 1 !important;
-      }
+      .char { opacity: 1 !important; transform: none !important; }
+      .corner-label, .brand-label, .edition-box, .desc, .cta-wrap { opacity: 1 !important; }
     }
   </style>
 </head>
@@ -880,12 +822,6 @@
 
     <!-- ── LEFT: KINETIC (English) ────────────────── -->
     <section class="side side-kinetic" id="side-kinetic" aria-label="English — Kinetic Edition" onclick="handleNav(event,'en')">
-
-      <!-- Embed Layer — Live Preview -->
-      <div class="side-embed-wrap">
-        <iframe src="enindex.html" class="side-embed-iframe" scrolling="no"></iframe>
-        <div class="side-embed-mask"></div>
-      </div>
 
       <!-- Top label -->
       <div class="corner-label corner-label-kinetic" id="lbl-en">
@@ -923,12 +859,6 @@
 
     <!-- ── RIGHT: MONOCHROME (Bulgarian) ──────────── -->
     <section class="side side-mono" id="side-mono" lang="bg" aria-label="Български — Monochrome Edition" onclick="handleNav(event,'bg')">
-
-      <!-- Embed Layer — Live Preview -->
-      <div class="side-embed-wrap">
-        <iframe src="bgindex.html" class="side-embed-iframe" scrolling="no"></iframe>
-        <div class="side-embed-mask"></div>
-      </div>
 
       <!-- Top label -->
       <div class="corner-label corner-label-mono" id="lbl-bg">
