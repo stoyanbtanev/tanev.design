@@ -70,6 +70,19 @@
       font-family: 'Space Grotesk', system-ui, sans-serif;
     }
 
+    /* SEO utility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
     /* Primary desktop state: full-screen split */
     @media (min-width: 769px) {
       body { overflow: hidden; }
@@ -752,47 +765,37 @@
       }
 
       .stage {
-        flex-direction: column;
-        height: auto;
-        min-height: 100vh;
-        overflow-y: visible; /* Use body scroll on mobile */
-        overflow-x: hidden;
+        flex-direction: row; /* Force side-by-side */
+        height: 100vh;
+        height: 100svh;
+        overflow: hidden;
       }
 
       .side {
-        flex: none;
-        width: 100%;
-        min-height: 100vh; /* Ensure each side takes full screen on mobile */
-        min-height: 100svh;
-        padding: 3rem 1.8rem;
-        text-align: left !important;
-        align-items: flex-start !important;
+        flex: 1;
+        width: 50%;
+        height: 100%;
+        padding: 1.5rem 1rem;
         cursor: pointer;
       }
 
-      .side-mono {
-        text-align: left !important;
-        align-items: flex-start !important;
-      }
-
-      .desc-mono {
-        text-align: left;
-      }
-
-      .side-mono .cta-wrap {
-        justify-content: flex-start;
-      }
-
       .divider {
-        flex: none;
-        width: 100%;
-        height: 3px;
-        flex-direction: row;
+        width: 2px;
+        height: 100%;
+        flex-direction: column;
       }
 
       .headline {
-        font-size: clamp(3.2rem, 25vw, 6.5rem);
-        line-height: .9;
+        font-size: clamp(1.8rem, 10vw, 4rem); /* Responsive headline for narrow split */
+        line-height: .95;
+      }
+
+      .desc, .cta-wrap, .brand-label, .edition-box {
+        display: none; /* Hide secondary details on tiny mobile split to save space */
+      }
+      
+      @media (min-height: 600px) {
+        .desc { display: block; font-size: 0.75rem; }
       }
 
       .corner-mark {
