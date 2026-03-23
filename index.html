@@ -283,49 +283,7 @@
     /* ══════════════════════════════════════════════════
        TRANSITION OVERLAYS
     ══════════════════════════════════════════════════ */
-    .t-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--black);
-      transform: scaleY(0);
-      transform-origin: bottom center;
-      transition: transform 0.65s cubic-bezier(0.76, 0, 0.24, 1);
-      pointer-events: none;
-    }
 
-    #t-bg {
-      background: #FFFFFF;
-    }
-
-    .t-overlay.active {
-      transform: scaleY(1);
-      pointer-events: auto;
-    }
-
-    .t-overlay-label {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(1.5rem, 4vw, 3rem);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      opacity: 0;
-      transition: opacity 0.3s ease 0.3s;
-    }
-
-    .t-overlay.active .t-overlay-label {
-      opacity: 1;
-    }
-
-    #t-bg .t-overlay-label {
-      color: #000;
-      font-family: 'Playfair Display', serif;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-    }
 
     /* ══════════════════════════════════════════════════
        MAIN LAYOUT — SPLIT SCREEN
@@ -905,8 +863,7 @@
   <span class="corner-mark cm-br" aria-hidden="true">Stoyan Tanev</span>
 
   <!-- ── Transition Overlays ────────────────────── -->
-  <div id="t-en" class="t-overlay"><span class="t-overlay-label">tanev.design — kinetic</span></div>
-  <div id="t-bg" class="t-overlay"><span class="t-overlay-label">tanev.design — monochrome</span></div>
+
 
   <!-- ══════════════════════════════════════════════
        MAIN STAGE
@@ -1049,23 +1006,49 @@
       if (navigating) return;
       navigating = true;
 
+      const stage = document.getElementById('stage');
       const side = e.currentTarget;
-      const overlay = document.getElementById(lang === 'en' ? 't-en' : 't-bg');
       
-      // Cinematic Zoom
-      gsap.to(side, {
-        scale: 1.35,
-        opacity: 0,
-        duration: 1.1,
-        ease: 'power3.inOut'
+      // Stop idle animations
+      if (typeof jitterRAF !== 'undefined') cancelAnimationFrame(jitterRAF);
+      
+      const tl = gsap.timeline({
+        onComplete: () => {
+          window.location.href = lang === 'en' ? 'enindex.html' : 'bgindex.html';
+        }
       });
-      
-      // Overlay trigger
-      overlay.classList.add('active');
-      
-      setTimeout(() => {
-        window.location.href = lang === 'en' ? 'enindex.html' : 'bgindex.html';
-      }, 750);
+
+      // Cinematic Zoom
+      // We scale the whole stage from the point where the user clicked OR the center of the side
+      const rect = side.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      // Ensure cursor doesn't interfere with the transition look
+      document.getElementById('cursor').style.opacity = '0';
+
+      tl.to(stage, {
+        scale: 4,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.in',
+        transformOrigin: `${centerX}px ${centerY}px`
+      });
+
+      // Clear the other side faster to focus on the zoom
+      const otherSide = document.getElementById(lang === 'en' ? 'side-mono' : 'side-kinetic');
+      tl.to([otherSide, '.divider', '.corner-mark', '.corner-label'], {
+        opacity: 0,
+        duration: 0.4,
+        ease: 'power2.out'
+      }, '<');
+
+      // Add a slight blur to create speed feel
+      tl.to(side, {
+        filter: 'blur(10px)',
+        duration: 1.2,
+        ease: 'power3.in'
+      }, '<');
     }
     window.handleNav = handleNav;
 
