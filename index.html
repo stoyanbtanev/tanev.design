@@ -678,23 +678,6 @@
       transition: text-shadow 0.1s;
     }
 
-    /* Kinetic side hover glow */
-    .side-kinetic::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 50% 60% at var(--mx, 50%) var(--my, 50%),
-          rgba(255, 215, 0, 0.04) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .side-kinetic:hover::before {
-      opacity: 1;
-    }
-
     /* Ensure content is above pseudo */
     .side>* {
       position: relative;
@@ -1062,7 +1045,6 @@
   <div id="grain" aria-hidden="true"></div>
   <div id="scanlines" aria-hidden="true"></div>
   <div id="glitch-overlay" aria-hidden="true"></div>
-  <div id="kinetic-glow" aria-hidden="true"></div>
 
   <!-- ── Custom Cursor ──────────────────────────── -->
   <div id="cursor" aria-hidden="true"></div>
@@ -1359,7 +1341,6 @@
     const cursor = document.getElementById('cursor');
     const trail1 = document.getElementById('trail1');
     const trail2 = document.getElementById('trail2');
-    const glow = document.getElementById('kinetic-glow');
     const kSide = document.getElementById('side-kinetic');
 
     let mx = window.innerWidth / 2;
@@ -1371,19 +1352,6 @@
       mx = e.clientX; my = e.clientY;
       cursor.style.left = mx + 'px';
       cursor.style.top = my + 'px';
-
-      // Kinetic glow follows cursor on left side
-      const kRect = kSide.getBoundingClientRect();
-      if (mx >= kRect.left && mx <= kRect.right) {
-        glow.classList.add('visible');
-        glow.style.left = mx + 'px';
-        glow.style.top = my + 'px';
-        // Set CSS var for pseudo-element radial
-        kSide.style.setProperty('--mx', ((mx - kRect.left) / kRect.width * 100) + '%');
-        kSide.style.setProperty('--my', ((my - kRect.top) / kRect.height * 100) + '%');
-      } else {
-        glow.classList.remove('visible');
-      }
     });
 
     // Trail lerp loop

@@ -65,6 +65,38 @@
   </script>
 
   <style>
+    /* ── Custom Cursor ──────────────────────────── */
+    html { cursor: none; }
+    #cursor {
+      position: fixed;
+      width: 12px; height: 12px;
+      background: #DFE104; /* KT Accent */
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: width .15s cubic-bezier(0.16, 1, 0.3, 1), height .15s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left, top;
+    }
+    .cursor-trail {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      will-change: left, top;
+    }
+    #trail1 { width: 32px; height: 32px; background: radial-gradient(circle, rgba(223, 225, 4, 0.15) 0%, transparent 70%); }
+    #trail2 { width: 60px; height: 60px; background: radial-gradient(circle, rgba(223, 225, 4, 0.05) 0%, transparent 70%); }
+
+    /* Cursor states */
+    #cursor.active { width: 24px; height: 24px; opacity: 0.8; }
+
+    @media (max-width: 768px) {
+      html { cursor: auto; }
+      #cursor, .cursor-trail { display: none !important; }
+    }
+
     *,
     *::before,
     *::after {
@@ -1173,6 +1205,10 @@
 </head>
 
 <body class="min-h-screen transition-colors duration-300">
+  <!-- ── Custom Cursor ── -->
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="trail1" class="cursor-trail" aria-hidden="true"></div>
+  <div id="trail2" class="cursor-trail" aria-hidden="true"></div>
 
 
 
@@ -3622,6 +3658,41 @@
       section.querySelectorAll('.device-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     }
+
+    /* Custom Cursor Logic */
+    (function initCursor() {
+      const cursor = document.getElementById('cursor');
+      const t1 = document.getElementById('trail1');
+      const t2 = document.getElementById('trail2');
+      let mx = -100, my = -100;
+      let t1x = -100, t1y = -100;
+      let t2x = -100, t2y = -100;
+
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        cursor.style.left = mx + 'px';
+        cursor.style.top = my + 'px';
+      });
+
+      function loop() {
+        t1x += (mx - t1x) * 0.15; t1y += (my - t1y) * 0.15;
+        t2x += (mx - t2x) * 0.08; t2y += (my - t2y) * 0.08;
+        t1.style.left = t1x + 'px'; t1.style.top = t1y + 'px';
+        t2.style.left = t2x + 'px'; t2.style.top = t2y + 'px';
+        requestAnimationFrame(loop);
+      }
+      loop();
+
+      document.addEventListener('mousedown', () => cursor.classList.add('active'));
+      document.addEventListener('mouseup', () => cursor.classList.remove('active'));
+
+      // Link hover
+      const links = document.querySelectorAll('a, button, [role="button"], input, textarea');
+      links.forEach(l => {
+        l.addEventListener('mouseenter', () => cursor.classList.add('active'));
+        l.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+      });
+    })();
 
     applyLanguage();
   </script>

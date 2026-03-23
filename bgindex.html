@@ -44,6 +44,38 @@
       --border-light: #E5E5E5;
     }
 
+    /* ── Custom Cursor ──────────────────────────── */
+    html { cursor: none; }
+    #cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: #FFFFFF;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: width .2s cubic-bezier(0.16, 1, 0.3, 1), height .2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left, top;
+    }
+    .cursor-trail {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      will-change: left, top;
+    }
+    #trail1 { width: 30px; height: 30px; background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%); mix-blend-mode: difference; }
+    #trail2 { width: 55px; height: 55px; background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%); mix-blend-mode: difference; }
+
+    /* Cursor states */
+    #cursor.active { width: 22px; height: 22px; }
+
+    @media (max-width: 768px) {
+      html { cursor: auto; }
+      #cursor, .cursor-trail { display: none !important; }
+    }
+
     *,
     *::before,
     *::after {
@@ -772,19 +804,46 @@
       font-style: normal;
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    /* ── Custom Cursor ──────────────────────────── */
+    html, body { cursor: none !important; }
+    #cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: #FFFFFF;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: width .2s cubic-bezier(0.16, 1, 0.3, 1), height .2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left, top;
+    }
+    .cursor-trail {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      will-change: left, top;
+    }
+    #trail1 { width: 30px; height: 30px; background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%); }
+    #trail2 { width: 55px; height: 55px; background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%); }
 
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
+    /* Cursor states */
+    #cursor.active { width: 22px; height: 22px; }
+
+    @media (max-width: 768px) {
+      html, body { cursor: auto !important; }
+      #cursor, .cursor-trail { display: none !important; }
     }
   </style>
 </head>
 
 <body>
+  <!-- ── Custom Cursor ── -->
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="trail1" class="cursor-trail" aria-hidden="true"></div>
+  <div id="trail2" class="cursor-trail" aria-hidden="true"></div>
   <div id="scroll-progress"></div>
 
   <!-- ══════════════════════════════════════════
@@ -2539,6 +2598,41 @@
     document.getElementById('urlInput').addEventListener('keydown', e => {
       if (e.key === 'Enter') { e.preventDefault(); runAudit(); }
     });
+
+    /* Custom Cursor Logic */
+    (function initCursor() {
+      const cursor = document.getElementById('cursor');
+      const t1     = document.getElementById('trail1');
+      const t2     = document.getElementById('trail2');
+      let mx = -100, my = -100;
+      let t1x = -100, t1y = -100;
+      let t2x = -100, t2y = -100;
+
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        cursor.style.left = mx + 'px';
+        cursor.style.top = my + 'px';
+      });
+
+      function loop() {
+        t1x += (mx - t1x) * 0.14; t1y += (my - t1y) * 0.14;
+        t2x += (mx - t2x) * 0.07; t2y += (my - t2y) * 0.07;
+        t1.style.left = t1x + 'px'; t1.style.top = t1y + 'px';
+        t2.style.left = t2x + 'px'; t2.style.top = t2y + 'px';
+        requestAnimationFrame(loop);
+      }
+      loop();
+
+      document.addEventListener('mousedown', () => cursor.classList.add('active'));
+      document.addEventListener('mouseup', () => cursor.classList.remove('active'));
+
+      // Link hover
+      const links = document.querySelectorAll('a, button, [role="button"], input, textarea');
+      links.forEach(l => {
+        l.addEventListener('mouseenter', () => cursor.classList.add('active'));
+        l.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+      });
+    })();
   </script>
 
   <script type="application/ld+json">
