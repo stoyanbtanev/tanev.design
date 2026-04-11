@@ -2,13 +2,10 @@ import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import { gsap, ScrollTrigger } from './useGSAP';
 
-// Detect Brave browser
-function isBraveBrowser(): boolean {
-  return (navigator as any).brave !== undefined;
-}
-
 function isMobileDevice(): boolean {
-  return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const mobileUA = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isIPadOS = navigator.maxTouchPoints > 1 && /Macintosh/i.test(navigator.userAgent);
+  return mobileUA || isIPadOS;
 }
 
 let lenisInstance: Lenis | null = null;
@@ -17,11 +14,13 @@ export function useLenis() {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Fix for Brave mobile: disable smooth scroll to avoid compositing issues
-    const useFallback = isBraveBrowser() && isMobileDevice();
-
-    if (useFallback) {
+    // Disable Lenis on ALL mobile/touch devices.
+    // Mobile Chromium (Chrome, Samsung Internet, Edge) uses compositor-thread
+    // touch scrolling. Lenis intercepts touch events and forces main-thread scroll,
+    // causing jank and broken scroll. Native scroll is superior on mobile.
+    if (isMobileDevice()) {
       document.documentElement.style.scrollBehavior = 'smooth';
+      window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
       return;
     }
 

@@ -13,6 +13,9 @@ const NavLogo = () => (
 
 // ─── PRELOADER ───
 function Preloader({ onComplete }: { onComplete: () => void }) {
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+    (navigator.maxTouchPoints > 1 && /Macintosh/i.test(navigator.userAgent));
+
   const containerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
@@ -23,7 +26,7 @@ function Preloader({ onComplete }: { onComplete: () => void }) {
 
   useEffect(() => {
     // Minimum display time for smooth animation
-    const timer = setTimeout(() => { minTimeElapsed.current = true; tryAnimate(); }, 2500);
+    const timer = setTimeout(() => { minTimeElapsed.current = true; tryAnimate(); }, isMobile ? 1200 : 2500);
     
     // Track image loading
     const images = document.querySelectorAll('.preloader__cell img');
@@ -61,27 +64,38 @@ function Preloader({ onComplete }: { onComplete: () => void }) {
       if (!el || !cells || !logo) return;
 
       const tl = gsap.timeline();
-      
-      // Scatter cells outward
-      const scatterDirections = [
-        { x: -60, y: -40 }, { x: -20, y: -50 }, { x: 20, y: -50 }, { x: 60, y: -40 },
-        { x: -60, y: 40 },  { x: 60, y: 40 },   { x: -40, y: 50 }, { x: 40, y: 50 }
-      ];
-      
-      cells.forEach((cell, i) => {
-        const dir = scatterDirections[i] || { x: 0, y: -30 };
-        tl.to(cell, {
-          x: dir.x, y: dir.y, opacity: 0, scale: 0.92,
-          duration: 0.7, ease: 'power3.in'
-        }, i === 0 ? 0 : '<0.04');
-      });
 
-      tl.to(logo, { scale: 1.15, opacity: 0, duration: 0.6, ease: 'power2.in' }, '<0.1');
-      tl.to('.preloader__domain', { opacity: 0, y: 10, duration: 0.3, ease: 'power2.in' }, '<');
-      tl.to(el, {
-        opacity: 0, duration: 0.4, ease: 'none',
-        onComplete: () => { setShow(false); onComplete(); }
-      }, '-=0.4');
+      if (isMobile) {
+        // Lightweight exit: no scatter transforms, GPU-friendly opacity only
+        tl.to(logo, { opacity: 0, duration: 0.3, ease: 'power2.in' }, 0);
+        tl.to('.preloader__domain', { opacity: 0, duration: 0.2 }, 0);
+        tl.to(cells, { opacity: 0, duration: 0.35, stagger: 0.03, ease: 'power2.in' }, 0.05);
+        tl.to(el, {
+          opacity: 0, duration: 0.3, ease: 'none',
+          onComplete: () => { setShow(false); onComplete(); }
+        }, '-=0.15');
+      } else {
+        // Desktop: original scatter animation
+        const scatterDirections = [
+          { x: -60, y: -40 }, { x: -20, y: -50 }, { x: 20, y: -50 }, { x: 60, y: -40 },
+          { x: -60, y: 40 },  { x: 60, y: 40 },   { x: -40, y: 50 }, { x: 40, y: 50 }
+        ];
+
+        cells.forEach((cell, i) => {
+          const dir = scatterDirections[i] || { x: 0, y: -30 };
+          tl.to(cell, {
+            x: dir.x, y: dir.y, opacity: 0, scale: 0.92,
+            duration: 0.7, ease: 'power3.in'
+          }, i === 0 ? 0 : '<0.04');
+        });
+
+        tl.to(logo, { scale: 1.15, opacity: 0, duration: 0.6, ease: 'power2.in' }, '<0.1');
+        tl.to('.preloader__domain', { opacity: 0, y: 10, duration: 0.3, ease: 'power2.in' }, '<');
+        tl.to(el, {
+          opacity: 0, duration: 0.4, ease: 'none',
+          onComplete: () => { setShow(false); onComplete(); }
+        }, '-=0.4');
+      }
     }
 
     // Safety net
@@ -89,7 +103,7 @@ function Preloader({ onComplete }: { onComplete: () => void }) {
       if (containerRef.current) {
         gsap.to(containerRef.current, { opacity: 0, duration: 0.4, onComplete: () => { setShow(false); onComplete(); } });
       }
-    }, 6000);
+    }, isMobile ? 3000 : 6000);
 
     return () => { clearTimeout(timer); clearTimeout(safety); };
   }, [onComplete]);
@@ -100,21 +114,34 @@ function Preloader({ onComplete }: { onComplete: () => void }) {
     const logo = logoRef.current;
     if (!cells || !logo) return;
 
-    gsap.set(cells, { clipPath: 'inset(100% 0 0 0)' });
-    gsap.set('.preloader__cell img', { scale: 1.3 });
-    gsap.set('.preloader__domain', { opacity: 0 });
+    if (isMobile) {
+      // Simple fade-up entrance on mobile — no clip-path (GPU-intensive)
+      gsap.set(cells, { opacity: 0, y: 20 });
+      gsap.set('.preloader__domain', { opacity: 0 });
 
-    const tl = gsap.timeline();
-    tl.to(progressRef.current, { width: '100%', duration: 2.4, ease: 'power2.inOut' }, 0);
-    tl.to(logo, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.1);
-    tl.to('.preloader__domain', { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.2);
+      const tl = gsap.timeline();
+      tl.to(progressRef.current, { width: '100%', duration: 1.1, ease: 'power2.inOut' }, 0);
+      tl.to(logo, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.1);
+      tl.to('.preloader__domain', { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.15);
+      tl.to(cells, { opacity: 1, y: 0, stagger: 0.05, duration: 0.5, ease: 'power2.out' }, 0.1);
+    } else {
+      // Desktop: original clip-path entrance
+      gsap.set(cells, { clipPath: 'inset(100% 0 0 0)' });
+      gsap.set('.preloader__cell img', { scale: 1.3 });
+      gsap.set('.preloader__domain', { opacity: 0 });
 
-    cells.forEach((cell, i) => {
-      const img = cell.querySelector('img');
-      const startTime = 0.15 + i * 0.18;
-      tl.to(cell, { clipPath: 'inset(0% 0 0 0)', duration: 0.6, ease: 'power3.inOut' }, startTime);
-      if (img) tl.to(img, { scale: 1, duration: 1.2, ease: 'power2.out' }, startTime);
-    });
+      const tl = gsap.timeline();
+      tl.to(progressRef.current, { width: '100%', duration: 2.4, ease: 'power2.inOut' }, 0);
+      tl.to(logo, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.1);
+      tl.to('.preloader__domain', { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.2);
+
+      cells.forEach((cell, i) => {
+        const img = cell.querySelector('img');
+        const startTime = 0.15 + i * 0.18;
+        tl.to(cell, { clipPath: 'inset(0% 0 0 0)', duration: 0.6, ease: 'power3.inOut' }, startTime);
+        if (img) tl.to(img, { scale: 1, duration: 1.2, ease: 'power2.out' }, startTime);
+      });
+    }
   }, []);
 
   if (!show) return null;
@@ -954,18 +981,44 @@ export default function Index() {
   const [preloaderDone, setPreloaderDone] = useState(false);
   const lenisRef = useLenis();
 
+  const heroEntranceTriggeredRef = useRef(false);
+  const triggerHeroEntrance = useCallback(() => {
+    if (heroEntranceTriggeredRef.current) return;
+    heroEntranceTriggeredRef.current = true;
+
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+      (navigator.maxTouchPoints > 1 && /Macintosh/i.test(navigator.userAgent));
+
+    const tl = gsap.timeline();
+    tl.to('.nav', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 0);
+    tl.to('.hero__headline .char', {
+      y: 0, opacity: 1,
+      duration: isMobile ? 0.7 : 1,
+      stagger: isMobile ? 0.025 : 0.04,
+      ease: 'expo.out'
+    }, isMobile ? 0.1 : 0.2);
+    tl.to('.hero__sub', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, isMobile ? 0.3 : 0.6);
+    tl.to('.hero__cta', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, isMobile ? 0.4 : 0.75);
+    tl.to('.hero__bottom', { opacity: 1, duration: 0.5, ease: 'power3.out' }, isMobile ? 0.45 : 0.8);
+  }, []);
+
   const onPreloaderComplete = useCallback(() => {
+    triggerHeroEntrance();
     setPreloaderDone(true);
+  }, [triggerHeroEntrance]);
+
+  // Pre-hide hero elements so there's no flash behind the preloader
+  useEffect(() => {
+    gsap.set('.hero__headline .char', { y: 120, opacity: 0 });
+    gsap.set('.hero__sub', { opacity: 0, y: 20 });
+    gsap.set('.hero__cta', { opacity: 0, y: 15 });
+    gsap.set('.hero__bottom', { opacity: 0 });
+    gsap.set('.nav', { opacity: 0, y: -10 });
   }, []);
 
   // GSAP scroll animations - after preloader
   useGSAP((gsap, ScrollTrigger) => {
     if (!preloaderDone) return;
-
-    // Hero chars entrance
-    gsap.from('.hero__headline span.char', {
-      y: 120, opacity: 0, duration: 1, stagger: 0.04, ease: 'expo.out'
-    });
 
     // Mission lines
     gsap.utils.toArray('.mission__line-wrap').forEach((wrap: any, i: number) => {
