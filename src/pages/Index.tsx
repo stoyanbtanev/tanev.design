@@ -327,7 +327,7 @@ function Hero() {
         <p className="hero__sub">
           <T en="ONE PERSON. EVERY DETAIL CONSIDERED." bg="ЕДИН ЧОВЕК. ВСЕКИ ДЕТАЙЛ — ОБМИСЛЕН." />
         </p>
-        <a href="#contact" className="hero__cta"><T en="LET'S TALK ↗" bg="Да поговорим ↗" /></a>
+        <a href="#contact" className="hero__cta"><T en="LET'S TALK ↗" bg="ПИШИ МИ ↗" /></a>
       </div>
       <div className="hero__bottom">
         <span className="label"><T en="PLOVDIV, BULGARIA" bg="ПЛОВДИВ, БЪЛГАРИЯ" /></span>
@@ -399,7 +399,7 @@ function Services() {
     { num: '01', titleEn: 'STATIC SITES — FAST BY DEFAULT', titleBg: 'СТАТИЧНИ САЙТОВЕ — БЪРЗИ ПО ПОДРАЗБИРАНЕ', descEn: 'Loads in under a second. Converts before they think twice. No page builders. No shortcuts.', descBg: 'Зарежда се за секунда. Конвертира, преди да се замислят. Без конструктори. Без кръпки.' },
     { num: '02', titleEn: '3D & MOTION — BUILT TO REMEMBER', titleBg: '3D И ДВИЖЕНИЕ — НАПРАВЕНИ ДА ЗАПОМНИШ', descEn: "The kind of site people send their friends at 2 AM. WebGL & GSAP — not templates.", descBg: 'Сайтът, който хората пращат на приятелите си в 2 сутринта. WebGL и GSAP — без шаблони.' },
     { num: '03', titleEn: 'BRAND IDENTITY — YOUR VISUAL DNA', titleBg: 'БРАНДИНГ — ТВОЯТА ВИЗУАЛНА ДНК', descEn: "Your brand shouldn't look like your competitor's. Logo, type, color — crafted to be instantly yours.", descBg: 'Брандът ти не трябва да прилича на конкурента. Лого, шрифт, цвят — създадени да бъдат разпознаваемо твои.' },
-    { num: '04', titleEn: 'VIDEO — TWO SECONDS TO HOOK', titleBg: 'ВИДЕО — ДВЕ СЕКУНДИ ДА ГРАБНЕ', descEn: 'Edited to capture attention instantly. Short-form, long-form, product — whatever the format, it delivers.', descBg: 'Монтирано да грабне вниманието от първия кадър. Кратко, дълго, продуктово — форматът е подчинен на резултата.' },
+    { num: '04', titleEn: 'VIDEO — STOPS THE SCROLL', titleBg: 'ВИДЕО — СПИРА СКРОЛА', descEn: 'Edited to capture attention instantly. Short-form, long-form, product — whatever the format, it delivers.', descBg: 'Монтирано да грабне вниманието от първия кадър. Кратко, дълго, продуктово — форматът е подчинен на резултата.' },
     { num: '05', titleEn: 'SEO — VISIBILITY THAT COMPOUNDS', titleBg: 'SEO — ВИДИМОСТ, КОЯТО РАСТЕ', descEn: 'When your clients search, they find you — not the competition. On-page SEO built into every project.', descBg: 'Когато клиентите ти търсят — намират теб, не конкуренцията. SEO, вградено във всеки проект.' },
     { num: '06', titleEn: 'FULL REDESIGN — CLEAN SLATE', titleBg: 'ПЪЛЕН РЕДИЗАЙН — ОТ НУЛАТА', descEn: "If you're embarrassed to share your own site — it's time. Total rebuild. No compromises with the old version.", descBg: 'Ако се притесняваш да покажеш сайта си — дойде моментът. Пълна подмяна. Без компромиси със старото.' },
   ];
@@ -636,7 +636,7 @@ function StylesUniverse() {
         <div className="style-card card-cyberpunk">
           <div className="cy-topline"></div><div className="cy-corner"></div><div className="cy-corner2"></div>
           <div className="cy-headline"><T en="NEURAL INTERFACE" bg="НЕВРОНЕН ИНТЕРФЕЙС" /><span className="blink">_</span></div>
-          <div className="cy-sub"><T en="High-tech, low-life. Neon grids and rogue AI terminals." bg="Високи технологии, неонови мрежи и изкуствен интелект." /></div>
+          <div className="cy-sub"><T en="High-tech, low-life. Neon grids and rogue AI terminals." bg="Висока технология, нисък живот. Неонови мрежи и AI в бунт." /></div>
           <span className="style-badge">Cyberpunk</span>
         </div>
         {/* 3. Art Deco */}
@@ -666,7 +666,7 @@ function StylesUniverse() {
           <div className="brut-header"><div className="brut-title">BRUTALISM.EXE</div></div>
           <div className="brut-body">
             <div className="brut-headline"><T en="NO APOLOGIES FOR ART" bg="ИЗКУСТВО БЕЗ ИЗВИНЕНИЯ" /></div>
-            <div className="brut-text"><T en="Function screams loudest. Unpolished, unapologetic, unforgettable." bg="Функцията крещи най-силно. Нешлифовано, незабравимо, смело." /></div>
+            <div className="brut-text"><T en="Function screams loudest. Unpolished, unapologetic, unforgettable." bg="Функцията крещи най-силно. Нешлифовано, без извинения, незабравимо." /></div>
           </div>
           <span className="style-badge">Brutalist</span>
         </div>
@@ -685,7 +685,7 @@ function StylesUniverse() {
           <span className="style-badge" style={{ background: 'rgba(185,103,255,0.7)' }}>Vaporwave</span>
         </div>
         <div className="style-card card-darkacademia">
-          <div className="da-headline"><T en="Of Books & Candlelight" bg="Сенки от библиотеки" /></div>
+          <div className="da-headline"><T en="Of Books & Candlelight" bg="Книги и свещи" /></div>
           <div className="da-body"><T en="Ivy league shadows, hidden libraries, and unspoken secrets." bg="Сенки от стари библиотеки, книги и неразказани тайни." /></div>
           <span className="style-badge">Dark Academia</span>
         </div>
@@ -722,7 +722,7 @@ function StylesUniverse() {
         <div className="style-card card-swiss">
           <div className="sw-headline"><T en="ORDER IN TYPE" bg="РЕД В ШРИФТА" /></div>
           <div className="sw-rule"></div>
-          <div style={{ position: 'relative', zIndex: 1, fontFamily: "'General Sans'", fontSize: '0.8rem', color: '#555' }}><T en="Grid-first thinking. Helvetica discipline. Swiss precision." bg="Решетката на първо място. Швейцарска прецизност." /></div>
+          <div style={{ position: 'relative', zIndex: 1, fontFamily: "'General Sans'", fontSize: '0.8rem', color: '#555' }}><T en="Grid-first thinking. Helvetica discipline. Swiss precision." bg="Решетката на първо място. Хелветика. Швейцарска прецизност." /></div>
           <span className="style-badge">Swiss International</span>
         </div>
         <div className="style-card card-nouveau">
@@ -737,7 +737,7 @@ function StylesUniverse() {
         </div>
         <div className="style-card card-popart">
           <div className="pop-headline"><T en="BOLD & LOUD" bg="СМЕЛО & СИЛНО" /></div>
-          <div style={{ position: 'relative', zIndex: 1, fontFamily: "'General Sans'", fontSize: '0.8rem', color: '#fff', fontWeight: 600 }}><T en="Halftone dots, saturated color, and unapologetic impact." bg="Полутонове, наситени цветове и смел ефект." /></div>
+          <div style={{ position: 'relative', zIndex: 1, fontFamily: "'General Sans'", fontSize: '0.8rem', color: '#fff', fontWeight: 600 }}><T en="Halftone dots, saturated color, and unapologetic impact." bg="Полутонове, наситени цветове и удар в очите." /></div>
           <span className="style-badge">Pop Art</span>
         </div>
         <div className="style-card card-luxury">
@@ -747,7 +747,7 @@ function StylesUniverse() {
         </div>
         <div className="style-card card-nordic">
           <div className="nrd-headline"><T en="Quiet Confidence" bg="Тиха увереност" /></div>
-          <div style={{ position: 'relative', zIndex: 1, fontFamily: "'General Sans'", fontSize: '0.8rem', color: '#6b7b8d' }}><T en="Scandinavian clarity. Warm neutrals, open space, calm logic." bg="Скандинавска яснота. Топли неутрални, отворено пространство." /></div>
+          <div style={{ position: 'relative', zIndex: 1, fontFamily: "'General Sans'", fontSize: '0.8rem', color: '#6b7b8d' }}><T en="Scandinavian clarity. Warm neutrals, open space, calm logic." bg="Скандинавска яснота. Топли неутрали, отворено пространство, спокойна логика." /></div>
           <span className="style-badge">Nordic Clean</span>
         </div>
         <div className="style-card card-scifi">
@@ -775,9 +775,9 @@ function FAQ() {
   const items = [
     { qEn: 'HOW DOES THE PROCESS WORK?', qBg: 'КАК ПРОТИЧА ПРОЦЕСЪТ?', aEn: 'You fill out the form below and within 24 hours you get a reply with a rough plan. No discovery calls that waste your morning.', aBg: 'Попълваш формата, до 24 часа получаваш отговор с груб план. Без излишни разговори, които губят времето ти.' },
     { qEn: 'WHO WORKS ON MY PROJECT?', qBg: 'КОЙ РАБОТИ ПО ПРОЕКТА МИ?', aEn: 'Me. One person from brief to launch. Nothing gets lost in translation. The vision stays intact.', aBg: 'Аз. Един човек от брифа до финала. Нищо не се губи по пътя. Визията остава цяла.' },
-    { qEn: 'HOW FAST CAN YOU DELIVER?', qBg: 'КОЛКО БЪРЗО МОЖЕ ДА Е ГОТОВО?', aEn: "Fast. Scope defines timeline, but I don't sit on projects. You'll know the exact timeline after the brief.", aBg: 'Бързо. Обхватът определя срока, но не бавя проектите. Ще знаеш точния срок след брифа.' },
+    { qEn: 'HOW FAST CAN YOU DELIVER?', qBg: 'КОЛКО БЪРЗО МОЖЕ ДА Е ГОТОВО?', aEn: "Fast. Scope defines timeline, but I don't sit on projects. You'll know the exact timeline after the brief.", aBg: 'Бързо. Обхватът определя срока, но аз не чакам. Точния срок ще знаеш след брифа.' },
     { qEn: 'WHAT DO I OWN AFTER THE PROJECT?', qBg: 'КАКВО ПРИТЕЖАВАМ СЛЕД ПРОЕКТА?', aEn: "Everything. Source files, code, assets. No subscriptions, no hostage-taking. Once delivered, it's 100% yours.", aBg: 'Всичко. Файловете, кодът, материалите. Без абонаменти, без задържане. След предаването е 100% твое.' },
-    { qEn: 'DO YOU WORK WITH INTERNATIONAL CLIENTS?', qBg: 'РАБОТИШ ЛИ С МЕЖДУНАРОДНИ КЛИЕНТИ?', aEn: 'Yes. About half my work is international. English, async communication, European payment methods — all standard.', aBg: 'Да. Около половината ми работа е с международни клиенти. Английски, асинхронна комуникация, европейски методи за плащане.' },
+    { qEn: 'DO YOU WORK WITH INTERNATIONAL CLIENTS?', qBg: 'РАБОТИШ ЛИ С МЕЖДУНАРОДНИ КЛИЕНТИ?', aEn: 'Yes. About half my work is international. English, async communication, European payment methods — all standard.', aBg: 'Да. Около половината ми работа е с международни клиенти. Английски, асинхронна комуникация, европейски методи за плащане — всичко по стандарт.' },
   ];
 
   return (
@@ -865,7 +865,7 @@ function ContactFooter() {
   return (
     <div className="cta-container" id="contact">
       <div className="cta-pin-layer">
-        <div className="cta-huge-text"><T en="YOUR MOVE." bg="ТВОЯТ ХОД." /></div>
+        <div className="cta-huge-text"><T en="ACT." bg="ДЕЙСТВАЙ." /></div>
       </div>
       <div className="footer-reveal">
         {/* Portfolio */}
