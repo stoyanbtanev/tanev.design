@@ -32,6 +32,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
   }, [lang]);
 
   return (

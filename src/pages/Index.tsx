@@ -15,6 +15,7 @@ const NavLogo = () => (
 function Preloader({ onComplete }: { onComplete: () => void }) {
   const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
     (navigator.maxTouchPoints > 1 && /Macintosh/i.test(navigator.userAgent));
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const containerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -26,7 +27,7 @@ function Preloader({ onComplete }: { onComplete: () => void }) {
 
   useEffect(() => {
     // Minimum display time for smooth animation
-    const timer = setTimeout(() => { minTimeElapsed.current = true; tryAnimate(); }, isMobile ? 1200 : 2500);
+    const timer = setTimeout(() => { minTimeElapsed.current = true; tryAnimate(); }, prefersReducedMotion ? 400 : isMobile ? 1200 : 2500);
     
     // Track image loading
     const images = document.querySelectorAll('.preloader__cell img');
@@ -69,7 +70,7 @@ function Preloader({ onComplete }: { onComplete: () => void }) {
         // Lightweight exit: no scatter transforms, GPU-friendly opacity only
         tl.to(logo, { opacity: 0, duration: 0.3, ease: 'power2.in' }, 0);
         tl.to('.preloader__domain', { opacity: 0, duration: 0.2 }, 0);
-        tl.to(cells, { opacity: 0, duration: 0.35, stagger: 0.03, ease: 'power2.in' }, 0.05);
+        tl.to(cells, { opacity: 0, duration: 0.3, stagger: 0.02, ease: 'power2.in', force3D: true }, 0.05);
         tl.to(el, {
           opacity: 0, duration: 0.3, ease: 'none',
           onComplete: () => { setShow(false); onComplete(); }
@@ -103,7 +104,7 @@ function Preloader({ onComplete }: { onComplete: () => void }) {
       if (containerRef.current) {
         gsap.to(containerRef.current, { opacity: 0, duration: 0.4, onComplete: () => { setShow(false); onComplete(); } });
       }
-    }, isMobile ? 3000 : 6000);
+    }, isMobile ? 5000 : 6000);
 
     return () => { clearTimeout(timer); clearTimeout(safety); };
   }, [onComplete]);
@@ -123,7 +124,7 @@ function Preloader({ onComplete }: { onComplete: () => void }) {
       tl.to(progressRef.current, { width: '100%', duration: 1.1, ease: 'power2.inOut' }, 0);
       tl.to(logo, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.1);
       tl.to('.preloader__domain', { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.15);
-      tl.to(cells, { opacity: 1, y: 0, stagger: 0.05, duration: 0.5, ease: 'power2.out' }, 0.1);
+      tl.to(cells, { opacity: 1, y: 0, stagger: 0.04, duration: 0.4, ease: 'power2.out', force3D: true }, 0.1);
     } else {
       // Desktop: original clip-path entrance
       gsap.set(cells, { clipPath: 'inset(100% 0 0 0)' });
@@ -151,7 +152,7 @@ function Preloader({ onComplete }: { onComplete: () => void }) {
       <div className="preloader__grid" ref={gridRef}>
         {[1,2,3,4,5,6,7,8].map(i => (
           <div key={i} className="preloader__cell">
-            <img src={`/${i}.png`} alt="" />
+            <img src={`/${i}.webp`} alt="" loading="eager" decoding="async" />
           </div>
         ))}
       </div>
@@ -313,7 +314,7 @@ function Hero() {
       <div className="hero__floating" id="heroFloating" ref={floatingRef}>
         {[1,2,3,4,5,6,7,8].map(i => (
           <div key={i} className="hero__float-el" data-depth={[0.5,1,2,1,1,2,4,1][i-1]}>
-            <img src={`/${i}.png`} alt={`Design sample ${i}`} loading="eager" />
+            <img src={`/${i}.webp`} alt={`Design sample ${i}`} loading="eager" decoding="async" />
           </div>
         ))}
       </div>
@@ -867,9 +868,9 @@ function ContactFooter() {
       <div className="cta-pin-layer">
         <div
           className="cta-huge-text"
-          aria-label={lang === 'bg' ? 'ГОТОВ ЛИ СИ.' : 'READY.'}
+          aria-label={lang === 'bg' ? 'ДЕЙСТВАЙ.' : 'ACT.'}
         >
-          {(lang === 'bg' ? 'ГОТОВ ЛИ СИ.' : 'READY.').split('').map((char, i) => (
+          {(lang === 'bg' ? 'ДЕЙСТВАЙ.' : 'ACT.').split('').map((char, i) => (
             <span key={i} className="cta-char">
               {char === ' ' ? '\u00A0' : char}
             </span>
@@ -882,9 +883,9 @@ function ContactFooter() {
           <span className="label" style={{ marginBottom: 20, display: 'block' }}><T en="/ RECENT WORK" bg="/ СКОРОШНИ ПРОЕКТИ" /></span>
           <div className="portfolio-grid">
             {[
-              { href: 'https://pekarnisiana.github.io/site/', img: '/work-siana.jpg', name: 'PEKARNI SIANA' },
-              { href: 'https://speedlink-eu.vercel.app/', img: '/work-speedlink.jpg', name: 'SPEEDLINK EU' },
-              { href: 'https://exelkonsol.github.io/elk/', img: '/work-exel.jpg', name: '$SELK — SOLANA' },
+              { href: 'https://pekarnisiana.github.io/site/', img: '/work-siana.webp', name: 'PEKARNI SIANA' },
+              { href: 'https://speedlink-eu.vercel.app/', img: '/work-speedlink.webp', name: 'SPEEDLINK EU' },
+              { href: 'https://exelkonsol.github.io/elk/', img: '/work-exel.webp', name: '$SELK — SOLANA' },
             ].map(p => (
               <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer" className="portfolio-card">
                 <div className="portfolio-card__img" style={{ backgroundImage: `url('${p.img}')` }}></div>

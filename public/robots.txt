@@ -1,3 +1,10 @@
+# tanev.design — robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /assets/
+
+# Specific bot permissions
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +17,20 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.tanev.design/sitemap.xml
+
+# Host
+Host: https://www.tanev.design
