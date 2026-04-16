@@ -660,9 +660,11 @@ export default function ChessGame() {
 
   useEffect(() => () => { if (aiTimerRef.current) clearTimeout(aiTimerRef.current); }, []);
 
+  const playerColor: Color = flipped ? 'b' : 'w';
+
   const onSquareClick = useCallback((r: number, c: number) => {
     if (endGame || thinking) return;
-    if (game.turn !== 'w') return; // player is White
+    if (game.turn !== playerColor) return; // only allow input on player's turn
 
     const piece = game.board[r][c];
 
@@ -689,11 +691,12 @@ export default function ChessGame() {
     } else {
       setSelected(null);
     }
-  }, [endGame, thinking, game, selected, legalDestinations, applyMove, evaluateEnd, scheduleAI, triggerEffects]);
+  }, [endGame, thinking, game, selected, legalDestinations, applyMove, evaluateEnd, scheduleAI, triggerEffects, playerColor]);
 
   const newGame = useCallback(() => {
     if (aiTimerRef.current) clearTimeout(aiTimerRef.current);
-    setGame(initState());
+    const fresh = initState();
+    setGame(fresh);
     setSelected(null);
     setLastMove(null);
     setHistory([]);
@@ -702,9 +705,27 @@ export default function ChessGame() {
     setBursts([]);
     setShowCrackle(true);
     setTimeout(() => setShowCrackle(false), 1000);
-  }, []);
+    // If player is black, AI (white) opens
+    if (flipped) scheduleAI(fresh);
+  }, [flipped, scheduleAI]);
 
-  const flipBoard = useCallback(() => setFlipped(f => !f), []);
+  const flipBoard = useCallback(() => {
+    if (aiTimerRef.current) clearTimeout(aiTimerRef.current);
+    const fresh = initState();
+    setFlipped(f => {
+      const nextFlipped = !f;
+      setGame(fresh);
+      setSelected(null);
+      setLastMove(null);
+      setHistory([]);
+      setThinking(false);
+      setEndGame(null);
+      setBursts([]);
+      // If the player just chose black, white (AI) must move first
+      if (nextFlipped) scheduleAI(fresh);
+      return nextFlipped;
+    });
+  }, [scheduleAI]);
 
   // clean up old bursts
   useEffect(() => {

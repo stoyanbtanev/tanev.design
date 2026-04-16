@@ -463,15 +463,29 @@
   position: relative; overflow: hidden;
 }
 .mission__label { position: absolute; top: 60px; left: 40px; }
-.mission__lines { max-width: 1500px; width: 100%; margin: 0 auto; }
-.mission__line-wrap { overflow: hidden; margin-bottom: -1vw; }
+.mission__lines { max-width: 1500px; width: 100%; margin: 0 auto; padding: 0 8px; }
+/* clip only vertically so rise-up reveal works without chopping off side text */
+.mission__line-wrap {
+  overflow-y: hidden;
+  overflow-x: visible;
+  margin-bottom: -0.6vw;
+  padding: 0.15em 0;
+}
 .mission__line {
   font-family: 'Clash Display', sans-serif;
-  font-size: clamp(40px, 6.5vw, 105px);
-  text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05;
-  will-change: transform, opacity; transform-origin: center;
+  font-size: clamp(36px, 6.2vw, 100px);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.06;
+  will-change: transform, opacity;
+  transform-origin: center;
+  display: block;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
 }
-.mission__line--left { text-align: left; }
+.mission__line--left  { text-align: left; }
 .mission__line--right { text-align: right; color: var(--td-accent); }
 
 /* ═══════════════════════════════════════════
@@ -550,7 +564,7 @@
 ═══════════════════════════════════════════ */
 .process-section {
   padding: 120px 40px;
-  background: #0d0d0d;
+  background: transparent;
   position: relative;
 }
 .process-section__label {

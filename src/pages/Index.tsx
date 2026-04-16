@@ -982,14 +982,30 @@ export default function Index() {
   useGSAP((gsap, ScrollTrigger) => {
     if (!preloaderDone) return;
 
-    // Mission lines
+    // Mission lines — smooth rise-up reveal (mask + y translate + soft x drift)
     gsap.utils.toArray('.mission__line-wrap').forEach((wrap: any, i: number) => {
       const line = wrap.querySelector('.mission__line');
-      gsap.from(line, {
-        x: i % 2 === 0 ? '-10vw' : '10vw',
-        opacity: 0, scale: 0.9,
-        scrollTrigger: { trigger: wrap, start: 'top 95%', end: 'top 40%', scrub: 1 }
-      });
+      if (!line) return;
+      gsap.fromTo(
+        line,
+        {
+          yPercent: 110,
+          opacity: 0,
+          x: i % 2 === 0 ? -40 : 40,
+        },
+        {
+          yPercent: 0,
+          opacity: 1,
+          x: 0,
+          duration: 1.1,
+          ease: 'expo.out',
+          scrollTrigger: {
+            trigger: wrap,
+            start: 'top 90%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
     });
 
     // Style cards 3D entrance
@@ -1060,7 +1076,6 @@ export default function Index() {
       <Navigation />
       <Hero />
       <Mission />
-      <StatsBar />
       <Services />
       <Process />
       <Arsenal />
