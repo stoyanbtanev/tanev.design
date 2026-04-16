@@ -467,16 +467,17 @@
 /* clip only vertically so rise-up reveal works without chopping off side text */
 .mission__line-wrap {
   overflow-y: hidden;
-  overflow-x: visible;
-  margin-bottom: -0.6vw;
-  padding: 0.15em 0;
+  overflow-x: clip;
+  margin-bottom: -0.4vw;
+  padding: 0.18em 0;
 }
 .mission__line {
   font-family: 'Clash Display', sans-serif;
   font-size: clamp(36px, 6.2vw, 100px);
   text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 1.06;
+  letter-spacing: 0.005em;
+  word-spacing: 0.06em;
+  line-height: 1.12;
   will-change: transform, opacity;
   transform-origin: center;
   display: block;
