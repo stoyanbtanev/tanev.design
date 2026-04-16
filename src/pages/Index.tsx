@@ -3,6 +3,7 @@ import { useLanguage, T } from '@/contexts/LanguageContext';
 import { useGSAP, gsap, ScrollTrigger } from '@/hooks/useGSAP';
 import { useLenis, getLenis } from '@/hooks/useLenis';
 import ChessGame from '@/components/ChessGame';
+import RadialOrbitalTimeline from '@/components/RadialOrbitalTimeline';
 
 const NavLogo = () => (
   <svg width="36" height="24" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -395,33 +396,9 @@ function StatsBar() {
   );
 }
 
-// ─── SERVICES ───
+// ─── SERVICES (Radial Orbital Timeline) ───
 function Services() {
-  const services = [
-    { num: '01', titleEn: 'STATIC SITES — FAST BY DEFAULT', titleBg: 'СТАТИЧНИ САЙТОВЕ — БЪРЗИ ПО ПОДРАЗБИРАНЕ', descEn: 'Loads in under a second. Converts before they think twice. No page builders. No shortcuts.', descBg: 'Зарежда се за секунда. Конвертира, преди да се замислят. Без конструктори. Без кръпки.' },
-    { num: '02', titleEn: '3D & MOTION — BUILT TO REMEMBER', titleBg: '3D И ДВИЖЕНИЕ — НАПРАВЕНИ ДА ЗАПОМНИШ', descEn: "The kind of site people send their friends at 2 AM. WebGL & GSAP — not templates.", descBg: 'Сайтът, който хората пращат на приятелите си в 2 сутринта. WebGL и GSAP — без шаблони.' },
-    { num: '03', titleEn: 'BRAND IDENTITY — YOUR VISUAL DNA', titleBg: 'БРАНДИНГ — ТВОЯТА ВИЗУАЛНА ДНК', descEn: "Your brand shouldn't look like your competitor's. Logo, type, color — crafted to be instantly yours.", descBg: 'Брандът ти не трябва да прилича на конкурента. Лого, шрифт, цвят — създадени да бъдат разпознаваемо твои.' },
-    { num: '04', titleEn: 'VIDEO — STOPS THE SCROLL', titleBg: 'ВИДЕО — СПИРА СКРОЛА', descEn: 'Edited to capture attention instantly. Short-form, long-form, product — whatever the format, it delivers.', descBg: 'Монтирано да грабне вниманието от първия кадър. Кратко, дълго, продуктово — форматът е подчинен на резултата.' },
-    { num: '05', titleEn: 'SEO — VISIBILITY THAT COMPOUNDS', titleBg: 'SEO — ВИДИМОСТ, КОЯТО РАСТЕ', descEn: 'When your clients search, they find you — not the competition. On-page SEO built into every project.', descBg: 'Когато клиентите ти търсят — намират теб, не конкуренцията. SEO, вградено във всеки проект.' },
-    { num: '06', titleEn: 'FULL REDESIGN — CLEAN SLATE', titleBg: 'ПЪЛЕН РЕДИЗАЙН — ОТ НУЛАТА', descEn: "If you're embarrassed to share your own site — it's time. Total rebuild. No compromises with the old version.", descBg: 'Ако се притесняваш да покажеш сайта си — дойде моментът. Пълна подмяна. Без компромиси със старото.' },
-  ];
-
-  return (
-    <section className="horizontal-services" id="services">
-      <span className="label" style={{ position: 'absolute', top: 40, left: 40, zIndex: 10 }}><T en="SERVICES" bg="УСЛУГИ" /></span>
-      <div className="hz-wrapper">
-        <div className="hz-container">
-          {services.map(s => (
-            <div key={s.num} className="hz-panel">
-              <div className="hz-panel-num">{s.num}</div>
-              <div className="hz-panel-title"><T en={s.titleEn} bg={s.titleBg} /></div>
-              <div className="hz-panel-desc"><T en={s.descEn} bg={s.descBg} /></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <RadialOrbitalTimeline />;
 }
 
 // ─── PROCESS ───
@@ -890,23 +867,6 @@ function ContactFooter() {
           </div>
         </div>
 
-        {/* Testimonials */}
-        <div className="testimonials">
-          <span className="label" style={{ display: 'block', textAlign: 'center', marginBottom: 48 }}><T en="/ WHAT CLIENTS SAY" bg="/ КАКВО КАЗВАТ КЛИЕНТИТЕ" /></span>
-          <div className="testimonials__grid">
-            {[
-              { quoteEn: '"Fast, clean, and exactly what I envisioned."', quoteBg: '„Бързо, чисто и точно това, което исках."', clientEn: 'BAKERY CLIENT — PEKARNI SIANA', clientBg: 'КЛИЕНТ — ПЕКАРНИ СИЯНА' },
-              { quoteEn: '"Best investment for our startup. The site converted from day one."', quoteBg: '„Най-добрата инвестиция за стартъпа ни. Сайтът конвертира от ден едно."', clientEn: 'LOGISTICS CLIENT — SPEEDLINK EU', clientBg: 'КЛИЕНТ — SPEEDLINK EU' },
-              { quoteEn: '"He understands brand DNA instantly. No revisions needed."', quoteBg: '„Разбира ДНК-то на бранда от първия път. Нула корекции."', clientEn: 'CRYPTO CLIENT — $SELK / SOLANA', clientBg: 'КРИПТО КЛИЕНТ — $SELK / SOLANA' },
-            ].map((t, i) => (
-              <div key={i} className="testimonial-card">
-                <p className="testimonial-card__quote"><T en={t.quoteEn} bg={t.quoteBg} /></p>
-                <div className="testimonial-card__client"><T en={t.clientEn} bg={t.clientBg} /></div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Contact Form */}
         <form className="contact-form" onSubmit={handleSubmit}>
           <input type="hidden" name="_subject" value="New Project — tanev.design" />
@@ -1032,24 +992,6 @@ export default function Index() {
       });
     });
 
-    // Horizontal scroll services (desktop only)
-    ScrollTrigger.matchMedia({
-      '(min-width: 769px)': function() {
-        const hzWrap = document.querySelector('.hz-container') as HTMLElement;
-        if (!hzWrap) return;
-        gsap.to(hzWrap, {
-          x: () => -(hzWrap.scrollWidth - window.innerWidth),
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '.horizontal-services',
-            pin: true,
-            scrub: 0.8,
-            end: () => '+=' + hzWrap.scrollWidth
-          }
-        });
-      }
-    });
-
     // Style cards 3D entrance
     gsap.from('.style-card', {
       y: 150, z: -300, rotationX: -15, opacity: 0,
@@ -1094,12 +1036,6 @@ export default function Index() {
     gsap.from('.process-step', {
       opacity: 0, y: 40, stagger: 0.15, duration: 0.8, ease: 'power3.out',
       scrollTrigger: { trigger: '.process-section', start: 'top 75%' }
-    });
-
-    // Testimonials
-    gsap.from('.testimonial-card', {
-      opacity: 0, y: 40, stagger: 0.12, duration: 0.9, ease: 'power3.out',
-      scrollTrigger: { trigger: '.testimonials', start: 'top 80%' }
     });
 
     // Arsenal

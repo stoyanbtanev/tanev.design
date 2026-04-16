@@ -1,7 +1,14 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "tanev-design",
+  "description": "tanev.design — personal portfolio & studio site. One person, every detail considered. React + GSAP + WebGL-adjacent micro-interactions.",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "Stoyan Tanev <stoyanbtanev@gmail.com>",
+  "homepage": "https://tanev.design",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stoyanbtanev/tanev-design.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

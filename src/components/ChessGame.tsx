@@ -550,9 +550,11 @@ function appendCheckSuffix(pre: GameState, move: Move, base: string): string {
    REACT COMPONENT
 ═══════════════════════════════════════════════════════════════════════════ */
 
-const GLYPHS: Record<Color, Record<PieceType, string>> = {
-  w: { p: '♙', n: '♘', b: '♗', r: '♖', q: '♕', k: '♔' },
-  b: { p: '♟', n: '♞', b: '♝', r: '♜', q: '♛', k: '♚' },
+/* Use the filled glyphs for BOTH colors; differentiation is handled
+   through CSS fill + outline. Outlined Unicode chess glyphs render
+   inconsistently across fonts and are easily confused with filled ones. */
+const GLYPHS: Record<PieceType, string> = {
+  p: '♟', n: '♞', b: '♝', r: '♜', q: '♛', k: '♚',
 };
 
 interface EndGame {
@@ -745,6 +747,9 @@ export default function ChessGame() {
   return (
     <div className="chess-game">
       <div className="chess-game__header">
+        <span className="label chess-game__eyebrow">
+          <T en="/ CHESS" bg="/ ШАХ" />
+        </span>
         <h2 className="chess-game__title">
           <T en="CAN YOU BEAT ME?" bg="МОЖЕШ ЛИ ДА МЕ ПОБЕДИШ?" />
         </h2>
@@ -755,7 +760,14 @@ export default function ChessGame() {
 
       <div className="chess-game__layout">
         <div className="chess-board-wrap">
-          <div className={`chess-board${shakeKey ? ' chess-shake' : ''}`} key={shakeKey}>
+          <div className="chess-board-frame">
+            <div className="chess-ranks" aria-hidden>
+              {rowsOrder.map(r => (
+                <span key={r} className="chess-rank-label">{8 - r}</span>
+              ))}
+            </div>
+            <div className="chess-board-stage">
+              <div className={`chess-board${shakeKey ? ' chess-shake' : ''}`} key={shakeKey}>
             {rowsOrder.map(r => colsOrder.map(c => {
               const isLight = (r + c) % 2 === 0;
               const piece = game.board[r][c];
@@ -779,8 +791,14 @@ export default function ChessGame() {
                   aria-label={sqName(r, c)}
                 >
                   {piece && (
-                    <span className={`chess-piece${piece.c === 'w' && piece.t === 'k' ? ' chess-piece--white-king' : ''}`}>
-                      {GLYPHS[piece.c][piece.t]}
+                    <span
+                      className={[
+                        'chess-piece',
+                        piece.c === 'w' ? 'chess-piece--w' : 'chess-piece--b',
+                        piece.c === 'w' && piece.t === 'k' ? 'chess-piece--white-king' : '',
+                      ].filter(Boolean).join(' ')}
+                    >
+                      {GLYPHS[piece.t]}
                     </span>
                   )}
                   {dest && (
@@ -817,6 +835,13 @@ export default function ChessGame() {
                 </div>
               </div>
             )}
+              </div>
+              <div className="chess-files" aria-hidden>
+                {colsOrder.map(c => (
+                  <span key={c} className="chess-file-label">{FILES[c]}</span>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className={`chess-status${thinking ? ' chess-status--thinking' : ''}`}>
