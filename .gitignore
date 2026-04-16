@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Deployment / local envs
+.vercel
+.env
+.env.local
+.env.*.local
+
+# Misc OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
