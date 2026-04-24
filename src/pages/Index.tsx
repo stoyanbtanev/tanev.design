@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { useLanguage, T } from '@/contexts/LanguageContext';
-import { useTheme } from '@/contexts/ThemeContext';
 import { useGSAP, gsap, ScrollTrigger } from '@/hooks/useGSAP';
 import { useLenis, getLenis } from '@/hooks/useLenis';
-import ChessGame from '@/components/ChessGame';
 import RadialOrbitalTimeline from '@/components/RadialOrbitalTimeline';
 
 const NavLogo = () => (
@@ -170,39 +168,6 @@ function Preloader({ onComplete }: { onComplete: () => void }) {
   );
 }
 
-// ─── PREMIUM THEME TOGGLE ───
-// Animated orbital sun/moon with a sliding ember. Accessible, keyboard-friendly,
-// reduced-motion aware. Crafted to replace the old BG/EN switch.
-function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
-  const isLight = theme === 'light';
-  return (
-    <button
-      type="button"
-      className={`theme-toggle${isLight ? ' theme-toggle--light' : ''}`}
-      onClick={toggleTheme}
-      aria-label={isLight ? 'Switch to dark mode' : 'Switch to light mode'}
-      aria-pressed={isLight}
-      title={isLight ? 'Dark mode' : 'Light mode'}
-    >
-      <span className="theme-toggle__track" aria-hidden>
-        <span className="theme-toggle__stars">
-          <span /><span /><span /><span /><span /><span />
-        </span>
-        <span className="theme-toggle__orb">
-          <span className="theme-toggle__orb-crater" />
-          <span className="theme-toggle__orb-crater" />
-          <span className="theme-toggle__orb-crater" />
-          <span className="theme-toggle__orb-ring" />
-        </span>
-      </span>
-      <span className="theme-toggle__sr">
-        {isLight ? 'Dark mode' : 'Light mode'}
-      </span>
-    </button>
-  );
-}
-
 // ─── NAVIGATION ───
 function Navigation() {
   const { lang, setLang } = useLanguage();
@@ -250,9 +215,6 @@ function Navigation() {
           <a href="#contact"><T en="Contact" bg="Контакт" /></a>
         </div>
         <div className="nav__divider"></div>
-        <div className="nav__theme">
-          <ThemeToggle />
-        </div>
         <button className="nav__hamburger" onClick={toggleMenu}>☰</button>
       </nav>
 
@@ -941,9 +903,6 @@ function ContactFooter() {
 
   return (
     <div className="cta-container" id="contact">
-      <div className="cta-pin-layer">
-        <ChessGame />
-      </div>
       <div className="footer-reveal">
         {/* Portfolio */}
         <div className="footer-work">
