@@ -26,14 +26,14 @@ export function Explorations() {
     });
 
     const vh = () => window.innerHeight;
-    const leftDistance = () => left.scrollHeight + vh() * 0.4;
-    const rightDistance = () => right.scrollHeight + vh() * 0.4;
+    const leftTravel = () => Math.max(0, left.scrollHeight - vh() * 0.6);
+    const rightTravel = () => Math.max(0, right.scrollHeight - vh() * 0.6);
 
     const parallaxLeft = gsap.fromTo(
       left,
-      { y: () => vh() * 0.9 },
+      { y: () => vh() * 0.2 },
       {
-        y: () => vh() * 0.9 - leftDistance(),
+        y: () => vh() * 0.2 - leftTravel(),
         ease: 'none',
         scrollTrigger: {
           trigger: section,
@@ -47,9 +47,9 @@ export function Explorations() {
 
     const parallaxRight = gsap.fromTo(
       right,
-      { y: () => vh() * 1.1 },
+      { y: () => vh() * 0.45 },
       {
-        y: () => vh() * 1.1 - rightDistance(),
+        y: () => vh() * 0.45 - rightTravel(),
         ease: 'none',
         scrollTrigger: {
           trigger: section,
