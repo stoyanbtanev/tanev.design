@@ -203,8 +203,7 @@ export function Closer() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          opacity: 0.42;
-          filter: saturate(0.86) contrast(1.06) blur(0.5px);
+          opacity: 0.4;
         }
         .closer-bg__overlay {
           position: absolute;
@@ -217,8 +216,7 @@ export function Closer() {
           position: absolute;
           inset: auto -10% -40% -10%;
           height: 60%;
-          background: radial-gradient(60% 60% at 50% 100%, rgba(232, 36, 26, 0.18), transparent 70%);
-          filter: blur(40px);
+          background: radial-gradient(60% 60% at 50% 100%, rgba(232, 36, 26, 0.14), transparent 70%);
           pointer-events: none;
           z-index: 1;
         }

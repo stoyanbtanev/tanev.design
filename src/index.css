@@ -38,6 +38,15 @@
     --font-body: 'General Sans', 'Inter', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
+    --space-section: clamp(96px, 12vw, 192px);
+    --space-head:    clamp(48px, 6vw, 96px);
+    --space-block:   clamp(32px, 4vw, 64px);
+    --space-row:     clamp(20px, 2.4vw, 32px);
+    --space-tight:   clamp(12px, 1.2vw, 16px);
+    --container:     1440px;
+    --container-tight: 1080px;
+    --gutter:        clamp(20px, 4vw, 64px);
+
     --app-height: 100svh;
   }
 
@@ -187,13 +196,13 @@
 
   .section {
     position: relative;
-    padding-block: clamp(96px, 12vw, 192px);
+    padding-block: var(--space-section);
   }
 
   .section-head {
     display: grid;
-    gap: 16px;
-    margin-bottom: clamp(48px, 6vw, 96px);
+    gap: var(--space-tight);
+    margin-bottom: var(--space-head);
   }
 
   .pill {

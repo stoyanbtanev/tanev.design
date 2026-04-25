@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/hooks/useGSAP";
-import { SITE } from "./config";
+import { CHAPTERS, SITE } from "./config";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -58,19 +58,9 @@ export function Footer() {
           <nav style={{ gridColumn: "span 6" }} className="md:col-span-3">
             <div className="eyebrow" style={{ marginBottom: 12 }}>Index</div>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 6 }}>
-              {[
-                ["#profile", "Profile"],
-                ["#skills", "Skills"],
-                ["#aesthetics", "Aesthetics"],
-                ["#process", "Process"],
-                ["#stack", "Stack"],
-                ["#voice", "Voice"],
-                ["#projects", "Projects"],
-                ["#faq", "FAQ"],
-                ["#contact", "Contact"],
-              ].map(([href, label]) => (
-                <li key={href}>
-                  <a href={href} className="underline-link" style={{ fontSize: 15 }}>{label}</a>
+              {CHAPTERS.map((c) => (
+                <li key={c.id}>
+                  <a href={`#${c.id}`} className="underline-link" style={{ fontSize: 15 }}>{c.label}</a>
                 </li>
               ))}
             </ul>

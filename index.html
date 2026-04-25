@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-visual" />
 
     <title>tanev.design — One person. Every detail considered.</title>
-    <meta name="description" content="Premium websites, branding, and motion by Stoyan Tanev. One person, start to finish. Plovdiv, Bulgaria — working worldwide." />
+    <meta name="description" content="Custom websites, brand, motion and SEO by Stoyan Tanev. One person, start to finish. Plovdiv, Bulgaria — working worldwide." />
     <meta name="author" content="Stoyan Tanev" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#050506" />
@@ -22,11 +22,11 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.tanev.design/" />
     <meta property="og:title" content="tanev.design — One person. Every detail considered." />
-    <meta property="og:description" content="Premium websites, branding, and motion by Stoyan Tanev. One person, start to finish." />
+    <meta property="og:description" content="Custom websites, brand, motion and SEO by Stoyan Tanev. One person, start to finish." />
     <meta property="og:image" content="https://www.tanev.design/og-image-v2.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="tanev.design — premium web design and development by Stoyan Tanev" />
+    <meta property="og:image:alt" content="tanev.design — web design and development by Stoyan Tanev" />
     <meta property="og:site_name" content="tanev.design" />
     <meta property="og:locale" content="en_US" />
 
@@ -34,7 +34,7 @@
     <meta name="twitter:site" content="@tanevdesign" />
     <meta name="twitter:creator" content="@tanevdesign" />
     <meta name="twitter:title" content="tanev.design — One person. Every detail considered." />
-    <meta name="twitter:description" content="Premium websites, branding, and motion by Stoyan Tanev." />
+    <meta name="twitter:description" content="Custom websites, brand, motion and SEO by Stoyan Tanev." />
     <meta name="twitter:image" content="https://www.tanev.design/og-image-v2.png" />
 
     <meta name="geo.region" content="BG-16" />
@@ -53,7 +53,7 @@
         "url": "https://www.tanev.design",
         "logo": "https://www.tanev.design/favicon.svg",
         "image": "https://www.tanev.design/og-image-v2.png",
-        "description": "Premium web design and development by Stoyan Tanev. One person, every detail considered.",
+        "description": "Web design, development, brand identity, motion and SEO by Stoyan Tanev. One person, start to finish.",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Plovdiv",
@@ -68,14 +68,41 @@
           "https://github.com/stoyanbtanev",
           "https://x.com/tanevdesign"
         ],
-        "founder": {
-          "@type": "Person",
-          "name": "Stoyan Tanev",
-          "jobTitle": "Web Designer & Developer",
-          "url": "https://www.tanev.design"
-        },
+        "founder": { "@id": "https://www.tanev.design/#person" },
         "knowsLanguage": ["en"],
         "serviceType": ["Web Design", "Web Development", "Brand Identity", "Motion Design", "SEO"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://www.tanev.design/#person",
+        "name": "Stoyan Tanev",
+        "jobTitle": "Web Designer and Developer",
+        "url": "https://www.tanev.design",
+        "image": "https://www.tanev.design/og-image-v2.png",
+        "email": "stoyanbtanev@gmail.com",
+        "worksFor": { "@id": "https://www.tanev.design/#business" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Plovdiv",
+          "addressCountry": "BG"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/stoyan-tanev-a732603b8/",
+          "https://github.com/stoyanbtanev",
+          "https://x.com/tanevdesign"
+        ],
+        "knowsAbout": [
+          "Web Design",
+          "Web Development",
+          "Brand Identity",
+          "Motion Design",
+          "Search Engine Optimization",
+          "Generative Engine Optimization",
+          "React",
+          "TypeScript",
+          "GSAP"
+        ]
       },
       {
         "@context": "https://schema.org",
@@ -85,6 +112,125 @@
         "url": "https://www.tanev.design",
         "inLanguage": "en",
         "publisher": { "@id": "https://www.tanev.design/#business" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": "https://www.tanev.design/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.tanev.design/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.tanev.design/#services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Projects",
+            "item": "https://www.tanev.design/#projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Contact",
+            "item": "https://www.tanev.design/#contact"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": "https://www.tanev.design/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does the process work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You fill out the form below. Within twenty-four hours you get a reply with a rough plan. No discovery calls that waste your morning."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who works on my project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Me. One person, from brief to launch. Nothing gets lost in translation. The vision stays intact."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How fast can you deliver?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Scope defines the timeline, but I don't sit on projects. You'll know the exact timeline after the brief. The first visual direction lands fast."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What do I own after the project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Everything. Source files, code, assets. No subscriptions, no hostage-taking. Once delivered, it's a hundred percent yours."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you work with international clients?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — about half of the work is outside Bulgaria. English, asynchronous, European hours."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you do redesigns or only new sites?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both. A redesign starts with a short audit, so we agree on what stays and what gets rebuilt before any pixels move."
+            }
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "@id": "https://www.tanev.design/#work-speedlink",
+        "name": "SpeedLink EU — Logistics, made to feel as fast as it is.",
+        "url": "https://speedlink-eu.vercel.app",
+        "image": "https://www.tanev.design/work-speedlink.webp",
+        "creator": { "@id": "https://www.tanev.design/#person" },
+        "dateCreated": "2026",
+        "about": ["Identity", "Site", "Motion", "SEO"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "@id": "https://www.tanev.design/#work-siana",
+        "name": "Pekarni Siana — A neighbourhood bakery, set as an editorial.",
+        "url": "https://pekarnisiana.github.io/site/",
+        "image": "https://www.tanev.design/work-siana.webp",
+        "creator": { "@id": "https://www.tanev.design/#person" },
+        "dateCreated": "2025",
+        "about": ["Site", "Art direction"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "@id": "https://www.tanev.design/#work-selk",
+        "name": "$SELK — A community memecoin, handled as a real brand.",
+        "url": "https://exelkonsol.github.io/elk/",
+        "image": "https://www.tanev.design/work-exel.webp",
+        "creator": { "@id": "https://www.tanev.design/#person" },
+        "dateCreated": "2025",
+        "about": ["Brand", "Site", "Motion"]
       }
     ]
     </script>

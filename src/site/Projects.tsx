@@ -198,6 +198,19 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
         <div className="display" style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.1 }}>
           {project.title}
         </div>
+        {project.outcome && (
+          <div
+            style={{
+              fontSize: 14,
+              lineHeight: 1.5,
+              color: "var(--td-fg-2)",
+              marginTop: 2,
+              maxWidth: 360,
+            }}
+          >
+            {project.outcome}
+          </div>
+        )}
         <div className="mono" style={{ fontSize: 10, letterSpacing: "0.18em", color: "var(--td-fg-2)", textTransform: "uppercase", marginTop: 4 }}>
           {project.scope.join(" · ")}
         </div>

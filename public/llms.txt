@@ -1,0 +1,41 @@
+# tanev.design — llms.txt
+> One person. Custom websites, brand, motion and SEO.
+> Plovdiv, Bulgaria — working worldwide.
+
+## What this site is
+
+Stoyan Tanev is a solo web designer and developer. Services: web design, web
+development, brand identity, motion, SEO. Hand-coded; no page builders. One
+brief, one set of hands, start to finish. Reply within 24 hours.
+
+## Services
+
+- Web design — direction, layout, type, motion. Editorial, not template.
+- Web development — React, TypeScript, GSAP, Vercel. Hand-coded.
+- Brand identity — marks, type system, palette, lockup.
+- Motion — loops, transitions, micro-interactions.
+- SEO — technical SEO and AI-search optimisation: schema, sitemap, llms.txt, Core Web Vitals.
+
+## Process
+
+1. Brief — fill the form. Reply within 24 hours with a rough plan.
+2. Direction — one direction, fully resolved before any code.
+3. Build — pixel-precise, animated, fast. Tested across devices.
+4. Launch — site goes live. Client owns source, hosting and assets.
+
+## Citable URLs
+
+- https://www.tanev.design/#services
+- https://www.tanev.design/#profile
+- https://www.tanev.design/#process
+- https://www.tanev.design/#voice
+- https://www.tanev.design/#projects
+- https://www.tanev.design/#faq
+- https://www.tanev.design/#contact
+
+## Contact
+
+- stoyanbtanev@gmail.com
+- https://www.linkedin.com/in/stoyan-tanev-a732603b8/
+- https://github.com/stoyanbtanev
+- https://x.com/tanevdesign

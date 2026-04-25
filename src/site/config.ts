@@ -14,11 +14,9 @@ export const SITE = {
 export type Chapter = { id: string; label: string };
 
 export const CHAPTERS: Chapter[] = [
+  { id: "services", label: "Services" },
   { id: "profile", label: "Profile" },
-  { id: "skills", label: "Skills" },
-  { id: "aesthetics", label: "Aesthetics" },
   { id: "process", label: "Process" },
-  { id: "stack", label: "Stack" },
   { id: "voice", label: "Voice" },
   { id: "projects", label: "Projects" },
   { id: "faq", label: "FAQ" },
@@ -34,6 +32,12 @@ export type Project = {
   url?: string;
   image: string;
   scope: string[];
+  /**
+   * Optional one-line factual outcome — only set when there's a real number
+   * or shipped fact to point at. Examples: "Mobile Lighthouse 96.",
+   * "Launched in three weeks." Leave undefined when there isn't one yet.
+   */
+  outcome?: string;
 };
 
 export const PROJECTS: Project[] = [

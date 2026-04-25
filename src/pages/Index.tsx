@@ -4,12 +4,9 @@ import { ScrollTrigger } from "@/hooks/useGSAP";
 import { Preloader } from "@/site/Preloader";
 import { Chrome } from "@/site/Chrome";
 import { Hero } from "@/site/Hero";
-import { Manifest } from "@/site/Manifest";
+import { Services } from "@/site/Services";
 import { Profile } from "@/site/Profile";
-import { SkillsOrb } from "@/site/SkillsOrb";
-import { Aesthetics } from "@/site/Aesthetics";
 import { Process } from "@/site/Process";
-import { Stack } from "@/site/Stack";
 import { Voice } from "@/site/Voice";
 import { Projects } from "@/site/Projects";
 import { FAQ } from "@/site/FAQ";
@@ -47,12 +44,9 @@ export default function Index() {
       </div>
       <main style={{ visibility: ready ? "visible" : "hidden" }}>
         <Hero ready={ready} />
-        <Manifest />
+        <Services />
         <Profile />
-        <SkillsOrb />
-        <Aesthetics />
         <Process />
-        <Stack />
         <Voice />
         <Projects />
         <FAQ />

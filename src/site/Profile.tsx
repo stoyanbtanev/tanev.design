@@ -16,7 +16,7 @@ export function Profile() {
           <div style={{ gridColumn: "span 12" }} className="md:col-span-7">
             <SectionTag label="Profile" className="mb-4" />
             <h2 ref={titleRef} className="display h2" style={{ margin: "16px 0 0" }}>
-              A solo studio in Plovdiv, working at agency depth.
+              A solo studio in Plovdiv, working with founders worldwide.
             </h2>
           </div>
         </div>

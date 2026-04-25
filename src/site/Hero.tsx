@@ -206,17 +206,18 @@ export function Hero({ ready = true }: { ready?: boolean } = {}) {
       <div className="hero__content">
         <h1 className="hero__headline">
           <span className="hero__line"><span className="hero__text">BUILT&nbsp;BY&nbsp;ONE.</span></span>
-          <span className="hero__line"><span className="hero__text">NO&nbsp;COMPROMISE.</span></span>
+          <span className="hero__line"><span className="hero__text">END&nbsp;TO&nbsp;END.</span></span>
         </h1>
-        <p className="hero__sub">One person. Every detail considered.</p>
+        <p className="hero__sub">Web design, code, brand, motion — one person, start to finish.</p>
         <div className="hero__cta-row">
           <a ref={ctaRef} href="#contact" className="btn">Start a project ↗</a>
+          <span className="hero__cta-note mono" aria-hidden="true">Reply within 24h</span>
         </div>
       </div>
 
       <div className="hero__bottom-row">
         <span className="label" ref={bottomLabelRef}>Plovdiv, Bulgaria — working worldwide</span>
-        <a href="#aesthetics" className="hero__scroll" aria-label="Scroll to aesthetics">
+        <a href="#services" className="hero__scroll" aria-label="Scroll to services">
           <span>SCROLL</span>
           <div className="hero__scroll-line" />
         </a>
@@ -298,6 +299,18 @@ export function Hero({ ready = true }: { ready?: boolean } = {}) {
         .hero__cta-row {
           margin-top: clamp(20px, 2.4vw, 32px);
           pointer-events: auto;
+          display: inline-flex;
+          align-items: center;
+          gap: clamp(14px, 1.4vw, 20px);
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .hero__cta-note {
+          font-size: 10px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--td-fg-2);
+          opacity: 0.85;
         }
         @media (max-width: 720px) {
           .hero__headline { font-size: clamp(28px, 8.4vw, 56px); letter-spacing: -0.03em; }
