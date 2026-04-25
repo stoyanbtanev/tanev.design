@@ -25,9 +25,13 @@ export function useLenis() {
     }
 
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      // Snappier feel via lerp interpolation (Fluinto-style),
+      // duration is ignored when lerp is set.
+      lerp: 0.085,
       smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.4,
+      autoRaf: false,
     });
 
     lenisInstance = lenis;
