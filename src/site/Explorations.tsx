@@ -5,47 +5,55 @@ import { EXPLORATIONS } from './portfolio.config';
 
 export function Explorations() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
   const colLeftRef = useRef<HTMLDivElement>(null);
   const colRightRef = useRef<HTMLDivElement>(null);
   const [lightbox, setLightbox] = useState<string | null>(null);
 
   useGSAP((gsap, ScrollTrigger) => {
     const section = sectionRef.current;
-    const content = contentRef.current;
+    const stage = stageRef.current;
     const left = colLeftRef.current;
     const right = colRightRef.current;
-    if (!section || !content || !left || !right) return;
+    if (!section || !stage || !left || !right) return;
 
     const pin = ScrollTrigger.create({
       trigger: section,
       start: 'top top',
       end: 'bottom bottom',
-      pin: content,
+      pin: stage,
       pinSpacing: false,
     });
 
-    const parallaxLeft = gsap.to(left, {
-      yPercent: -22,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: section,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-      },
-    });
+    const parallaxLeft = gsap.fromTo(
+      left,
+      { yPercent: 35 },
+      {
+        yPercent: -55,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+        },
+      }
+    );
 
-    const parallaxRight = gsap.to(right, {
-      yPercent: -10,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: section,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-      },
-    });
+    const parallaxRight = gsap.fromTo(
+      right,
+      { yPercent: 55 },
+      {
+        yPercent: -35,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+        },
+      }
+    );
 
     return () => {
       pin.kill();
@@ -62,12 +70,45 @@ export function Explorations() {
       ref={sectionRef}
       className="relative min-h-[300vh] bg-bg overflow-hidden"
     >
-      {/* Pinned center content */}
+      {/* Pinned stage: text + parallax columns travel together */}
       <div
-        ref={contentRef}
-        className="h-screen w-full flex items-center justify-center px-6 z-10 relative"
+        ref={stageRef}
+        className="h-screen w-full relative overflow-hidden"
       >
-        <div className="text-center max-w-xl">
+        {/* Parallax columns */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="max-w-[1400px] h-full mx-auto px-6 md:px-10 lg:px-16 grid grid-cols-2 gap-12 md:gap-32">
+            <div ref={colLeftRef} className="flex flex-col gap-16 md:gap-32 pointer-events-auto will-change-transform">
+              {left.map((item, i) => (
+                <ExplorationCard
+                  key={item.src}
+                  src={item.src}
+                  alt={item.alt}
+                  rotate={i % 2 === 0 ? -3 : 2}
+                  onOpen={() => setLightbox(item.src)}
+                />
+              ))}
+            </div>
+            <div
+              ref={colRightRef}
+              className="flex flex-col gap-16 md:gap-32 mt-24 md:mt-48 pointer-events-auto will-change-transform"
+            >
+              {right.map((item, i) => (
+                <ExplorationCard
+                  key={item.src}
+                  src={item.src}
+                  alt={item.alt}
+                  rotate={i % 2 === 0 ? 3 : -2}
+                  onOpen={() => setLightbox(item.src)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Center text */}
+        <div className="relative z-10 h-full w-full flex items-center justify-center px-6 pointer-events-none">
+          <div className="text-center max-w-xl pointer-events-auto">
           <div className="flex items-center justify-center gap-3 mb-5">
             <span className="block w-8 h-px bg-stroke" aria-hidden />
             <span className="text-xs text-muted uppercase tracking-[0.3em]">
@@ -96,36 +137,6 @@ export function Explorations() {
               <span aria-hidden className="text-text-primary/70">↗</span>
             </span>
           </a>
-        </div>
-      </div>
-
-      {/* Parallax columns */}
-      <div className="absolute inset-x-0 top-0 z-20 pointer-events-none">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 grid grid-cols-2 gap-12 md:gap-32 pt-[8vh]">
-          <div ref={colLeftRef} className="flex flex-col gap-16 md:gap-32 pointer-events-auto">
-            {left.map((item, i) => (
-              <ExplorationCard
-                key={item.src}
-                src={item.src}
-                alt={item.alt}
-                rotate={i % 2 === 0 ? -3 : 2}
-                onOpen={() => setLightbox(item.src)}
-              />
-            ))}
-          </div>
-          <div
-            ref={colRightRef}
-            className="flex flex-col gap-16 md:gap-32 mt-24 md:mt-48 pointer-events-auto"
-          >
-            {right.map((item, i) => (
-              <ExplorationCard
-                key={item.src}
-                src={item.src}
-                alt={item.alt}
-                rotate={i % 2 === 0 ? 3 : -2}
-                onOpen={() => setLightbox(item.src)}
-              />
-            ))}
           </div>
         </div>
       </div>
