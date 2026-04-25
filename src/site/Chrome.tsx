@@ -372,20 +372,22 @@ function Overlay({ open, onClose }: { open: boolean; onClose: () => void }) {
           : "polygon(0 0, 100% 0, 100% 0, 0 0)",
         transition: "clip-path 720ms cubic-bezier(0.86,0,0.07,1)",
         pointerEvents: open ? "auto" : "none",
+        overflowY: "auto",
+        overscrollBehavior: "contain",
       }}
     >
       <div
         className="container-x"
         style={{
-          paddingTop: 120,
-          paddingBottom: 64,
+          paddingTop: "clamp(88px, 10vh, 120px)",
+          paddingBottom: "clamp(32px, 4vh, 56px)",
           display: "grid",
-          gap: 56,
-          height: "100%",
+          gap: "clamp(32px, 5vh, 56px)",
+          minHeight: "100%",
           alignContent: "space-between",
         }}
       >
-        <nav style={{ display: "grid", gap: 4 }}>
+        <nav style={{ display: "grid", gap: 0, maxWidth: 720 }}>
           {CHAPTERS.map((c, i) => (
             <a
               key={c.id}
@@ -394,10 +396,10 @@ function Overlay({ open, onClose }: { open: boolean; onClose: () => void }) {
               className="overlay-link"
               style={{
                 display: "grid",
-                gridTemplateColumns: "1fr auto",
+                gridTemplateColumns: "auto 1fr auto",
                 alignItems: "baseline",
-                gap: 24,
-                padding: "clamp(12px, 1.6vw, 22px) 0",
+                columnGap: 18,
+                padding: "clamp(10px, 1.2vw, 16px) 0",
                 borderTop: i === 0 ? "1px solid var(--td-line)" : "none",
                 borderBottom: "1px solid var(--td-line)",
                 color: "var(--td-fg)",
@@ -405,10 +407,20 @@ function Overlay({ open, onClose }: { open: boolean; onClose: () => void }) {
                 textDecoration: "none",
               }}
             >
-              <span className="display" style={{ fontSize: "clamp(36px, 6vw, 88px)", letterSpacing: "-0.02em" }}>
+              <span
+                className="mono"
+                aria-hidden="true"
+                style={{ fontSize: 11, letterSpacing: "0.18em", color: "var(--td-fg-2)" }}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span
+                className="display"
+                style={{ fontSize: "clamp(22px, 2.6vw, 36px)", lineHeight: 1.05, letterSpacing: "-0.015em" }}
+              >
                 {c.label}
               </span>
-              <span className="mono" style={{ fontSize: 12, letterSpacing: "0.18em", color: "var(--td-fg-2)" }}>
+              <span className="mono" style={{ fontSize: 11, letterSpacing: "0.18em", color: "var(--td-fg-2)" }}>
                 ↗
               </span>
             </a>
