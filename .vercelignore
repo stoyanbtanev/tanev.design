@@ -1,0 +1,15 @@
+# Files Vercel does not need at deploy time
+.git/
+.github/
+.claude/
+.vscode/
+.idea/
+_legacy-backup/
+_qa-*.png
+_qa-*.jpg
+.edge-qa-profile/
+*.bak
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini

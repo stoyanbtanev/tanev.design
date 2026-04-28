@@ -1,0 +1,171 @@
+import type { Metadata, Viewport } from "next";
+import { Inter, Arvo } from "next/font/google";
+import "@/app/globals.css";
+import { ClientProviders } from "@/components/ClientProviders";
+import { Footer } from "@/components/Footer";
+import { site } from "@/data/site";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter"
+});
+
+const arvo = Arvo({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-arvo"
+});
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  interactiveWidget: "resizes-visual",
+  themeColor: "#050607"
+};
+
+export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
+  title: {
+    default: "Independent Web Designer in Plovdiv, Bulgaria — Tanev Design",
+    template: "%s — Tanev Design"
+  },
+  description:
+    "Custom website design and development for founders and small businesses across Bulgaria and the EU. One person, end-to-end. Fast, accessible, SEO-ready builds.",
+  keywords: [
+    "web designer Bulgaria",
+    "freelance web designer Plovdiv",
+    "premium web design EU",
+    "Next.js developer Bulgaria",
+    "small business website",
+    "landing page design",
+    "UI/UX designer Bulgaria",
+    "Tanev Design"
+  ],
+  authors: [{ name: "Stoyan Tanev", url: site.url }],
+  creator: "Stoyan Tanev",
+  publisher: "Tanev Design",
+  alternates: { canonical: site.url },
+  category: "Web Design",
+  formatDetection: { email: false, telephone: false, address: false },
+  openGraph: {
+    title: "Independent Web Designer in Plovdiv, Bulgaria — Tanev Design",
+    description:
+      "Custom website design and development for founders and small businesses across Bulgaria and the EU. One person, end-to-end.",
+    url: site.url,
+    siteName: "tanev.design",
+    locale: "en_US",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@tanevdesign",
+    creator: "@tanevdesign",
+    title: "Independent Web Designer in Plovdiv, Bulgaria — Tanev Design",
+    description:
+      "Custom website design and development for founders and small businesses across Bulgaria and the EU."
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
+  }
+};
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": `${site.url}/#business`,
+    name: "Tanev Design",
+    alternateName: "tanev.design",
+    description:
+      "Independent web designer and developer based in Plovdiv, Bulgaria. Custom website design, UI/UX, SEO, and front-end development for founders and small businesses across the EU.",
+    url: site.url,
+    image: `${site.url}/assets/newhero.png`,
+    priceRange: "€€",
+    founder: { "@type": "Person", "@id": `${site.url}/#stoyan` },
+    areaServed: ["Bulgaria", "European Union", "Worldwide"],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Plovdiv",
+      addressCountry: "BG"
+    },
+    serviceType: ["Web Design", "Web Development", "UI/UX Design", "SEO", "Landing Pages"],
+    sameAs: [
+      "https://www.linkedin.com/in/stoyan-tanev-a732603b8/",
+      "https://x.com/tanevdesign",
+      "https://github.com/stoyanbtanev"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${site.url}/#stoyan`,
+    name: "Stoyan Tanev",
+    jobTitle: "Independent Web Designer & Developer",
+    url: site.url,
+    image: `${site.url}/assets/newherowithbackground.png`,
+    email: `mailto:${site.email}`,
+    worksFor: { "@id": `${site.url}/#business` },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Plovdiv",
+      addressCountry: "BG"
+    },
+    knowsAbout: [
+      "Web Design",
+      "Next.js",
+      "React",
+      "GSAP",
+      "Framer Motion",
+      "SEO",
+      "UI/UX Design",
+      "Tailwind CSS"
+    ],
+    sameAs: [
+      "https://www.linkedin.com/in/stoyan-tanev-a732603b8/",
+      "https://x.com/tanevdesign",
+      "https://github.com/stoyanbtanev"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${site.url}/#website`,
+    name: "tanev.design",
+    url: site.url,
+    publisher: { "@id": `${site.url}/#business` },
+    inLanguage: "en-US"
+  }
+];
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en" className={`${inter.variable} ${arvo.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body id="top">
+        <div id="root">
+          <ClientProviders>
+            <main>{children}</main>
+            <Footer />
+          </ClientProviders>
+        </div>
+      </body>
+    </html>
+  );
+}
