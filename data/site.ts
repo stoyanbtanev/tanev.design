@@ -54,6 +54,7 @@ export const site = {
 
 export const image = {
   portrait: "/assets/newherowithbackground.png",
+  contact: "/assets/CTA.png",
   style: {
     websiteDesign: "/assets/mockup.png",
     uiux: "/assets/UIUXDesignService.png",

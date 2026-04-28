@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, ChevronDown, Mail, MapPin, MessageSquare, Plus } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, MessageSquare } from "lucide-react";
 import { image, services, site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -9,57 +9,9 @@ export const metadata: Metadata = {
   description: "Start a website design, UI/UX, SEO, landing page, or front-end build with Tanev Design."
 };
 
-const navPages = [
-  ["Homepage", "/"],
-  ["About", "/#about"],
-  ["Work", "/#work"],
-  ["Services", "/#services"],
-  ["Blog", "/#journal"],
-  ["Contact", "/contact"]
-] as const;
-
 export default function ContactPage() {
   return (
     <div className="elite-page elite-contact-route">
-      <nav className="elite-nav page-shell" aria-label="Contact navigation">
-        <Link className="elite-nav__icon" href="/" aria-label="Back home" data-cursor="HOME">
-          <ArrowLeft size={16} aria-hidden="true" />
-        </Link>
-
-        <details className="elite-nav__pages">
-          <summary>
-            All Pages
-            <ChevronDown size={14} aria-hidden="true" />
-          </summary>
-          <div className="elite-nav__menu">
-            {navPages.map(([label, href]) => (
-              <Link href={href} key={label} data-cursor="OPEN">
-                {label}
-              </Link>
-            ))}
-          </div>
-        </details>
-
-        <span className="elite-nav__slash">/</span>
-        <Link href="/#journal" data-cursor="BLOG">
-          Blog
-        </Link>
-        <Link className="elite-nav__brand" href="/" aria-label="Tanev Design home" data-cursor="HOME">
-          tanev.design
-        </Link>
-        <Link href="/#about" data-cursor="ABOUT">
-          About
-        </Link>
-        <span className="elite-nav__slash">/</span>
-        <Link href="/contact" data-cursor="CONTACT">
-          Contact
-        </Link>
-
-        <Link className="elite-nav__icon" href={`mailto:${site.email}`} aria-label="Email Tanev Design" data-cursor="MAIL">
-          <Plus size={16} aria-hidden="true" />
-        </Link>
-      </nav>
-
       <section className="elite-route-hero page-shell">
         <div className="elite-route-hero__copy reveal">
           <p className="elite-kicker">Project request</p>
@@ -74,12 +26,12 @@ export default function ContactPage() {
           </Link>
         </div>
 
-        <figure className="elite-route-hero__media reveal">
+        <figure className="elite-route-hero__media elite-route-hero__media--contact reveal">
           <Image
-            src={image.portrait}
-            width={1586}
-            height={992}
-            alt="Stoyan Tanev portrait"
+            src={image.contact}
+            width={1792}
+            height={1024}
+            alt="Warm architectural entrance at night"
             priority
             sizes="(max-width: 900px) 92vw, 42vw"
           />

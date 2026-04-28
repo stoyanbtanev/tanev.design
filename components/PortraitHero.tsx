@@ -1,7 +1,6 @@
 ﻿"use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Linkedin, Twitter, Instagram, Github } from "lucide-react";
@@ -20,23 +19,12 @@ export function PortraitHero() {
   const xRaw = useTransform(scrollYProgress, [0, 1], ["0%", "-130%"]);
   const x = useSpring(xRaw, { stiffness: 260, damping: 50, mass: 0.35 });
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.18, 1.24]);
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.02, 1.08]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
   const imageOpacity = useTransform(scrollYProgress, [0, 0.9], [1, 0.5]);
 
   return (
     <section ref={sectionRef} className="phero">
-      <nav className="phero__nav" aria-label="Primary">
-        <Link href="/" className="phero__brand">
-          tanev.design
-        </Link>
-        <div className="phero__nav-links">
-          <Link href="#projects">Projects</Link>
-          <Link href="#about">About</Link>
-          <Link href="#contact">Contact</Link>
-        </div>
-      </nav>
-
       <div className="phero__portrait">
         <motion.div
           className="phero__portrait-inner"
@@ -47,8 +35,8 @@ export function PortraitHero() {
             alt="Stoyan Tanev portrait"
             fill
             priority
-            sizes="100vw"
-            style={{ objectFit: "cover", objectPosition: "center center" }}
+            sizes="(max-width: 760px) 78vw, 72vw"
+            style={{ objectFit: "cover", objectPosition: "58% center" }}
             className="phero__portrait-img"
           />
         </motion.div>

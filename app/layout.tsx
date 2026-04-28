@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Arvo } from "next/font/google";
 import "@/app/globals.css";
 import { ClientProviders } from "@/components/ClientProviders";
+import { FloatingNav } from "@/components/FloatingNav";
 import { Footer } from "@/components/Footer";
 import { site } from "@/data/site";
 
@@ -161,6 +162,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body id="top">
         <div id="root">
           <ClientProviders>
+            <FloatingNav />
             <main>{children}</main>
             <Footer />
           </ClientProviders>

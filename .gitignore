@@ -70,3 +70,5 @@ coverage/
 
 # Misc local-only assets (not for production)
 *.local.*
+
+.vercel
