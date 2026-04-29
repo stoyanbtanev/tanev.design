@@ -4710,10 +4710,8 @@ body:has(.elite-page) main {
 .phero {
   position: relative;
   width: 100%;
-  height: 100svh;
-  height: var(--app-height, 100svh);
-  min-height: 720px;
-  background: #dcdbd6;
+  height: clamp(560px, 88svh, 840px);
+  background: #ffffff;
   color: #0b0b0b;
   overflow: hidden;
   isolation: isolate;
@@ -4758,22 +4756,23 @@ body:has(.elite-page) main {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   z-index: 10;
   pointer-events: none;
-  padding: clamp(72px, 8vw, 118px) clamp(18px, 4vw, 54px) clamp(96px, 9vw, 132px);
+  padding: 0;
 }
 
 .phero__portrait-inner {
   position: relative;
-  width: min(72vw, 1080px);
-  height: min(70svh, 660px);
-  bottom: 0;
+  width: min(86vw, 1280px);
+  height: auto;
+  align-self: stretch;
 }
 
 .phero__portrait-inner img {
-  filter: contrast(1.05);
+  filter: none;
+  opacity: 1;
 }
 
 .phero__marquee {

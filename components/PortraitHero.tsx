@@ -19,27 +19,20 @@ export function PortraitHero() {
   const xRaw = useTransform(scrollYProgress, [0, 1], ["0%", "-130%"]);
   const x = useSpring(xRaw, { stiffness: 260, damping: 50, mass: 0.35 });
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.02, 1.08]);
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.9], [1, 0.5]);
-
   return (
     <section ref={sectionRef} className="phero">
       <div className="phero__portrait">
-        <motion.div
-          className="phero__portrait-inner"
-          style={{ scale: imageScale, y: imageY, opacity: imageOpacity }}
-        >
+        <div className="phero__portrait-inner">
           <Image
-            src="/assets/newherowithbackground.png"
+            src="/assets/newhero.png"
             alt="Stoyan Tanev portrait"
             fill
             priority
-            sizes="(max-width: 760px) 78vw, 72vw"
+            sizes="(max-width: 760px) 86vw, 86vw"
             style={{ objectFit: "cover", objectPosition: "58% center" }}
             className="phero__portrait-img"
           />
-        </motion.div>
+        </div>
       </div>
 
       <motion.div className="phero__marquee" style={{ x }} aria-hidden="true">
