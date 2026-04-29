@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Arvo } from "next/font/google";
+import { Inter, DM_Mono } from "next/font/google";
 import "@/app/globals.css";
 import { ClientProviders } from "@/components/ClientProviders";
 import { FloatingNav } from "@/components/FloatingNav";
@@ -9,15 +9,16 @@ import { site } from "@/data/site";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter"
+  variable: "--font-inter",
+  axes: ["opsz"]
 });
 
-const arvo = Arvo({
+const dmMono = DM_Mono({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-arvo"
+  variable: "--font-dm-mono"
 });
 
 export const viewport: Viewport = {
@@ -152,7 +153,7 @@ const jsonLd = [
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${arvo.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${dmMono.variable}`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

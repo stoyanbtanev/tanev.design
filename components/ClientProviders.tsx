@@ -176,9 +176,10 @@ function useLenis() {
       // resize, which causes vh recalcs and visible jank. Safari is fine
       // natively, so we do not need to opt out for it.
       ScrollTrigger.config({ ignoreMobileResize: true });
-      if ("ontouchstart" in window) {
-        ScrollTrigger.normalizeScroll({ allowNestedScroll: true, type: "touch" });
-      }
+      // Note: ScrollTrigger.normalizeScroll({ type: "touch" }) was removed
+      // because it intercepts touchstart/touchend and fires synthetic clicks
+      // on links/buttons during swipe-to-scroll. Native touch handling is
+      // preferred — Lenis already opts out via syncTouch: false below.
 
       lenis = new Lenis({
         lerp: 0.1,
@@ -493,16 +494,16 @@ function useIntroSplitHighlight(pathname: string) {
       });
       const section = node.closest<HTMLElement>(".elite-intro") ?? node;
 
-      gsap.set(split.words, { color: "rgba(248, 248, 243, 0.16)" });
+      gsap.set(split.words, { color: "rgba(248, 248, 243, 0.18)" });
       const tween = gsap.to(split.words, {
         color: (_index, target) => (target.closest(".elite-intro__accent") ? "#ff4a31" : "#f8f8f3"),
-        ease: "none",
-        stagger: 1,
+        ease: "power2.out",
+        stagger: { each: 0.4, from: "start" },
         scrollTrigger: {
           trigger: section,
-          start: "top 45%",
-          end: "bottom 45%",
-          scrub: true,
+          start: "top 70%",
+          end: "bottom 60%",
+          scrub: 0.6,
           invalidateOnRefresh: true
         }
       });

@@ -14,8 +14,9 @@
   --accent-lime: #bfd955;
   --accent-blue: #6b8cff;
   --warn: #ff6b2c;
-  --font-display: "Clash Display", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-inter), Inter, "Inter Display", system-ui, sans-serif;
   --font-body: var(--font-inter), Inter, system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), "DM Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --max-w: 1440px;
   --page-px: clamp(16px, 4vw, 64px);
   --radius: 8px;
@@ -44,6 +45,7 @@ body {
   background: transparent;
   color: var(--ink);
   font-family: var(--font-body);
+  font-optical-sizing: auto;
   font-size: 1rem;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -3514,7 +3516,7 @@ body:has(.elite-page) main {
   max-width: 39rem;
   margin: 0;
   color: var(--elite-muted);
-  font-family: var(--font-arvo), var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(0.95rem, 1.2vw, 1.08rem);
   line-height: 1.68;
 }
@@ -4707,15 +4709,24 @@ body:has(.elite-page) main {
   background: linear-gradient(#e9e8e4, #d8d6d0);
 }
 
-.phero {
+.phero-pin {
   position: relative;
   width: 100%;
-  height: clamp(560px, 88svh, 840px);
+  height: clamp(900px, 200svh, 1700px);
+  z-index: 1;
+}
+
+.phero {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: clamp(560px, 100svh, 100svh);
   background: #ffffff;
   color: #0b0b0b;
   overflow: hidden;
   isolation: isolate;
-  font-family: "Helvetica Neue", "Inter", "Arial", sans-serif;
+  font-family: var(--font-display);
   font-feature-settings: "ss01", "kern";
 }
 
@@ -4765,14 +4776,23 @@ body:has(.elite-page) main {
 
 .phero__portrait-inner {
   position: relative;
-  width: min(86vw, 1280px);
+  width: min(78vw, 1120px);
   height: auto;
   align-self: stretch;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
 }
 
-.phero__portrait-inner img {
+.phero__portrait-inner img,
+.phero__portrait-img {
   filter: none;
   opacity: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
 }
 
 .phero__marquee {
@@ -4887,6 +4907,15 @@ body:has(.elite-page) main {
 }
 
 @media (max-width: 760px) {
+  .phero-pin {
+    height: auto;
+  }
+
+  .phero {
+    position: relative;
+    height: clamp(520px, 78svh, 720px);
+  }
+
   .phero__nav {
     padding: 20px 20px;
     font-size: 12px;
@@ -4896,9 +4925,13 @@ body:has(.elite-page) main {
     gap: 24px;
   }
 
+  .phero__portrait {
+    padding: 0;
+  }
+
   .phero__portrait-inner {
-    width: min(78vw, 400px);
-    height: min(48svh, 390px);
+    width: 100%;
+    height: auto;
   }
 
   .phero__marquee {
@@ -4906,21 +4939,22 @@ body:has(.elite-page) main {
   }
 
   .phero__marquee span {
-    font-size: 30vw;
+    font-size: 28vw;
   }
 
   .phero__socials {
-    left: 20px;
-    bottom: 20px;
+    left: 16px;
+    bottom: 16px;
+    gap: 8px;
   }
 
   .phero__role {
-    right: 20px;
-    bottom: 20px;
+    right: 16px;
+    bottom: 16px;
   }
 
   .phero__role-text {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .phero__role-badge {
@@ -4931,21 +4965,11 @@ body:has(.elite-page) main {
 
 @media (max-width: 480px) {
   .phero {
-    min-height: 640px;
-  }
-
-  .phero__portrait {
-    padding-top: 84px;
-    padding-bottom: 126px;
-  }
-
-  .phero__portrait-inner {
-    width: min(74vw, 310px);
-    height: min(38svh, 320px);
+    height: clamp(460px, 76svh, 640px);
   }
 
   .phero__portrait-img {
-    object-position: 60% center !important;
+    object-position: center !important;
   }
 
   .phero__socials span {
@@ -4953,6 +4977,6 @@ body:has(.elite-page) main {
   }
 
   .phero__role-text {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
