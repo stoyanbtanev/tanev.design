@@ -5048,9 +5048,7 @@ body:has(.elite-page) main {
 
   .phero {
     position: relative;
-    height: 100vh;
     height: 100svh;
-    min-height: 100svh;
   }
 
   .phero__nav {
@@ -5067,8 +5065,10 @@ body:has(.elite-page) main {
   }
 
   .phero__portrait-inner {
-    width: 100%;
+    width: auto;
     height: 100%;
+    aspect-ratio: 2065 / 1152;
+    flex-shrink: 0;
   }
 
   .phero__marquee {
@@ -5132,9 +5132,7 @@ body:has(.elite-page) main {
 
 @media (max-width: 480px) {
   .phero {
-    height: 100vh;
     height: 100svh;
-    min-height: 100svh;
   }
 
   .phero__portrait-img {
